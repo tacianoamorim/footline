@@ -48,11 +48,11 @@ public class AppMain extends javax.swing.JFrame {
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		btnNovo = new javax.swing.JButton();
-		btnNovo.setBounds(214, 67, 107, 29);
+		btnNovo.setBounds(214, 67, 153, 29);
 		btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNovo.setIcon(null);
 
-		btnNovo.setText("Novo jogo");
+		btnNovo.setText("Novo jogo 1");
 		btnNovo.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnNovoActionPerformed(evt);
