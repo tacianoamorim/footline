@@ -1,4 +1,4 @@
-package com.g2t.footline.model;
+package outro;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,3 +1,4 @@
+package outro;
 /**
  * Aplica��o principal.
  * 

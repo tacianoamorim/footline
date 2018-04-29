@@ -1,4 +1,4 @@
-package com.g2t.footline.model;
+package outro;
 
 /*
 

@@ -1,3 +1,4 @@
+package outro;
 import java.io.*;
 /**
  * A classe <code>LeitorClubes</code> implementa um leitor de arquivos de dados

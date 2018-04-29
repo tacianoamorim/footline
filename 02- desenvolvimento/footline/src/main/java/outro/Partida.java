@@ -1,3 +1,4 @@
+package outro;
 /**
  * A classe <code>Partida</code> representa uma partida do campeonato.
  * 
@@ -57,9 +58,9 @@ public class Partida
 	public int getGolsVisitante() { return golsVisitante; }
 
     /**
-     * Retorna uma representação da partida em forma textual.
+     * Retorna uma representaï¿½ï¿½o da partida em forma textual.
      * 
-     * @return a representação da partida como <code>String</code>.
+     * @return a representaï¿½ï¿½o da partida como <code>String</code>.
      */
 	public String toString() {
 		return clubeMandante+" "+golsMandante+" x "+golsVisitante+" "+clubeVisitante;

@@ -1,22 +1,23 @@
+package outro;
 /**
- * Uma interface simples para ler números e textos a partir do teclado e
- * apresentar números e texto no vídeo.
+ * Uma interface simples para ler nï¿½meros e textos a partir do teclado e
+ * apresentar nï¿½meros e texto no vï¿½deo.
  * 
  * Traduzida e baseada na classe Console de Cay Horstmann (1997)
  * - na leitura e escrita, a classe considera apenas duas casas decimais
- * - alterada a sobrecarga de print para formatar a saída.
+ * - alterada a sobrecarga de print para formatar a saï¿½da.
  * - readChar verificam se o caractere foi obtido corretamente.
  * - removida a sobrecarga de print e println para int por causa do autoboxing para tipos primitivos
- * - leitura de reais: o separador de decimais é igual na entrada e na saída.
- * - revisão e remoção do modificador static
- * - incluído método readFloat
- * - incluídas versões sobrecarregadas dos métodos sem prompt
- * - incluído wrappers para print, println e printf com tipos primitivos
- * - incluído wrapper  para println vazio
- * - incluído wrapper  para print e println com Object (para toString funcionar)
- * - incluído readChar para ler um único caractere
+ * - leitura de reais: o separador de decimais ï¿½ igual na entrada e na saï¿½da.
+ * - revisï¿½o e remoï¿½ï¿½o do modificador static
+ * - incluï¿½do mï¿½todo readFloat
+ * - incluï¿½das versï¿½es sobrecarregadas dos mï¿½todos sem prompt
+ * - incluï¿½do wrappers para print, println e printf com tipos primitivos
+ * - incluï¿½do wrapper  para println vazio
+ * - incluï¿½do wrapper  para print e println com Object (para toString funcionar)
+ * - incluï¿½do readChar para ler um ï¿½nico caractere
  * 
- * Utilização:
+ * Utilizaï¿½ï¿½o:
  * Console cons = new Console();
  * 
  * int i = cons.readInt();
@@ -44,7 +45,7 @@ public class Console
   }
    
   /**
-   * Lê uma string do teclado, finalizada com ENTER
+   * Lï¿½ uma string do teclado, finalizada com ENTER
    * 
    * @return a string de entrada (sem o caractere de nova linha)
    */
@@ -69,7 +70,7 @@ public class Console
   }
 
   /**
-   * Lê uma string do teclado, finalizada com ENTER
+   * Lï¿½ uma string do teclado, finalizada com ENTER
    * 
    * @param prompt a mensagem a exibir antes
    * @return a string de entrada (sem o caractere de nova linha)
@@ -81,7 +82,7 @@ public class Console
   }
 
   /**
-   * Lê um caractere do teclado, finalizado com ENTER
+   * Lï¿½ um caractere do teclado, finalizado com ENTER
    * 
    * @param prompt a mensagem a exibir antes
    * @return o caractere digitado
@@ -96,13 +97,13 @@ public class Console
             return readLine().trim().charAt(0);
         } catch(Exception e)
         {
-            System.out.println("Não é um caractere válido - digite novamente!");
+            System.out.println("Nï¿½o ï¿½ um caractere vï¿½lido - digite novamente!");
         }
     }
   }
 
   /**
-   * Lê um caractere do teclado, finalizado com ENTER
+   * Lï¿½ um caractere do teclado, finalizado com ENTER
    * 
    * @return o caractere digitado
    */
@@ -115,17 +116,17 @@ public class Console
             return readLine().trim().charAt(0);
         } catch(Exception e)
         {
-            System.out.println("Não é um caractere válido - digite novamente!");
+            System.out.println("Nï¿½o ï¿½ um caractere vï¿½lido - digite novamente!");
         } 
      }
   }
 
   /**
-   * Lê um inteiro do teclado, finalizado com ENTER
+   * Lï¿½ um inteiro do teclado, finalizado com ENTER
    * 
    * @param prompt a mensagem a exibir antes
    * @return o valor de entrada como um int
-   * @exception NumberFormatException se ocorrer entrada inválida
+   * @exception NumberFormatException se ocorrer entrada invï¿½lida
    */
   public int readInt(String prompt)
   {  
@@ -137,16 +138,16 @@ public class Console
             return Integer.valueOf(readLine().trim()).intValue();
         } catch(NumberFormatException e)
         {
-            System.out.println("Não é um inteiro - digite novamente!");
+            System.out.println("Nï¿½o ï¿½ um inteiro - digite novamente!");
         }
      }
   }
 
   /**
-   * Lê um inteiro do teclado, finalizado com ENTER
+   * Lï¿½ um inteiro do teclado, finalizado com ENTER
    * 
    * @return o valor de entrada como um int
-   * @exception NumberFormatException se ocorrer entrada inválida
+   * @exception NumberFormatException se ocorrer entrada invï¿½lida
    */
   public int readInt()
   {
@@ -157,17 +158,17 @@ public class Console
             return Integer.valueOf(readLine().trim()).intValue();
         } catch(NumberFormatException e)
         {
-            System.out.println("Não é um inteiro - digite novamente!");
+            System.out.println("Nï¿½o ï¿½ um inteiro - digite novamente!");
         }
      }
   }
   
   /**
-   * Lê um número real (float) do teclado, finalizado com ENTER
+   * Lï¿½ um nï¿½mero real (float) do teclado, finalizado com ENTER
    * 
    * @param prompt a mensagem a exibir antes
    * @return o valor de entrada como float
-   * @exception NumberFormatException se ocorrer entrada inválida
+   * @exception NumberFormatException se ocorrer entrada invï¿½lida
    */
   public float readFloat(String prompt)
   {  
@@ -180,16 +181,16 @@ public class Console
             return convertFloatNumber(readLine().trim());
         } catch(Exception e)
         {
-          System.out.println("Não é um número real - digite novamente!");
+          System.out.println("Nï¿½o ï¿½ um nï¿½mero real - digite novamente!");
         }
      }
   }
 
   /**
-   * Lê um número real (float) do teclado, finalizado com ENTER
+   * Lï¿½ um nï¿½mero real (float) do teclado, finalizado com ENTER
    * 
    * @return o valor de entrada como float
-   * @exception NumberFormatException se ocorrer entrada inválida
+   * @exception NumberFormatException se ocorrer entrada invï¿½lida
    */
   public float readFloat()
   {  
@@ -201,7 +202,7 @@ public class Console
             return convertFloatNumber(readLine().trim());
         } catch(Exception e)
         {
-          System.out.println("Não é um número real - digite novamente!");
+          System.out.println("Nï¿½o ï¿½ um nï¿½mero real - digite novamente!");
         }
      }
   }
@@ -224,11 +225,11 @@ public class Console
   } 
 
   /**
-   * Lê um número real (double) do teclado, finalizado com ENTER
+   * Lï¿½ um nï¿½mero real (double) do teclado, finalizado com ENTER
    * 
    * @param prompt a mensagem a exibir antes
    * @return o valor de entrada como float
-   * @exception NumberFormatException se ocorrer entrada inválida
+   * @exception NumberFormatException se ocorrer entrada invï¿½lida
    */
   public double readDouble(String prompt)
   {
@@ -241,16 +242,16 @@ public class Console
             return convertDoubleNumber(readLine().trim());
         } catch(Exception e)
         {
-            System.out.println("Não é um número real - digite novamente!");
+            System.out.println("Nï¿½o ï¿½ um nï¿½mero real - digite novamente!");
         }
      }
   }
   
   /**
-   * Lê um número real (double) do teclado, finalizado com ENTER
+   * Lï¿½ um nï¿½mero real (double) do teclado, finalizado com ENTER
    * 
    * @return o valor de entrada como float
-   * @exception NumberFormatException se ocorrer entrada inválida
+   * @exception NumberFormatException se ocorrer entrada invï¿½lida
    */
   public double readDouble()
   {
@@ -262,7 +263,7 @@ public class Console
             return convertDoubleNumber(readLine().trim());
         } catch(Exception e)
         {
-            System.out.println("Não é um número real - digite novamente!");
+            System.out.println("Nï¿½o ï¿½ um nï¿½mero real - digite novamente!");
         }
      }
   }
@@ -320,9 +321,9 @@ public class Console
   }
 
   /**
-   * Escreve com saída formatada (wrapper para System.out.printf)
+   * Escreve com saï¿½da formatada (wrapper para System.out.printf)
    * 
-   * @param format string que descreve o formato de saída e a ordem dos argumentos
+   * @param format string que descreve o formato de saï¿½da e a ordem dos argumentos
    * @param args zero ou mais argumentos, na ordem especificada pela string de formato
    */
   public void printf(String format, Object ...args)

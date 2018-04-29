@@ -1,7 +1,8 @@
+package outro;
 import java.io.*;
 /**
  * A classe <code>LeitorPartidas</code> implementa um leitor de arquivos de dados
- * contendo a descrição de partidas do campeonato.
+ * contendo a descriï¿½ï¿½o de partidas do campeonato.
  * 
  * @author Marcelo Cohen
  * @version 29/10/2008
@@ -11,7 +12,7 @@ public class LeitorPartidas
 	// Objeto que separa os elementos da entrada
     private StreamTokenizer st;
     
-    // Objeto que provê acesso à leitura de um arquivo
+    // Objeto que provï¿½ acesso ï¿½ leitura de um arquivo
     private BufferedReader in;
 
 	/**
@@ -27,7 +28,7 @@ public class LeitorPartidas
 			in = new BufferedReader(new FileReader(fileName));
 		}
 		catch (FileNotFoundException e) {
-			 System.out.println("LeitorPartidas: arquivo não encontrado!");
+			 System.out.println("LeitorPartidas: arquivo nï¿½o encontrado!");
 			 return;
 		}
 
@@ -36,7 +37,7 @@ public class LeitorPartidas
 	}
 
 	/**
-     * Lê o próximo registro do arquivo de partidas.
+     * Lï¿½ o prï¿½ximo registro do arquivo de partidas.
      * 
      * @return objeto <code>Partida</code> ou <code>null</code> quando chegar ao
      *         fim do arquivo.
@@ -55,14 +56,14 @@ public class LeitorPartidas
 			}
 
 			if(token != StreamTokenizer.TT_WORD) {
-				System.out.println("LeitorPartidas.proximaPartida: definição incorreta do mandante");
+				System.out.println("LeitorPartidas.proximaPartida: definiï¿½ï¿½o incorreta do mandante");
 				throw new IOException();
 			}
 			String mandante = st.sval;
 
 			token = st.nextToken(); // gols do mandante
 			if(token != StreamTokenizer.TT_NUMBER) {
-				System.out.println("LeitorPartidas.proximaPartida: definição incorreta dos gols (mandante)");
+				System.out.println("LeitorPartidas.proximaPartida: definiï¿½ï¿½o incorreta dos gols (mandante)");
 				throw new IOException();
 			}
 			int golsM = (int) st.nval;
@@ -71,14 +72,14 @@ public class LeitorPartidas
 
 			token = st.nextToken(); // gols do visitante
 			if(token != StreamTokenizer.TT_NUMBER) {
-				System.out.println("LeitorPartidas.proximaPartida: definição incorreta dos gols (visit.)");
+				System.out.println("LeitorPartidas.proximaPartida: definiï¿½ï¿½o incorreta dos gols (visit.)");
 				throw new IOException();
 			}
 			int golsV = (int) st.nval;
 
 			token = st.nextToken(); // nome do clube visitante
 			if(token != StreamTokenizer.TT_WORD) {
-				System.out.println("LeitorPartidas.proximaPartida: definição incorreta do visitante");
+				System.out.println("LeitorPartidas.proximaPartida: definiï¿½ï¿½o incorreta do visitante");
 				throw new IOException();
 			}
 			String visitante = st.sval;

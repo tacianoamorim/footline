@@ -1,3 +1,4 @@
+package outro;
 /**
  * A classe <code>Clube</code> representa um clube de futebol.
  * 
@@ -36,9 +37,9 @@ public class Clube
     public String getEstado() { return estadoClube; }
 
     /**
-     * Retorna uma representação do clube em forma textual.
+     * Retorna uma representaï¿½ï¿½o do clube em forma textual.
      * 
-     * @return a representação do clube como <code>String</code>.
+     * @return a representaï¿½ï¿½o do clube como <code>String</code>.
      */
     public String toString() {
         return nomeClube+"-"+estadoClube;
