@@ -1,16 +1,16 @@
 package com.g2t.footline.view;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 /**
  * @author Taciano
@@ -24,8 +24,6 @@ public class AppMain extends javax.swing.JFrame {
 
 	private javax.swing.JButton btnNovo;
 	
-	private Image img;
-
 	/**
 	 * Creates new form Principal
 	 */
@@ -87,13 +85,18 @@ public class AppMain extends javax.swing.JFrame {
 		JButton btnSair = new JButton();
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				syste
+				System.exit(0);
 			}
 		});
 		btnSair.setText("Sair");
 		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnSair.setBounds(207, 267, 139, 29);
 		panel.add(btnSair);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(AppMain.class.getResource("arruda.gif")));
+		lblNewLabel.setBounds(0, 0, 551, 413);
+		panel.add(lblNewLabel);
 		getContentPane().setLayout(groupLayout);
 
 		pack();
