@@ -1,29 +1,27 @@
-NOME:Afogados
-MINI_NOME:Afogados
-ESTADIO:Vianão
-NIVEL:7
-TECNICO:Luciano Veloso
-COR_TEXTO:255;255;255
-COR_FUNDO:0;0;0
-JOGADOR:Andrei;G
-JOGADOR:João Pedro;G
-JOGADOR:Jader;D
-JOGADOR:Jô;D
-JOGADOR:Vandinho;D
-JOGADOR:Luan;D
-JOGADOR:Vitor Xisto;D
-JOGADOR:Guilherme;D
-JOGADOR:Gustavo;D
-JOGADOR:Manoel;M
-JOGADOR:Bruno Sacomani;M
-JOGADOR:Capa;M
-JOGADOR:Igor Neves;M
-JOGADOR:Glauber;M
-JOGADOR:Vitor Ono;M
-JOGADOR:Makson;M
-JOGADOR:Gir�o;M
-JOGADOR:Luiz Felipe;A
-JOGADOR:Kelvis;A
-JOGADOR:Raniel;A
-JOGADOR:Tony;A
-JOGADOR:Elthy;A
+nome,Afogados
+acronomo,Afogados
+estadio,Vianão
+nivel,7
+tecnico,Luciano Veloso
+jogador,Andrei,G
+jogador,João Pedro,G
+jogador,Jader,D
+jogador,Jô,D
+jogador,Vandinho,D
+jogador,Luan,D
+jogador,Vitor Xisto,D
+jogador,Guilherme,D
+jogador,Gustavo,D
+jogador,Manoel,M
+jogador,Bruno Sacomani,M
+jogador,Capa,M
+jogador,Igor Neves,M
+jogador,Glauber,M
+jogador,Vitor Ono,M
+jogador,Makson,M
+jogador,Gir�o,M
+jogador,Luiz Felipe,A
+jogador,Kelvis,A
+jogador,Raniel,A
+jogador,Tony,A
+jogador,Elthy,A

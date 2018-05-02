@@ -1,21 +1,20 @@
 package com.g2t.footline.view;
 
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  * @author Taciano
  */
-public class AppMain extends javax.swing.JFrame {
+public class FrmOpcao extends javax.swing.JFrame {
 
 	/**
 	 * serialVersionUID
@@ -27,7 +26,7 @@ public class AppMain extends javax.swing.JFrame {
 	/**
 	 * Creates new form Principal
 	 */
-	public AppMain() {
+	public FrmOpcao() {
 		initComponents();
 	}
 
@@ -94,7 +93,7 @@ public class AppMain extends javax.swing.JFrame {
 		panel.add(btnSair);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(AppMain.class.getResource("arruda.gif")));
+		lblNewLabel.setIcon(new ImageIcon(FrmOpcao.class.getResource("arruda.gif")));
 		lblNewLabel.setBounds(0, 0, 551, 413);
 		panel.add(lblNewLabel);
 		getContentPane().setLayout(groupLayout);
