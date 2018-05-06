@@ -24,8 +24,8 @@ public class Main {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             try {
-                //FrmOpcao app= new FrmOpcao();
-                //app.setVisible(true);
+                FrmOpcao app= new FrmOpcao();
+                app.setVisible(true);
             } catch (Throwable e) {
                 e.printStackTrace();
             }

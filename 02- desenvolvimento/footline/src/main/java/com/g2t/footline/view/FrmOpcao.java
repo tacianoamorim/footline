@@ -6,9 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -21,8 +20,6 @@ public class FrmOpcao extends javax.swing.JFrame {
 	 */
 	private static final long serialVersionUID = 6372065349465603650L;
 
-	private javax.swing.JButton btnNovo;
-	
 	/**
 	 * Creates new form Principal
 	 */
@@ -52,15 +49,24 @@ public class FrmOpcao extends javax.swing.JFrame {
 				.addGroup(groupLayout.createSequentialGroup().addGap(7)
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		
+		JButton btnNovo = new JButton();
 		btnNovo = new javax.swing.JButton();
 		btnNovo.setBounds(207, 65, 139, 29);
 		btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNovo.setIcon(null);
-
 		btnNovo.setText("Novo jogo");
 		btnNovo.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btnNovoActionPerformed(evt);
+				
+				// Solicita o nome do tecnico
+				String nomeTecnico= JOptionPane.showInputDialog(null, "Informe o nome do tecnico.", 
+						"Técnico", JOptionPane.INFORMATION_MESSAGE);
+				
+                FrmPrincipal frmPrincipal= new FrmPrincipal();
+                frmPrincipal.getJogo().setNome(nomeTecnico);
+                setVisible(false);
+                frmPrincipal.setVisible(true);
 			}
 		});
 		panel.add(btnNovo);
@@ -68,6 +74,9 @@ public class FrmOpcao extends javax.swing.JFrame {
 		JButton btnJogosSalvos = new JButton();
 		btnJogosSalvos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				FrmJogosSalvos app= new FrmJogosSalvos();
+				app.setFrmOpcao( getFrmOpcao() );
+                app.setVisible(true);
 			}
 		});
 		btnJogosSalvos.setText("Jogos salvos");
@@ -76,6 +85,12 @@ public class FrmOpcao extends javax.swing.JFrame {
 		panel.add(btnJogosSalvos);
 		
 		JButton btnSobre = new JButton();
+		btnSobre.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				FrmSobre frmSobre= new FrmSobre();
+				frmSobre.setVisible(true);
+			}
+		});
 		btnSobre.setText("Sobre");
 		btnSobre.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnSobre.setBounds(207, 199, 139, 29);
@@ -91,18 +106,12 @@ public class FrmOpcao extends javax.swing.JFrame {
 		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnSair.setBounds(207, 267, 139, 29);
 		panel.add(btnSair);
-		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon(FrmOpcao.class.getResource("arruda.gif")));
-		lblNewLabel.setBounds(0, 0, 551, 413);
-		panel.add(lblNewLabel);
 		getContentPane().setLayout(groupLayout);
 
 		pack();
 	}
 
-	  
-	private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {
-
+	FrmOpcao getFrmOpcao() {
+		return this;
 	}
 }
