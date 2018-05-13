@@ -10,8 +10,8 @@ public class Partida implements Serializable {
 	private static final long serialVersionUID = -3435984760301390299L;
 
 	private int id;
-	private Time mandante;
-	private Time visitante;
+	private Clube mandante;
+	private Clube visitante;
 	private float publico;
 	private double renda;
 
@@ -22,17 +22,17 @@ public class Partida implements Serializable {
 		this.id = id;
 	}
 
-	public Time getMandante() {
+	public Clube getMandante() {
 		return mandante;
 	}
-	public void setMandante(Time mandante) {
+	public void setMandante(Clube mandante) {
 		this.mandante = mandante;
 	}
 
-	public Time getVisitante() {
+	public Clube getVisitante() {
 		return visitante;
 	}
-	public void setVisitante(Time visitante) {
+	public void setVisitante(Clube visitante) {
 		this.visitante = visitante;
 	}
 

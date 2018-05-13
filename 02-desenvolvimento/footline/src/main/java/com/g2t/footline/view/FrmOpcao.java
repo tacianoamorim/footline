@@ -9,6 +9,7 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import java.awt.Color;
 
 /**
  * @author Taciano
@@ -24,6 +25,8 @@ public class FrmOpcao extends javax.swing.JFrame {
 	 * Creates new form Principal
 	 */
 	public FrmOpcao() {
+		getContentPane().setBackground(new Color(0, 128, 128));
+		setBackground(new Color(0, 128, 128));
 		initComponents();
 	}
 
@@ -39,6 +42,7 @@ public class FrmOpcao extends javax.swing.JFrame {
 		setTitle("Footline");
 
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 128, 128));
 		panel.setLayout(null);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
@@ -60,10 +64,11 @@ public class FrmOpcao extends javax.swing.JFrame {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				
 				// Solicita o nome do tecnico
-				String nomeTecnico= JOptionPane.showInputDialog(null, "Informe o nome do tecnico.", 
+				String nomeTecnico= JOptionPane.showInputDialog(null, "Informe o nome do técnico.", 
 						"Técnico", JOptionPane.INFORMATION_MESSAGE);
 				
                 FrmPrincipal frmPrincipal= new FrmPrincipal();
+                frmPrincipal.setNovoJogo(true);
                 frmPrincipal.getJogo().setUsuario(nomeTecnico);
                 setVisible(false);
                 frmPrincipal.setVisible(true);

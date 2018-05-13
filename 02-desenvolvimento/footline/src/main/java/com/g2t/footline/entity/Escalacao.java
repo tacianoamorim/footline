@@ -11,7 +11,7 @@ public class Escalacao implements Serializable {
 	 */
 	private static final long serialVersionUID = -3007054268103393445L;
 
-	private Time time;
+	private Clube time;
 
 	// Titular
 	private Jogador goleiro;
@@ -31,10 +31,10 @@ public class Escalacao implements Serializable {
 	private List<Jogador> listaCartaoVermelho = new ArrayList<Jogador>();
 	private List<Jogador> listaLesionado = new ArrayList<Jogador>();
 
-	public Time getTime() {
+	public Clube getTime() {
 		return time;
 	}
-	public void setTime(Time time) {
+	public void setTime(Clube time) {
 		this.time = time;
 	}
 

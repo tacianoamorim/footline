@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Time extends BaseEntity implements Serializable {
+public class Clube extends BaseEntity implements Serializable {
 
 	/**
 	 * serialVersionUID
@@ -12,7 +12,9 @@ public class Time extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 4420078087855186814L;
 
 	private String acronomo;
-	private Tecnico tecnico;
+	private String tecnico;
+	private String nomeEstadio;
+	private String nomeArquivo;
 	private List<Jogador> goleiro = new ArrayList<Jogador>();
 	private List<Jogador> defesa = new ArrayList<Jogador>();
 	private List<Jogador> meioCampo = new ArrayList<Jogador>();
@@ -25,11 +27,25 @@ public class Time extends BaseEntity implements Serializable {
 		this.acronomo = acronomo;
 	}
 
-	public Tecnico getTecnico() {
+	public String getTecnico() {
 		return tecnico;
 	}
-	public void setTecnico(Tecnico tecnico) {
+	public void setTecnico(String tecnico) {
 		this.tecnico = tecnico;
+	}
+	
+	public String getNomeEstadio() {
+		return nomeEstadio;
+	}
+	public void setNomeEstadio(String nomeEstadio) {
+		this.nomeEstadio = nomeEstadio;
+	}
+	
+	public String getNomeArquivo() {
+		return nomeArquivo;
+	}
+	public void setNomeArquivo(String nomeArquivo) {
+		this.nomeArquivo = nomeArquivo;
 	}
 	
 	public List<Jogador> getGoleiro() {

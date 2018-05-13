@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.g2t.footline.dao.JogoDAO;
+import com.g2t.footline.entity.Clube;
 import com.g2t.footline.entity.Jogo;
 
 public class JogoService {
@@ -31,5 +32,25 @@ public class JogoService {
 
 	public List<String> listaArquivos() throws IOException, ClassNotFoundException {
 		return jogoDAO.listaArquivos();
+	}
+
+	/**
+	 * Inializa o jogo carregando os dados dos clubes armazenado no arquivos .foot,
+	 * 	realizando os sorteios e as demais operacoes.
+	 * 
+	 * @param jogo - atualiza as informacoes do jogo
+	 */
+	public void inicializarJogo(Jogo jogo) {
+		
+		// Carrega a lista de clubes
+		List<Clube> clubes= ClubeService.getInstance().buscarClubes();
+
+		// Sorteia o clube que sera gerenciado
+		Clube clubeGerenciado= ClubeService.getInstance().sorteioClube(clubes);
+		
+		// Atualiza o nome do tecnico
+		clubeGerenciado.setTecnico(jogo.getUsuario());
+		jogo.setClubeGerenciado(clubeGerenciado);
+	
 	}
 }

@@ -34,10 +34,14 @@ public class FrmJogosSalvos extends JDialog {
 	 * Create the dialog.
 	 */
 	public FrmJogosSalvos() {
+		setTitle("Carregar jogos salvos");
+		getContentPane().setBackground(new Color(0, 128, 128));
+		getContentPane().setForeground(new Color(0, 128, 128));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
 		setBounds(100, 100, 434, 342);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(new Color(0, 128, 128));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
@@ -53,6 +57,8 @@ public class FrmJogosSalvos extends JDialog {
 		panel.add(listJogos, BorderLayout.NORTH);
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBackground(new Color(0, 128, 128));
+			buttonPane.setForeground(new Color(0, 128, 128));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
@@ -60,6 +66,7 @@ public class FrmJogosSalvos extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 		                FrmPrincipal frmPrincipal= new FrmPrincipal();
+		                frmPrincipal.setNovoJogo(false);
 		                frmPrincipal.getJogo().setUsuario(listJogos.getSelectedValue());
 		                setVisible(false);
 		                getFrmOpcao().setVisible(false);

@@ -11,6 +11,7 @@ public class Jogo implements Serializable {
 	private static final long serialVersionUID = 1386193044234485161L;
 
 	private String usuario;
+	private Clube clubeGerenciado;
 	private List<Rodada> rodadas;
 	
 	public String getUsuario() {
@@ -18,6 +19,13 @@ public class Jogo implements Serializable {
 	}
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+	
+	public Clube getClubeGerenciado() {
+		return clubeGerenciado;
+	}
+	public void setClubeGerenciado(Clube clubeGerenciado) {
+		this.clubeGerenciado = clubeGerenciado;
 	}
 	
 	public List<Rodada> getRodadas() {
