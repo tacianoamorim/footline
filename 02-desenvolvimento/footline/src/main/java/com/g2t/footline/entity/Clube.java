@@ -15,6 +15,7 @@ public class Clube extends BaseEntity implements Serializable {
 	private String tecnico;
 	private String nomeEstadio;
 	private String nomeArquivo;
+	private int nivel;
 	private List<Jogador> goleiro = new ArrayList<Jogador>();
 	private List<Jogador> defesa = new ArrayList<Jogador>();
 	private List<Jogador> meioCampo = new ArrayList<Jogador>();
@@ -46,6 +47,13 @@ public class Clube extends BaseEntity implements Serializable {
 	}
 	public void setNomeArquivo(String nomeArquivo) {
 		this.nomeArquivo = nomeArquivo;
+	}
+	
+	public int getNivel() {
+		return nivel;
+	}
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 	
 	public List<Jogador> getGoleiro() {

@@ -3,6 +3,7 @@ package com.g2t.footline.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.g2t.footline.dao.ClubeDAO;
 import com.g2t.footline.entity.Clube;
@@ -46,9 +47,9 @@ public class ClubeService {
 	 * @return clube sorteado para gerenciamento
 	 */
 	protected Clube sorteioClube(List<Clube> lista) {
-		
-		
-		return new Clube();
+		Random random = new Random();
+		int nAleatorio = random.nextInt(9);
+		return lista.get(nAleatorio);
 	}	
 	
 }

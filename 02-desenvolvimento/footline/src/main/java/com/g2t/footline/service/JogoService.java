@@ -1,11 +1,13 @@
 package com.g2t.footline.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.g2t.footline.dao.JogoDAO;
 import com.g2t.footline.entity.Clube;
 import com.g2t.footline.entity.Jogo;
+import com.g2t.footline.entity.Rodada;
 
 public class JogoService {
 
@@ -51,6 +53,18 @@ public class JogoService {
 		// Atualiza o nome do tecnico
 		clubeGerenciado.setTecnico(jogo.getUsuario());
 		jogo.setClubeGerenciado(clubeGerenciado);
+		
+		// Criar a rodadas
+		int quantidadeRodadas= (clubes.size() * 2) - 2;
+		List<Rodada> rodadas= new ArrayList<Rodada>();
+		for (int i = 1; i <= quantidadeRodadas; i++) {
+			Rodada rodada= new Rodada();
+			rodada.setNumero(i);
+			rodadas.add(rodada);
+		}
+		
+		
+		
 	
 	}
 }

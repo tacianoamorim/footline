@@ -51,7 +51,7 @@ public class JogadorTableModel extends AbstractTableModel {
 
 		//jogador.setLogin(aValue.getLogin());
 		jogador.setNome(aValue.getNome());
-		//jogador.setSenha(aValue.getSenha());
+		jogador.setPosicao(aValue.getPosicao());
 
 		fireTableCellUpdated(rowIndex, 0);
 		fireTableCellUpdated(rowIndex, 1);
@@ -105,8 +105,8 @@ public class JogadorTableModel extends AbstractTableModel {
 		return jogadores.get(indiceLinha);
 	}
 
-	public void addJogador(Jogador u) {
-		jogadores.add(u);
+	public void addJogador(Jogador jogador) {
+		jogadores.add(jogador);
 
 		int ultimoIndice = getRowCount() - 1;
 

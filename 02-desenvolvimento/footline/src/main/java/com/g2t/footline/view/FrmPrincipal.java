@@ -5,7 +5,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -14,16 +13,17 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.border.CompoundBorder;
 
 import com.g2t.footline.entity.Clube;
+import com.g2t.footline.entity.Jogador;
 import com.g2t.footline.entity.Jogo;
 import com.g2t.footline.service.JogoService;
 import com.g2t.footline.view.componentes.JogadorTableModel;
-import javax.swing.JProgressBar;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -38,6 +38,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	private JogadorTableModel jogadorTableModel;
 	private boolean novoJogo;
 	
+	private JLabel lblEscudo;
+	private JLabel lblNomeClube;
+	private JLabel lblEstadio;
+	private JLabel lblTecnico;
+	private JLabel lblCaixa; 
+	
 	/**
 	 * Create the application.
 	 */
@@ -47,15 +53,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		// Cria os objetos
 		jogo= new Jogo();
 		clubeGerenciado= new Clube();
-		jogo.setClubeGerenciado(clubeGerenciado);
-		
-		// Carrega os dados do jogo
-		if ( novoJogo ) {
-			JogoService.getInstance().inicializarJogo(jogo);
-			
-		} else {
-			
-		}
+		jogo.setClubeGerenciado( clubeGerenciado );
 		
 		// Exibe a tela
 		initialize();
@@ -123,6 +121,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 					JOptionPane.showMessageDialog(null, "Jogo salvo!", "Salvar Jogo", JOptionPane.INFORMATION_MESSAGE);
 					
 				} catch (Exception e) {
+					
 					// TODO: handle exception
 				}
 			}
@@ -195,35 +194,76 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		pnlCentro.add(panel_3);
 		panel_3.setLayout(null);
 		
-		JLabel lblEscudo = new JLabel("Escudo");
-		String strPath = FrmPrincipal.class.getResource("").getPath();
-		ImageIcon icon = new ImageIcon(strPath+ "escudos" + clubeGerenciado.getNomeArquivo() +".gif");
-		icon.getImage().getScaledInstance(100, 100, BufferedImage.SCALE_SMOOTH);
-		lblEscudo.setIcon(icon);    
+		lblEscudo = new JLabel("Escudo");
 		lblEscudo.setBounds(10, 11, 80, 71);
 		panel_3.add(lblEscudo);
 		
-		JLabel lblNomeClube = new JLabel(clubeGerenciado.getNome());
+		lblNomeClube = new JLabel("lblNome");
 		lblNomeClube.setForeground(new Color(255, 255, 255));
-		lblNomeClube.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNomeClube.setFont(new Font("Tahoma", Font.BOLD, 16));
 		lblNomeClube.setBounds(97, 11, 160, 29);
 		panel_3.add(lblNomeClube);
 		
-		JLabel lblEstadio = new JLabel("New label");
+		lblEstadio = new JLabel("lblEstadio");
 		lblEstadio.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		lblEstadio.setForeground(new Color(255, 255, 255));
-		lblEstadio.setBounds(97, 51, 160, 14);
+		lblEstadio.setBounds(100, 63, 160, 14);
 		panel_3.add(lblEstadio);
 		
-		JLabel lblNewLabel_1 = new JLabel("Confiaça");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_1.setBounds(10, 117, 66, 14);
-		panel_3.add(lblNewLabel_1);
+		JLabel lblConfianca = new JLabel("Confiança");
+		lblConfianca.setForeground(new Color(255, 255, 255));
+		lblConfianca.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblConfianca.setBounds(10, 117, 91, 14);
+		panel_3.add(lblConfianca);
 		
 		JProgressBar pBarConfianca = new JProgressBar();
-		pBarConfianca.setBounds(10, 135, 247, 14);
+		pBarConfianca.setForeground(Color.BLUE);
+		pBarConfianca.setValue(90);
+		pBarConfianca.setBounds(10, 135, 247, 22);
 		panel_3.add(pBarConfianca);
+		
+		JPanel panel_6 = new JPanel();
+		panel_6.setBackground(Color.WHITE);
+		panel_6.setBounds(10, 266, 247, 140);
+		panel_3.add(panel_6);
+		panel_6.setLayout(null);
+		
+		JLabel lblPrximaPartida = new JLabel("Próximo jogo -");
+		lblPrximaPartida.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblPrximaPartida.setBounds(10, 11, 100, 14);
+		panel_6.add(lblPrximaPartida);
+		
+		JLabel lblEscudoAdversario = new JLabel("Escudo");
+		lblEscudoAdversario.setBounds(10, 58, 80, 71);
+		panel_6.add(lblEscudoAdversario);
+		
+		JLabel lblLocalPartida = new JLabel("Em casa");
+		lblLocalPartida.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblLocalPartida.setBounds(107, 11, 86, 14);
+		panel_6.add(lblLocalPartida);
+		
+		JLabel lblRodada = new JLabel("5 Rodada");
+		lblRodada.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblRodada.setBounds(10, 31, 137, 14);
+		panel_6.add(lblRodada);
+		
+		JLabel label_6 = new JLabel("");
+		label_6.setForeground(Color.WHITE);
+		label_6.setFont(new Font("Tahoma", Font.BOLD, 14));
+		label_6.setBounds(100, 73, 137, 29);
+		panel_6.add(label_6);
+		
+		lblCaixa = new JLabel("Caixa: R$ 3.000.000,00");
+		lblCaixa.setForeground(Color.WHITE);
+		lblCaixa.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblCaixa.setBounds(20, 168, 237, 14);
+		panel_3.add(lblCaixa);
+		
+		lblTecnico = new JLabel("");
+		lblTecnico.setForeground(Color.WHITE);
+		lblTecnico.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblTecnico.setBounds(100, 38, 160, 14);
+		panel_3.add(lblTecnico);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(287, 11, 597, 417);
@@ -275,4 +315,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		this.novoJogo = novoJogo;
 	}
 	
+	protected void exibirDados() {
+		// Carrega os dados do jogo
+		if ( novoJogo ) {
+			JogoService.getInstance().inicializarJogo( jogo );
+			
+			lblNomeClube.setText(jogo.getClubeGerenciado().getNome());
+			lblEstadio.setText(jogo.getClubeGerenciado().getNomeEstadio());
+			lblTecnico.setText(jogo.getClubeGerenciado().getTecnico());
+			
+			String strPath = FrmPrincipal.class.getResource("").getPath();
+			lblEscudo.setIcon(new ImageIcon(strPath+ "escudos/" + jogo.getClubeGerenciado().getNomeArquivo() +".gif"));
+
+			for (Jogador jogador : jogo.getClubeGerenciado().getGoleiro()) {
+				jogadorTableModel.addJogador(jogador);
+			}
+			
+			
+		} else {
+			
+		}
+		
+	}
 }
