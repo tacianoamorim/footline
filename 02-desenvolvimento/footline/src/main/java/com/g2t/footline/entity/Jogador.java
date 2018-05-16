@@ -11,6 +11,7 @@ public class Jogador extends BaseEntity implements Serializable {
 	
 	private String posicao;
 	private float salario;
+	private int nivel;
 	private int cartaoAmarelo;
 	private boolean cartaoVermelho;
 	private int rodadasLesionado;
@@ -27,6 +28,13 @@ public class Jogador extends BaseEntity implements Serializable {
 	}
 	public void setSalario(float salario) {
 		this.salario = salario;
+	}
+	
+	public int getNivel() {
+		return nivel;
+	}
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 	
 	public int getCartaoAmarelo() {

@@ -49,7 +49,7 @@ public class JogadorTableModel extends AbstractTableModel {
 	public void setValueAt(Jogador aValue, int rowIndex) {
 		Jogador jogador = jogadores.get(rowIndex);
 
-		//jogador.setLogin(aValue.getLogin());
+		jogador.setPosicao(aValue.getPosicao());
 		jogador.setNome(aValue.getNome());
 		jogador.setPosicao(aValue.getPosicao());
 
@@ -64,11 +64,11 @@ public class JogadorTableModel extends AbstractTableModel {
 
 		switch (columnIndex) {
 		case 0:
-			//jogador.setLogin(aValue.toString());
+			jogador.setPosicao(aValue.toString());
 		case 1:
 			jogador.setNome(aValue.toString());
 		case 2:
-			//jogador.setSenha(aValue.toString());
+			jogador.setNivel( Integer.parseInt( aValue.toString() ) );
 
 		default:
 			System.err.println("Índice da coluna inválido");
@@ -81,13 +81,13 @@ public class JogadorTableModel extends AbstractTableModel {
 		String valueObject = null;
 		switch (columnIndex) {
 		case 0:
-			//valueObject = jogadorSelecionado.getLogin();
+			valueObject = jogadorSelecionado.getPosicao();
 			break;
 		case 1:
 			valueObject = jogadorSelecionado.getNome();
 			break;
 		case 2:
-			//valueObject = jogadorSelecionado.getSenha();
+			valueObject = String.valueOf( jogadorSelecionado.getNivel() );
 			break;
 		default:
 			System.err.println("Índice inválido para propriedade do bean Jogador.class");
