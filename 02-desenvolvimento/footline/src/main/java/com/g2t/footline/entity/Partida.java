@@ -9,30 +9,22 @@ public class Partida implements Serializable {
 	 */
 	private static final long serialVersionUID = -3435984760301390299L;
 
-	private int id;
-	private Clube mandante;
-	private Clube visitante;
+	private Escalacao mandante;
+	private Escalacao visitante;
 	private float publico;
 	private double renda;
 
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Clube getMandante() {
+	public Escalacao getMandante() {
 		return mandante;
 	}
-	public void setMandante(Clube mandante) {
+	public void setMandante(Escalacao mandante) {
 		this.mandante = mandante;
 	}
 
-	public Clube getVisitante() {
+	public Escalacao getVisitante() {
 		return visitante;
 	}
-	public void setVisitante(Clube visitante) {
+	public void setVisitante(Escalacao visitante) {
 		this.visitante = visitante;
 	}
 

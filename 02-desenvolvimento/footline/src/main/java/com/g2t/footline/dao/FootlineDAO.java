@@ -9,26 +9,27 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.g2t.footline.entity.Jogo;
+import com.g2t.footline.entity.Footline;
 import com.g2t.footline.util.Constantes;
 
-public class JogoDAO {
+public class FootlineDAO {
 
-	public void salvar(String nomeArquivo, Jogo jogo) throws IOException {
+	public void salvar(String nomeArquivo, Footline gerente) throws IOException {
 		System.out.println(Constantes.PATH_APP + " / " + nomeArquivo + ".fl");
 		File file = new File(System.getProperty("java.io.tmpdir"), nomeArquivo + ".fl");
 		FileOutputStream fos = new FileOutputStream(file);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(jogo);
+		oos.writeObject(gerente);
 		oos.close();
 		fos.close();
 	}
 
-	public Jogo carregar(String nomeArquivo, Jogo jogo) throws IOException, ClassNotFoundException {
+	@SuppressWarnings("resource")
+	public Footline carregar(String nomeArquivo, Footline gerente) throws IOException, ClassNotFoundException {
 		File file = new File(Constantes.PATH_APP, nomeArquivo + ".fl");
 		FileInputStream fis = new FileInputStream(file);
 		ObjectInputStream ois = new ObjectInputStream(fis);
-		Jogo result = (Jogo) ois.readObject();
+		Footline result = (Footline) ois.readObject();
 		return result;
 	}
 

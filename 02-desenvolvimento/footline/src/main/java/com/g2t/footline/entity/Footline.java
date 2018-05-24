@@ -3,7 +3,7 @@ package com.g2t.footline.entity;
 import java.io.Serializable;
 import java.util.List;
 
-public class Jogo implements Serializable {
+public class Footline implements Serializable {
 
 	/**
 	 * serialVersionUID

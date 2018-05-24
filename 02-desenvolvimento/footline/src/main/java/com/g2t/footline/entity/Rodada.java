@@ -1,6 +1,7 @@
 package com.g2t.footline.entity;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -13,6 +14,8 @@ public class Rodada implements Serializable {
 
 	private int numero;
 	private List<Partida> partidas;
+	private boolean finalizada;
+	private Calendar data;
 
 	public int getNumero() {
 		return numero;
@@ -28,4 +31,18 @@ public class Rodada implements Serializable {
 		this.partidas = partidas;
 	}
 
+	public boolean isFinalizada() {
+		return finalizada;
+	}
+	public void setFinalizada(boolean finalizada) {
+		this.finalizada = finalizada;
+	}
+	
+	public Calendar getData() {
+		return data;
+	}
+	public void setData(Calendar data) {
+		this.data = data;
+	}
+	
 }

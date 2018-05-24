@@ -11,16 +11,25 @@ public class Clube extends BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 4420078087855186814L;
 
+	private int id;
 	private String acronomo;
 	private String tecnico;
 	private String nomeEstadio;
 	private String nomeArquivo;
 	private int nivel;
-	private List<Jogador> goleiro = new ArrayList<Jogador>();
-	private List<Jogador> defesa = new ArrayList<Jogador>();
-	private List<Jogador> meioCampo = new ArrayList<Jogador>();
-	private List<Jogador> ataque = new ArrayList<Jogador>();
-
+	private int capacidade;
+	private List<Jogador> listaGoleiro = new ArrayList<Jogador>();
+	private List<Jogador> listaDefesa = new ArrayList<Jogador>();
+	private List<Jogador> listaMeioCampo = new ArrayList<Jogador>();
+	private List<Jogador> listaAtaque = new ArrayList<Jogador>();
+		
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getAcronomo() {
 		return acronomo;
 	}
@@ -56,32 +65,39 @@ public class Clube extends BaseEntity implements Serializable {
 		this.nivel = nivel;
 	}
 	
-	public List<Jogador> getGoleiro() {
-		return goleiro;
+	public int getCapacidade() {
+		return capacidade;
 	}
-	public void setGoleiro(List<Jogador> goleiro) {
-		this.goleiro = goleiro;
+	public void setCapacidade(int capacidade) {
+		this.capacidade = capacidade;
 	}
-
-	public List<Jogador> getDefesa() {
-		return defesa;
+	
+	public List<Jogador> getListaGoleiro() {
+		return listaGoleiro;
 	}
-	public void setDefesa(List<Jogador> defesa) {
-		this.defesa = defesa;
+	public void setListaGoleiro(List<Jogador> listaGoleiro) {
+		this.listaGoleiro = listaGoleiro;
 	}
-
-	public List<Jogador> getMeioCampo() {
-		return meioCampo;
+	
+	public List<Jogador> getListaDefesa() {
+		return listaDefesa;
 	}
-	public void setMeioCampo(List<Jogador> meioCampo) {
-		this.meioCampo = meioCampo;
+	public void setListaDefesa(List<Jogador> listaDefesa) {
+		this.listaDefesa = listaDefesa;
 	}
-
-	public List<Jogador> getAtaque() {
-		return ataque;
+	
+	public List<Jogador> getListaMeioCampo() {
+		return listaMeioCampo;
 	}
-	public void setAtaque(List<Jogador> ataque) {
-		this.ataque = ataque;
+	public void setListaMeioCampo(List<Jogador> listaMeioCampo) {
+		this.listaMeioCampo = listaMeioCampo;
+	}
+	
+	public List<Jogador> getListaAtaque() {
+		return listaAtaque;
+	}
+	public void setListaAtaque(List<Jogador> listaAtaque) {
+		this.listaAtaque = listaAtaque;
 	}
 
 }

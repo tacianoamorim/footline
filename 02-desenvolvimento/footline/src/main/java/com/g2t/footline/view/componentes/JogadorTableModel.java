@@ -48,14 +48,18 @@ public class JogadorTableModel extends AbstractTableModel {
 
 	public void setValueAt(Jogador aValue, int rowIndex) {
 		Jogador jogador = jogadores.get(rowIndex);
+		
+		// TODO: 001 - carregar os demais campos valor do passe, gols, cartao amarelo e vermelho
 
-		//jogador.setLogin(aValue.getLogin());
+		jogador.setPosicao( aValue.getPosicao() );
 		jogador.setNome(aValue.getNome());
-		jogador.setPosicao(aValue.getPosicao());
+		jogador.setNivel(aValue.getNivel());
+		jogador.setSalario(aValue.getSalario());
 
 		fireTableCellUpdated(rowIndex, 0);
 		fireTableCellUpdated(rowIndex, 1);
 		fireTableCellUpdated(rowIndex, 2);
+		fireTableCellUpdated(rowIndex, 3);
 	}
 
 	@Override
@@ -64,14 +68,17 @@ public class JogadorTableModel extends AbstractTableModel {
 
 		switch (columnIndex) {
 		case 0:
-			//jogador.setLogin(aValue.toString());
+			jogador.setPosicao(aValue.toString());
 		case 1:
 			jogador.setNome(aValue.toString());
 		case 2:
-			//jogador.setSenha(aValue.toString());
-
+			jogador.setNivel( Integer.parseInt(aValue.toString()) );
+		case 3:
+			jogador.setSalario( Float.parseFloat(aValue.toString()) );
+			
+			// TODO: 001 - carregar os demais campos valor do passe, gols, cartao amarelo e vermelho			
 		default:
-			System.err.println("Índice da coluna inválido");
+			System.err.println("indice da coluna invalido");
 		}
 		fireTableCellUpdated(rowIndex, columnIndex);
 	}
@@ -81,16 +88,20 @@ public class JogadorTableModel extends AbstractTableModel {
 		String valueObject = null;
 		switch (columnIndex) {
 		case 0:
-			//valueObject = jogadorSelecionado.getLogin();
+			valueObject = jogadorSelecionado.getPosicao();
 			break;
 		case 1:
 			valueObject = jogadorSelecionado.getNome();
 			break;
 		case 2:
-			//valueObject = jogadorSelecionado.getSenha();
+			valueObject = String.valueOf( jogadorSelecionado.getNivel() );
 			break;
+		case 3:
+			valueObject = String.valueOf( jogadorSelecionado.getSalario() );
+			break;			
+			// TODO: 001 - carregar os demais campos valor do passe, gols, cartao amarelo e vermelho	
 		default:
-			System.err.println("Índice inválido para propriedade do bean Jogador.class");
+			System.err.println("indice invalido para propriedade do bean Jogador.class");
 		}
 
 		return valueObject;
@@ -107,20 +118,16 @@ public class JogadorTableModel extends AbstractTableModel {
 
 	public void addJogador(Jogador jogador) {
 		jogadores.add(jogador);
-
 		int ultimoIndice = getRowCount() - 1;
-
 		fireTableRowsInserted(ultimoIndice, ultimoIndice);
 	}
 
 	public void removeJogador(int indiceLinha) {
 		jogadores.remove(indiceLinha);
-
 		fireTableRowsDeleted(indiceLinha, indiceLinha);
 	}
 
 	public void addListaDeJogadors(List<Jogador> novosJogadores) {
-
 		int tamanhoAntigo = getRowCount();
 		jogadores.addAll(novosJogadores);
 		fireTableRowsInserted(tamanhoAntigo, getRowCount() - 1);

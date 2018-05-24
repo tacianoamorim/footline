@@ -68,11 +68,11 @@ public class FrmOpcao extends javax.swing.JFrame {
 						"Técnico", JOptionPane.INFORMATION_MESSAGE);
 				
                 FrmPrincipal frmPrincipal= new FrmPrincipal();
-                setVisible(false);
-                frmPrincipal.setVisible(true);
-                frmPrincipal.getJogo().setUsuario(nomeTecnico);
-                frmPrincipal.setNovoJogo(true);
-                frmPrincipal.exibirDados();
+                setVisible( false );
+                frmPrincipal.setVisible( true );
+                frmPrincipal.getFootline().setUsuario( nomeTecnico );
+                frmPrincipal.processarCarregamentoApp( true );
+                
 			}
 		});
 		panel.add(btnNovo);
