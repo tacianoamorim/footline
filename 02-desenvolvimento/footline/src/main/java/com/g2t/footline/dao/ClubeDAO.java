@@ -12,6 +12,9 @@ import com.g2t.footline.entity.Jogador;
 
 public class ClubeDAO {
 	
+	private static int idxClube;
+	private static int idxJogador;
+	
 	public List<Clube> buscarClubes() throws ClassNotFoundException, IOException {
 		return listaArquivos();
 	} 
@@ -34,6 +37,7 @@ public class ClubeDAO {
 		for (int i=0; i < afile.length; i++) {
 			if (afile[i].getName().endsWith("foot")) {
 				Clube clube= converteArquivo(afile[i]);
+				clube.setId( ++idxClube );
 				retorno.add(clube);
 			}
 		}
@@ -57,32 +61,58 @@ public class ClubeDAO {
 		   char idx= arrayLinha[0].charAt(0);
 		   
 		   switch (idx) {
-			case 'T': //idx,Nome,Acronomo,Estadio,Nivel,Tecnico
+			case 'T': //idx,Nome,Acronomo,Nivel,Tecnico,Estadio,capacidade
 				clube.setNome( arrayLinha[1] );
 				clube.setAcronomo( arrayLinha[2] );
-				clube.setNomeEstadio( arrayLinha[3] );
+				clube.setNivel( Integer.valueOf(arrayLinha[3]) );				
+				clube.setTecnico( arrayLinha[4] );				
+				clube.setNomeEstadio( arrayLinha[5] );
+				clube.setCapacidade( Integer.valueOf(arrayLinha[6]) );	
 				clube.setNomeArquivo( nomeArquivo );
-				clube.setNivel( Integer.valueOf(arrayLinha[4]) );				
-				clube.setTecnico( arrayLinha[1] );				
 				break;
 	
 			case 'G': //idx,Nome Goleiro
 				Jogador goleiro= new Jogador();
+				goleiro.setPosicao("G");
+				goleiro.setId( ++idxJogador );
 				goleiro.setNome( arrayLinha[1] );
 				listGoleiro.add( goleiro );
 				break;
 				
 			case 'D': //idx,Nome Defesa
 				Jogador defesa= new Jogador();
+				defesa.setPosicao("D");
+				defesa.setId( ++idxJogador );
 				defesa.setNome( arrayLinha[1] );
 				listDefesa.add( defesa );
-				break;			
+				break;	
+				
+			case 'M': //idx,Nome MeioCampo
+				Jogador meioCampo= new Jogador();
+				meioCampo.setPosicao("M");
+				meioCampo.setId( ++idxJogador );
+				meioCampo.setNome( arrayLinha[1] );
+				listMeioCampo.add( meioCampo );
+				break;
+				
+			case 'A': //idx,Nome Ataque
+				Jogador ataque= new Jogador();
+				ataque.setPosicao("A");
+				ataque.setId( ++idxJogador );
+				ataque.setNome( arrayLinha[1] );
+				listAtacante.add( ataque );
+				break;					
 				
 			default:
 				break;
 			}
 		}
 		br.close();
+		
+		clube.setListaGoleiro(listGoleiro);
+		clube.setListaDefesa(listDefesa);
+		clube.setListaMeioCampo(listMeioCampo);
+		clube.setListaAtaque(listAtacante);
 		
 		return clube;
 	}

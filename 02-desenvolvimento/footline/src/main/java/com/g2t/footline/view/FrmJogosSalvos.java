@@ -16,7 +16,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import com.g2t.footline.service.JogoService;
+import com.g2t.footline.service.FootlineService;
 
 public class FrmJogosSalvos extends JDialog {
 
@@ -66,11 +66,12 @@ public class FrmJogosSalvos extends JDialog {
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 		                FrmPrincipal frmPrincipal= new FrmPrincipal();
-		                frmPrincipal.setNovoJogo(false);
-		                frmPrincipal.getJogo().setUsuario(listJogos.getSelectedValue());
-		                setVisible(false);
-		                getFrmOpcao().setVisible(false);
-		                frmPrincipal.setVisible(true);
+		                frmPrincipal.getFootline().setNomeJogoSalvo( listJogos.getSelectedValue() );
+		                
+		                setVisible( false );
+		                getFrmOpcao().setVisible( false );
+		                frmPrincipal.setVisible( true );
+		                frmPrincipal.processarCarregamentoApp( false );
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -94,7 +95,7 @@ public class FrmJogosSalvos extends JDialog {
 	
 	private void carregarJogosSalvos() {
 		try {
-			List<String> arquivos= JogoService.getInstance().listaArquivos();
+			List<String> arquivos= FootlineService.getInstance().listaArquivos();
 			for (String nomeArquivo : arquivos) {
 				modelo.addElement(nomeArquivo);
 			}

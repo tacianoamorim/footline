@@ -48,14 +48,25 @@ public class JogadorTableModel extends AbstractTableModel {
 
 	public void setValueAt(Jogador aValue, int rowIndex) {
 		Jogador jogador = jogadores.get(rowIndex);
-
-		jogador.setPosicao(aValue.getPosicao());
+		
+		//"P", "Nome", "Nível", "Salário", "Passe", "Gols", "CA", "CV" 
+		jogador.setPosicao( aValue.getPosicao() );
 		jogador.setNome(aValue.getNome());
-		jogador.setPosicao(aValue.getPosicao());
-
+		jogador.setNivel(aValue.getNivel());
+		jogador.setSalario(aValue.getSalario());
+		jogador.setValorPasse(aValue.getValorPasse());
+		jogador.setQuantidadeGols(aValue.getQuantidadeGols());
+		jogador.setCartaoAmarelo(aValue.getCartaoAmarelo());
+		jogador.setCartaoVermelho(aValue.isCartaoVermelho());
+		
 		fireTableCellUpdated(rowIndex, 0);
 		fireTableCellUpdated(rowIndex, 1);
 		fireTableCellUpdated(rowIndex, 2);
+		fireTableCellUpdated(rowIndex, 3);
+		fireTableCellUpdated(rowIndex, 4);
+		fireTableCellUpdated(rowIndex, 5);
+		fireTableCellUpdated(rowIndex, 6);	
+		fireTableCellUpdated(rowIndex, 7);
 	}
 
 	@Override
@@ -68,10 +79,20 @@ public class JogadorTableModel extends AbstractTableModel {
 		case 1:
 			jogador.setNome(aValue.toString());
 		case 2:
-			jogador.setNivel( Integer.parseInt( aValue.toString() ) );
-
+			jogador.setNivel( Integer.parseInt(aValue.toString()) );
+		case 3:
+			jogador.setSalario( Float.parseFloat(aValue.toString()) );
+		case 4:
+			jogador.setValorPasse( Double.parseDouble(aValue.toString()) );
+		case 5:
+			jogador.setQuantidadeGols( Integer.parseInt( aValue.toString()) );
+		case 6:
+			jogador.setCartaoAmarelo( Integer.parseInt( aValue.toString()) );
+		case 7:
+			jogador.setCartaoVermelho( Boolean.parseBoolean( aValue.toString()) );
+			
 		default:
-			System.err.println("Índice da coluna inválido");
+			System.err.println("indice da coluna invalido");
 		}
 		fireTableCellUpdated(rowIndex, columnIndex);
 	}
@@ -89,10 +110,24 @@ public class JogadorTableModel extends AbstractTableModel {
 		case 2:
 			valueObject = String.valueOf( jogadorSelecionado.getNivel() );
 			break;
+		case 3:
+			valueObject = String.valueOf( jogadorSelecionado.getSalario() );
+			break;	
+		case 4:
+			valueObject = String.valueOf( jogadorSelecionado.getValorPasse() );
+			break;
+		case 5:
+			valueObject = String.valueOf( jogadorSelecionado.getQuantidadeGols() );
+			break;
+		case 6:
+			valueObject = String.valueOf( jogadorSelecionado.getCartaoAmarelo() );
+			break;
+		case 7:
+			valueObject = String.valueOf( jogadorSelecionado.isCartaoVermelho() );
+			break;			
 		default:
-			System.err.println("Índice inválido para propriedade do bean Jogador.class");
+			System.err.println("indice invalido para propriedade do bean Jogador.class");
 		}
-
 		return valueObject;
 	}
 
@@ -107,20 +142,16 @@ public class JogadorTableModel extends AbstractTableModel {
 
 	public void addJogador(Jogador jogador) {
 		jogadores.add(jogador);
-
 		int ultimoIndice = getRowCount() - 1;
-
 		fireTableRowsInserted(ultimoIndice, ultimoIndice);
 	}
 
 	public void removeJogador(int indiceLinha) {
 		jogadores.remove(indiceLinha);
-
 		fireTableRowsDeleted(indiceLinha, indiceLinha);
 	}
 
 	public void addListaDeJogadors(List<Jogador> novosJogadores) {
-
 		int tamanhoAntigo = getRowCount();
 		jogadores.addAll(novosJogadores);
 		fireTableRowsInserted(tamanhoAntigo, getRowCount() - 1);
