@@ -75,19 +75,7 @@ public class FootlineService {
 
 		// Gerar dados jogador
 		for (Clube clube : clubes) {
-			for (Jogador jogador : clube.getListaGoleiro()) {
-				JogadorService.getInstance().gerarDadosComplementares(
-						clube.getNivel(), jogador);
-			}
-			for (Jogador jogador : clube.getListaDefesa()) {
-				JogadorService.getInstance().gerarDadosComplementares(
-						clube.getNivel(), jogador);
-			}
-			for (Jogador jogador : clube.getListaMeioCampo()) {
-				JogadorService.getInstance().gerarDadosComplementares(
-						clube.getNivel(), jogador);
-			}			
-			for (Jogador jogador : clube.getListaAtaque()) {
+			for (Jogador jogador : clube.getJogadores()) {
 				JogadorService.getInstance().gerarDadosComplementares(
 						clube.getNivel(), jogador);
 			}

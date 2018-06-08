@@ -21,10 +21,7 @@ public class Clube extends BaseEntity implements Serializable {
 	private String nomeArquivo;
 	private int nivel;
 	private int capacidade;
-	private List<Jogador> listaGoleiro = new ArrayList<Jogador>();
-	private List<Jogador> listaDefesa = new ArrayList<Jogador>();
-	private List<Jogador> listaMeioCampo = new ArrayList<Jogador>();
-	private List<Jogador> listaAtaque = new ArrayList<Jogador>();
+	private List<Jogador> jogadores = new ArrayList<Jogador>();
 	private double valorCaixa;
 		
 	public String getAcronomo() {
@@ -69,32 +66,11 @@ public class Clube extends BaseEntity implements Serializable {
 		this.capacidade = capacidade;
 	}
 	
-	public List<Jogador> getListaGoleiro() {
-		return listaGoleiro;
+	public List<Jogador> getJogadores() {
+		return jogadores;
 	}
-	public void setListaGoleiro(List<Jogador> listaGoleiro) {
-		this.listaGoleiro = listaGoleiro;
-	}
-	
-	public List<Jogador> getListaDefesa() {
-		return listaDefesa;
-	}
-	public void setListaDefesa(List<Jogador> listaDefesa) {
-		this.listaDefesa = listaDefesa;
-	}
-	
-	public List<Jogador> getListaMeioCampo() {
-		return listaMeioCampo;
-	}
-	public void setListaMeioCampo(List<Jogador> listaMeioCampo) {
-		this.listaMeioCampo = listaMeioCampo;
-	}
-	
-	public List<Jogador> getListaAtaque() {
-		return listaAtaque;
-	}
-	public void setListaAtaque(List<Jogador> listaAtaque) {
-		this.listaAtaque = listaAtaque;
+	public void setJogadores(List<Jogador> jogadores) {
+		this.jogadores = jogadores;
 	}
 	
 	public double getValorCaixa() {
@@ -106,8 +82,11 @@ public class Clube extends BaseEntity implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Clube [id=" + getId() + ", nome=" + getNome() + ", acronomo=" + acronomo + ", tecnico=" + tecnico + ", nomeEstadio=" + nomeEstadio
-				+ ", nomeArquivo=" + nomeArquivo + ", nivel=" + nivel + ", valorCaixa=" + valorCaixa + "]";
+		return "Clube [id=" + getId() + ", nome=" + getNome() + ", acronomo=" + acronomo 
+				+ ", tecnico=" + tecnico + ", nomeEstadio=" + nomeEstadio
+				+ ", nomeArquivo=" + nomeArquivo + ", nivel=" + nivel 
+				+ ", jogadores=" + jogadores
+				+ ", valorCaixa=" + valorCaixa + "]";
 	}
 	
 }

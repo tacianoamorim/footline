@@ -19,6 +19,7 @@ import javax.swing.event.ListSelectionListener;
 
 import com.g2t.footline.entity.Footline;
 import com.g2t.footline.entity.Jogador;
+import com.g2t.footline.entity.Posicao;
 
 public class FrmEscalarTime extends JDialog {
 
@@ -88,27 +89,37 @@ public class FrmEscalarTime extends JDialog {
 		JScrollPane scrollPane = new JScrollPane(listJogadores);
 		panel.add(scrollPane);
 		
-		for (Jogador jogador : footline.getClubeGerenciado().getListaGoleiro()) {
-			modelo.addElement( " G "+ jogador.getNome() );
+		// Adiciona os goleiros
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.G) == 0 )
+				modelo.addElement( " G "+ jogador.getNome() );
 		}
-		for (Jogador jogador : footline.getClubeGerenciado().getListaDefesa()) {
-			modelo.addElement( " D "+ jogador.getNome() );
+		// Adiciona a defesa
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.D) == 0 )
+				modelo.addElement( " D "+ jogador.getNome() );
+		}		
+		// Adiciona o meioCampo
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.M) == 0 )
+				modelo.addElement( " M "+ jogador.getNome() );
 		}
-		for (Jogador jogador : footline.getClubeGerenciado().getListaMeioCampo()) {
-			modelo.addElement( " M "+ jogador.getNome() );
-		}
-		for (Jogador jogador : footline.getClubeGerenciado().getListaAtaque()) {
-			modelo.addElement( " A "+ jogador.getNome() );
-		}
+		// Adiciona o ataque
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.A) == 0 )
+				modelo.addElement( " A "+ jogador.getNome() );
+		}		
 
 	    ListSelectionListener listSelectionListener = new ListSelectionListener() {
-	        public void valueChanged(ListSelectionEvent listSelectionEvent) {
+	        @SuppressWarnings("deprecation")
+			public void valueChanged(ListSelectionEvent listSelectionEvent) {
 	          System.out.print("First index: " + listSelectionEvent.getFirstIndex());
 	          System.out.print(", Last index: " + listSelectionEvent.getLastIndex());
 	          boolean adjust = listSelectionEvent.getValueIsAdjusting();
 	          System.out.println(", Adjusting? " + adjust);
 	          if (!adjust) {
-	            JList list = (JList) listSelectionEvent.getSource();
+	            @SuppressWarnings("rawtypes")
+				JList list = (JList) listSelectionEvent.getSource();
 	            int selections[] = list.getSelectedIndices();
 	            Object selectionValues[] = list.getSelectedValues();
 	            for (int i = 0, n = selections.length; i < n; i++) {

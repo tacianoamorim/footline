@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 import com.g2t.footline.entity.Jogador;
+import com.g2t.footline.entity.Posicao;
 
 public class JogadorTableModel extends AbstractTableModel {
 
@@ -75,7 +76,7 @@ public class JogadorTableModel extends AbstractTableModel {
 
 		switch (columnIndex) {
 		case 0:
-			jogador.setPosicao(aValue.toString());
+			jogador.setPosicao( Posicao.valueOf( aValue.toString() ) );
 		case 1:
 			jogador.setNome(aValue.toString());
 		case 2:
@@ -102,7 +103,7 @@ public class JogadorTableModel extends AbstractTableModel {
 		String valueObject = null;
 		switch (columnIndex) {
 		case 0:
-			valueObject = jogadorSelecionado.getPosicao();
+			valueObject = jogadorSelecionado.getPosicao().name();
 			break;
 		case 1:
 			valueObject = jogadorSelecionado.getNome();

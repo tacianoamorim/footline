@@ -24,6 +24,7 @@ import com.g2t.footline.entity.Clube;
 import com.g2t.footline.entity.Footline;
 import com.g2t.footline.entity.Jogador;
 import com.g2t.footline.entity.Partida;
+import com.g2t.footline.entity.Posicao;
 import com.g2t.footline.entity.Rodada;
 import com.g2t.footline.service.FootlineService;
 import com.g2t.footline.view.componentes.JogadorTableModel;
@@ -355,23 +356,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
 					+ footline.getClubeGerenciado().getNomeArquivo() +".gif"));
 
 		// Adiciona os goleiros
-		for (Jogador jogador : footline.getClubeGerenciado().getListaGoleiro()) {
-			jogadorTableModel.addJogador(jogador);
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.G) == 0 )
+				jogadorTableModel.addJogador(jogador);
 		}
 		
 		// Adiciona a defesa
-		for (Jogador jogador : footline.getClubeGerenciado().getListaDefesa()) {
-			jogadorTableModel.addJogador(jogador);
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.D) == 0 )
+				jogadorTableModel.addJogador(jogador);
 		}		
 		
 		// Adiciona o meioCampo
-		for (Jogador jogador : footline.getClubeGerenciado().getListaMeioCampo()) {
-			jogadorTableModel.addJogador(jogador);
-		}				
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.M) == 0 )
+				jogadorTableModel.addJogador(jogador);
+		}
 		
 		// Adiciona o ataque
-		for (Jogador jogador : footline.getClubeGerenciado().getListaAtaque()) {
-			jogadorTableModel.addJogador(jogador);
+		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+			if ( jogador.getPosicao().compareTo(Posicao.A) == 0 )
+				jogadorTableModel.addJogador(jogador);
 		}		
 		
 		// Indetifica a rodada, a partida e o adversario

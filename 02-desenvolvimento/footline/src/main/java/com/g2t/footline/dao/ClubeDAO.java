@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.g2t.footline.entity.Clube;
 import com.g2t.footline.entity.Jogador;
+import com.g2t.footline.entity.Posicao;
 
 public class ClubeDAO {
 	
@@ -52,10 +53,7 @@ public class ClubeDAO {
 	private Clube converteArquivo(File file) throws IOException {
 		String nomeArquivo= file.getName().replaceAll(".foot", "");
 		Clube clube= new Clube();
-		List<Jogador> listGoleiro= new ArrayList<Jogador>();
-		List<Jogador> listDefesa= new ArrayList<Jogador>();
-		List<Jogador> listMeioCampo= new ArrayList<Jogador>();
-		List<Jogador> listAtacante= new ArrayList<Jogador>();
+		List<Jogador> jogadores= new ArrayList<Jogador>();
 		
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		while(br.ready()){
@@ -79,34 +77,34 @@ public class ClubeDAO {
 	
 			case 'G': //idx,Nome Goleiro
 				Jogador goleiro= new Jogador();
-				goleiro.setPosicao("G");
+				goleiro.setPosicao( Posicao.G );
 				goleiro.setId( ++idxJogador );
 				goleiro.setNome( arrayLinha[1] );
-				listGoleiro.add( goleiro );
+				jogadores.add( goleiro );
 				break;
 				
 			case 'D': //idx,Nome Defesa
 				Jogador defesa= new Jogador();
-				defesa.setPosicao("D");
+				defesa.setPosicao( Posicao.D );
 				defesa.setId( ++idxJogador );
 				defesa.setNome( arrayLinha[1] );
-				listDefesa.add( defesa );
+				jogadores.add( defesa );
 				break;	
 				
 			case 'M': //idx,Nome MeioCampo
 				Jogador meioCampo= new Jogador();
-				meioCampo.setPosicao("M");
+				meioCampo.setPosicao( Posicao.M );
 				meioCampo.setId( ++idxJogador );
 				meioCampo.setNome( arrayLinha[1] );
-				listMeioCampo.add( meioCampo );
+				jogadores.add( meioCampo );
 				break;
 				
 			case 'A': //idx,Nome Ataque
 				Jogador ataque= new Jogador();
-				ataque.setPosicao("A");
+				ataque.setPosicao( Posicao.A );
 				ataque.setId( ++idxJogador );
 				ataque.setNome( arrayLinha[1] );
-				listAtacante.add( ataque );
+				jogadores.add( ataque );
 				break;					
 				
 			default:
@@ -115,10 +113,7 @@ public class ClubeDAO {
 		}
 		br.close();
 		
-		clube.setListaGoleiro(listGoleiro);
-		clube.setListaDefesa(listDefesa);
-		clube.setListaMeioCampo(listMeioCampo);
-		clube.setListaAtaque(listAtacante);
+		clube.setJogadores( jogadores );
 		
 		return clube;
 	}

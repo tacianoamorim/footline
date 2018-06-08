@@ -9,7 +9,7 @@ public class Jogador extends BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = -3846494530435558253L;
 	
-	private String posicao;
+	private Posicao posicao;
 	private float salario;
 	private int nivel;
 	private int cartaoAmarelo;
@@ -18,10 +18,10 @@ public class Jogador extends BaseEntity implements Serializable {
 	private double valorPasse;
 	private int quantidadeGols;
 	
-	public String getPosicao() {
+	public Posicao getPosicao() {
 		return posicao;
 	}
-	public void setPosicao(String posicao) {
+	public void setPosicao(Posicao posicao) {
 		this.posicao = posicao;
 	}
 	
