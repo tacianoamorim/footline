@@ -1,4 +1,4 @@
-package com.g2t.footline.view;
+package com.g2t.footline.view.telasSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import com.g2t.footline.entity.Footline;
+import com.g2t.footline.entity.Partida;
 import com.g2t.footline.entity.Rodada;
 
 public class FrmCalendario extends JDialog {
@@ -29,13 +30,12 @@ public class FrmCalendario extends JDialog {
 	private static final long serialVersionUID = 5577059619343394507L;
 	
 	private final JPanel contentPanel = new JPanel();
-	private JList<String> listJogos;
-	DefaultListModel<String> modelo = new DefaultListModel<String>();
 
 	/**
 	 * Create the frame.
 	 */
-	public FrmCalendario(Footline gerente) {
+	public FrmCalendario(Footline footline) {
+		setUndecorated(true);
 		setTitle("Calendário");
 		getContentPane().setBackground(new Color(0, 128, 128));
 		getContentPane().setForeground(new Color(0, 128, 128));
@@ -52,17 +52,39 @@ public class FrmCalendario extends JDialog {
 		panel.setBackground(Color.WHITE);
 		contentPanel.add(panel);
 		
-		JScrollPane scrollPane = new JScrollPane(listJogos);
-		//panel.add(scrollPane, BorderLayout.SOUTH);
-		
-		listJogos =  new JList<String>(modelo);
+		DefaultListModel<String> modelo = new DefaultListModel<String>();
+		JList<String> listJogos =  new JList<String>(modelo);
 		listJogos.setVisibleRowCount(10);
 		
+		JScrollPane scrollPane = new JScrollPane(listJogos);
+		
 		// Carregar a lista
-		final DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-		List<Rodada> rodadas= FrmPrincipal.rodadas;
+		final DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+		List<Rodada> rodadas= footline.getRodadas();
 		for (Rodada rodada : rodadas) {
-			modelo.addElement( " > "+ rodada.getNumero() +" - " + df.format( rodada.getData().getTime() ) );
+			String textoRodada= "";
+			if ( rodada.getNumero() < 10 )
+				textoRodada= " RODADA: 0"+ rodada.getNumero() +" - ";
+			else
+				textoRodada= " RODADA: "+ rodada.getNumero() +" - ";
+			
+			textoRodada= textoRodada + df.format( rodada.getData().getTime() );
+			modelo.addElement( textoRodada );
+			
+			for ( Partida partida : rodada.getPartidas() ) {
+				String textoPartida= "";
+				
+				textoPartida= textoPartida + "   - " + partida.getMandante().getClube().getNome();
+				if ( partida.getPublico() == 0 ) {
+					textoPartida= textoPartida + "  X  " + partida.getVisitante().getClube().getNome();
+					
+				} else {
+					textoPartida= textoPartida + " "+ partida.getGolsMandante() +" X "+ 	
+								partida.getGolsvisitante() +" "+ partida.getVisitante().getClube().getNome();
+				}
+				modelo.addElement( textoPartida );
+			}
+			
 		}
 		panel.setLayout(new BorderLayout(0, 0));
 		

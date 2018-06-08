@@ -9,7 +9,6 @@ public class Jogador extends BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = -3846494530435558253L;
 	
-	private int id;
 	private String posicao;
 	private float salario;
 	private int nivel;
@@ -17,13 +16,7 @@ public class Jogador extends BaseEntity implements Serializable {
 	private boolean cartaoVermelho;
 	private int rodadasLesionado;
 	private double valorPasse;
-
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	private int quantidadeGols;
 	
 	public String getPosicao() {
 		return posicao;
@@ -72,6 +65,20 @@ public class Jogador extends BaseEntity implements Serializable {
 	}
 	public void setValorPasse(double valorPasse) {
 		this.valorPasse = valorPasse;
+	}
+	
+	public int getQuantidadeGols() {
+		return quantidadeGols;
+	}
+	public void setQuantidadeGols(int quantidadeGols) {
+		this.quantidadeGols = quantidadeGols;
+	}
+	
+	@Override
+	public String toString() {
+		return "Jogador [id=" + getId() + ", nome=" + getNome() + ", posicao=" + posicao + ", salario=" + salario + ", nivel=" + nivel
+				+ ", cartaoAmarelo=" + cartaoAmarelo + ", cartaoVermelho=" + cartaoVermelho + ", rodadasLesionado="
+				+ rodadasLesionado + ", valorPasse=" + valorPasse + ", quantidadeGols=" + quantidadeGols + "]";
 	}
 	
 }

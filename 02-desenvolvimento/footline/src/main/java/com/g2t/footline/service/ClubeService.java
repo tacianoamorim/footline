@@ -7,6 +7,7 @@ import java.util.Random;
 
 import com.g2t.footline.dao.ClubeDAO;
 import com.g2t.footline.entity.Clube;
+import com.g2t.footline.entity.Footline;
 
 public class ClubeService {
 
@@ -26,7 +27,7 @@ public class ClubeService {
 	/**
 	 * Realiza o carregamento dos arquivos referentes aos clubes
 	 * 
-	 * @return clube sorteado para gerenciamento
+	 * @return List<Clube> 
 	 */
 	protected List<Clube> buscarClubes() {
 		List<Clube> retorno= new ArrayList<Clube>();
@@ -51,5 +52,23 @@ public class ClubeService {
 		int nAleatorio = random.nextInt(9);
 		return lista.get(nAleatorio);
 	}	
+	
+	/**
+	 * Retorna uma lista com a classificacao atual dos times 
+	 * 	seguindo a seguinte ordem:
+	 *   1- maior numero de pontos
+	 *   2- maior numero de vitorias
+	 *   3- maior saldo de gols
+	 *   4- maior quantidade de gols a favor
+	 *   5- menor quantidade de gols a favor  
+	 * 	 6- sorteio
+	 * 
+	 * @param Footline footline
+	 * @return List<Clube>
+	 */
+	public List<Clube> retornaClassificacao(Footline footline) {
+		// TODO: 005 - implementar classificacao dos times
+		return new ArrayList();
+	}
 	
 }

@@ -3,22 +3,20 @@ package com.g2t.footline.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.List;
 
-import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JList;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import com.g2t.footline.service.FootlineService;
-
-public class FrmJogosSalvos extends JDialog {
+public class FrmJogoNovo extends JDialog {
 
 	/**
 	 * serialVersionUID
@@ -26,35 +24,38 @@ public class FrmJogosSalvos extends JDialog {
 	private static final long serialVersionUID = -7085709480620475219L;
 	
 	private final JPanel contentPanel = new JPanel();
-	private JList<String> listJogos;
 	DefaultListModel<String> modelo = new DefaultListModel<String>();
 	private FrmOpcao frmOpcao;
+	private JTextField txtNomeTecnico;
 
 	/**
 	 * Create the dialog.
 	 */
-	public FrmJogosSalvos() {
-		setTitle("Carregar jogos salvos");
+	public FrmJogoNovo() {
+		setTitle("Novo jogo");
 		getContentPane().setBackground(new Color(0, 128, 128));
 		getContentPane().setForeground(new Color(0, 128, 128));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
-		setBounds(100, 100, 434, 342);
+		setBounds(100, 100, 410, 167);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(new Color(0, 128, 128));
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
+		contentPanel.setLayout(null);
+		{
+			JLabel lblNewLabel = new JLabel("Nome do técnico");
+			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			lblNewLabel.setForeground(Color.WHITE);
+			lblNewLabel.setBounds(10, 38, 106, 14);
+			contentPanel.add(lblNewLabel);
+		}
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		contentPanel.add(panel);
-		panel.setLayout(new BorderLayout(0, 0));
-		
-		listJogos =  new JList<String>(modelo);
-		listJogos.setVisibleRowCount(10);
-		
-		panel.add(listJogos, BorderLayout.NORTH);
+		txtNomeTecnico = new JTextField();
+		txtNomeTecnico.setFont(new Font("Tahoma", Font.BOLD, 16));
+		txtNomeTecnico.setBounds(119, 33, 265, 27);
+		contentPanel.add(txtNomeTecnico);
+		txtNomeTecnico.setColumns(10);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setBackground(new Color(0, 128, 128));
@@ -65,13 +66,22 @@ public class FrmJogosSalvos extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-		                FrmPrincipal frmPrincipal= new FrmPrincipal();
-		                frmPrincipal.getFootline().setNomeJogoSalvo( listJogos.getSelectedValue() );
-		                
-		                setVisible( false );
-		                getFrmOpcao().setVisible( false );
-		                frmPrincipal.setVisible( true );
-		                frmPrincipal.processarCarregamentoApp( false );
+				
+						// Valida se o nome foi prenchido
+						if (  txtNomeTecnico.getText() == null || txtNomeTecnico.getText().trim().length() == 0 ) {
+							JOptionPane.showMessageDialog(null, "Informe o nome do técnico.");
+							
+						} else {
+			                FrmPrincipal frmPrincipal= new FrmPrincipal();
+			                setVisible( false );
+			                
+			                getFrmOpcao().setVisible( false );
+			                
+			                frmPrincipal.setVisible( true );
+			                frmPrincipal.getFootline().setUsuario( txtNomeTecnico.getText() );
+			                frmPrincipal.processarCarregamentoApp( true );
+						}
+
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -90,21 +100,6 @@ public class FrmJogosSalvos extends JDialog {
 			}
 		}
 		
-		carregarJogosSalvos();
-	}
-	
-	private void carregarJogosSalvos() {
-		try {
-			List<String> arquivos= FootlineService.getInstance().listaArquivos();
-			for (String nomeArquivo : arquivos) {
-				modelo.addElement(nomeArquivo);
-			}
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public FrmOpcao getFrmOpcao() {
@@ -114,5 +109,4 @@ public class FrmJogosSalvos extends JDialog {
 	public void setFrmOpcao(FrmOpcao frmOpcao) {
 		this.frmOpcao = frmOpcao;
 	}
-	
 }

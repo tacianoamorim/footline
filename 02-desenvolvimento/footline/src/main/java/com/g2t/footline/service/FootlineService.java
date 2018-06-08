@@ -8,7 +8,10 @@ import java.util.List;
 
 import com.g2t.footline.dao.FootlineDAO;
 import com.g2t.footline.entity.Clube;
+import com.g2t.footline.entity.Escalacao;
 import com.g2t.footline.entity.Footline;
+import com.g2t.footline.entity.Jogador;
+import com.g2t.footline.entity.Partida;
 import com.g2t.footline.entity.Rodada;
 
 public class FootlineService {
@@ -26,14 +29,35 @@ public class FootlineService {
 		return uniqueInstance;
 	}
 	
+	/**
+	 * Salva os dados do jogo
+	 * 
+	 * @param String nomeArquivo
+	 * @param Footline gerente
+	 * @throws IOException
+	 */
 	public void salvar(String nomeArquivo, Footline gerente) throws IOException {
 		gerenteDAO.salvar(nomeArquivo, gerente);
 	}
 
-	public Footline carregar(String nomeArquivo, Footline gerente) throws IOException, ClassNotFoundException {
-		return gerenteDAO.carregar(nomeArquivo, gerente);
+	/**
+	 * Carrega os dados de um jogo salvo
+	 * 
+	 * @param String nomeArquivo
+	 * @return Footline
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
+	public Footline carregar(String nomeArquivo) throws IOException, ClassNotFoundException {
+		return gerenteDAO.carregar(nomeArquivo);
 	}
 
+	/**
+	 * Retorna uma lista com os nomes dos arquivos salvos
+	 * @return List<String> 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public List<String> listaArquivos() throws IOException, ClassNotFoundException {
 		return gerenteDAO.listaArquivos();
 	}
@@ -42,13 +66,33 @@ public class FootlineService {
 	 * Inializa o jogo carregando os dados dos clubes armazenado no arquivos .foot,
 	 * 	realizando os sorteios e as demais operacoes.
 	 * 
-	 * @param gerente - atualiza as informacoes do jogo
+	 * @param Footline footline
 	 */
-	public List<Rodada> inicializarJogo(Footline footline) {
+	public void inicializarJogo(Footline footline) {
 		
 		// Carrega a lista de clubes
 		List<Clube> clubes= ClubeService.getInstance().buscarClubes();
 
+		// Gerar dados jogador
+		for (Clube clube : clubes) {
+			for (Jogador jogador : clube.getListaGoleiro()) {
+				JogadorService.getInstance().gerarDadosComplementares(
+						clube.getNivel(), jogador);
+			}
+			for (Jogador jogador : clube.getListaDefesa()) {
+				JogadorService.getInstance().gerarDadosComplementares(
+						clube.getNivel(), jogador);
+			}
+			for (Jogador jogador : clube.getListaMeioCampo()) {
+				JogadorService.getInstance().gerarDadosComplementares(
+						clube.getNivel(), jogador);
+			}			
+			for (Jogador jogador : clube.getListaAtaque()) {
+				JogadorService.getInstance().gerarDadosComplementares(
+						clube.getNivel(), jogador);
+			}
+		}
+		
 		// Sorteia o clube que sera gerenciado
 		Clube clubeGerenciado= ClubeService.getInstance().sorteioClube( clubes );
 		
@@ -57,12 +101,12 @@ public class FootlineService {
 		footline.setClubeGerenciado( clubeGerenciado );
 		
 		// Criar as rodadas 
-		return gerarRodadas( clubes );
+		footline.setRodadas( gerarRodadas( clubes ) );
 	}
 
 	/**
 	 * Realiza o sorteios das partidas nas rodadas
-	 * @param clubes
+	 * @param List<Clube> clubes
 	 */
 	private List<Rodada> gerarRodadas(List<Clube> clubes) {
 		// Criar a rodadas
@@ -77,7 +121,13 @@ public class FootlineService {
 			rodada.setNumero( idx );
 			rodada.setData( dataRodada );
 			rodadas.add( rodada );
-			dataRodada.add(Calendar.DATE, 8);
+
+			// Nova data
+			Calendar novaDataRodada= new GregorianCalendar();
+			novaDataRodada.setTime( dataRodada.getTime() );
+			
+			novaDataRodada.add(Calendar.DATE, 8);
+			dataRodada= novaDataRodada;
 		}
 
 		sortearClubesRodadas(rodadas, clubes);
@@ -85,8 +135,31 @@ public class FootlineService {
 		return rodadas;
 	}
 
+	/**
+	 * Realiza o sorteio dos clubes nas rodadas
+	 * 
+	 * @param List<Rodada> rodadas
+	 * @param List<Clube> clubes
+	 */
 	private void sortearClubesRodadas(List<Rodada> rodadas, List<Clube> clubes) {
 		// TODO: 003 - Sortear os times nas rodadas
-	
+		for (Rodada rodada : rodadas) {
+			List<Partida> partidas= new ArrayList<Partida>();
+			for (Clube clubeMandante : clubes) {
+				Partida partida= new Partida();
+				
+				Escalacao escolacaoMandante= new Escalacao();
+				escolacaoMandante.setClube(clubeMandante);
+				partida.setMandante(escolacaoMandante);
+				for (Clube clubeVisitante : clubes) {
+					Escalacao escolacaoVisitante= new Escalacao();
+					escolacaoVisitante.setClube(clubeVisitante);
+					partida.setVisitante(escolacaoVisitante);
+				}
+				partidas.add( partida );
+			}
+			rodada.setPartidas(partidas);
+		}
 	}
+		
 }

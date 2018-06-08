@@ -14,6 +14,13 @@ import com.g2t.footline.util.Constantes;
 
 public class FootlineDAO {
 
+	/**
+	 * Salva os dados do jogo
+	 * 
+	 * @param String nomeArquivo
+	 * @param Footline gerente
+	 * @throws IOException
+	 */
 	public void salvar(String nomeArquivo, Footline gerente) throws IOException {
 		System.out.println(Constantes.PATH_APP + " / " + nomeArquivo + ".fl");
 		File file = new File(System.getProperty("java.io.tmpdir"), nomeArquivo + ".fl");
@@ -24,8 +31,16 @@ public class FootlineDAO {
 		fos.close();
 	}
 
+	/**
+	 * Carrega os dados de um jogo salvo
+	 * 
+	 * @param String nomeArquivo
+	 * @return Footline
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	@SuppressWarnings("resource")
-	public Footline carregar(String nomeArquivo, Footline gerente) throws IOException, ClassNotFoundException {
+	public Footline carregar(String nomeArquivo) throws IOException, ClassNotFoundException {
 		File file = new File(Constantes.PATH_APP, nomeArquivo + ".fl");
 		FileInputStream fis = new FileInputStream(file);
 		ObjectInputStream ois = new ObjectInputStream(fis);
@@ -33,6 +48,12 @@ public class FootlineDAO {
 		return result;
 	}
 
+	/**
+	 * Retorna uma lista com os nomes dos arquivos salvos
+	 * @return List<String> 
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public List<String> listaArquivos() throws IOException, ClassNotFoundException {
 		List<String> retorno = new ArrayList<String>();
 		File file = new File(Constantes.PATH_APP);

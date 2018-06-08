@@ -15,6 +15,11 @@ public class ClubeDAO {
 	private static int idxClube;
 	private static int idxJogador;
 	
+	/**
+	 * Realiza o carregamento dos arquivos referentes aos clubes
+	 * 
+	 * @return List<Clube> 
+	 */
 	public List<Clube> buscarClubes() throws ClassNotFoundException, IOException {
 		return listaArquivos();
 	} 
@@ -62,6 +67,7 @@ public class ClubeDAO {
 		   
 		   switch (idx) {
 			case 'T': //idx,Nome,Acronomo,Nivel,Tecnico,Estadio,capacidade
+				clube.setId(++idxClube);
 				clube.setNome( arrayLinha[1] );
 				clube.setAcronomo( arrayLinha[2] );
 				clube.setNivel( Integer.valueOf(arrayLinha[3]) );				
@@ -116,7 +122,5 @@ public class ClubeDAO {
 		
 		return clube;
 	}
-	
-	
 
 }

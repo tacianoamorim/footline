@@ -13,6 +13,7 @@ public class Footline implements Serializable {
 	private String usuario;
 	private Clube clubeGerenciado;
 	private List<Rodada> rodadas;
+	private String nomeJogoSalvo;
 	
 	public String getUsuario() {
 		return usuario;
@@ -33,6 +34,13 @@ public class Footline implements Serializable {
 	}
 	public void setRodadas(List<Rodada> rodadas) {
 		this.rodadas = rodadas;
+	}
+	
+	public String getNomeJogoSalvo() {
+		return nomeJogoSalvo;
+	}
+	public void setNomeJogoSalvo(String nomeJogoSalvo) {
+		this.nomeJogoSalvo = nomeJogoSalvo;
 	}
 
 }

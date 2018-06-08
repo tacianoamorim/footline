@@ -1,4 +1,4 @@
-package com.g2t.footline.view;
+package outro;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;

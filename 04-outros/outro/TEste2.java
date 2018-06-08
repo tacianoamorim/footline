@@ -27,6 +27,7 @@ public class TEste2 {
 	}
 	public static void tabela(String[] clube){
 		for (int i=0; i<20; i++){
+			System.out.println("Rodada " + i);
 			for(int j=0; j<20; j++){
 				if (i!=j){
 					System.out.print(clube[i]);
@@ -34,6 +35,7 @@ public class TEste2 {
 					System.out.println(clube[j]);
 				}
 			}
+			System.out.println();
 		}
 	}
 }

@@ -1,15 +1,16 @@
 package com.g2t.footline.view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import java.awt.Color;
 
 /**
  * @author Taciano
@@ -45,39 +46,38 @@ public class FrmOpcao extends javax.swing.JFrame {
 		panel.setBackground(new Color(0, 128, 128));
 		panel.setLayout(null);
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(7)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 551, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup().addGap(7)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(7)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 586, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(7)
+					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
 		
 		JButton btnNovo = new JButton();
 		btnNovo = new javax.swing.JButton();
-		btnNovo.setBounds(207, 65, 139, 29);
+		btnNovo.setBounds(429, 11, 147, 90);
 		btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNovo.setIcon(null);
+		btnNovo.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
 		btnNovo.setText("Novo jogo");
 		btnNovo.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				
-				// Solicita o nome do tecnico
-				String nomeTecnico= JOptionPane.showInputDialog(null, "Informe o nome do técnico.", 
-						"Técnico", JOptionPane.INFORMATION_MESSAGE);
-				
-                FrmPrincipal frmPrincipal= new FrmPrincipal();
-                setVisible( false );
-                frmPrincipal.setVisible( true );
-                frmPrincipal.getFootline().setUsuario( nomeTecnico );
-                frmPrincipal.processarCarregamentoApp( true );
-                
+				FrmJogoNovo app= new FrmJogoNovo();
+				app.setFrmOpcao( getFrmOpcao() );
+                app.setVisible(true);				
 			}
 		});
 		panel.add(btnNovo);
 		
 		JButton btnJogosSalvos = new JButton();
+		btnJogosSalvos.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
 		btnJogosSalvos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrmJogosSalvos app= new FrmJogosSalvos();
@@ -87,10 +87,11 @@ public class FrmOpcao extends javax.swing.JFrame {
 		});
 		btnJogosSalvos.setText("Jogos salvos");
 		btnJogosSalvos.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnJogosSalvos.setBounds(207, 133, 139, 29);
+		btnJogosSalvos.setBounds(429, 112, 147, 90);
 		panel.add(btnJogosSalvos);
 		
 		JButton btnSobre = new JButton();
+		btnSobre.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
 		btnSobre.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrmSobre frmSobre= new FrmSobre();
@@ -99,10 +100,11 @@ public class FrmOpcao extends javax.swing.JFrame {
 		});
 		btnSobre.setText("Sobre");
 		btnSobre.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSobre.setBounds(207, 199, 139, 29);
+		btnSobre.setBounds(429, 213, 147, 90);
 		panel.add(btnSobre);
 		
 		JButton btnSair = new JButton();
+		btnSair.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Error.gif")));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -110,8 +112,22 @@ public class FrmOpcao extends javax.swing.JFrame {
 		});
 		btnSair.setText("Sair");
 		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSair.setBounds(207, 267, 139, 29);
+		btnSair.setBounds(429, 314, 147, 90);
 		panel.add(btnSair);
+		
+		JLabel lblFootline = new JLabel("Footline");
+		lblFootline.setForeground(Color.WHITE);
+		lblFootline.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 60));
+		lblFootline.setBounds(10, 6, 274, 65);
+		panel.add(lblFootline);
+		
+		JLabel lblImgArruda = new JLabel("");
+		String strPath = FrmPrincipal.class.getResource("").getPath();
+		lblImgArruda.setIcon(new ImageIcon(strPath+ "arruda.jpg"));
+		
+		//lblImgArruda.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
+		lblImgArruda.setBounds(0, 11, 586, 427);
+		panel.add(lblImgArruda);
 		getContentPane().setLayout(groupLayout);
 
 		pack();

@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Taciano
+ *
+ */
 public class Clube extends BaseEntity implements Serializable {
 
 	/**
@@ -11,7 +15,6 @@ public class Clube extends BaseEntity implements Serializable {
 	 */
 	private static final long serialVersionUID = 4420078087855186814L;
 
-	private int id;
 	private String acronomo;
 	private String tecnico;
 	private String nomeEstadio;
@@ -22,13 +25,7 @@ public class Clube extends BaseEntity implements Serializable {
 	private List<Jogador> listaDefesa = new ArrayList<Jogador>();
 	private List<Jogador> listaMeioCampo = new ArrayList<Jogador>();
 	private List<Jogador> listaAtaque = new ArrayList<Jogador>();
-		
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	private double valorCaixa;
 	
 	public String getAcronomo() {
 		return acronomo;
@@ -99,5 +96,18 @@ public class Clube extends BaseEntity implements Serializable {
 	public void setListaAtaque(List<Jogador> listaAtaque) {
 		this.listaAtaque = listaAtaque;
 	}
-
+	
+	public double getValorCaixa() {
+		return valorCaixa;
+	}
+	public void setValorCaixa(double valorCaixa) {
+		this.valorCaixa = valorCaixa;
+	}
+	
+	@Override
+	public String toString() {
+		return "Clube [id=" + getId() + ", nome=" + getNome() + ", acronomo=" + acronomo + ", tecnico=" + tecnico + ", nomeEstadio=" + nomeEstadio
+				+ ", nomeArquivo=" + nomeArquivo + ", nivel=" + nivel + ", valorCaixa=" + valorCaixa + "]";
+	}
+	
 }

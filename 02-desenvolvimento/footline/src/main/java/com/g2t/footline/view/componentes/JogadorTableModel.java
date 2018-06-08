@@ -49,17 +49,24 @@ public class JogadorTableModel extends AbstractTableModel {
 	public void setValueAt(Jogador aValue, int rowIndex) {
 		Jogador jogador = jogadores.get(rowIndex);
 		
-		// TODO: 001 - carregar os demais campos valor do passe, gols, cartao amarelo e vermelho
-
+		//"P", "Nome", "Nível", "Salário", "Passe", "Gols", "CA", "CV" 
 		jogador.setPosicao( aValue.getPosicao() );
 		jogador.setNome(aValue.getNome());
 		jogador.setNivel(aValue.getNivel());
 		jogador.setSalario(aValue.getSalario());
-
+		jogador.setValorPasse(aValue.getValorPasse());
+		jogador.setQuantidadeGols(aValue.getQuantidadeGols());
+		jogador.setCartaoAmarelo(aValue.getCartaoAmarelo());
+		jogador.setCartaoVermelho(aValue.isCartaoVermelho());
+		
 		fireTableCellUpdated(rowIndex, 0);
 		fireTableCellUpdated(rowIndex, 1);
 		fireTableCellUpdated(rowIndex, 2);
 		fireTableCellUpdated(rowIndex, 3);
+		fireTableCellUpdated(rowIndex, 4);
+		fireTableCellUpdated(rowIndex, 5);
+		fireTableCellUpdated(rowIndex, 6);	
+		fireTableCellUpdated(rowIndex, 7);
 	}
 
 	@Override
@@ -75,8 +82,15 @@ public class JogadorTableModel extends AbstractTableModel {
 			jogador.setNivel( Integer.parseInt(aValue.toString()) );
 		case 3:
 			jogador.setSalario( Float.parseFloat(aValue.toString()) );
+		case 4:
+			jogador.setValorPasse( Double.parseDouble(aValue.toString()) );
+		case 5:
+			jogador.setQuantidadeGols( Integer.parseInt( aValue.toString()) );
+		case 6:
+			jogador.setCartaoAmarelo( Integer.parseInt( aValue.toString()) );
+		case 7:
+			jogador.setCartaoVermelho( Boolean.parseBoolean( aValue.toString()) );
 			
-			// TODO: 001 - carregar os demais campos valor do passe, gols, cartao amarelo e vermelho			
 		default:
 			System.err.println("indice da coluna invalido");
 		}
@@ -98,12 +112,22 @@ public class JogadorTableModel extends AbstractTableModel {
 			break;
 		case 3:
 			valueObject = String.valueOf( jogadorSelecionado.getSalario() );
+			break;	
+		case 4:
+			valueObject = String.valueOf( jogadorSelecionado.getValorPasse() );
+			break;
+		case 5:
+			valueObject = String.valueOf( jogadorSelecionado.getQuantidadeGols() );
+			break;
+		case 6:
+			valueObject = String.valueOf( jogadorSelecionado.getCartaoAmarelo() );
+			break;
+		case 7:
+			valueObject = String.valueOf( jogadorSelecionado.isCartaoVermelho() );
 			break;			
-			// TODO: 001 - carregar os demais campos valor do passe, gols, cartao amarelo e vermelho	
 		default:
 			System.err.println("indice invalido para propriedade do bean Jogador.class");
 		}
-
 		return valueObject;
 	}
 
