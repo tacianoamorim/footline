@@ -106,7 +106,11 @@ public class FootlineService {
 
 	/**
 	 * Realiza o sorteios das partidas nas rodadas
+<<<<<<< HEAD
 	 * @param List<Clube> clubes
+=======
+	 * @param clubes
+>>>>>>> 34b380e385e32f1cf4ed49de54d6f22b268779bf
 	 */
 	private List<Rodada> gerarRodadas(List<Clube> clubes) {
 		// Criar a rodadas
@@ -161,5 +165,4 @@ public class FootlineService {
 			rodada.setPartidas(partidas);
 		}
 	}
-		
 }

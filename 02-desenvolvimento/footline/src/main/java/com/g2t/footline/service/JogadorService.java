@@ -3,7 +3,6 @@ package com.g2t.footline.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.g2t.footline.entity.Clube;
 import com.g2t.footline.entity.Footline;
 import com.g2t.footline.entity.Jogador;
 

@@ -26,7 +26,7 @@ public class Clube extends BaseEntity implements Serializable {
 	private List<Jogador> listaMeioCampo = new ArrayList<Jogador>();
 	private List<Jogador> listaAtaque = new ArrayList<Jogador>();
 	private double valorCaixa;
-	
+		
 	public String getAcronomo() {
 		return acronomo;
 	}
