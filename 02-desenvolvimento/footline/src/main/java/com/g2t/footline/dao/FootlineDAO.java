@@ -22,8 +22,10 @@ public class FootlineDAO {
 	 * @throws IOException
 	 */
 	public void salvar(String nomeArquivo, Footline gerente) throws IOException {
-		System.out.println(Constantes.PATH_APP + " / " + nomeArquivo + ".fl");
-		File file = new File(System.getProperty("java.io.tmpdir"), nomeArquivo + ".fl");
+		System.out.println(Constantes.PATH_APP + " / " 
+				+ nomeArquivo + Constantes.EXTENSAO_ARQUIVO);
+		File file = new File(Constantes.PATH_APP, 
+				nomeArquivo + Constantes.EXTENSAO_ARQUIVO);
 		FileOutputStream fos = new FileOutputStream(file);
 		ObjectOutputStream oos = new ObjectOutputStream(fos);
 		oos.writeObject(gerente);
@@ -41,7 +43,8 @@ public class FootlineDAO {
 	 */
 	@SuppressWarnings("resource")
 	public Footline carregar(String nomeArquivo) throws IOException, ClassNotFoundException {
-		File file = new File(Constantes.PATH_APP, nomeArquivo + ".fl");
+		File file = new File(Constantes.PATH_APP, 
+				nomeArquivo + Constantes.EXTENSAO_ARQUIVO);
 		FileInputStream fis = new FileInputStream(file);
 		ObjectInputStream ois = new ObjectInputStream(fis);
 		Footline result = (Footline) ois.readObject();
