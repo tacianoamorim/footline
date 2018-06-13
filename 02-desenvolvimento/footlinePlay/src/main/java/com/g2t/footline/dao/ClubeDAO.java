@@ -7,14 +7,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.g2t.footline.entity.Clube;
-import com.g2t.footline.entity.Jogador;
-import com.g2t.footline.entity.Posicao;
+import com.g2t.footline.entisade.Clube;
+import com.g2t.footline.entisade.Jogador;
+import com.g2t.footline.entisade.Posicao;
+import com.g2t.footline.entisade.Tecnico;
 
 public class ClubeDAO {
 	
 	private static int idxClube;
 	private static int idxJogador;
+	public static int idxTecnico;
 	
 	/**
 	 * Realiza o carregamento dos arquivos referentes aos clubes
@@ -68,8 +70,11 @@ public class ClubeDAO {
 				clube.setId(++idxClube);
 				clube.setNome( arrayLinha[1] );
 				clube.setAcronomo( arrayLinha[2] );
-				clube.setNivel( Integer.valueOf(arrayLinha[3]) );				
-				clube.setTecnico( arrayLinha[4] );				
+				clube.setNivel( Integer.valueOf(arrayLinha[3]) );	
+				
+				Tecnico tecnico= new Tecnico(++idxTecnico, arrayLinha[4]);
+				clube.setTecnico( tecnico );	
+				
 				clube.setNomeEstadio( arrayLinha[5] );
 				clube.setCapacidade( Integer.valueOf(arrayLinha[6]) );	
 				clube.setNomeArquivo( nomeArquivo );

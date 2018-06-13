@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Random;
 
 import com.g2t.footline.dao.ClubeDAO;
-import com.g2t.footline.entity.Clube;
-import com.g2t.footline.entity.Footline;
+import com.g2t.footline.entisade.Clube;
+import com.g2t.footline.entisade.Footline;
 
 public class ClubeService {
 

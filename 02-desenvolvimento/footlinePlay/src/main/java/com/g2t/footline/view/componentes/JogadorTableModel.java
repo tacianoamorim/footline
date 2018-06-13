@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
-import com.g2t.footline.entity.Jogador;
-import com.g2t.footline.entity.Posicao;
+import com.g2t.footline.entisade.Jogador;
+import com.g2t.footline.entisade.Posicao;
 
 public class JogadorTableModel extends AbstractTableModel {
 

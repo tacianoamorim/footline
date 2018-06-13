@@ -11,7 +11,6 @@ public class Jogador extends Pessoa implements Serializable {
 	
 	private Posicao posicao;
 	private float salario;
-	private int nivel;
 	private int cartaoAmarelo;
 	private boolean cartaoVermelho;
 	private int rodadasLesionado;
@@ -39,13 +38,6 @@ public class Jogador extends Pessoa implements Serializable {
 	}
 	public void setSalario(float salario) {
 		this.salario = salario;
-	}
-	
-	public int getNivel() {
-		return nivel;
-	}
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
 	}
 	
 	public int getCartaoAmarelo() {
@@ -85,7 +77,7 @@ public class Jogador extends Pessoa implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Jogador [id=" + getId() + ", nome=" + getNome() + ", posicao=" + posicao + ", salario=" + salario + ", nivel=" + nivel
+		return "Jogador [id=" + getId() + ", nome=" + getNome() + ", posicao=" + posicao + ", salario=" + salario + ", nivel=" + getNivel()
 				+ ", cartaoAmarelo=" + cartaoAmarelo + ", cartaoVermelho=" + cartaoVermelho + ", rodadasLesionado="
 				+ rodadasLesionado + ", valorPasse=" + valorPasse + ", quantidadeGols=" + quantidadeGols + "]";
 	}

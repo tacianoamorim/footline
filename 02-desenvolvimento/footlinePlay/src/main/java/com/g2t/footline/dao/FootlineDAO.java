@@ -9,7 +9,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.g2t.footline.entity.Footline;
+import com.g2t.footline.entisade.Footline;
 import com.g2t.footline.util.Constantes;
 
 public class FootlineDAO {

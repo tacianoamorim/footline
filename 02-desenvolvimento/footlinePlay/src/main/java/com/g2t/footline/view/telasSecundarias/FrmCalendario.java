@@ -18,9 +18,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
-import com.g2t.footline.entity.Footline;
-import com.g2t.footline.entity.Partida;
-import com.g2t.footline.entity.Rodada;
+import com.g2t.footline.entisade.Footline;
+import com.g2t.footline.entisade.Partida;
+import com.g2t.footline.entisade.Rodada;
 
 public class FrmCalendario extends JDialog {
 

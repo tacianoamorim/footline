@@ -11,6 +11,7 @@ public class Pessoa implements Serializable {
 
 	private int id;
 	private String nome;
+	private int nivel;
 
 	public Pessoa() {
 		super();
@@ -34,6 +35,13 @@ public class Pessoa implements Serializable {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public int getNivel() {
+		return nivel;
+	}
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
 	}
 
 }

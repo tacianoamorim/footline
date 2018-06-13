@@ -6,13 +6,15 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import com.g2t.footline.dao.ClubeDAO;
 import com.g2t.footline.dao.FootlineDAO;
-import com.g2t.footline.entity.Clube;
-import com.g2t.footline.entity.Escalacao;
-import com.g2t.footline.entity.Footline;
-import com.g2t.footline.entity.Jogador;
-import com.g2t.footline.entity.Partida;
-import com.g2t.footline.entity.Rodada;
+import com.g2t.footline.entisade.Clube;
+import com.g2t.footline.entisade.Escalacao;
+import com.g2t.footline.entisade.Footline;
+import com.g2t.footline.entisade.Jogador;
+import com.g2t.footline.entisade.Partida;
+import com.g2t.footline.entisade.Rodada;
+import com.g2t.footline.entisade.Tecnico;
 
 public class FootlineService {
 
@@ -85,7 +87,9 @@ public class FootlineService {
 		Clube clubeGerenciado= ClubeService.getInstance().sorteioClube( clubes );
 		
 		// Atualiza o nome do tecnico
-		clubeGerenciado.setTecnico( footline.getUsuario() );
+		Tecnico tecnico= new Tecnico(++ClubeDAO.idxTecnico, 
+										footline.getUsuario());
+		clubeGerenciado.setTecnico( tecnico );
 		footline.setClubeGerenciado( clubeGerenciado );
 		
 		// Criar as rodadas 
@@ -134,20 +138,19 @@ public class FootlineService {
 	 * @param List<Clube> clubes
 	 */
 	private void sortearClubesRodadas(List<Rodada> rodadas, List<Clube> clubes) {
-		// TODO: 003 - Sortear os times nas rodadas
 		for (Rodada rodada : rodadas) {
 			List<Partida> partidas= new ArrayList<Partida>();
 			for (Clube clubeMandante : clubes) {
-				Partida partida= new Partida();
 				
 				Escalacao escolacaoMandante= new Escalacao();
 				escolacaoMandante.setClube(clubeMandante);
-				partida.setMandante(escolacaoMandante);
+				
+				Escalacao escolacaoVisitante= new Escalacao();
 				for (Clube clubeVisitante : clubes) {
-					Escalacao escolacaoVisitante= new Escalacao();
 					escolacaoVisitante.setClube(clubeVisitante);
-					partida.setVisitante(escolacaoVisitante);
 				}
+				
+				Partida partida= new Partida(escolacaoMandante, escolacaoVisitante);
 				partidas.add( partida );
 			}
 			rodada.setPartidas(partidas);

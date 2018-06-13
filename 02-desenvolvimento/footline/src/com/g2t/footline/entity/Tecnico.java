@@ -15,5 +15,10 @@ public class Tecnico extends Pessoa {
 		super(id, nome);
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Tecnico [getId()=" + getId() + ", getNome()=" + getNome() + 
+				", getNivel()=" + getNivel() + "]";
+	}
+
 }
