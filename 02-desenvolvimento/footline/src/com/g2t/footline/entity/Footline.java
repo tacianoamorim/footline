@@ -1,19 +1,29 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class Footline implements Serializable {
-
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = 1386193044234485161L;
+/**
+ * @author tlamo
+ *
+ */
+public class Footline {
 
 	private String usuario;
 	private Clube clubeGerenciado;
 	private List<Rodada> rodadas;
 	private String nomeJogoSalvo;
+	
+	public Footline() {
+		super();
+	}
+
+	public Footline(String usuario, Clube clubeGerenciado, List<Rodada> rodadas, String nomeJogoSalvo) {
+		super();
+		this.usuario = usuario;
+		this.clubeGerenciado = clubeGerenciado;
+		this.rodadas = rodadas;
+		this.nomeJogoSalvo = nomeJogoSalvo;
+	}
 	
 	public String getUsuario() {
 		return usuario;
@@ -43,4 +53,10 @@ public class Footline implements Serializable {
 		this.nomeJogoSalvo = nomeJogoSalvo;
 	}
 
+	@Override
+	public String toString() {
+		return "Footline [usuario=" + usuario + ", clubeGerenciado=" + clubeGerenciado + ", rodadas=" + rodadas
+				+ ", nomeJogoSalvo=" + nomeJogoSalvo + "]";
+	}
+	
 }

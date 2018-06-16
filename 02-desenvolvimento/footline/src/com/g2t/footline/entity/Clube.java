@@ -1,19 +1,9 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Taciano
- *
- */
-public class Clube implements Serializable {
-
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = 4420078087855186814L;
+public class Clube  {
 
 	private int id;
 	private String nome;

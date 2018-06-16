@@ -1,18 +1,19 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Escalacao implements Serializable {
-
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = -3007054268103393445L;
+public class Escalacao{
+	
+	static final int _4_4_2	= 1;
+	static final int _4_2_4	= 2;
+	static final int _4_5_1	= 3;
+	static final int _4_3_3	= 4;	
+	static final int _5_4_1	= 5;	
+	static final int _5_3_2	= 6;
 
 	private Clube clube;
-	private Tatica tatica;
+	private int tatica;
 
 	// Titular
 	private List<Jogador> titulares = new ArrayList<Jogador>();
@@ -25,7 +26,7 @@ public class Escalacao implements Serializable {
 	private List<Jogador> listaCartaoVermelho = new ArrayList<Jogador>();
 	private List<Jogador> listaLesionado = new ArrayList<Jogador>();
 	
-	public Escalacao(Clube clube, Tatica tatica, List<Jogador> titulares, List<Jogador> reservas) {
+	public Escalacao(Clube clube, int tatica, List<Jogador> titulares, List<Jogador> reservas) {
 		super();
 		this.clube = clube;
 		this.tatica = tatica;
@@ -41,10 +42,10 @@ public class Escalacao implements Serializable {
 		this.clube = clube;
 	}
 	
-	public Tatica getTatica() {
+	public int getTatica() {
 		return tatica;
 	}
-	public void setTatica(Tatica tatica) {
+	public void setTatica(int tatica) {
 		this.tatica = tatica;
 	}
 	
@@ -81,6 +82,14 @@ public class Escalacao implements Serializable {
 	}
 	public void setListaLesionado(List<Jogador> listaLesionado) {
 		this.listaLesionado = listaLesionado;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Escalacao [clube=" + clube + ", tatica=" + tatica + ", titulares=" + titulares + ", reservas="
+				+ reservas + ", listaCartaoAmarelo=" + listaCartaoAmarelo + ", listaCartaoVermelho="
+				+ listaCartaoVermelho + ", listaLesionado=" + listaLesionado + "]";
 	}
 
 }

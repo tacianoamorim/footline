@@ -2,11 +2,6 @@ package com.g2t.footline.entity;
 
 public class Tecnico extends Pessoa {
 
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = 8007507090130395905L;
-
 	public Tecnico() {
 		super();
 	}

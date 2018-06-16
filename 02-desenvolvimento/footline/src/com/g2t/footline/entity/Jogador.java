@@ -1,15 +1,13 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
-
-public class Jogador extends Pessoa implements Serializable {
-
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = -3846494530435558253L;
+public class Jogador extends Pessoa {
 	
-	private Posicao posicao;
+	static final int GOLEIRO	= 1;
+	static final int DEFEZA		= 2;
+	static final int MEIO_CAMPO	= 3;
+	static final int ATAQUE		= 4;
+	
+	private int posicao;
 	private float salario;
 	private int cartaoAmarelo;
 	private boolean cartaoVermelho;
@@ -21,15 +19,27 @@ public class Jogador extends Pessoa implements Serializable {
 		super();
 	}
 	
-	public Jogador(int id, String nome, Posicao posicao) {
+	public Jogador(int id, String nome, int posicao) {
 		super(id, nome);
 		this.posicao = posicao;
 	}
+	
+	public Jogador(int id, String nome, int posicao, float salario, int cartaoAmarelo, boolean cartaoVermelho,
+			int rodadasLesionado, double valorPasse, int quantidadeGols) {
+		super(id, nome);
+		this.posicao = posicao;
+		this.salario = salario;
+		this.cartaoAmarelo = cartaoAmarelo;
+		this.cartaoVermelho = cartaoVermelho;
+		this.rodadasLesionado = rodadasLesionado;
+		this.valorPasse = valorPasse;
+		this.quantidadeGols = quantidadeGols;
+	}
 
-	public Posicao getPosicao() {
+	public int getPosicao() {
 		return posicao;
 	}
-	public void setPosicao(Posicao posicao) {
+	public void setPosicao(int posicao) {
 		this.posicao = posicao;
 	}
 	

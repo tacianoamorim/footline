@@ -1,13 +1,6 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
-
-public class Pessoa implements Serializable {
-
-	/** 
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = 3351665897713126735L;
+public class Pessoa {
 
 	private int id;
 	private String nome;

@@ -1,229 +1,302 @@
-----------------------------------------------------------------------------
-https://brasil.elpais.com/brasil/2018/06/07/deportes/1528387009_581888.html
-----------------------------------------------------------------------------
+http://app.globoesporte.globo.com/futebol/copa-do-mundo/guia/avaliacao-dos-elencos-copa-2018/#servia
 
-AUSTRÁLIA
-Lista com os 23 jogadores
 
-Goleiros: Brad Jones - Feyenoord (Holanda), Mathew Ryan - Brighton & Hove Albion (Inglaterra) e Danny Vukovic - Genk (Bélgica);
-Defensores: Aziz Behich - Bursaspor (Turquia), Milos Degenek - Yokohama Marinos (Japão), Matthew Jurman - Suwon Samsung Bluewings FC(Coréia do Sul), James Meredith - Millwall FC (Inglaterra), Josh Risdon - Western Sydney Wanderers (Austrália) e Trent Sainsbury - Grasshopper (Bélgica);
-Meio-campistas: Jackson Irvine - Hull City (Inglaterra), Mile Jedinak - Aston Villa (Inglaterra), Robbie Kruse - Bochum (Alemanha), Massimo Luongo - Queens Park Rangers (Inglaterra), Mark Milligan - Al-Ahli Jeddah (Arábia Saudita), Aaron Mooy - Huddersfield Town (Inglaterra), Tom Rogic - Celtic FC (Escócia) e James Troisi - Melbourne Victory (Austrália);
-Atacantes: Daniel Arzani - Melbourne City FC (Austrália), Tim Cahill - Millwall FC (Inglaterra), Tomi Juric - FC Luzer (Suíça), Mathew Leckie - Hertha Berlim (Alemanha), Andrew Nabbout - Urawa Red Diamonds (Japão) e Dimi Petratos - Maccabi Haifa (Israel).
-COREIA DO SUL
-Lista com os 23 jogadores
+Portugal
+G,Rui Patrício,4
+G,Anthony Lopes,3
+G,Beto,2
+Z,Pepe,4
+Z,Bruno Alves,3
+Z,José Fonte,2
+Z,Rúben Dias,2
+L,Ricardo Pereira,4
+L,Cédric,3
+L,Mário Rui,2
+M,João Moutinho,4
+M,William Carvalho,4
+M,Adrien Silva,3
+M,Bernardo Silva,5
+M,Bruno Fernandes,4
+M,João Mário,3
+M,Gelson Martins,3
+M,Manuel Fernandes,2
+A,Cristiano Ronaldo,8
+A,André Silva,4
+A,Gonçalo Guedes,4
+A,Quaresma,4
 
-Goleiros: Kim Seung-gyu (Vissel Kobe), Kim Jin-hyeon (Cerezo Osaka), Cho Hyun-woo (Daegu FC)
-Defensores: Kim young-gwon (Guangzhou Evergrande), Jang Hyun-soo (FC Tokyo), Jung Seung-hyun (Sagan Tosu), Yun Yong-sun (Seongnam FC), Oh Ban-suk (Jeju United), Kim Min-woo (Sangju Sangmu), Park Joo-ho (Ulsan Hyundai), Hong Chul (Sangju Sangmu), Go Yo-han (FC Seoul), Lee Yong (Jeonbuk Hyundai Motors)
-Meio-campistas: Ki Sung-yueng (Swansea City), Jung Woo-young (Vissel Kobe), Ju Se-jong (Asan Mugunghwa FC), Koo Ja-cheol (FC Augsburg), Lee Jae-sung (Jeonbuk Hyundai Motors), Lee Seung-woo (Hellas Verona), Moon Seon-min (Incheon United)
-Atacantes: Kim Shin-wook (Jeonbuk Hyundai Motors), Son Heung-min (Tottenham Hotspur), Hwang Hee-chan (FC Red Bull Salzburg)
-CROÁCIA
-Lista final com 23 jogadores
-
-Goleiros: Subasic (Monaco), Kalinic (Gent) e Livakovic (Dínamo Zagreb);
-Defensores: Vedran Corluka (Lokomotiv Moscou), Vida (Besiktas), Strinić (Sampdoria), Lovren (Liverpool), Vrsaljko (Atletico de Madrid), Pivarić (Dynamo Kiev), Jedvaj (Bayer Leverkusen) e Caleta-Car (RB Salzburg);
-Meias: Modric e Kovacic (Real Madrid), Rakitic (Barcelona), Badelj (Fiorentina), Brozović (Internazionale), Filip Bradaric (Rijeka-CRO);
-Atacantes: Mandzukic (Juventus), Perisic (Internazionale), Kalinic (Milan), Kramaric (Hoffenheim), Pjaca (Schalke), Rebic (Eintracht Frankfurt).
-EGITO
-Lista final com 23 nomes
-
-Goleiros: Essam El-Hadary (Taawoun-ARA), Mohamed El-Shennawi e Sherif Ekramy (Al Ahly);
-Defensores: Ahmed Fathi, Saad Samir e Ayman Ashraf (Al Ahly), Ahmed Elmohamady (Aston Villa), Omar Gaber (Los Angeles FC), Mohamed Abdel-Shafi (Al Fateh-ARA), Ahmed Hegazi (West Bromwich), Ali Gabr (West Bromwich) e Mahmoud Hamdy (Zamalek);
-Meio-campistas: Shikabala (Al Raed-ARA), Abdallah El-Said (KuPS-FIN), Mohamed Elneny (Arsenal-ING), Tarek Hamed (Zamalek), Mahmoud Kahraba (Ittihad Jeddah-ARA), Mahmoud Hassan (Kasimpasa-TUR), Ramadan Sobhi (Stoke City-ING), Sam Morsy (Wigan-ING) e Amr Warda (Atromitos-GRE);
-Atacantes: Marwan Mohsen (Al Ahly), Mohamed Salah (Liverpool).
-ISLÂNDIA
-Lista dos 23 convocados
-
-Goleiros: Hannes Pór Halldórsson (Randers - Dinamarca), Frederik Schram (Roskilde - Dinamarca) e Rúnar Alex Rúnarsson (Nordsjaelland - Dinamarca);
-Defensores: Ari Freyr Skúlason (Lokeren - Bélgica), Hördur B. Magnússon (Bristol City), Hólmar Örn Eyjólfsson (Levski Sofia - Bulgária), Kári Árnason (Aerdeen - Escócia), Sverrir Ingi Ingason (Rostov - Rússia), Ragnar Sigurdsson (Rostov), Samúel K. Fridjónsson (Valerenga - Noruega) e Birkir Már Saevarsson (Valur - Islândia);
-Meias: Jóhann Berg Gudmundsson (Burnley), Arnór Ingvi Traustason (Mälmo - Suécia), Aron Einar Gunnarsson (Cardiff City), Ólafur Ingi Skúlason (Karabukspor - Turquia), Gylfi Sigurdsson (Everton), Emil Hallfredsson (Udinese) e Birkir Bjarnason (Aston Villa);
-Atacantes: Rúrik Gíslason (Sandhausen - Alemanha), Björn B. Sigurdarson (Rostov), Albert Gudmundsson (PSV), Alfred Finnbogason (Augsburg) e Jón Dadi Bödvarsson (Reading).
-JAPÃO
-Lista dos 23 convocados
-
-Goleiros: Eiji Kawashima (Metz-FRA), Masaaki Higashiguchi (Gamba Osaka) e Kosuke Nakamura (Kashiwa Reysol)
-Defensores: Yuto Nagatomo (Galatasaray-TUR), Tomoaki Makino (Urawa Red Diamonds), Maya Yoshida (Southampton-ING), Hiroki Sakai (Olympique de Marselle-FRA), Gotoku Sakai (Hamburgo-ALE), Gen Shoji (Kashima Antlers), Wataru Endo (Urawa Red Diamonds) e Naomichi Ueda (Kashima Antlers)
-Meio-campistas: Makoto Hasebe (Eintracht Frankfurt-ALE), Keisuke Honda (Pachuca-MEX), Takashi Inui (Eibar-ESP), Shinji Kagawa (Borussia Dortmund-ALE), Hotaru Yamaguchi (Cerezo Osaka), Genki Haraguchi (Herta Berlin-ALE), Takashi Usami (Augsburg-ALE) e Gaku Shibasaki (Getafe-ESP)
-Atacantes: Shinji Okazaki (Leicester City-ING), Yuya Osako (Köln-ALE), Yoshinori Muto (Mainz-ALE) e Takuma Asano (Stuttgart-ALE)
-POLÔNIA
-Lista final com 23 jogadores
-
-Goleiros: Bartosz Bialkowski (Ipswich Town), Lukasz Fabianski (Swansea City) e Wojciech Szczesny (Juventus);
-Defensores: Jan Bednarek (Southampton), Bartosz Bereszynski (Sampdoria), Thiago Cionek (SPAL), Kamil Glik (Monaco), Lukasz Piszczek (Borussia Dortmund), Artur Jedrzejczyk (Legia Varsóvia) e Michal Pazdan (Legia Varsóvia);
-Meio-campistas: Jakub Blaszczykowski (Wolfsburg), Jacek Góralski (Ludogorets), Kamil Grosicki (Hull City), Grzegorz Krychowiak (West Bromwich), Rafal Kurzawa (Górnik Zabrze), Karol Linetty (Sampdoria), Maciej Rybus (Lokomotiv Moscow), Piotr Zieliński (Napoli) e Slawomir Peszko (Legia Gdansk);
-Atacantes: Robert Lewandowski (Bayern de Munique), Dawid Kownacki (Sampdoria), Arkadiusz Milik (Napoli) e Lukasz Teodorczyk (Anderlecht).
-RÚSSIA
-Lista dos 23 convocados
-
-Goleiros: Akinfeev (CSKA Moscou), Vladimir Gabulov (Brugge) e Lunev (Zenit);
-Defensores: Granat e Kudryashov (Rubin Kazan), Kutepov (Spartak Moscou), Sergey Ignashevich (CSKA Moscou), Semenov (Terek Grozny), Smolnikov (Zenit) e Mário Fernandes (CSKA Moscou);
-Meio-campistas: Gazinsky (Kuban Krasnodar), Golovin e Dzagoev (CSKA Moscou), Erokhin, Zhirkov e Kuziyev (Zenit), Zobnin e Samedov (Spartak Moscou) e Cheryshev (Villarreal);
-Atacantes: Dzyuba (Arsenal Tula), Miranchuk (Lokomotiv Moscou), Smolov (Kuban Krasnodar), Chalov (CSKA Moscou).
-IRÃ
-Pré-lista com 24 jogadores
-
-Goleiros: Alireza Beiranvand (Persepolis), Rashid Mazaheri (Zob Ahan) e Amir Abedzadeh (Marítimo).
-Defensores: Ali Gholizadeh (Saipa), Majid Hosseini (Persepolis), Pejman Montazeri (Esteghal), Roozbeh Cheshmi (Esteghlal), Milad Mohammadi (Akhmat Grozny/RUS), Mohammad Khanzadeh (Padideh), Morteza Pouraliganji (Al Saad/QAT), Ramin Rezaeian (Ostende/BEL).
-Meias: Ehsan Hajsafi (Olympiacos), Karim Ansarifard (Olympiacos/GRE), Masoud Shojaei (AEK Atenas/GRE), Mehdi Torabi (Saipa), Omid Ebrahimi (Esteghlal) e Saeid Ezatolahi (Amkar Perm/RUS)
-Atacantes: Alireza Jahanbakhsh (AZ Alkmaar/HOL), Ashkan Dejageh (Nottingham/ING), Mehdi Taremi (Al-Gharafa/QAT), Reza Ghoochannejhad (Heerenveen/HOL), Saman Ghoddos (Ostersunds/SWE), Sardar Azmoun (Rubin Kazan/RUS) e Vahid Amiri (Persepolis).
-DINAMARCA
-Pré-lista com 35 atletas
-
-Goleiros: Schmeichel (Leicester), Ronnow (Brondby), Lössl (Huddersfield Town) e Jesper Hansen (Midtjland);
-Defensores: Kjaer (Sevilla), Bjelland (Brentford), Zanka Jorgensen (Huddersfield Town), Christensen (Chelsea), Larsen (Udinese), Durmisi (Betis), Vestergaard (Borussia Mönchengladbach), Boilesen e Ankersen (Copenhague), Dalsgaard (Brentford) e Knudsen (Ipswich);
-Meio-campistas: Eriksen (Tottenham), Delaney (Werder Bremen), Kvist (Copenhague), Schöne (Ajax), Lerager (Bordeaux), Jensen (Rosenborg), Hojbjerg (Southampton), Krohn-Dehli (Deportivo La Coruña), Wass (Celta de Vigo) e Jensen (Nordsjaelland);
-Atacantes: Jorgensen (Feyenoord), Cornelius (Atalanta), Bendtner (Rosenborg), Sisto (Celta de Vigo), Fischer e Skov (Copenhague), Leipzig (Poulsen), Braithwaite (Bordeaux), Dolberg (Ajax) e Zohore (Cardiff City).
-NIGÉRIA
-Pré-lista com 30 atletas
-
-Goleiros: Ikechukwu Ezenwa (Enyimba International - Nigéria), Daniel Akpeyi (Chippa United - África do Sul), Francis Uzoho (Deportivo La Coruña) e Dele Ajiboye (Warri Wolves - Nigéria);
-Defensores: William Ekong (Bursaspor), Leon Balogun (Mainz), Olaoluwa Aina (Hull City), Kenneth Omeruo (Kasimpasa), Bryan Idowu (Amkar Perm - Rússia), Chidozie Awaziem (Nantes), Abdullahi Shehu (Bursaspor), Elderson Echiejile (Cercle Brugge), Tyronne Ebuehi (Den Haag - Holanda) e Stephen Eze (Lokomotiv Plovdiv - Bulgária);
-Meio-campistas: John Obi Mikel (Tianjin Teda - China), Ogenyi Onazi (Trabzonspor - Turquia), John Ogu (Hapoel Beer Sheva - Israel), Wilfred Ndidi (Leicester - Inglaterra), Uche Agbo (Standard Liège - Bélgica), Oghenekaro Etebo (Las Palmas - Espanha), Joel Obi (Torino - Itália) e Mikel Agu (Bursaspor - Turquia);
-Atacantes: Odion Ighalo (CC Yatai - China), Ahmed Musa (CSKA Moscow - Rússia), Victor Moses (Chelsea - Inglaterra), Alex Iwobi (Arsenal - Inglaterra), Kelechi Iheanacho (Leicester - Inglaterra), Moses Simon (Gent - Bélgica), Junior Lokosa (Kano Pillars - Nigéria) e Simeon Nwankwo (Crotone - Itália).
-ARGENTINA
-Lista final com 23
-
-Goleiros: Romero (Manchester United), Caballero (Chelsea) e Franco Armani (River Plate);
-Defensores: ​Mercado (Sevilla), Ansaldi (Torino), Otamendi (Manchester City), Fazio (Roma), Marcos Rojo (Manchester United), Tagliafico (Ajax) e Acuña (Sporting);
-Meio-campistas: Mascherano (Hebei China Fortune), Salvio (Benfica), Biglia (Milan), Lo Celso (PSG), Banega (Sevilla), Lanzini (West Ham), Meza (Independiente) e Di María (PSG);
-Atacantes: Messi (Barcelona), Agüero (Manchester City), Higuaín (Juventus), Pavón (Boca) e Dybala (Juventus).
-MÉXICO
-Lista final com 23 nomes
-
-Goleiros: Guillermo Ochoa (Standard Liège), Alfredo Talavera (Toluca) e Jesús Corona (Cruz Azul).
-Defensores: Héctor Moreno (Real Sociedad), Carlos Salcedo (Eintracht Frankfurt), Hugo Ayala (Tigres), Diego Reyes (FC Porto), Miguel Layún (Sevilla), Jesús Gallardo (Pumas UNAM), Edson Álvarez (América). Rafael Márquez (Atlas);
-Meio-campistas: Héctor Herrera (Porto), Andrés Guardado (Real Betis), Giovani Dos Santos (LA Galaxy), Jonathan Dos Santos (LA Galaxy), Marco Fabián (Eintracht Frankfurt).
-Atacantes: Javier Hernández (West Ham), Raúl Jiménez (Benfica), Oribe Peralta (América), Hirving Lozano (PSV Eindhoven), Carlos Vela (Los Angeles FC), Jesús Corona (Porto) e Javier Aquino (Tigres).
 BRASIL
-Lista com 23 nomes
+G,Alisson,5
+G,Ederson,4
+G,Cássio,3
+Z,Thiago Silva,5
+Z,Pedro Geromel,3
+Z,Marquinhos,5
+Z,Miranda,5
+L,Fagner,3
+L,Danilo,3
+L,Marcelo,6
+L,Filipe Luís,4
+M,Casemiro,5
+M,Paulinho,5
+M,Fernandinho,4
+M,Willian,5
+M,Philippe Coutinho,5
+M,Fred,4
+M,Renato Augusto,4
+A,Neymar,6
+A,Gabriel Jesus,5
+A,Roberto Firmino,5
+A,Douglas Costa,4
+A,Taison,3
 
-Goleiros: Alisson - Roma (Itália), Cássio - Corinthians (Brasil) e Ederson - Manchester City (Inglaterra)
-Defensores: Marquinhos - PSG (França), Thiago Silva - PSG ( França), Geromel - Grêmio (Brasil), Miranda - Inter de Milão (Itália), Fágner - Corinthinas (Brasil), Danilo - Manchester City (Inglaterra), Marcelo - Real Madrid (Espanha) e Filipe Luis - Atlético de Madrid (Espanha);
-Meio-campistas: Casemiro - Real Madrid (Espanha), Fernandinho - Manchester City (Inglaterra), Fred - Shakhtar Donestk (Ucrânia), Paulinho - Barcelona (Espanha), Renato Augusto - Beijing Guoan (China), Willian - Chelsea (Inglaterra), Philippe Coutinho - Barcelona (Espanha)
-Atacantes: Douglas Costa - Juventus (Itália), Neymar - PSG (França), Taison - Shakhtar Donestk (Ucrânia), Gabriel Jesus - Manchester City (Inglaterra) e Roberto Firmino - Liverpool (Inglaterra)
-PANAMÁ
-Lista dos 23 convocados:
+França
+G,Lloris,4
+G,Aréola,3
+G,Mandanda,3
+Z,Varane,5
+Z,Rami,3
+Z,Pavard,3
+Z,Umtiti,5
+Z,Kimpembe,5
+Z,Lucas Hernández,4
+L,Sidibé,4
+L,Mendy,4
+M,Pogba,5
+M,Kanté,5
+M,Tolisso,5
+M,N'Zonzi,4
+M,Matuidi,4
+M,Dembélé,5
+M,Lemar,4
+M,Thauvin,4
+A,Griezmann,6
+A,Mbappé,6
+A,Giroud,4
+A,Fekir,4
 
-Goleiros: José Calderón (Chorrillo FC), Jaime Penedo (Dinamo Bucharest), Alex Rodríguez (San Francisco FC).
-Defensores: Felipe Baloy (CSD Municipal), Harold Cummings (San José Earthquakes), Éric Davis (DAC Dunajska Streda), Fidel Escobar (New York Red Bulls), Adolfo Machado (Houston Dynamo), Michael Murillo (New York Red Bulls), Luis Ovalle (CD Olimpia), Román Torres (Seattle Sounders SC).
-Meio-campistas: Édgar Bárcenas (Cafetaleros de Tapachula), Armando Cooper (Club Universidad de Chile), Aníbal Godoy (San José Earthquakes), Luis Rodríguez (KAA Gent), Gabriel Gómez (Bucaramanga), Valentín Pimentel (Plaza Amador), Ricardo Ávila (KAA Gent).
-Atacantes: Abdiel Arroyo (LD Alajuelense), Ismael Díaz (Deportivo La Coruña), Blas Pérez (CSD Municipal), Luis Tejada (Sports Boys), Gabriel Torres (CD Huachipato).
-COSTA RICA
-Lista com 23 jogadores
+Espanha
+G,De Gea,6
+G,Arrizabalaga,3
+G,Reina,3
+Z,Sergio Ramos,6
+Z,Piqué,5
+Z,Nacho Fernández,3
+L,Carvajal,4
+L,Azpilicueta,3
+L,Odriozola,3
+L,Jordi Alba,5
+L,Nacho Monreal,3
+M,Busquets,5
+M,Iniesta,6
+M,Thiago Alcântara,5
+M,Isco,5
+M,David Silva,5
+M,Saúl Ñíguez,4
+M,Asensio,4
+M,Koke,4
+A,Diego Costa,5
+A,Iago Aspas,4
+A,Rodrigo,4
+A,Lucas Vázquez,3
 
-Goleiros: Keylor Navas - Real Madrid (Espanha), Patrick Pemberton - LD Alajuelense(Costa Rica) e Leonel Moreira - CS Herediano (Costa Rica);
-Defensores: Cristian Gamboa - Celtic (Escócia), Ian Smith - Norrköping (Suécia), Ronald Matarita - New York City F.C (Estados Unidos), Bryan Oviedo - Sunderland (Inglaterra), Oscar Duarte - Oviedo (Espanha), Giancarlo González - Bologna (Itália), Francisco Calvo - Minnesota (Estados Unidos), Kendall Watson - Vancouver Whitecaps (Canadá) e Johnny Acosta - Águias Douradas (Colômbia);
-Meio-campistas: David Guzmán - Portland Timbers (Estados Unidos), Yeltsin Tejeda - FC Lausanne-Sport (Suíça), Celso Borges - La Coruña (Espanha), Randall Azofeifa - Herediano (Costa Rica), Rodney Wallace - New York City FC (Estados Unidos), Bryan Ruiz - Sporting (Portugal), Daniel Colindres - Saprissa (Costa Rica), Christian Bolaños - Saprissa (Costa Rica);
-Atacantes: Johan Venegas - Saprissa (Costa Rica), Joe Campbell - Betis (Espanha), Marcos Ureña - Los Angeles FC (Estados Unidos)
-TUNÍSIA
-Pré-lista com 29 jogadores
+Alemanha
+G,Neuer,6
+G,Ter Stegen,5
+G,Trapp,2
+Z,Boateng,5
+Z,Hummels,5
+Z,Süle,4
+Z,Ginter,3
+Z,Rüdiger,3
+L,Kimmich,5
+L,Hector,4
+L,Plattenhardt,3
+M,Kroos,6
+M,Khedira,5
+M,Gündogan,4
+M,Rudy,4
+M,Özil,5
+M,Reus,4
+M,Goretzka,4
+M,Draxler,4
+M,Brandt,3
+A,Thomas Müller,5
+A,Mario Gómez,4
+A,Werner,4
 
-Goleiros: Aymen Mathlouthi (Al-Baten, Arábia Saudita), Moez Ben Cherifia (ES Tunis, Tunísia), Farouk Ben Mustapha (Al-Shabab, Arábia Saudita), Moez Hassen (Chateauroux, França)
-Defensores: Rami Bedoui (ES Sahel, Tunísia), Yohan Benalouane (Leicester City, Inglaterra), Syam Ben Youssef (Kasimpasa, Turquia), Dylan Bronn (Gent, Bélgica), Khalil Chammam (ES Tunis, Tunísia), Oussama Haddadi (Dijon, França), Ali Maaloul (Al-Ahly, Egito), Yassine Meriah (CS Sfaxien, Tunísia), Hamdi Nagguez (Zamalek, Egito), Bilel Mohsni (Dundee United, Escócia).
-Meio-campistas: Mohamed Amine Ben Amor (Al-Ahli SC, Arábia Saudita), Sai-Eddine Khaoui (Troyes, França), Ahmed Khalil (Al-Ain, Emirados Árabes), Ellyes Skhiri (Montpellier, França), Ferjani Sassi (Al-Nasr, Arábia Saudita), Ghaylene Chaalali (ES Tunis, Tunísia), Mohamed Wael Larbi (Tours, França), Karim Laribi (Cesena, Itália).
-Atacantes: Anice Badri (ES Tunis, Tunísia), Fakhreddine Ben Youssef (Al-Ittifaq, Arábia Saudita), Naim Sliti (Dijon, França), Bassem Srarfi (Nice, França), Ahmed Akaichi (Al-Ittihad, Arábia Saudita), Wahbi Khazri (Rennes, França), Saber Khalifa (Club Africain, Tunísia).
-COLÔMBIA
-Confira a pré-lista com os 35 nomes
+Argentina
+G,Armani,3
+G,Caballero,3
+G,Guzmán,3
+Z,Fazio,4
+Z,Otamendi,4
+Z,Rojo,3
+L,Mercado,3
+L,Tagliafico,4
+L,Ansaldi,3
+M,Mascherano,5
+M,Banega,4
+M,Lo Celso,4
+M,Enzo Pérez,3
+M,Biglia,3
+M,Di María,5
+M,Meza,3
+M,Salvio,3
+M,Acuña,3
+A,Messi,8
+A,Agüero,6
+A,Higuaín,5
+A,Dybala,5
+A,Pavón,4
 
-Goleiros: Iván Arboleda - Banfield (Argentina), José Fernando Cuadrado - Once Caldas (Colômbia), David Ospina - Arsenal (Inglaterra), Camilo Vargas - Deportivo Cali (Colômbia);
-Defensores: Santiago Arias - PSV (Holanda), Farid Díaz - Olímpia (Paraguai), Bernardo Espinosa - Girona (Espanha), Frank Fabra - Boca Juniors (Argentina), Stefan Medina - Monterrey (México), Yerry Mina - Barcelona (Espanha), Óscar Murillo - Pachuca (México), Dávinson Sánchez - Tottenham (Inglaterra), William Tesillo - Santa Fé (Colômbia), Cristian Zapata - Milan (Itália);
-Meio-campistas: Wílmar Barrios - Boca Juniors (Argentina), Abel Aguilar - Deportivo Cali (Colômbia), Edwin Cardona - Boca Juniors (Argentina), Guillermo Cuadrado - Juventus (Itália), Gustavo Cuéllar - Flamengo (Brasil), Jefferson Lerma - Levante (Espanha), Giovanni Moreno - Shanghai Greenland Shenhu (China), Sebastián Pérez - Boca Juniors (Argentina), Juan Fernando Quintero - River Plate (Argentina), James Rodríguez - Bayern de Munique (Alemanha), Carlos Sánchez - Espanyol (Espanha), Mateus Uribe - América do México;
-Atacantes: Miguel Borja - Palmeiras (Brasil), Carlos Bacca - Villarreal (Espanha), Yimmi Chará - Junior Barranquila (Colômbia), Falcao García - Mônaco (França), Teófilo Gutiérrez - Junior Barranquila (Colômbia), José Heriberto Izquierdo - Brighton & Hove Albion (Inglaterra), Johan Mojica - Girona (Espanha), Luis Fernando Muriel - Sevilla (Espanha), Duván Zapata - Sampdoria (Itália)
-ALEMANHA
-Lista final de 23 jogadores
+Bélgica
+G,Courtois,5
+G,Casteels,3
+G,Mignolet,3
+Z,Alderweireld,5
+Z,Kompany,4
+Z,Boyata,2
+Z,Vertonghen,5
+Z,Vermaelen,3
+L,Meunier,3
+M,Dembélé,4
+M,Witsel,4
+M,Fellaini,3
+M,Tielemans,3
+M,Dendoncker,2
+M,De Bruyne,6
+M,Hazard,5
+M,Carrasco,4
+M,Chadli,3
+M,Thorgan Hazard,3
+M,Januzaj,3
+A,Lukaku,5
+A,Mertens,5
+A,Batshuayi,4
 
-Goleiros: Neuer (Bayern de Munique), Ter Stegen (Barcelona) e Trapp (Paris Saint-Germain);
-Defensores: Kimmich, Boateng, Hummels, Süle (Bayern de Munique), Ginter (Borussia Mönchengladbach), Hector (Colônia), Plattenhardt (Hertha Berlin) e Rüdiger (Chelsea);
-Meias e atacantes: Brandt (Bayer Leverkusen), Draxler (Paris Saint-Germain), Goretzka (Schalke 04), Gundogan (Manchester City), Khedira (Juventus), Kroos (Real Madrid), Thomas Müller e Rudy (Bayern de Munique), Reus (Borussia Dortmund), Ozil (Arsenal), Mario Gomez (Stuttgart) e Timo Werner (RB Leipzig).
-SUÉCIA
-Lista final com 23 jogadores
+Uruguai
+G,Martín Silva,3
+G,Muslera,3
+G,Campaña,2
+Z,José Giménez,5
+Z,Godín,5
+Z,Coates,3
+L,Cáceres,3
+L,Maxi Pereira,3
+L,Varela,3
+L,Gastón Silva,2
+M,Torreira,4
+M,Vecino,4
+M,Bentancur,4
+M,Nández,3
+M,Laxalt,3
+M,Carlos Sánchez,3
+M,Arrascaeta,3
+M,Cristian Rodríguez,2
+A,Luis Suárez,6
+A,Cavani,5
+A,Maximiliano Gómez,4
+A,Stuani,3
+A,Urretaviscaya,2
 
-Goleiros: Robin Olsen (Copenhague), Karl-Johan Johnsson (Guingamp) e Kristoffer Nordfeldt (Swansea)
-Defensores: Mikael Lustig (Celtic), Emil Krafth (Bologna), Andreas Granqvist (Krasnodar), Victor Nilsson-Lindelöf (Manchester United), Pontus Jansson (Leeds United), Filip Helander (Bologna), Ludwig Augustinsson (Werder Bremen) e Martin Olsson (Swansea)
-Meio-campistas: Emil Forsberg (RB Leipzig), Jimmy Durmaz (Toulouse), Sebastian Larsson (Hull City), Albin Ekdal (Hamburgo), Viktor Claesson (Krasnodar), Gustav Svensson (Seattle Sounders), Oscar Hiljemark (Genoa) e Marcus Rohdén (Crotone)
-Atacantes: Marcus Berg (Al Ain), Ola Toivonen (Toulouse), John Guidetti (Alavés) e Isaac Kiese Thelin (Waasland-Beveren)
-URUGUAI
-Confira a lista dos 23 convocados
+Inglaterra
+G,Butland,4
+G,Pope,3
+G,Pickford,3
+Z,Cahill,3
+Z,Stones,3
+Z,Maguire,2
+Z,Phil Jones,3
+L,Trippier,3
+L,Walker,3
+L,Alexander-Arnold,3
+L,Danny Rose,3
+M,Dier,4
+M,Henderson,4
+M,Delph,2
+M,Dele Alli,5
+M,Ashley Young,3
+M,Loftus-Cheek,2
+A,Harry Kane,6
+A,Vardy,4
+A,Rashford,4
+A,Sterling,4
+A,Lingard,3
+A,Welbeck,2
 
-Goleiros: Fernando Muslera - Galatasaray (Turquia), Martin Silva - Vasco (Brasil), Martín Campaña - Independiente (Argentina);
-Defensores: Diego Godín - Atlético de Madrid (Espanha), Sebastián Coates - Sporting CP (Portugal), José Maria Giménez - Atlético de Madrid (Espanha), Maxi Pereira - Porto (Portugal), Gastón Silva - Independiente (Argentina), Martín Cáceres - Lazio (Itália), Guillermo Varela - Peñarol (Uruguai);
-Meio-campistas: Nahitan Nández - Boca Juniors (Argentina), Lucas Torreira - Sampdoria (Itália), Matías Vecino - Inter de Milão (Itália), Rodrigo Bentancur - Juventus (Itália), Carlos Sánchez - Monterrey (México), De Arrascaeta - Cruzeiro (Brasil), Diego Laxalt - Genoa (Itália), Cristian Rodríguez - Peñarol (Uruguai), Urreta - Monterrey (México)
-Atacantes: Cristhian Stuani - Girona (Espanha), Maximiliano Gómez - Celta de Vigo (Espanha), Edinson Cavani - PSG (França), Luis Suárez - Barcelona (Espanha)
-INGLATERRA
-Lista com 23 convocados
+Croácia
+G,Subasic,4
+G,Lovre Kalinic,3
+G,Livakovic,1
+Z,Lovren,4
+Z,Corluka,3
+Z,Jedvaj,3
+Z,Vida,3
+Z,?aleta-Car,3
+L,Vrsaljko,4
+L,Strinic,2
+L,Pivaric,1
+M,Badelj,3
+M,Bradaric,1
+M,Modric,6
+M,Rakitic,5
+M,Perisic,5
+M,Kovacic,4
+M,Brozovic,3
+A,Mandzukic,5
+A,Kramaric,4
+A,Kalinic,3
+A,Pjaca,3
+A,Rebic,2
 
-Goleiros: Pickford (Everton), Butland (Stoke City) e Nick Pope (Burnley);
-Defensores: Alexander-Arnold (Liverpool), Gary Cahill (Chelsea), Delph, Stones e Walker (Manchester City), Phil Jones e Ashley Young (Manchester United), Danny Rose e Trippier (Tottenham) e Harry Maguire (Leicester);
-Meio-campo: Dier e Dele Alli (Tottenham), Jordan Henderson (Liverpool), Lingard (Manchester United) e Loftus-Cheek (Crystal Palace);
-Ataque: Raheem Sterling (Manchester City), Marcus Rashford (Manchester United), Harry Kane (Tottenham), Jamie Vardy (Leicester) e Danny Welbeck (Arsenal).
-PERU
-Lista final com 23 nomes
+Colômbia
+G,Ospina,3
+G,José Cuadrado,1
+G,Vargas,1
+Z,Davinson Sánchez,4
+Z,Mina,3
+Z,Zapata,2
+Z,Murillo,2
+L,Arias,3
+L,Farid Díaz,2
+L,Mojica,2
+M,Barrios,3
+M,Uribe,3
+M,Carlos Sánchez,3
+M,Aguilar,1
+M,Lerma,1
+M,James Rodríguez,6
+M,Juan Cuadrado,4
+M,Quintero,3
+M,Izquierdo,3
+A,Falcao,5
+A,Bacca,4
+A,Muriel,3
+A,Borja,3
 
-Goleiros: Carlos Cáceda (Deportivo Municipal - Peru), José Carvallo (UTC Cajamarca - Peru), Pedro Gallese (Tiburones Rojos de Veracruz - México);
-Defensores: Luis Abram (Vélez Sarsfield), Luis Advíncula (Lobos BUAP - México), Pedro Aquino (Lobos BUAP - México), Miguel Araujo (Alianza Lima), Wilder Cartagena (Veracruz - México), Aldo Corzo (Universitário), Christian Ramos (Veracruz), Alberto Rodríguez (Junior Barranquilla), Anderson Santamaría (Puebla FC - México), Miguel Trauco (Flamengo);
-Meio-campistas: Christian Cueva (São Paulo), Paolo Hurtado (Vitória de Guimarães), Nilson Loyola (Melgar - Peru), Yoshimar Yotún (Orlando City), Renato Tapia (Feyenoord);
-Atacantes: Raul Ruidíaz (Monarcas Morelia - México), Jefferson Farfán (Lokomotiv Moscou- Rússia), Edison Flores (Aalborg BK - Dinamarca), Andy Polo (Portland Timbers - EUA), Paolo Guerrero (Flamengo).
-MARROCOS
-Confira a lista com 23 nomes (mais três reservas)
-
-Goleiros: Munir Mohand Mohamed (Numancia/ESP), Yassine Bounou (Gérone/ESP) e Ahmed Reda Tagnaouti (Ittihad Tanger/MAR).
-Defensores: Mehdi Benatia (Juventus/ITA), Romain Saïss (Wolverhampton/ING), Manu Da Costa (Istanbul Basaksehir/TUR), Achraf Hakimi (Real Madrid/ESP), Nabil Dirar (Fenerbahçe/TUR) e Hamza Mendyl (Lille/FRA).
-Meio-campistas: Youssef Aït-Bennasser (Caen/FRA), Medhi Carcela (Standard de Liège/BEL), Karim El Ahmadi (Feyenoord Rotterdam/HOL), Younes Belhanda (Galatasaray/TUR), Hakim Ziyech (Ajax Amsterdam/HOL), Fayçal Fajr (Getafe/ESP), Sofyan Amrabat (Feyenoord Rotterdam/HOL), Nordin Amrabat (Leganés/ESP), Mbark Boussaoufa (Al Jazira/EAU) e Amine Harit (Schalke 04/ALE).
-Atacantes: Aziz Bouhaddouz (St. Pauli/ALE), Khalid Boutaïb (Yeni Malatyaspor/TUR), Ayoub El Kaabi (Renaissance Berkane/MAR) e Youssef En-Nesyri (Málaga/ESP)
-Reservas: Oualid El Hajjam (Amiens/FRA), Noussair Mazraoui (Ajax/HOL)
-
-SENEGAL
-Lista final com 23 nomes
-
-Goleiros: Abdoulaye Diallo (Rennes), Alfred Gomis (SPAL) e Khadim N'Diaye (Horoya)
-Defensores: Kalidou Koulibaly (Napoli), Kara Mbodji (Anderlecht), Lamine Gassama (Alanyaspor), Moussa Wagué (Eupen), Youssouf Sabaly (Bordeaux), Saliou Ciss (Valenciennes) e Salif Sané (Hannover).
-Meio-campistas: Badou Ndiaye (Stoke City), Cheikh N'Doye (Birmingham), Cheikhou Kouyaté (West Ham), Alfred N'Diaye (Wolverhampton) e Idrissa Gueye (Everton).
-Atacantes: M'Baye Niang (Torino), Diafra Sakho (Rennes), Moussa Konaté (Amiens), Ismaïla Sarr (Rennes), Keita Baldé (Monaco), Mame Biram Diouf (Stoke City), Moussa Sow (Bursaspor) e Sadio Mané (Liverpool).
-FRANÇA
-Confira a lista final com 23 nomes
-
-Goleiros: Aréola (Paris Saint-Germain), Lloris (Tottenham) e Mandanda (Olympique de Marselha)
-Defensores: Lucas Hernández (Atlético de Madrid), Kimpembe (Paris Saint-Germain), Mendy (Manchester City), Pavard (Stuttgart), Rami (Olympique de Marselha), Sidibé (Monaco), Umtiti (Barcelona) e Varane (Real Madrid)
-Meio-campistas: Kanté (Chelsea), Matuidi (Juventus), N’Zonzi (Sevilla), Pogba (Manchester United) e Tolisso (Bayern).
-Atacantes: Dembélé (Barcelona), Fekir (Lyon), Giroud (Chelsea), Griezmann (Atlético de Madrid), Lemar (Monaco), Mbappé (Paris Saint-Germain) e Thauvin (Olympique de Marselha).
-PORTUGAL
-Confira a lista final com 23 nomes
-
-Goleiros: Anthony Lopes (Lyon); Beto (Goztepe) e Rui Patrício (Sporting);
-Defensores: Bruno Alves (Rangers), Cédric Soares (Southampton), José Fonte (Dalian Yifang), Mário Rui (Napoli), Pepe (Besiktas), Raphael Guerreiro (Borussia Dortmund), Ricardo Pereira (Porto) e Rúben Dias (Benfica);
-Meio-campistas: Adrien Silva (Leicester), Bruno Fernandes (Sporting), João Mário (West Ham), João Moutinho (Monaco), Manuel Fernandes (Lokomotiv Moscou) e William Carvalho (Sporting);
-Atacantes: André Silva (Milan), Bernardo Silva (Manchester City), Cristiano Ronaldo (Real Madrid), Gelson Martins (Sporting), Gonçalo Guedes (Valencia) e Ricardo Quaresma (Besiktas).
-ARÁBIA SAUDITA
-Lista final com 23 nomes
-
-Goleiros: Mohammed Al-Owais, Yasser Al-Musailem (Al Ahli), Abdullah Al-Mayuf (Al Hilal FC);
-Defensores: Mansoor Al-Harbi (Al Ahli), Yasser Al-Shahrani (Al Hilal), Mohammed Al-Breik (Al Hilal), Motaz Hawsawi (Al Ahli), Osama Hawsawi (Al Ahli), Omar Hawsawi (Al Nassr FC), Ali Al-Bulaihi (Al Hilal);
-Meio-campistas: Abdullah Al-Khaibari (Al Shabab), Abdullah Otayf (Al Hilal), Taiseer Al-Jassim (Al Ahli), Hussain Al-Mogahwi (Al Ahli), Salman Al-Faraj (Al Hilal), Mohammed Kanno (Al Hilal), Hattan Bahebri (Al Shabab FC), Salem Al-Dawsari (Villarreal), Yahya Al-Shehri (Leganés-ESP);
-Atacantes: Fahad Al-Muwallad (Levante-ESP), Mohammad Al-Sahlawi (Al Nassr), Muhannad Assiri (Al Ahli), Abdulmalek Al-Khaibri (Al Hilal).
-BÉLGICA
-Lista final com 23 nomes
-
-Goleiros: Thibaut Courtois (Chelsea), Simon Mignolet (Liverpool), Koen Casteels (Wolfsburg);
-Defensores: Toby Alderweireld (Tottenham), Dedryck Boyata (Celtic), Leander Dendoncker (Anderlecht), Vincent Kompany (Manchester City), Thomas Meunier (Paris Saint-Germain), Thomas Vermaelen (Barcelona), Jan Vertonghen (Tottenham);
-Meias: Yannick Carrasco (Dalian Yifang-CHI), Kevin De Bruyne (Manchester City), Mousa Dembele (Tottenham), Marouane Fellaini (Manchester United), Youri Tielemans (Monaco), Axel Witsel (Tianjin Quanjian), Nacer Chadli (West Brom);
-Atacantes: Michy Batshuayi (Chelsea), Eden Hazard (Chelsea), Thorgan Hazard (Borussia M’Gladbach), Romelu Lukaku (Manchester United), Dries Mertens (Napoli), Adnan Januzaj (Real Sociedad).
-ESPANHA
-Lista final de 23 jogadores
-
-Goleiros: De Gea (Manchester United), Reina (Napoli) e Kepa (Athletic de Bilbao);
-Defensores: Carvajal, Nacho e Sergio Ramos (Real Madrid), Jordi Alba e Piqué (Barcelona), Azpilicueta (Chelsea), Monreal (Arsenal) e Odriozola (Real Sociedad);
-Meio-campistas: Isco, Asensio e Lucas Vázquez (Real Madrid), Busquets e Iniesta (Barcelona), Koke e Saúl (Atlético de Madrid), Thiago Alcântara (Bayern de Munique) e David Silva (Manchester City);
-Atacantes: Diego Costa (Atlético de Madrid), Rodrigo (Valencia) e Iago Aspas (Celta).
-SÉRVIA
-Confira a pré-lista com 27 nomes
-
-Goleiros: Vladimir Stojkovic (Partizan Belgrado), Marko Dmitrovic (Eibar), Predrag Rajkovic (Maccabi Tel Aviv), Aleksandar Jovanovic (Aarhus - Sérvia);
-Defensores: Aleksandar Kolarov (Roma), Antonio Rukavina (Villarreal), Milan Rodic (Crvena Zvezda - Sérvia), Branislav Ivanovic (Zenit), Uros Spajic (Anderlecht), Milos Veljkovic (Werder Bremen), Dusko Tosic (Guangzhou R&F - China), Matija Nastasic (Schalke), Nikola Milenkovic (Fiorentina);
-Meio-campistas: Nemanja Matic (Manchester United), Luka Milivojevic (Crystal Palace), Marko Grujic (Liverpool), Nemanja Maksimovic (Valencia), Dusan Tadic (Southampton), Andrija Zivkovic (Benfica), Mijat Gacinovic (Eintracht Frankfurt), Filip Kostic (Hamburgo), Nemanja Radonjic (Estrela Vermelha), Sergei Milinkovic-Savic (Lazio), Adem Ljajic (Torino);
-Atacantes: Aleksandar Mitrovic (Fulham/Newcastle), Aleksandar Prijovic (PAOK), Luka Jovic (Eintracht).
-SUÍÇA
-Confira a lista com os 26 pré-convocados
-
-Goleiros: Roman Bürki (Borussia Dortmund), Gregor Kobel (Hoffenheim), Yvon Mvogo (RB Leipzig) e Yann Sommer (Borussia Mönchengladbach).
-Defensores: Manuel Akanji (Borussia Dortmund), Johan Djourou (Antalyaspor), Nico Elvedi (Borussia Mönchengladbach), Michael Lang (Basel), Stephan Lichtsteiner (Juventus), Jacques-François Moubandje (Toulouse), Ricardo Rodríguez (Milan), Fabian Schär (Deportivo La Coruña) e Silvan Widmer (Udinese).
-Meio-campistas: Valon Behrami (Udinese), Blerim Dzemaili (Bologna), Edmilson Fernandes (West Ham), Gelson Fernandes (Eintracht Frankfurt), Remo Freuler (Atalanta), Xherdan Shaqiri (Stoke City), Granit Xhaka (Arsenal), Denis Zakaria (Borussia Mönchengladbach) e Steven Zuber (Hoffenheim).
-Atacantes: Josip Drmic (Borussia Mönchengladbach), Breel Embolo (Schalke), Mario Gavranovic (Dínamo Zagreb) e Haris Seferovic (Benfica)
+Sérvia
+G,Rajkovic,3
+G,Stojkovic,3
+G,Dmitrovic,2
+Z,Spajic,3
+Z,Ivanovic,3
+Z,Veljkovic,3
+Z,Milenkovic,2
+Z,Tosic,1
+L,Rukavina,1
+L,Kolarov,4
+L,Rodic,0
+M,Matic,4
+M,Milivojevic,4
+M,Milinkovic-Savic,4
+M,Grujic,1
+M,Tadic,4
+M,Zivkovic,3
+M,Ljajic,3
+A,Mitrovic,4
+A,Kostic,3
+A,Radonjic,2
+A,Prijovic,2
+A,Jovic,2
+ 

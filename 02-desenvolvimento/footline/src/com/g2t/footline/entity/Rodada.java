@@ -1,16 +1,9 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
 
-
-public class Rodada implements Serializable {
-
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = 2314058539780934141L;
+public class Rodada {
 
 	private int numero;
 	private List<Partida> partidas;
@@ -51,6 +44,12 @@ public class Rodada implements Serializable {
 	}
 	public void setData(Calendar data) {
 		this.data = data;
+	}
+
+	@Override
+	public String toString() {
+		return "Rodada [numero=" + numero + ", partidas=" + partidas + ", finalizada=" + finalizada + ", data=" + data
+				+ "]";
 	}
 	
 }

@@ -1,13 +1,6 @@
 package com.g2t.footline.entity;
 
-import java.io.Serializable;
-
-public class Partida implements Serializable {
-
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = -3435984760301390299L;
+public class Partida  {
 
 	private Escalacao mandante;
 	private Escalacao visitante;
