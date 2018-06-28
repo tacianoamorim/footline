@@ -1,4 +1,4 @@
-# footline
+# footline Copa 2018
 Projeto desenvolvido com o intuito de aprimorar o conhecimento ministrado na cadeira de Programação da Universidade Federal Rural de Pernambuco UFRPE.
 
 
