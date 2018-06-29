@@ -2,12 +2,12 @@ package com.g2t.footline.negocio.entidades;
 
 public class Jogador extends Pessoa {
 	
-	public static final int GOLEIRO		= 1;
-	public static final int DEFESA		= 2;
-	public static final int MEIO_CAMPO	= 3;
-	public static final int ATAQUE		= 4;
+	public static final String GOLEIRO		= "G";
+	public static final String DEFESA		= "D";
+	public static final String MEIO_CAMPO	= "M";
+	public static final String ATAQUE		= "A";
 	
-	private int posicao;
+	private String posicao;
 	private int cartaoAmarelo;
 	private boolean cartaoVermelho;
 	private int rodadasLesionado;
@@ -18,12 +18,12 @@ public class Jogador extends Pessoa {
 		super();
 	}
 	
-	public Jogador(int id, String nome, int posicao) {
+	public Jogador(int id, String nome, String posicao) {
 		super(id, nome);
 		this.posicao = posicao;
 	}
 	
-	public Jogador(int id, String nome, int posicao, int nivel, int cartaoAmarelo, boolean cartaoVermelho,
+	public Jogador(int id, String nome, String posicao, int nivel, int cartaoAmarelo, boolean cartaoVermelho,
 			int rodadasLesionado, int quantidadeGols) {
 		super(id, nome);
 		this.posicao = posicao;
@@ -34,10 +34,10 @@ public class Jogador extends Pessoa {
 		this.quantidadeGols = quantidadeGols;
 	}
 
-	public int getPosicao() {
+	public String getPosicao() {
 		return posicao;
 	}
-	public void setPosicao(int posicao) {
+	public void setPosicao(String posicao) {
 		this.posicao = posicao;
 	}
 	
