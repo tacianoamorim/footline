@@ -1,5 +1,6 @@
 package com.g2t.footline.dados;
 
+import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Selecao;
 
 public class RepositorioSelecaoArray implements RepositorioSelecao {
@@ -11,10 +12,11 @@ public class RepositorioSelecaoArray implements RepositorioSelecao {
 	 * Busca um determinado selecao pelo codigo
 	 * 
 	 * return Selecao selecao
+	 * @throws RegistroNaoEncontradoException 
 	 */
 	@Override
-	public Selecao buscar(int id) {
-		Selecao retorno= new Selecao();
+	public Selecao buscar(int id) throws RegistroNaoEncontradoException {
+		Selecao retorno= null;
 		for (int i = 0; i < arrayDados.length; i++) {
 			Selecao selecao = arrayDados[i];
 			if ( id == selecao.getId() ) {
@@ -22,6 +24,11 @@ public class RepositorioSelecaoArray implements RepositorioSelecao {
 				break;
 			}
 		}
+		
+		if ( retorno == null ) {
+			throw new RegistroNaoEncontradoException("Selecao id="+ id
+					+" não localizada.");
+		}		
 		return retorno;
 	}
 	
@@ -39,9 +46,35 @@ public class RepositorioSelecaoArray implements RepositorioSelecao {
 		}
 	}
 
+	/**
+	 * Lista todos contidos no array
+	 * 
+	 * return Selecao[]
+	 */
 	@Override
 	public Selecao[] listar() {
 		return arrayDados;
 	}
+	
+	/**
+	 * Altera os dados de uma determinada selecao
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	@Override
+	public void alterar(Selecao selecao) throws RegistroNaoEncontradoException {
+		boolean achei= false;
+		for (int i = 0; i < arrayDados.length; i++) {
+			if ( selecao.getId() == arrayDados[i].getId() ) {
+				arrayDados[i]= selecao;
+				achei= true;
+				break;
+			}
+		}
+		
+		if ( !achei ) {
+			throw new RegistroNaoEncontradoException("Selecao id="+ 
+					selecao.getId() +" não localizada.");
+		}
+	}	
 
 }
