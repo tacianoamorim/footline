@@ -8,7 +8,7 @@ public class Partida  {
 	private int golsvisitante;
 	private float publico;
 	private Arbitro arbitro;
-
+//
 	public Partida(Escalacao mandante, Escalacao visitante, Arbitro arbitro) {
 		super();
 		this.mandante = mandante;
