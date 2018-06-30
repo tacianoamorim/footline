@@ -12,7 +12,7 @@ public class Tecnico extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "Tecnico [getId()=" + getId() + ", getNome()=" + getNome() + "]";
+		return "Tecnico id:" + getId() + "- " + getNome();
 	}
 
 }

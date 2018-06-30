@@ -2,8 +2,9 @@ package com.g2t.footline.dados;
 
 import java.io.File;
 
-import com.g2t.footline.negocio.Constantes;
+import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Arbitro;
+import com.g2t.footline.util.Constantes;
 
 public class RepositorioArbitroArray implements RepositorioArbitro {
 
@@ -12,7 +13,6 @@ public class RepositorioArbitroArray implements RepositorioArbitro {
 	
 	@Override
 	public void carregarDados() {
-		// Carregar os dados dos clubes
 		// Carrega o path de armazenamento dos arquivos
 		File file = new File(Constantes.FILE_PATH);
 		File afile[] = file.listFiles();
@@ -30,10 +30,11 @@ public class RepositorioArbitroArray implements RepositorioArbitro {
 	 * Busca um determinado arbitro pelo codigo
 	 * 
 	 * return Arbitro arbitro
+	 * @throws RegistroNaoEncontradoException 
 	 */
 	@Override
-	public Arbitro buscar(int id) {
-		Arbitro retorno= new Arbitro();
+	public Arbitro buscar(int id) throws RegistroNaoEncontradoException {
+		Arbitro retorno= null;
 		for (int i = 0; i < arrayDados.length; i++) {
 			Arbitro arbitro = arrayDados[i];
 			if ( id == arbitro.getId() ) {
@@ -41,7 +42,23 @@ public class RepositorioArbitroArray implements RepositorioArbitro {
 				break;
 			}
 		}
+		
+		if ( retorno == null ) {
+			throw new RegistroNaoEncontradoException("Arbitro id="+ id
+					+" não localizado.");
+		}
 		return retorno;
 	}
+	
+	
+	/**
+	 * Lista todos contidos no array
+	 * 
+	 * return Arbitro[]
+	 */
+	@Override
+	public Arbitro[] listar() {
+		return arrayDados;
+	}	
 
 }

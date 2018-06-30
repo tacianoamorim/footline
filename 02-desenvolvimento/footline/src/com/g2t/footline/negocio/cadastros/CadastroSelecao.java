@@ -4,20 +4,22 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.g2t.footline.dados.RepositorioSelecao;
 import com.g2t.footline.dados.RepositorioSelecaoArray;
-import com.g2t.footline.negocio.Constantes;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
+import com.g2t.footline.util.Constantes;
 
 public class CadastroSelecao {
-	private RepositorioSelecao repositorioSelecao;
+	private RepositorioSelecao repositorio;
 	private static CadastroSelecao instance;
 	
 	private CadastroSelecao() {
-		repositorioSelecao= new RepositorioSelecaoArray();
+		repositorio= new RepositorioSelecaoArray();
 	}
 	
 	public static CadastroSelecao getInstance() {
@@ -29,6 +31,7 @@ public class CadastroSelecao {
 	/**
 	 * Carrega o arrayDados com as informacoes das selecoes 
 	 * 	 obtidas nos arquivos das selecoes
+	 * 
 	 * @throws IOException 
 	 * @throws NumberFormatException 
 	 */
@@ -42,6 +45,9 @@ public class CadastroSelecao {
 		for (int i=0; i < afile.length; i++) {
 			// recupera a extensao do arquivo
 			if (afile[i].getName().endsWith("foot")) {
+				
+				Selecao selecao= null;
+				List<Jogador> jogadores= new ArrayList<Jogador>();
 				
 				// le os dados de um arquivo
 				BufferedReader br = new BufferedReader(new FileReader(afile[i]));
@@ -61,32 +67,38 @@ public class CadastroSelecao {
 						// Cadastrar um tecnico
 						String nomeTecnico= arrayLinha[2];
 						Tecnico tecnico= new Tecnico(0, nomeTecnico);
-						//CadastroTecnico.getInstance().inserir(tecnico);
+						CadastroTecnico.getInstance().inserir(tecnico);
 						
 						// Cadastrar a selecao
-						Selecao selecao= new Selecao(0, nome, tecnico, nivel, grupo);
-						repositorioSelecao.inserir(selecao);
+						selecao= new Selecao(0, nome, tecnico, nivel, grupo);
+						repositorio.inserir(selecao);
 						
 						break;
 			
 					case Constantes.FILE_DADOS_JOGADOR_GOLEIRO: //idx,Nome,nivel
-						Jogador jogadorG= new Jogador();
-						jogadorG.setNome( arrayLinha[1] );
-						jogadorG.setNivel( Integer.valueOf(arrayLinha[2]) );
-						jogadorG.setPosicao( Jogador.GOLEIRO );
+						Jogador goleiro= new Jogador();
+						goleiro.setNome( arrayLinha[1] );
+						goleiro.setNivel( Integer.valueOf(arrayLinha[2]) );
+						goleiro.setPosicao( Jogador.GOLEIRO );
 						
 						// Cadastrar jogador
-						//CadastroJogador.getInstance().inserir(jogador);
+						CadastroJogador.getInstance().inserir(goleiro);
+						
+						// Adiciona o jogador na lista
+						jogadores.add( goleiro );
 						break;
 						
-					case Constantes.FILE_DADOS_JOGADOR_ZAGA: //idx,Nome,nivel
-						Jogador jogadorZ= new Jogador();
-						jogadorZ.setNome( arrayLinha[1] );
-						jogadorZ.setNivel( Integer.valueOf(arrayLinha[2]) );
-						jogadorZ.setPosicao( Jogador.DEFESA );
+					case Constantes.FILE_DADOS_JOGADOR_DEFESA: //idx,Nome,nivel
+						Jogador defesa= new Jogador();
+						defesa.setNome( arrayLinha[1] );
+						defesa.setNivel( Integer.valueOf(arrayLinha[2]) );
+						defesa.setPosicao( Jogador.DEFESA );
 						
 						// Cadastrar jogador
-						//CadastroJogador.getInstance().inserir(jogadorZ);
+						CadastroJogador.getInstance().inserir(defesa);
+						
+						// Adiciona o jogador na lista
+						jogadores.add( defesa );						
 						break;
 						
 					case Constantes.FILE_DADOS_JOGADOR_MEIA: //idx,Nome,nivel
@@ -96,26 +108,45 @@ public class CadastroSelecao {
 						meioCampo.setNivel( Integer.valueOf(arrayLinha[2]) );
 						
 						// Cadastrar jogador
-						//CadastroJogador.getInstance().inserir(meioCampo);						
+						CadastroJogador.getInstance().inserir(meioCampo);	
+						
+						// Adiciona o jogador na lista
+						jogadores.add( meioCampo );	
 						break;
 						
 					case Constantes.FILE_DADOS_JOGADOR_ATAQUE: //idx,Nome,nivel
 						Jogador ataque= new Jogador();
 						ataque.setPosicao("A");
 						ataque.setNome( arrayLinha[1] );
+						
+						//System.out.println("  Ataque: "+arrayLinha[1] + "Linha"+linha);
 						ataque.setNivel( Integer.valueOf(arrayLinha[2]) );
 						
 						// Cadastrar jogador
-						//CadastroJogador.getInstance().inserir(ataque);						
+						CadastroJogador.getInstance().inserir(ataque);	
+						
+						// Adiciona o jogador na lista
+						jogadores.add( ataque );	
 						break;					
 						
 					default:
 						break;
 					}
 				}
+				
+				selecao.setJogadores( jogadores );
+				
 				br.close();
 			}
 		}
 	}
 	
+	/**
+	 * Lista todos contidos no array de selecoes
+	 * 
+	 * return Selecao[]
+	 */
+	public Selecao[] listar() {
+		return repositorio.listar();
+	}
 }
