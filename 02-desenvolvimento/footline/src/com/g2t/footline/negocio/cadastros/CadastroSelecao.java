@@ -149,4 +149,13 @@ public class CadastroSelecao {
 	public Selecao[] listar() {
 		return repositorio.listar();
 	}
+
+	/**
+	 * Adiciona uma selecao no array
+	 * 
+	 * @param Selecao
+	 */
+	public void inserir(Selecao selecao) {
+		repositorio.inserir(selecao);
+	}	
 }

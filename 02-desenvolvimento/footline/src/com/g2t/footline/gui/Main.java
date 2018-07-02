@@ -2,8 +2,10 @@ package com.g2t.footline.gui;
 
 import java.io.IOException;
 
+import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.Fachada;
+import com.g2t.footline.negocio.entidades.Arbitro;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
@@ -19,14 +21,30 @@ public class Main {
 			Fachada.getInstance().carregarSelecaoJogador();
 			
 			// Carrega o array de arbitro
-			//Fachada.getInstance().carregarArbitro();
+			Fachada.getInstance().carregarArbitro();
+			
+			// Listar arbitros
+			System.out.println("--------------------------------------");
+			System.out.println("  LISTA ARBITROS");
+			System.out.println("--------------------------------------");
+			Arbitro[] arbitros= Fachada.getInstance().listarArbitro();
+			for (int i = 0; i < arbitros.length; i++) {
+				Arbitro arbitro = arbitros[i];
+				if ( arbitro != null )
+					System.out.println(arbitro);
+			}
+			
+			// Busca o arbitro pelo codigo 
+			System.out.println();
+			System.out.print("Busca arbitro codigo 11 =>");
+			System.out.println(Fachada.getInstance().buscarArbitro(11));
+			System.out.print("Busca arbitro codigo 22 =>");
+			System.out.println(Fachada.getInstance().buscarArbitro(22));			
 			
 			// Carrega o array de estadio
 			//Fachada.getInstance().carregarEstadio();	
 			
 			// Listar estadios
-			
-			// Listar arbitros
 			
 			// Listar tecnicos
 			System.out.println("--------------------------------------");
@@ -71,6 +89,8 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (RegistroNaoEncontradoException e) {
+			e.printStackTrace();
+		} catch (ArquivoNaoEncontradoException e) {
 			e.printStackTrace();
 		}
 

@@ -5,8 +5,8 @@ import com.g2t.footline.negocio.entidades.Arbitro;
 
 public interface RepositorioArbitro {
 	
-	public void carregarDados();
 	public Arbitro buscar(int id) throws RegistroNaoEncontradoException;
 	public Arbitro[] listar();
+	public void inserir(Arbitro arbitro);
 	
 }

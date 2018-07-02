@@ -5,7 +5,7 @@ import com.g2t.footline.negocio.entidades.Tecnico;
 
 public class RepositorioTecnicoArray implements RepositorioTecnico {
 
-	private Tecnico[] arrayDados= new Tecnico[1000];
+	private Tecnico[] arrayDados= new Tecnico[40];
 	private int idx= 0;
 	
 	/**

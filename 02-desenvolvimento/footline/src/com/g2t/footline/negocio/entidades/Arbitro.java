@@ -2,28 +2,33 @@ package com.g2t.footline.negocio.entidades;
 
 public class Arbitro extends Pessoa {
 
-	private int experiencia;
+	private String nacionalidade;
 	
 	public Arbitro() {
 		super();
 	}
 
-	public Arbitro(int id, String nome, int experiencia) {
+	public Arbitro(String nome, String nacionalidade) {
+		super(0, nome);
+		this.nacionalidade= nacionalidade;
+	}
+	
+	public Arbitro(int id, String nome, String nacionalidade) {
 		super(id, nome);
-		this.experiencia= experiencia;
+		this.nacionalidade= nacionalidade;
 	}
 
-	public int getExperiencia() {
-		return experiencia;
+	public String getNacionalidade() {
+		return nacionalidade;
 	}
-	public void setExperiencia(int experiencia) {
-		this.experiencia = experiencia;
+	public void setNacionalidade(String nacionalidade) {
+		this.nacionalidade = nacionalidade;
 	}
 
 	@Override
 	public String toString() {
-		return "Tecnico [getId()=" + getId() + ", getNome()=" + getNome() + 
-				", experiencia=" + experiencia + "]";
+		return "Arbitro " + getId() + " - " + getNome() + 
+				" (" + nacionalidade + ")";
 	}
 
 }
