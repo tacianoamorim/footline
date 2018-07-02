@@ -58,4 +58,11 @@ public class Partida  {
 		this.arbitro = arbitro;
 	}
 
+	@Override
+	public String toString() {
+		return "Partida [mandante=" + mandante + ", visitante=" + visitante + ", golsMandante=" + golsMandante
+				+ ", golsvisitante=" + golsvisitante + ", publico=" + publico + ", arbitro=" + arbitro + "]";
+	}
+
+	
 }

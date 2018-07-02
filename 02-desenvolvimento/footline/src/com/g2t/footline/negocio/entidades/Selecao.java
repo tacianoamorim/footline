@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Selecao  {
 
-	private int id;
+	private String id;
 	private String nome;
 	private Tecnico tecnico;
 	private int nivel;
@@ -16,7 +16,7 @@ public class Selecao  {
 		super();
 	}
 
-	public Selecao(int id, String nome, Tecnico tecnico,  
+	public Selecao(String id, String nome, Tecnico tecnico,  
 			int nivel, String grupo) {
 		super();
 		this.id = id;
@@ -26,10 +26,10 @@ public class Selecao  {
 		this.nivel = nivel;
 	}
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

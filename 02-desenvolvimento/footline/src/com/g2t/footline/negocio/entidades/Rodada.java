@@ -10,6 +10,16 @@ public class Rodada {
 	private boolean finalizada;
 	private Calendar data;
 		
+	public Rodada() {
+	}
+	
+	public Rodada(int numero, boolean finalizada, Calendar data) {
+		super();
+		this.numero = numero;
+		this.finalizada = finalizada;
+		this.data = data;
+	}
+	
 	public Rodada(int numero, List<Partida> partidas, boolean finalizada, Calendar data) {
 		super();
 		this.numero = numero;
@@ -48,8 +58,8 @@ public class Rodada {
 
 	@Override
 	public String toString() {
-		return "Rodada [numero=" + numero + ", partidas=" + partidas + ", finalizada=" + finalizada + ", data=" + data
-				+ "]";
+		return "Rodada [numero=" + numero + ", partidas=" + partidas 
+				+ ", finalizada=" + finalizada + "]";
 	}
 	
 }

@@ -6,10 +6,12 @@ import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.cadastros.CadastroArbitro;
 import com.g2t.footline.negocio.cadastros.CadastroEstadio;
+import com.g2t.footline.negocio.cadastros.CadastroRodada;
 import com.g2t.footline.negocio.cadastros.CadastroSelecao;
 import com.g2t.footline.negocio.cadastros.CadastroTecnico;
 import com.g2t.footline.negocio.entidades.Arbitro;
 import com.g2t.footline.negocio.entidades.Estadio;
+import com.g2t.footline.negocio.entidades.Rodada;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
 
@@ -84,6 +86,16 @@ public class Fachada {
 	}	
 	
 	/**
+	 * Busca uma determinada selecao pelo codigo
+	 * 
+	 * return Selecao selecao
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public Selecao buscarSelecao(String id) throws RegistroNaoEncontradoException {
+		return CadastroSelecao.getInstance().buscar(id);
+	}	
+	
+	/**
 	 * Le o arquivo arbitros e carrega o array.
 	 * 
 	 * @throws ArquivoNaoEncontradoException 
@@ -155,5 +167,23 @@ public class Fachada {
 	 */
 	public Estadio buscarEstadio(String id) throws RegistroNaoEncontradoException {
 		return CadastroEstadio.getInstance().buscar(id);
+	}
+
+	/**
+	 * Lista todas as rodadas cadastradas
+	 * 
+	 * @return Rodada[]
+	 */
+	public Rodada[] listarRodadas() {
+		return CadastroRodada.getInstance().listar();
+	}
+
+	/**
+	 * Insere uma nova rodada
+	 * 
+	 * @param Rodada rodada
+	 */
+	public void inserir(Rodada rodada) {
+		CadastroRodada.getInstance().inserir(rodada);
 	}	
 }

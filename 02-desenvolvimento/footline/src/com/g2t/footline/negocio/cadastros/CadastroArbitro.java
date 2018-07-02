@@ -36,7 +36,6 @@ public class CadastroArbitro {
 		return repositorio.buscar(id);
 	}
 	
-	
 	/**
 	 * Lista todos contidos no array
 	 * 
@@ -47,9 +46,9 @@ public class CadastroArbitro {
 	}	
 	
 	/**
-	 * Adiciona um tecnico no array
+	 * Adiciona um arbitro no array
 	 * 
-	 * @param Tecnico
+	 * @param Arbitro
 	 */
 	public void inserir(Arbitro arbitro) {
 		repositorio.inserir(arbitro);

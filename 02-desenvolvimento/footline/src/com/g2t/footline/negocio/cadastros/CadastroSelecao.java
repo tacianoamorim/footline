@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.g2t.footline.dados.RepositorioSelecao;
 import com.g2t.footline.dados.RepositorioSelecaoArray;
+import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
@@ -62,9 +63,11 @@ public class CadastroSelecao {
 				   
 				   switch (idx) {
 					case Constantes.FILE_DADOS_SELECAO: 
+						//S,Alemanha,Joachim Löw,97,ALE,F
 						String nome= arrayLinha[1];
 						int nivel= Integer.valueOf(arrayLinha[3]);
-						String grupo= arrayLinha[4];
+						String acronomo= arrayLinha[4];
+						String grupo= arrayLinha[5];
 						
 						// Cadastrar um tecnico
 						String nomeTecnico= arrayLinha[2];
@@ -72,7 +75,7 @@ public class CadastroSelecao {
 						CadastroTecnico.getInstance().inserir(tecnico);
 						
 						// Cadastrar a selecao
-						selecao= new Selecao(0, nome, tecnico, nivel, grupo);
+						selecao= new Selecao(acronomo, nome, tecnico, nivel, grupo);
 						repositorio.inserir(selecao);
 						
 						break;
@@ -159,5 +162,15 @@ public class CadastroSelecao {
 	 */
 	public void inserir(Selecao selecao) {
 		repositorio.inserir(selecao);
+	}	
+	
+	/**
+	 * Busca um determinado selecao pelo codigo
+	 * 
+	 * return selecao selecao
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public Selecao buscar(String id) throws RegistroNaoEncontradoException {
+		return repositorio.buscar(id);
 	}	
 }
