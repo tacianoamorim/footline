@@ -1,302 +1,451 @@
-http://app.globoesporte.globo.com/futebol/copa-do-mundo/guia/avaliacao-dos-elencos-copa-2018/#servia
+S,México,Juan Osório,61,F
+G,José Corona,4
+G,Ochoa,3
+G,Talavera,1
+Z,Carlos Salcedo,3
+Z,Rafa Márquez,2
+Z,Edson Alvarez,1
+Z,Hugo Ayala,1
+Z,Jesús Gallardo,1
+Z,Héctor Moreno,3
+L,Layún,3
+V,Guardado,4
+V,Héctor Herrera,4
+V,Jonathan dos Santos,3
+V,Érick Gutiérrez,3
+V,Rúben Neves,2
+M,Marco Fabián,3
+M,Javier Aquino,3
+A,Chicharito,4
+A,Hirving Lozano,4
+A,Carlos Vela,3
+A,Giovani dos Santos,2
+A,Oribe Peralta,2
+A,Raúl Jiménez
+
+S,Peru,Ricardo Gareca,61,C
+G,Gallese,3
+G,Cáceda,1
+G,Carvallo,1
+Z,Miguel Araujo,3
+Z,Christian Ramos,1
+Z,Alberto Rodríguez,3
+L,Advíncula,3
+L,Corzo,3
+L,Yotún,3
+L,Trauco,3
+L,Loyola,1
+V,Santamaría,3
+V,Pedro Aquino,3
+V,Cartagena,3
+V,Tapia,3
+M,Hurtado,3
+M,Sergio Peña,3
+M,Cueva,3
+A,Paolo Guerrero,4
+A,Farfán,4
+A,Ruidíaz,3
+A,Carrillo,3
+A,Andy Polo,1
+
+S,Polônia,Ricardo Gareca,58,H
+G,Szczesny,4
+G,Fabianski,3
+G,Bialkowski,1
+Z,Pazdan,3
+Z,Bednarek,2
+Z,Thiago Cionek,1
+Z,Kaminski,1
+L,Piszczek,4
+L,Bereszynski,3
+L,Jedrzejczyk,1
+L,Rybus,3
+V,Krychowiak,3
+V,Linetty,3
+V,Goralski,1
+M,Zielinski,4
+M,Blaszczykowski,4
+A,Lewandowski,6
+A,Grosicki,3
+A,Milik,3
+A,Kownacki,3
+A,Kurzawa,1
+A,Teodorczyk,1
+A,Peszko,0
+
+S,Senegal,Allou Cisse,57,H
+G,N'Diaye,2
+G,Gomis,2
+G,Diallo,2
+Z,Koulibaly,57
+Z,Salif Sané,3
+Z,Sarr,2
+Z,Mbodji,2
+L,Wagué,2
+L,Gassama,2
+L,Sabaly,2
+L,Ciss,1
+V,Gueye,3
+V,Kouyaté,3
+V,N'Doye,2
+V,Alfred N'Diaye,2
+M,Badou Ndiaye,3
+A,Sadio Mané,5
+A,Keita Baldé,4
+A,Niang,3
+A,Sakho,2
+A,Diouf,2
+A,Moussa Sow,2
+A,Konaté,1
+
+S,Suíça,Vladimir Petkovic,56,E
+G,Bürki,4
+G,Sommer,4
+G,Mvogo,1
+Z,Schär,3
+Z,Akanji,3
+Z,Djourou,2
+L,Lichtsteiner,3
+L,Lang,2
+L,Elvedi,2
+L,Ricardo Rodríguez,4
+L,Moubandje,1
+V,Xhaka,4
+V,Dzemaili,3
+V,Gelson Fernandes,2
+V,Zakaria,2
+V,Behrami,2
+V,Freuler,1
+M,Shaqiri,4
+M,Zuber,2
+A,Embolo,3
+A,Seferovic,2
+A,Drmic,1
+A,Gavranovic,1
+
+S,Marrocos,Herve Renard,53,B
+G,Bono,2
+G,Tagnaouti,2
+G,Munir,2
+Z,Benatia,4
+Z,Da Costa,1
+L,Hakimi,2
+L,Mendyl,2
+V,Saïss,3
+V,El Ahmadi,3
+V,Bennasser,2
+V,S. Amrabat,2
+M,Harit,3
+M,Belhanda,3
+M,Ziyech,3
+M,Boussoufa,3
+M,Carcela-González,2
+M,Dirar,2
+M,Fajr,2
+A,N. Amrabat,3
+A,Boutaïb,2
+A,Bouhaddouz,2
+A,El Kaabi,2
+A,En-Nesyri,1
 
 
-Portugal
-G,Rui Patrício,4
-G,Anthony Lopes,3
-G,Beto,2
-Z,Pepe,4
-Z,Bruno Alves,3
-Z,José Fonte,2
-Z,Rúben Dias,2
-L,Ricardo Pereira,4
-L,Cédric,3
-L,Mário Rui,2
-M,João Moutinho,4
-M,William Carvalho,4
-M,Adrien Silva,3
-M,Bernardo Silva,5
-M,Bruno Fernandes,4
-M,João Mário,3
-M,Gelson Martins,3
-M,Manuel Fernandes,2
-A,Cristiano Ronaldo,8
-A,André Silva,4
-A,Gonçalo Guedes,4
-A,Quaresma,4
 
-BRASIL
-G,Alisson,5
-G,Ederson,4
-G,Cássio,3
-Z,Thiago Silva,5
-Z,Pedro Geromel,3
-Z,Marquinhos,5
-Z,Miranda,5
-L,Fagner,3
-L,Danilo,3
-L,Marcelo,6
-L,Filipe Luís,4
-M,Casemiro,5
-M,Paulinho,5
-M,Fernandinho,4
-M,Willian,5
-M,Philippe Coutinho,5
-M,Fred,4
-M,Renato Augusto,4
-A,Neymar,6
-A,Gabriel Jesus,5
-A,Roberto Firmino,5
-A,Douglas Costa,4
-A,Taison,3
+S,Costa Rica,Óscar Ramírez,48,E
+G,Navas,5
+G,Leonel Moreira,1
+G,Pemberton,0
+Z,Acosta,2
+Z,Óscar Duarte,2
+Z,Waston,2
+Z,Giancarlo González,2
+Z,Calvo,4
+L,Gamboa,2
+L,Smith,2
+L,Oviedo,2
+L,Matarrita,1
+V,Guzmán,2
+V,Azofeifa,2
+V,Tejeda,0
+M,Celso Borges,4
+M,Bryan Ruíz,4
+M,Bolaños,4
+M,Rodney Wallace,1
+M,Venegas,1
+A,Campbell,2
+A,Colindres,2
+A,Ureña,1
 
-França
-G,Lloris,4
-G,Aréola,3
-G,Mandanda,3
-Z,Varane,5
-Z,Rami,3
-Z,Pavard,3
-Z,Umtiti,5
-Z,Kimpembe,5
-Z,Lucas Hernández,4
-L,Sidibé,4
-L,Mendy,4
-M,Pogba,5
-M,Kanté,5
-M,Tolisso,5
-M,N'Zonzi,4
-M,Matuidi,4
-M,Dembélé,5
-M,Lemar,4
-M,Thauvin,4
-A,Griezmann,6
-A,Mbappé,6
-A,Giroud,4
-A,Fekir,4
+S,Nigéria,Gernot Rohr,47,D
+G,Uzoho,2
+G,Ezenwa,1
+G,Akpeyi,0
+Z,Troost-Ekong,2
+Z,Balogun,2
+Z,Awaziem,2
+Z,Omeruo,1
+L,Ebuehi,1
+L,Idowu,1
+L,Echiéjilé,2
+V,Obi Mikel,3
+V,Ndidi,3
+V,Ogu,2
+V,Onazi,2
+V,Shehu,2
+M,Moses,4
+M,Iwobi,3
+M,Joel Obi,2
+M,Etebo,2
+A,Ighalo,3
+A,Iheanacho,3
+A,Simy Nwankwo,2
+A,Musa,2
 
-Espanha
-G,De Gea,6
-G,Arrizabalaga,3
-G,Reina,3
-Z,Sergio Ramos,6
-Z,Piqué,5
-Z,Nacho Fernández,3
-L,Carvajal,4
-L,Azpilicueta,3
-L,Odriozola,3
-L,Jordi Alba,5
-L,Nacho Monreal,3
-M,Busquets,5
-M,Iniesta,6
-M,Thiago Alcântara,5
-M,Isco,5
-M,David Silva,5
-M,Saúl Ñíguez,4
-M,Asensio,4
-M,Koke,4
-A,Diego Costa,5
-A,Iago Aspas,4
-A,Rodrigo,4
-A,Lucas Vázquez,3
+S,Suécia,Janne Andersson,39,F
+G,Olsen,4
+G,Nordfeldt,1
+G,Karl Johnsson,0
+Z,Granqvist,3
+Z,Lindelöf,3
+Z,Jansson,2
+Z,Helander,0
+L,Lustig,2
+L,Krafth,1
+L,Olsson,2
+L,Augustinsson,2
+V,Ekdal,3
+V,Svensson,0
+V,Hiljemark,0
+M,Forsberg,4
+M,Claesson,2
+M,Sebastian Larsson,2
+M,Durmaz,1
+M,Rohdén,0
+A,Guidetti,2
+A,Toivonen,2
+A,Berg,2
+A,Thelin,1
 
-Alemanha
-G,Neuer,6
-G,Ter Stegen,5
-G,Trapp,2
-Z,Boateng,5
-Z,Hummels,5
-Z,Süle,4
-Z,Ginter,3
-Z,Rüdiger,3
-L,Kimmich,5
-L,Hector,4
-L,Plattenhardt,3
-M,Kroos,6
-M,Khedira,5
-M,Gündogan,4
-M,Rudy,4
-M,Özil,5
-M,Reus,4
-M,Goretzka,4
-M,Draxler,4
-M,Brandt,3
-A,Thomas Müller,5
-A,Mario Gómez,4
-A,Werner,4
+S,Egito,Hector Cuper,38,A
+G,El Hadary,2
+G,El Shenawy,0
+G,Ekramy,0
+Z,Hegazy,3
+Z,Ali Gabr,2
+Z,Samir,0
+Z,Hamdi,0
+Z,Ashraf,0
+L,Fathi,2
+L,Elmohamady,2
+L,Gaber,0
+L,Abdel-Shafi,0
+V,Elneny,3
+V,Hamed,2
+V,Morsy,1
+M,Sobhi,3
+M,Trezeguet,3
+M,Warda,2
+M,Said,2
+M,Shikabala,1
+A,Salah,6
+A,Mohsen,2
+A,Kahraba,2
 
-Argentina
-G,Armani,3
-G,Caballero,3
-G,Guzmán,3
-Z,Fazio,4
-Z,Otamendi,4
-Z,Rojo,3
-L,Mercado,3
-L,Tagliafico,4
-L,Ansaldi,3
-M,Mascherano,5
-M,Banega,4
-M,Lo Celso,4
-M,Enzo Pérez,3
-M,Biglia,3
-M,Di María,5
-M,Meza,3
-M,Salvio,3
-M,Acuña,3
-A,Messi,8
-A,Agüero,6
-A,Higuaín,5
-A,Dybala,5
-A,Pavón,4
+S,Coreia do Sul,Shin Tae-Yong,38,F
+G,Kim Seung-Gyu,3
+G,Cho Hyun-woo,1
+G,Kim Jin-hyeon,0
+Z,Kim Young-gwon,2
+Z,Jung Seung-hyun,1
+Z,Yun Young-Sun,1
+Z,Oh Ban-suk,0
+Z,Jang Hyun-soo,2
+L,Go Yo-han,2
+L,Lee Yong,2
+L,Park Joo-ho,2
+L,Kim Min-woo,1
+L,Hong Chul,0
+V,Ki Sung-yueng,3
+M,Koo Ja-cheol,3
+M,Lee Jae-Sung,2
+M,Jung Woo-young,2
+M,Ju Se-jong,1
+M,Moon Seon-min,1
+A,Son Heung-min,5
+A,Hwang Hee-chan,3
+A,Lee Seung-woo,2
+A,Kim Shin-Wook,0
 
-Bélgica
-G,Courtois,5
-G,Casteels,3
-G,Mignolet,3
-Z,Alderweireld,5
-Z,Kompany,4
-Z,Boyata,2
-Z,Vertonghen,5
-Z,Vermaelen,3
-L,Meunier,3
-M,Dembélé,4
-M,Witsel,4
-M,Fellaini,3
-M,Tielemans,3
-M,Dendoncker,2
-M,De Bruyne,6
-M,Hazard,5
-M,Carrasco,4
-M,Chadli,3
-M,Thorgan Hazard,3
-M,Januzaj,3
-A,Lukaku,5
-A,Mertens,5
-A,Batshuayi,4
+S,Japão,Akira Nishino,37,H
+G,Kawashima,2
+G,Nakamura,1
+G,Higashiguchi,1
+Z,Yoshida,3
+Z,Makino,2
+Z,Shoji,1
+Z,Endo,0
+Z,Ueda,0
+L,H. Sakai,3
+L,G. Sakai,0
+L,Nagatomo,2
+V,Hasebe,3
+V,Yamaguchi,1
+V,Oshima,0
+M,Honda,3
+M,Inui,3
+M,Kagawa,3
+M,Haraguchi,1
+M,Shibasaki,1
+A,Osako,2
+A,Muto,2
+A,Okazaki,2
+A,Usami,1
 
-Uruguai
-G,Martín Silva,3
-G,Muslera,3
-G,Campaña,2
-Z,José Giménez,5
-Z,Godín,5
-Z,Coates,3
-L,Cáceres,3
-L,Maxi Pereira,3
-L,Varela,3
-L,Gastón Silva,2
-M,Torreira,4
-M,Vecino,4
-M,Bentancur,4
-M,Nández,3
-M,Laxalt,3
-M,Carlos Sánchez,3
-M,Arrascaeta,3
-M,Cristian Rodríguez,2
-A,Luis Suárez,6
-A,Cavani,5
-A,Maximiliano Gómez,4
-A,Stuani,3
-A,Urretaviscaya,2
+S,Austrália,Bert van Marwijk,34,C
+G,Ryan,3
+G,Jones,0
+G,Vukovic,0
+Z,Sainsbury,2
+Z,Degenek,1
+Z,Jurman,1
+L,Risdon,1
+L,Behich,1
+L,Meredith,0
+V,Mooy,3
+V,Jedinak,2
+V,Luongo,2
+V,Milligan,2
+V,Irvine,1
+M,Rogic,3
+M,Arzani,2
+M,Petratos,1
+A,Juric,3
+A,Leckie,2
+A,Cahill,2
+A,Kruse,1
+A,Nabbout,1
+A,Maclaren,0
 
-Inglaterra
-G,Butland,4
-G,Pope,3
-G,Pickford,3
-Z,Cahill,3
-Z,Stones,3
-Z,Maguire,2
-Z,Phil Jones,3
-L,Trippier,3
-L,Walker,3
-L,Alexander-Arnold,3
-L,Danny Rose,3
-M,Dier,4
-M,Henderson,4
-M,Delph,2
-M,Dele Alli,5
-M,Ashley Young,3
-M,Loftus-Cheek,2
-A,Harry Kane,6
-A,Vardy,4
-A,Rashford,4
-A,Sterling,4
-A,Lingard,3
-A,Welbeck,2
+S,Tunísia,Nabil Maaloul,34,G
+G,Ben Mustapha,1
+G,Hassen,1
+G,Balbouli,0
+Z,Benalouane,2
+Z,Meriah,2
+Z,S. Ben Youssef,1
+Z,Bronn,1
+Z,Bedoui,1
+L,Nagguez,2
+L,Maâloul,2
+L,Haddadi,1
+V,Ben Amor,2
+V,Sassi,2
+V,Skhiri,2
+V,Chaalali,1
+V,Khalil,0
+M,Khazri,3
+M,Sliti,3
+M,Badri,2
+M,Khaoui,1
+M,Srarfi,1
+A,Saber Khalifa,2
+A,F. Ben Youssef,1
 
-Croácia
-G,Subasic,4
-G,Lovre Kalinic,3
-G,Livakovic,1
-Z,Lovren,4
-Z,Corluka,3
-Z,Jedvaj,3
-Z,Vida,3
-Z,?aleta-Car,3
-L,Vrsaljko,4
-L,Strinic,2
-L,Pivaric,1
-M,Badelj,3
-M,Bradaric,1
-M,Modric,6
-M,Rakitic,5
-M,Perisic,5
-M,Kovacic,4
-M,Brozovic,3
-A,Mandzukic,5
-A,Kramaric,4
-A,Kalinic,3
-A,Pjaca,3
-A,Rebic,2
+S,Islândia,Helmir Hallgrimsson,32,D
+G,Halldórsson,2
+G,Rúnarsson,1
+G,Schram,0
+Z,Árnason,2
+Z,Ingason,2
+Z,R. Sigurdsson,2
+Z,Eyjólfsson,0
+Z,Magnússon,1
+L,Saevarsson,1
+L,A. Skúlason,1
+V,Gunnarsson,3
+V,Hallfredsson,2
+V,Bjarnason,2
+V,Fridjónsson,0
+V,Ó. Skúlason,0
+M,G. Sigurdsson,4
+M,A. Gudmundsson,0
+M,Traustason,0
+A,J. Gudmundsson,3
+A,Bödvarsson,2
+A,Finnbogason,2
+A,Sigurdarson,1
+A,Gíslason,1
 
-Colômbia
-G,Ospina,3
-G,José Cuadrado,1
-G,Vargas,1
-Z,Davinson Sánchez,4
-Z,Mina,3
-Z,Zapata,2
-Z,Murillo,2
-L,Arias,3
-L,Farid Díaz,2
-L,Mojica,2
-M,Barrios,3
-M,Uribe,3
-M,Carlos Sánchez,3
-M,Aguilar,1
-M,Lerma,1
-M,James Rodríguez,6
-M,Juan Cuadrado,4
-M,Quintero,3
-M,Izquierdo,3
-A,Falcao,5
-A,Bacca,4
-A,Muriel,3
-A,Borja,3
+S,Irã,Carlos Queiroz,31,B
+G,Beiranvand,2
+G,Mazaheri,1
+G,Abedzadeh,0
+Z,Montazeri,1
+Z,Hosseini,0
+Z,Khanzadeh,0
+Z,Pouraliganji,0
+L,Rezaeian,1
+L,Mohammadi,2
+L,Hajsafi,1
+V,Ezatolahi,2
+V,Ebrahimi,1
+V,Cheshmi,1
+M,Jahanbakhsh,3
+M,Shojaei,2
+M,Dejagah,2
+M,Torabi,1
+A,Azmoun,3
+A,Taremi,2
+A,Ansarifard,2
+A,Ghoddos,2
+A,Amiri,1
+A,Ghoochannejhad,1
 
-Sérvia
-G,Rajkovic,3
-G,Stojkovic,3
-G,Dmitrovic,2
-Z,Spajic,3
-Z,Ivanovic,3
-Z,Veljkovic,3
-Z,Milenkovic,2
-Z,Tosic,1
-L,Rukavina,1
-L,Kolarov,4
-L,Rodic,0
-M,Matic,4
-M,Milivojevic,4
-M,Milinkovic-Savic,4
-M,Grujic,1
-M,Tadic,4
-M,Zivkovic,3
-M,Ljajic,3
-A,Mitrovic,4
-A,Kostic,3
-A,Radonjic,2
-A,Prijovic,2
-A,Jovic,2
- 
+S,Panamá,Hernan Gomez,30,G
+G,Penedo,2
+G,Calderón,0
+G,Alex Rodríguez,0
+Z,Román Torres,2
+Z,Escobar,2
+Z,Baloy,1
+Z,Cummings,1
+Z,Adolfo Machado,1
+L,Murillo,2
+L,Davis,2
+L,Ovalle,0
+V,Godoy,2
+V,Gabriel Gómez,1
+V,Ricardo Ávila,1
+M,Bárcenas,2
+M,Luis Rodríguez,2
+M,Cooper,1
+M,Pimentel,0
+A,Ismael Díaz,2
+A,Blas Pérez,2
+A,Gabriel Torres,2
+A,Arroyo,1
+A,Tejada,1
+
+S,Arábia Saudita,Juan Pizzi,17,A
+G,Al-Mosailem,1
+G,Al-Muaiouf,0
+G,Al-Owais,0
+Z,Omar Hawsawi,1
+Z,Osama Hawsawi,1
+Z,Motaz Hawsawi,1
+Z,Al-Boleahi,0
+L,Al-Burayk,1
+L,Al-Shahrani,1
+L,Al-Harbi,0
+V,Al-Faraj,1
+V,Al-Khaibari,1
+V,Al-Jassim,1
+V,Ateef,1
+V,Al-Khaibri,0
+V,Kanno,0
+M,Al-Shehri,2
+M,Al-Moghawi,0
+M,Bahbir,0
+A,Al-Muwallad,2
+A,Al-Dawsari,2
+A,Al-Sahlawi,1
+A,Asiri,0
