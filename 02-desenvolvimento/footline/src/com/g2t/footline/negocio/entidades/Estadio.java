@@ -1,10 +1,23 @@
 package com.g2t.footline.negocio.entidades;
 
+/**
+ * @author Taciano
+ *
+ */
 public class Estadio {
 	private String id;
 	private int capacidade;
 	private String nome;
 	
+	public Estadio() {
+	}
+	
+	public Estadio(String id, String nome, int capacidade) {
+		super();
+		this.id = id;
+		this.capacidade = capacidade;
+		this.nome = nome;
+	}
 	public String getId() {
 		return id;
 	}
@@ -25,5 +38,12 @@ public class Estadio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	@Override
+	public String toString() {
+		return "Estadio " + id + " - " + nome + " (" + capacidade + ")";
+	}
+	
+	
 	
 }

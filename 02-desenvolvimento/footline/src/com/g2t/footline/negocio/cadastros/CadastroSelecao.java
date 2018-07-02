@@ -35,7 +35,7 @@ public class CadastroSelecao {
 	 * @throws IOException 
 	 * @throws NumberFormatException 
 	 */
-	public void carregarDados() throws NumberFormatException, IOException {
+	public void carregar() throws NumberFormatException, IOException {
 		// Carrega o path de armazenamento dos arquivos
 		File file = new File(Constantes.FILE_PATH + 
 				File.separator + "selecoes");

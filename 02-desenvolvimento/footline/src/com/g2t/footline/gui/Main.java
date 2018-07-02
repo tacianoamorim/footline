@@ -6,6 +6,7 @@ import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Arbitro;
+import com.g2t.footline.negocio.entidades.Estadio;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
@@ -42,9 +43,23 @@ public class Main {
 			System.out.println(Fachada.getInstance().buscarArbitro(22));			
 			
 			// Carrega o array de estadio
-			//Fachada.getInstance().carregarEstadio();	
+			Fachada.getInstance().carregarEstadio();	
 			
 			// Listar estadios
+			System.out.println("--------------------------------------");
+			System.out.println("  LISTA ESTADIOS");
+			System.out.println("--------------------------------------");
+			Estadio[] estadios= Fachada.getInstance().listarEstadio();
+			for (int i = 0; i < estadios.length; i++) {
+				Estadio estadio = estadios[i];
+				if ( estadio != null )
+					System.out.println(estadio);
+			}			
+			
+			// Busca o estadio pelo codigo 
+			System.out.println();
+			System.out.print("Busca estadio codigo SAR =>");
+			System.out.println(Fachada.getInstance().buscarEstadio("SAR"));
 			
 			// Listar tecnicos
 			System.out.println("--------------------------------------");

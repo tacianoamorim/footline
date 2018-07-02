@@ -5,34 +5,34 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import com.g2t.footline.dados.RepositorioArbitro;
-import com.g2t.footline.dados.RepositorioArbitroArray;
+import com.g2t.footline.dados.RepositorioEstadio;
+import com.g2t.footline.dados.RepositorioEstadioArray;
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
-import com.g2t.footline.negocio.entidades.Arbitro;
+import com.g2t.footline.negocio.entidades.Estadio;
 import com.g2t.footline.util.Constantes;
 
-public class CadastroArbitro {
-	private RepositorioArbitro repositorio;
-	private static CadastroArbitro instance;
+public class CadastroEstadio {
+	private RepositorioEstadio repositorio;
+	private static CadastroEstadio instance;
 	
-	private CadastroArbitro() {
-		repositorio= new RepositorioArbitroArray();
+	private CadastroEstadio() {
+		repositorio= new RepositorioEstadioArray();
 	}
 	
-	public static CadastroArbitro getInstance() {
+	public static CadastroEstadio getInstance() {
 		if ( instance == null )
-			instance= new CadastroArbitro();
+			instance= new CadastroEstadio();
 		return instance;
 	}
 	
 	/**
-	 * Busca um determinado arbitro pelo codigo
+	 * Busca um determinado estadio pelo codigo
 	 * 
-	 * return Arbitro arbitro
+	 * return Estadio estadio
 	 * @throws RegistroNaoEncontradoException 
 	 */
-	public Arbitro buscar(int id) throws RegistroNaoEncontradoException {
+	public Estadio buscar(String id) throws RegistroNaoEncontradoException {
 		return repositorio.buscar(id);
 	}
 	
@@ -40,9 +40,9 @@ public class CadastroArbitro {
 	/**
 	 * Lista todos contidos no array
 	 * 
-	 * return Arbitro[]
+	 * return Estadio[]
 	 */
-	public Arbitro[] listar() {
+	public Estadio[] listar() {
 		return repositorio.listar();
 	}	
 	
@@ -51,8 +51,8 @@ public class CadastroArbitro {
 	 * 
 	 * @param Tecnico
 	 */
-	public void inserir(Arbitro arbitro) {
-		repositorio.inserir(arbitro);
+	public void inserir(Estadio estadio) {
+		repositorio.inserir(estadio);
 	}
 
 	/**
@@ -63,9 +63,9 @@ public class CadastroArbitro {
 	 */
 	public void carregar() throws ArquivoNaoEncontradoException {
 		try {
-			// Carrega o arquivo de arbitros
+			// Carrega o arquivo de estadios
 			File file = new File(Constantes.FILE_PATH + 
-					File.separator + "arbitros.foot");
+					File.separator + "estadios.foot");
 			
 			// le os dados de um arquivo
 			BufferedReader br = new BufferedReader(new FileReader(file));
@@ -74,17 +74,18 @@ public class CadastroArbitro {
 			   
 			   // Monta um array da linha
 			   String[] arrayLinha= linha.split(","); 
-			   String nome= arrayLinha[0];
-			   String nacionalidade= arrayLinha[1];
+			   String idx= arrayLinha[0];
+			   String nome= arrayLinha[1];
+			   int capacidade= Integer.parseInt( arrayLinha[2] );
 			   
-			   Arbitro arbitro= new Arbitro(nome, nacionalidade);
-			   repositorio.inserir(arbitro);
+			   Estadio estadio= new Estadio(idx, nome, capacidade);
+			   repositorio.inserir(estadio);
 
 			}
 			br.close();
 		} catch (IOException e) {
 			throw new ArquivoNaoEncontradoException("Não foi localizado o "
-					+ "arquivo arbitros.foot");
+					+ "arquivo estadios.foot");
 		}
 			
 	}	

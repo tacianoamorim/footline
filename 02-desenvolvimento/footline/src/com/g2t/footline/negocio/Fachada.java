@@ -5,9 +5,11 @@ import java.io.IOException;
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.cadastros.CadastroArbitro;
+import com.g2t.footline.negocio.cadastros.CadastroEstadio;
 import com.g2t.footline.negocio.cadastros.CadastroSelecao;
 import com.g2t.footline.negocio.cadastros.CadastroTecnico;
 import com.g2t.footline.negocio.entidades.Arbitro;
+import com.g2t.footline.negocio.entidades.Estadio;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
 
@@ -34,7 +36,7 @@ public class Fachada {
 	 */
 	public void carregarSelecaoJogador() 
 			throws NumberFormatException, IOException {
-		CadastroSelecao.getInstance().carregarDados();
+		CadastroSelecao.getInstance().carregar();
 	}
 	
 	/**
@@ -82,12 +84,12 @@ public class Fachada {
 	}	
 	
 	/**
-	 * Le o arquivo estadios e carrega o array.
+	 * Le o arquivo arbitros e carrega o array.
 	 * 
 	 * @throws ArquivoNaoEncontradoException 
 	 */
 	public void carregarArbitro() throws ArquivoNaoEncontradoException {
-		CadastroArbitro.getInstance().carregarArbitro();		
+		CadastroArbitro.getInstance().carregar();		
 	}
 
 	/**
@@ -117,4 +119,41 @@ public class Fachada {
 	public Arbitro buscarArbitro(int id) throws RegistroNaoEncontradoException {
 		return CadastroArbitro.getInstance().buscar(id);
 	}
+	
+	/**
+	 * Le o arquivo estadios e carrega o array.
+	 * 
+	 * @throws ArquivoNaoEncontradoException 
+	 */
+	public void carregarEstadio() throws ArquivoNaoEncontradoException {
+		CadastroEstadio.getInstance().carregar();		
+	}
+
+	/**
+	 * Insere um novo estadio
+	 * 
+	 * @param Estadio estadio
+	 */
+	public void inserir(Estadio estadio) {
+		CadastroEstadio.getInstance().inserir(estadio);
+	}
+	
+	/**
+	 * Lista todos os estadios cadastrados
+	 * 
+	 * @return Estadio[]
+	 */
+	public Estadio[] listarEstadio() {
+		return CadastroEstadio.getInstance().listar();
+	}
+
+	/**
+	 * Busca um determinado estadio pelo codigo
+	 * 
+	 * return Estadio estadio
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public Estadio buscarEstadio(String id) throws RegistroNaoEncontradoException {
+		return CadastroEstadio.getInstance().buscar(id);
+	}	
 }

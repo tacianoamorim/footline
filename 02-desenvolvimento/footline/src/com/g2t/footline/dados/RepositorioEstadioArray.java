@@ -1,32 +1,31 @@
 package com.g2t.footline.dados;
 
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
-import com.g2t.footline.negocio.entidades.Tecnico;
+import com.g2t.footline.negocio.entidades.Estadio;
 
-public class RepositorioEstadioArray implements RepositorioTecnico {
+public class RepositorioEstadioArray implements RepositorioEstadio {
 
-	private Tecnico[] arrayDados= new Tecnico[40];
-	private int idx= 0;
+	private Estadio[] arrayDados= new Estadio[40];
 	
 	/**
-	 * Busca um determinado tecnico pelo codigo
+	 * Busca um determinado estadio pelo codigo
 	 * 
-	 * return Tecnico tecnico
+	 * return Estadio estadio
 	 * @throws RegistroNaoEncontradoException 
 	 */
 	@Override
-	public Tecnico buscar(int id) throws RegistroNaoEncontradoException {
-		Tecnico retorno= null;
+	public Estadio buscar(String id) throws RegistroNaoEncontradoException {
+		Estadio retorno= null;
 		for (int i = 0; i < arrayDados.length; i++) {
-			Tecnico tecnico = arrayDados[i];
-			if ( id == tecnico.getId() ) {
-				retorno= tecnico;
+			Estadio estadio = arrayDados[i];
+			if ( estadio.getId().equalsIgnoreCase( id ) ) {
+				retorno= estadio;
 				break;
 			}
 		}
 		
 		if ( retorno == null ) {
-			throw new RegistroNaoEncontradoException("Tecnico id="+ id
+			throw new RegistroNaoEncontradoException("Estadio id="+ id
 					+" não localizado.");
 		}
 		return retorno;
@@ -35,24 +34,23 @@ public class RepositorioEstadioArray implements RepositorioTecnico {
 	/**
 	 * Lista todos contidos no array
 	 * 
-	 * return Tecnico[]
+	 * return Estadio[]
 	 */
 	@Override
-	public Tecnico[] listar() {
+	public Estadio[] listar() {
 		return arrayDados;
 	}
 
 	/**
-	 * Adiciona um tecnico no array
+	 * Adiciona um estadio no array
 	 * 
-	 * @param Tecnico
+	 * @param Estadio
 	 */
 	@Override
-	public void inserir(Tecnico tecnico) {
+	public void inserir(Estadio estadio) {
 		for (int i = 0; i < arrayDados.length; i++) {
 			if ( arrayDados[i] == null ) {
-				tecnico.setId(++idx);
-				arrayDados[i] = tecnico;
+				arrayDados[i] = estadio;
 				break;
 			}
 		}	
