@@ -1,24 +1,24 @@
-S,Dinamarca,Age Hareide,45,C
+S,Dinamarca,Age Hareide,45,DIN,C
 G,Schmeichel,3
 G,Lössl,1
-G,Rönnow,1 
-Z,Christensen,4 
+G,Rönnow,1
+Z,Christensen,4
 Z,Kjaer,2
 Z,Vestergaard,2
-Z,Zanka,1 
-L,Stryger Larsen,1 
-L,Dalsgaard,0 
-L,Knudsen,1 
-V,Schöne,3
-V,Delaney,3 
-V,Kvist,1
-M,Eriksen,5 
-M,Sisto,3 
-M,Krohn-Dehli,3 
-M,Lerager,1 
-A,Dolberg,3 
-A,Jörgensen,3 
-A,Yussuf Poulsen,2 
-A,Cornelius,1 
-A,Fischer,1 
-A,Braithwaite,0
+Z,Zanka,1
+Z,Stryger Larsen,1
+Z,Dalsgaard,0
+Z,Knudsen,1
+M,Schöne,3
+M,Delaney,3
+M,Kvist,1
+M,Eriksen,5
+M,Sisto,3
+M,Krohn-Dehli,3
+M,Lerager,1
+A,Dolberg,3
+A,Jörgensen,3
+A,Yussuf Poulsen,2
+A,Cornelius,1
+A,Fischer,1
+A,Braithwaite,1

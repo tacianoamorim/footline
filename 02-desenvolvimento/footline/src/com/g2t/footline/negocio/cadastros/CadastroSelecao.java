@@ -44,6 +44,7 @@ public class CadastroSelecao {
 		// Carregar os dados dos clubes
 		for (int i=0; i < afile.length; i++) {
 			// recupera a extensao do arquivo
+			//System.out.println(afile[i].getName());
 			if (afile[i].getName().endsWith("foot")) {
 				
 				Selecao selecao= null;
@@ -57,6 +58,7 @@ public class CadastroSelecao {
 				   // Monta um array da linha
 				   String[] arrayLinha= linha.split(","); 
 				   char idx= arrayLinha[0].charAt(0);
+				   //System.out.println(linha);
 				   
 				   switch (idx) {
 					case Constantes.FILE_DADOS_SELECAO: 

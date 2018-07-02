@@ -6,8 +6,8 @@ public class Tecnico extends Pessoa {
 		super();
 	}
 
-	public Tecnico(int id, String nome,int nivel) {
-		super(id, nome,nivel);
+	public Tecnico(int id, String nome) {
+		super(id, nome);
 	}
 
 	@Override
