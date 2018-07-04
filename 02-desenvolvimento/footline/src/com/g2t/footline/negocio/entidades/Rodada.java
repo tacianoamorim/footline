@@ -6,26 +6,26 @@ import java.util.List;
 public class Rodada {
 
 	private int numero;
+	private String descricao;
 	private List<Partida> partidas;
 	private boolean finalizada;
-	private Calendar data;
 		
 	public Rodada() {
 	}
 	
-	public Rodada(int numero, boolean finalizada, Calendar data) {
+	public Rodada(int numero, String descricao, boolean finalizada) {
 		super();
 		this.numero = numero;
 		this.finalizada = finalizada;
-		this.data = data;
+		this.descricao = descricao;
 	}
 	
-	public Rodada(int numero, List<Partida> partidas, boolean finalizada, Calendar data) {
+	public Rodada(int numero, String descricao, List<Partida> partidas, boolean finalizada) {
 		super();
 		this.numero = numero;
 		this.partidas = partidas;
 		this.finalizada = finalizada;
-		this.data = data;
+		this.descricao = descricao;
 	}
 	
 	public int getNumero() {
@@ -49,17 +49,17 @@ public class Rodada {
 		this.finalizada = finalizada;
 	}
 	
-	public Calendar getData() {
-		return data;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setData(Calendar data) {
-		this.data = data;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 	@Override
 	public String toString() {
-		return "Rodada [numero=" + numero + ", partidas=" + partidas 
-				+ ", finalizada=" + finalizada + "]";
+		return "Rodada " + numero + "- " + descricao +"["+ finalizada 
+				+ "] ";
 	}
 	
 }

@@ -8,12 +8,14 @@ public class Partida  {
 	private int golsvisitante;
 	private float publico;
 	private Arbitro arbitro;
+	private Estadio estadio;
 
-	public Partida(Escalacao mandante, Escalacao visitante, Arbitro arbitro) {
+	public Partida(Escalacao mandante, Escalacao visitante, Arbitro arbitro, Estadio estadio) {
 		super();
 		this.mandante = mandante;
 		this.visitante = visitante;
 		this.arbitro= arbitro;
+		this.estadio= estadio;
 	}
 	
 	public Escalacao getMandante() {
@@ -58,11 +60,17 @@ public class Partida  {
 		this.arbitro = arbitro;
 	}
 
+	public Estadio getEstadio() {
+		return estadio;
+	}
+	public void setEstadio(Estadio estadio) {
+		this.estadio = estadio;
+	}
+
 	@Override
 	public String toString() {
 		return "Partida [mandante=" + mandante + ", visitante=" + visitante + ", golsMandante=" + golsMandante
 				+ ", golsvisitante=" + golsvisitante + ", publico=" + publico + ", arbitro=" + arbitro + "]";
 	}
-
 	
 }

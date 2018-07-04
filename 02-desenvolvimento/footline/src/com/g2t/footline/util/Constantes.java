@@ -13,4 +13,13 @@ public interface Constantes {
 	public static final char FILE_DADOS_JOGADOR_MEIA 	= 'M';
 	public static final char FILE_DADOS_JOGADOR_ATAQUE 	= 'A';
 	
+	
+	public static final char TIPO_DADO_RODADA 			= 'R';	
+	public static final char TIPO_DADO_PARTIDA_FG	 	= 'P';	
+	public static final char TIPO_DADO_PARTIDA_OF	 	= '8';	
+	public static final char TIPO_DADO_PARTIDA_QF	 	= '4';
+	public static final char TIPO_DADO_PARTIDA_SF	 	= '2';
+	public static final char TIPO_DADO_PARTIDA_3L	 	= '1';
+	public static final char TIPO_DADO_PARTIDA_PF	 	= '0';
+
 }

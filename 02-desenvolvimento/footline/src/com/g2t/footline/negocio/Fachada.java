@@ -185,5 +185,15 @@ public class Fachada {
 	 */
 	public void inserir(Rodada rodada) {
 		CadastroRodada.getInstance().inserir(rodada);
+	}
+
+	/**
+	 * Le o arquivo rodadas e carrega o array.
+	 * 
+	 * @throws RegistroNaoEncontradoException 
+	 * @throws ArquivoNaoEncontradoException 
+	 */
+	public void carregarRodadas() throws ArquivoNaoEncontradoException, RegistroNaoEncontradoException {
+		CadastroRodada.getInstance().carregar();
 	}	
 }
