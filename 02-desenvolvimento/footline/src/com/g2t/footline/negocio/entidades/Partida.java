@@ -2,6 +2,7 @@ package com.g2t.footline.negocio.entidades;
 
 public class Partida  {
 
+	private int id;
 	private Escalacao mandante;
 	private Escalacao visitante;
 	private int golsMandante;
@@ -10,14 +11,23 @@ public class Partida  {
 	private Arbitro arbitro;
 	private Estadio estadio;
 
-	public Partida(Escalacao mandante, Escalacao visitante, Arbitro arbitro, Estadio estadio) {
+	public Partida(int id, Escalacao mandante, Escalacao visitante, 
+			Arbitro arbitro, Estadio estadio) {
 		super();
+		this.id= id;
 		this.mandante = mandante;
 		this.visitante = visitante;
 		this.arbitro= arbitro;
 		this.estadio= estadio;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Escalacao getMandante() {
 		return mandante;
 	}

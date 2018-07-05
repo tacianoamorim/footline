@@ -104,8 +104,7 @@ public class CadastroRodada {
 					break;
 					
 				case Constantes.TIPO_DADO_PARTIDA_FG: //P,1,A,RUS,ARA,LUJ,1
-					int id= Integer.parseInt( String.valueOf( arrayLinha[1] ) );
-					String grupo= arrayLinha[2];
+					int idPartidaFG= Integer.parseInt( String.valueOf( arrayLinha[1] ) );
 					
 					// Partida 
 					Selecao selecaoMananteFG= Fachada.getInstance().buscarSelecao( arrayLinha[3] );
@@ -123,7 +122,8 @@ public class CadastroRodada {
 					// Busca o estadio
 					Estadio estadioFG= Fachada.getInstance().buscarEstadio( arrayLinha[5] );
 					
-					Partida partidaFG= new Partida(mandanteFG, visitanteFG, arbitroFG, estadioFG);
+					Partida partidaFG= new Partida(idPartidaFG, mandanteFG, visitanteFG, 
+							arbitroFG, estadioFG);
 					rodada.getPartidas().add(partidaFG);
 					
 					break;
