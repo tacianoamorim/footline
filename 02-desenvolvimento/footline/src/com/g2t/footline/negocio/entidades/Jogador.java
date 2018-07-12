@@ -7,7 +7,6 @@ public class Jogador extends Pessoa {
 	public static final String MEIO_CAMPO	= "M";
 	public static final String ATAQUE		= "A";
 	
-	private String acronomo;
 	private String posicao;
 	private int cartaoAmarelo;
 	private boolean cartaoVermelho;
@@ -19,14 +18,13 @@ public class Jogador extends Pessoa {
 		super();
 	}
 	
-	public Jogador(int id, String nome, String posicao, String acronomo) {
+	public Jogador(int id, String nome, String posicao) {
 		super(id, nome);
 		this.posicao = posicao;
-		this.acronomo= acronomo;
 	}
 	
 	public Jogador(int id, String nome, String posicao, int nivel, int cartaoAmarelo, boolean cartaoVermelho,
-			int rodadasLesionado, int quantidadeGols, String acronomo) {
+			int rodadasLesionado, int quantidadeGols) {
 		super(id, nome);
 		this.posicao = posicao;
 		this.nivel = nivel;
@@ -34,14 +32,6 @@ public class Jogador extends Pessoa {
 		this.cartaoVermelho = cartaoVermelho;
 		this.rodadasLesionado = rodadasLesionado;
 		this.quantidadeGols = quantidadeGols;
-		this.acronomo= acronomo;
-	}
-
-	public String getAcronomo() {
-		return acronomo;
-	}
-	public void setAcronomo(String acronomo) {
-		this.acronomo = acronomo;
 	}
 
 	public String getPosicao() {
