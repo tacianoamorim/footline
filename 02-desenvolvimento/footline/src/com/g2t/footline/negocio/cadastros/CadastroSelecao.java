@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.g2t.footline.dados.RepositorioSelecao;
-import com.g2t.footline.dados.RepositorioSelecaoArray;
+import com.g2t.footline.dados.RepositorioSelecaoLista;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Selecao;
@@ -20,7 +20,7 @@ public class CadastroSelecao {
 	private static CadastroSelecao instance;
 	
 	private CadastroSelecao() {
-		repositorio= new RepositorioSelecaoArray();
+		repositorio= new RepositorioSelecaoLista();
 	}
 	
 	public static CadastroSelecao getInstance() {
@@ -85,6 +85,7 @@ public class CadastroSelecao {
 						goleiro.setNome( arrayLinha[1] );
 						goleiro.setNivel( Integer.valueOf(arrayLinha[2]) );
 						goleiro.setPosicao( Jogador.GOLEIRO );
+						goleiro.setSelecao(selecao);
 						
 						// Cadastrar jogador
 						CadastroJogador.getInstance().inserir(goleiro);
@@ -98,6 +99,7 @@ public class CadastroSelecao {
 						defesa.setNome( arrayLinha[1] );
 						defesa.setNivel( Integer.valueOf(arrayLinha[2]) );
 						defesa.setPosicao( Jogador.DEFESA );
+						defesa.setSelecao(selecao);
 						
 						// Cadastrar jogador
 						CadastroJogador.getInstance().inserir(defesa);
@@ -111,6 +113,7 @@ public class CadastroSelecao {
 						meioCampo.setPosicao( Jogador.MEIO_CAMPO );
 						meioCampo.setNome( arrayLinha[1] );
 						meioCampo.setNivel( Integer.valueOf(arrayLinha[2]) );
+						meioCampo.setSelecao(selecao);
 						
 						// Cadastrar jogador
 						CadastroJogador.getInstance().inserir(meioCampo);	
@@ -123,6 +126,7 @@ public class CadastroSelecao {
 						Jogador ataque= new Jogador();
 						ataque.setPosicao("A");
 						ataque.setNome( arrayLinha[1] );
+						ataque.setSelecao(selecao);
 						
 						//System.out.println("  Ataque: "+arrayLinha[1] + "Linha"+linha);
 						ataque.setNivel( Integer.valueOf(arrayLinha[2]) );
@@ -141,6 +145,9 @@ public class CadastroSelecao {
 				
 				selecao.setJogadores( jogadores );
 				
+				System.out.println(selecao);
+				System.out.println( "  => "+ jogadores );
+				
 				br.close();
 			}
 		}
@@ -149,9 +156,9 @@ public class CadastroSelecao {
 	/**
 	 * Lista todos contidos no array de selecoes
 	 * 
-	 * return Selecao[]
+	 * return List<Selecao>
 	 */
-	public Selecao[] listar() {
+	public List<Selecao> listar() {
 		return repositorio.listar();
 	}
 

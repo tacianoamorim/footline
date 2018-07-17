@@ -45,7 +45,7 @@ public class FrmSobre extends JDialog {
 		setTitle("Sobre o footline");
 		setBounds(100, 100, 333, 224);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(0, 128, 128));
+		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -66,12 +66,6 @@ public class FrmSobre extends JDialog {
 			contentPanel.add(lblNewLabel);
 		}
 		
-		JLabel lblNewLabel_2 = new JLabel("- Gedenilton Rocha");
-		lblNewLabel_2.setFont(new Font("Source Sans Pro Semibold", Font.BOLD | Font.ITALIC, 13));
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(20, 99, 166, 23);
-		contentPanel.add(lblNewLabel_2);
-		
 		JLabel label = new JLabel("- Gustavo Tabosa");
 		label.setForeground(Color.WHITE);
 		label.setFont(new Font("Source Sans Pro Semibold", Font.BOLD | Font.ITALIC, 13));
@@ -85,7 +79,7 @@ public class FrmSobre extends JDialog {
 		contentPanel.add(label_1);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(0, 128, 128));
+			buttonPane.setBackground(Color.BLACK);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{

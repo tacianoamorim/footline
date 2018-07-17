@@ -1,11 +1,14 @@
 package com.g2t.footline.dados;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Selecao;
 
-public class RepositorioSelecaoArray implements RepositorioSelecao {
+public class RepositorioSelecaoLista implements RepositorioSelecao {
 
-	private Selecao[] arrayDados= new Selecao[32];
+	private List<Selecao> dados= new ArrayList<Selecao>();
 
 	/**
 	 * Busca um determinado selecao pelo codigo
@@ -16,8 +19,7 @@ public class RepositorioSelecaoArray implements RepositorioSelecao {
 	@Override
 	public Selecao buscar(String id) throws RegistroNaoEncontradoException {
 		Selecao retorno= null;
-		for (int i = 0; i < arrayDados.length; i++) {
-			Selecao selecao = arrayDados[i];
+		for (Selecao selecao : dados) {
 			if ( selecao.getId().equalsIgnoreCase( id ) ) {
 				retorno= selecao;
 				break;
@@ -32,26 +34,21 @@ public class RepositorioSelecaoArray implements RepositorioSelecao {
 	}
 	
 	/**
-	 * Insere uma selacao no array
+	 * Insere uma selacao na lista
 	 */
 	@Override
 	public void inserir(Selecao selecao) {
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( arrayDados[i] == null ) {
-				arrayDados[i] = selecao;
-				break;
-			}
-		}
+		dados.add(selecao);
 	}
 
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos
 	 * 
-	 * return Selecao[]
+	 * return List<Selecao>
 	 */
 	@Override
-	public Selecao[] listar() {
-		return arrayDados;
+	public List<Selecao> listar() {
+		return dados;
 	}
 	
 	/**
@@ -61,9 +58,9 @@ public class RepositorioSelecaoArray implements RepositorioSelecao {
 	@Override
 	public void alterar(Selecao selecao) throws RegistroNaoEncontradoException {
 		boolean achei= false;
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( selecao.getId().equalsIgnoreCase( arrayDados[i].getId() ) ) {
-				arrayDados[i]= selecao;
+		for (Selecao selecao2 : dados) {
+			if ( selecao.getId().equalsIgnoreCase( selecao2.getId() ) ) {
+				selecao2= selecao;
 				achei= true;
 				break;
 			}

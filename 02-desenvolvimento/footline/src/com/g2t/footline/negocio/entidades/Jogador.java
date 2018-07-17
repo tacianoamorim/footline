@@ -13,6 +13,7 @@ public class Jogador extends Pessoa {
 	private int rodadasLesionado;
 	private int quantidadeGols;
 	private int nivel;
+	private Selecao selecao;
 	
 	public Jogador() {
 		super();
@@ -76,6 +77,13 @@ public class Jogador extends Pessoa {
 		this.quantidadeGols = quantidadeGols;
 	}
 	
+	public Selecao getSelecao() {
+		return selecao;
+	}
+	public void setSelecao(Selecao selecao) {
+		this.selecao = selecao;
+	}
+
 	@Override
 	public String toString() {
 		return "Jogador [id=" + getId() + ", nome=" + getNome() + ", posicao=" + posicao + ", nivel=" + getNivel()

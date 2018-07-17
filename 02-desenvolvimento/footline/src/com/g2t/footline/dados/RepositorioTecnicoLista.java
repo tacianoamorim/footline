@@ -1,11 +1,14 @@
 package com.g2t.footline.dados;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Tecnico;
 
-public class RepositorioTecnicoArray implements RepositorioTecnico {
+public class RepositorioTecnicoLista implements RepositorioTecnico {
 
-	private Tecnico[] arrayDados= new Tecnico[40];
+	private List<Tecnico> dados= new ArrayList<Tecnico>();
 	private int idx= 0;
 	
 	/**
@@ -17,8 +20,7 @@ public class RepositorioTecnicoArray implements RepositorioTecnico {
 	@Override
 	public Tecnico buscar(int id) throws RegistroNaoEncontradoException {
 		Tecnico retorno= null;
-		for (int i = 0; i < arrayDados.length; i++) {
-			Tecnico tecnico = arrayDados[i];
+		for (Tecnico tecnico : dados) {
 			if ( id == tecnico.getId() ) {
 				retorno= tecnico;
 				break;
@@ -33,29 +35,24 @@ public class RepositorioTecnicoArray implements RepositorioTecnico {
 	}
 
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos contidos na lista
 	 * 
-	 * return Tecnico[]
+	 * return List<Tecnico>
 	 */
 	@Override
-	public Tecnico[] listar() {
-		return arrayDados;
+	public List<Tecnico> listar() {
+		return dados;
 	}
 
 	/**
-	 * Adiciona um tecnico no array
+	 * Adiciona um tecnico na lista
 	 * 
 	 * @param Tecnico
 	 */
 	@Override
 	public void inserir(Tecnico tecnico) {
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( arrayDados[i] == null ) {
-				tecnico.setId(++idx);
-				arrayDados[i] = tecnico;
-				break;
-			}
-		}	
+		tecnico.setId(++idx);
+		dados.add( tecnico );
 	}
 
 }

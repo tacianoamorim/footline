@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import com.g2t.footline.dados.RepositorioEstadio;
-import com.g2t.footline.dados.RepositorioEstadioArray;
+import com.g2t.footline.dados.RepositorioEstadioLista;
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Estadio;
@@ -17,7 +18,7 @@ public class CadastroEstadio {
 	private static CadastroEstadio instance;
 	
 	private CadastroEstadio() {
-		repositorio= new RepositorioEstadioArray();
+		repositorio= new RepositorioEstadioLista();
 	}
 	
 	public static CadastroEstadio getInstance() {
@@ -38,16 +39,16 @@ public class CadastroEstadio {
 	
 	
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos contidos na lista
 	 * 
-	 * return Estadio[]
+	 * return List<Estadio>
 	 */
-	public Estadio[] listar() {
+	public List<Estadio> listar() {
 		return repositorio.listar();
 	}	
 	
 	/**
-	 * Adiciona um tecnico no array
+	 * Adiciona um tecnico na lista
 	 * 
 	 * @param Tecnico
 	 */
@@ -56,7 +57,7 @@ public class CadastroEstadio {
 	}
 
 	/**
-	 * Le o arquivo estadios e carrega o array.
+	 * Le o arquivo estadios e carrega a litsa.
 	 * 
 	 * @throws IOException 
 	 * @throws ArquivoNaoEncontradoException 

@@ -6,15 +6,18 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import com.g2t.footline.negocio.Fachada;
+import com.g2t.footline.negocio.entidades.Selecao;
 
 public class FrmJogoNovo extends JDialog {
 
@@ -26,7 +29,7 @@ public class FrmJogoNovo extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	DefaultListModel<String> modelo = new DefaultListModel<String>();
 	private FrmOpcao frmOpcao;
-	private JTextField txtNomeTecnico;
+	private JComboBox<Selecao> comboBox;
 
 	/**
 	 * Create the dialog.
@@ -37,28 +40,34 @@ public class FrmJogoNovo extends JDialog {
 		getContentPane().setForeground(new Color(0, 128, 128));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
-		setBounds(100, 100, 410, 167);
+		setBounds(100, 100, 496, 158);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(0, 128, 128));
+		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
-		contentPanel.setLayout(null);
-		{
-			JLabel lblNewLabel = new JLabel("Nome do técnico");
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
-			lblNewLabel.setForeground(Color.WHITE);
-			lblNewLabel.setBounds(10, 38, 106, 14);
-			contentPanel.add(lblNewLabel);
+		
+		
+		// Cria e carrega a lista de selecoes
+		comboBox = new JComboBox<Selecao>();
+		comboBox.setBounds(130, 26, 327, 30);
+		contentPanel.add(comboBox);
+		List<Selecao> selecoes= Fachada.getInstance().listarSelecoes();
+		for (Selecao selecao : selecoes) {
+			comboBox.addItem(selecao);
 		}
 		
-		txtNomeTecnico = new JTextField();
-		txtNomeTecnico.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtNomeTecnico.setBounds(119, 33, 265, 27);
-		contentPanel.add(txtNomeTecnico);
-		txtNomeTecnico.setColumns(10);
+		contentPanel.setLayout(null);
+		{
+			JLabel lblNewLabel = new JLabel("Escolha uma seleção");
+			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+			lblNewLabel.setForeground(Color.WHITE);
+			lblNewLabel.setBounds(10, 38, 124, 14);
+			contentPanel.add(lblNewLabel);
+		}
+
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(0, 128, 128));
+			buttonPane.setBackground(Color.BLACK);
 			buttonPane.setForeground(new Color(0, 128, 128));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -66,22 +75,15 @@ public class FrmJogoNovo extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-				
-						// Valida se o nome foi prenchido
-						if (  txtNomeTecnico.getText() == null || txtNomeTecnico.getText().trim().length() == 0 ) {
-							JOptionPane.showMessageDialog(null, "Informe o nome do técnico.");
-							
-						} else {
-			                FrmPrincipal frmPrincipal= new FrmPrincipal();
-			                setVisible( false );
-			                
-			                getFrmOpcao().setVisible( false );
-			                
-			                frmPrincipal.setVisible( true );
-			                frmPrincipal.getFootline().setUsuario( txtNomeTecnico.getText() );
-			                frmPrincipal.processarCarregamentoApp( true );
-						}
-
+		                setVisible( false );
+		                getFrmOpcao().setVisible( false );
+		                
+		                FrmPrincipal.selecaoGerenciada= 
+		                		(Selecao) comboBox.getSelectedItem();
+		                
+		                FrmPrincipal frmPrincipal= new FrmPrincipal();
+		                frmPrincipal.setVisible( true );
+		                frmPrincipal.processarCarregamentoApp( true );
 					}
 				});
 				okButton.setActionCommand("OK");

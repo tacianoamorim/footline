@@ -1,6 +1,5 @@
 package com.g2t.footline.negocio.entidades;
 
-import java.util.Calendar;
 import java.util.List;
 
 public class Rodada {
@@ -55,7 +54,7 @@ public class Rodada {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Rodada " + numero + "- " + descricao +"["+ finalizada 

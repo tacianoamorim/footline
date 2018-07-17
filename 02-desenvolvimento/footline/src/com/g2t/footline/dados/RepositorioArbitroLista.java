@@ -1,11 +1,14 @@
 package com.g2t.footline.dados;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Arbitro;
 
-public class RepositorioArbitroArray implements RepositorioArbitro {
+public class RepositorioArbitroLista implements RepositorioArbitro {
 
-	private Arbitro[] arrayDados= new Arbitro[36];
+	private  List<Arbitro> dados= new ArrayList<Arbitro>();
 	private int idx= 0;
 	
 	/**
@@ -17,8 +20,7 @@ public class RepositorioArbitroArray implements RepositorioArbitro {
 	@Override
 	public Arbitro buscar(int id) throws RegistroNaoEncontradoException {
 		Arbitro retorno= null;
-		for (int i = 0; i < arrayDados.length; i++) {
-			Arbitro arbitro = arrayDados[i];
+		for (Arbitro arbitro : dados) {
 			if ( id == arbitro.getId() ) {
 				retorno= arbitro;
 				break;
@@ -34,25 +36,20 @@ public class RepositorioArbitroArray implements RepositorioArbitro {
 	
 	
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos contidos na lista
 	 * 
-	 * return Arbitro[]
+	 * return List<Arbitro>
 	 */
 	@Override
-	public Arbitro[] listar() {
-		return arrayDados;
+	public List<Arbitro> listar() {
+		return dados;
 	}
 
 
 	@Override
 	public void inserir(Arbitro arbitro) {
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( arrayDados[i] == null ) {
-				arbitro.setId(++idx);
-				arrayDados[i] = arbitro;
-				break;
-			}
-		}	
+		arbitro.setId( ++idx );
+		dados.add( arbitro );
 	}	
 
 }

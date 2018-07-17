@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -22,9 +22,12 @@ import javax.swing.border.CompoundBorder;
 
 import com.g2t.footline.gui.componentes.JogadorTableModel;
 import com.g2t.footline.gui.telasSecundarias.FrmCalendario;
+import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.negocio.entidades.Rodada;
+import com.g2t.footline.negocio.entidades.Selecao;
+import com.g2t.footline.util.Biblioteca;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -33,32 +36,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	 */
 	private static final long serialVersionUID = -2575483770162322308L;
 	
-	private Footline footline;
+	public static Selecao selecaoGerenciada;
 	private JLabel lblBarraStatus;
 	private JogadorTableModel jogadorTableModel;
 	
 	private JLabel lblEscudo;
-	private JLabel lblNomeClube;
-	private JLabel lblEstadio;
+	private JLabel lblNomeSelecao;
 	private JLabel lblTecnico;
-	private JLabel lblCaixa; 
 	
 	private JLabel lblNomeAdversario;
 	private JLabel lblRodada;
 	private JLabel lblEscudoAdversario;
 	private JLabel lblLocalPartida;
 	
-	
+	private Integer numeroRodadaAtual;
+		
 	/**
 	 * Create the application.
 	 */
 	public FrmPrincipal() {
+		setTitle("Footline - Copa Russia 2018");
 		setResizable(false);
-		
-		// Cria os objetos
-		footline= new Footline();
-		Clube clubeGerenciado= new Clube();
-		footline.setClubeGerenciado( clubeGerenciado );
 		
 		// Exibe a tela
 		initialize();
@@ -76,21 +74,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		
 		JPanel pnlTopo = new JPanel();
 		pnlTopo.setForeground(new Color(0, 100, 0));
-		pnlTopo.setBackground(new Color(34, 139, 34));
+		pnlTopo.setBackground(Color.BLACK);
 		getContentPane().add(pnlTopo, BorderLayout.NORTH);
 		pnlTopo.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 128, 128));
+		panel.setBackground(Color.BLACK);
 		pnlTopo.add(panel, BorderLayout.WEST);
 		
-		JLabel lblNewLabel = new JLabel("  Footline      ");
+		JLabel lblNewLabel = new JLabel("  Footline - Rússia Copa 2018  ");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		panel.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 26));
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 128, 128));
+		panel_1.setBackground(Color.BLACK);
 		pnlTopo.add(panel_1, BorderLayout.CENTER);
 		
 		JToolBar toolBar = new JToolBar();
@@ -105,7 +103,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JButton btnCalendario = new JButton("Calendário");
 		btnCalendario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-                FrmCalendario frmCalendario= new FrmCalendario(footline);
+                FrmCalendario frmCalendario= new FrmCalendario();
                 frmCalendario.setVisible(true);
 			}
 		});
@@ -124,11 +122,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					// Solicita o nome do jogo salvo
-					String nomeArquivo= JOptionPane.showInputDialog(null, "Salvar com qual nome?", 
-							"Salva jogo", JOptionPane.INFORMATION_MESSAGE);					
-					
-					FootlineService.getInstance().salvar(nomeArquivo, footline);
+					//FootlineService.getInstance().salvar(nomeArquivo, footline);
 					JOptionPane.showMessageDialog(null, "Jogo salvo!", "Salvar Jogo", JOptionPane.INFORMATION_MESSAGE);
 					
 				} catch (Exception e) {
@@ -158,19 +152,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		btnEstadio.setForeground(Color.WHITE);
 		toolBar.add(btnEstadio);
 		
-		JLabel label = new JLabel("     ");
-		toolBar.add(label);
-		
-		JButton btnFinanca = new JButton("Finanças");
-		btnFinanca.setForeground(Color.WHITE);
-		toolBar.add(btnFinanca);
-		
 		JLabel lblEspacos1 = new JLabel("     ");
 		toolBar.add(lblEspacos1);
 		toolBar.add(btnSalvar);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(new Color(0, 128, 128));
+		panel_2.setBackground(Color.BLACK);
 		pnlTopo.add(panel_2, BorderLayout.EAST);
 		
 		JButton btnSair = new JButton("Sair");
@@ -191,7 +178,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setForeground(new Color(255, 255, 255));
-		panel_3.setBackground(new Color(0, 128, 128));
+		panel_3.setBackground(Color.BLACK);
 		panel_3.setBorder(new CompoundBorder());
 		panel_3.setBounds(10, 11, 267, 417);
 		pnlCentro.add(panel_3);
@@ -201,33 +188,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		lblEscudo.setBounds(10, 11, 80, 71);
 		panel_3.add(lblEscudo);
 		
-		lblNomeClube = new JLabel("lblNome");
-		lblNomeClube.setForeground(new Color(255, 255, 255));
-		lblNomeClube.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNomeClube.setBounds(97, 11, 160, 29);
-		panel_3.add(lblNomeClube);
-		
-		lblEstadio = new JLabel("lblEstadio");
-		lblEstadio.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
-		lblEstadio.setForeground(new Color(255, 255, 255));
-		lblEstadio.setBounds(100, 63, 160, 14);
-		panel_3.add(lblEstadio);
+		lblNomeSelecao = new JLabel("lblNome");
+		lblNomeSelecao.setForeground(new Color(255, 255, 255));
+		lblNomeSelecao.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNomeSelecao.setBounds(97, 11, 160, 29);
+		panel_3.add(lblNomeSelecao);
 		
 		JLabel lblConfianca = new JLabel("Confiança");
 		lblConfianca.setForeground(new Color(255, 255, 255));
 		lblConfianca.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblConfianca.setBounds(10, 117, 91, 14);
+		lblConfianca.setBounds(10, 111, 91, 14);
 		panel_3.add(lblConfianca);
 		
 		JProgressBar pBarConfianca = new JProgressBar();
 		pBarConfianca.setForeground(Color.BLUE);
 		pBarConfianca.setValue(90);
-		pBarConfianca.setBounds(10, 135, 247, 22);
+		pBarConfianca.setBounds(10, 129, 247, 22);
 		panel_3.add(pBarConfianca);
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBackground(Color.WHITE);
-		panel_6.setBounds(10, 266, 247, 140);
+		panel_6.setBounds(10, 184, 247, 140);
 		panel_3.add(panel_6);
 		panel_6.setLayout(null);
 		
@@ -240,7 +221,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		lblEscudoAdversario.setBounds(10, 56, 80, 71);
 		panel_6.add(lblEscudoAdversario);
 
-		lblLocalPartida = new JLabel("Em casa");
+		lblLocalPartida = new JLabel(" - - - - - ");
 		lblLocalPartida.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblLocalPartida.setBounds(107, 11, 86, 14);
 		panel_6.add(lblLocalPartida);
@@ -256,13 +237,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		lblNomeAdversario.setBounds(100, 73, 137, 29);
 		panel_6.add(lblNomeAdversario);
 		
-		lblCaixa = new JLabel("Caixa: R$ 3.000.000,00");
-		lblCaixa.setForeground(Color.WHITE);
-		lblCaixa.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblCaixa.setBounds(20, 168, 237, 14);
-		panel_3.add(lblCaixa);
-		
-		lblTecnico = new JLabel("");
+		lblTecnico = new JLabel("lblTecnico");
 		lblTecnico.setForeground(Color.WHITE);
 		lblTecnico.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblTecnico.setBounds(100, 38, 160, 14);
@@ -271,19 +246,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JButton btnEscalar = new JButton("Escalar");
 		btnEscalar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-                FrmEscalarTime frmEscalarTime= new FrmEscalarTime(footline);
-                frmEscalarTime.setVisible(true);
+				FrmEscalarTime frmEscalarTime= new FrmEscalarTime( numeroRodadaAtual, getInstancia() );
+				frmEscalarTime.setVisible(true);
+				
 			}
 		});
-		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		btnEscalar.setBounds(11, 198, 115, 54);
+		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class
+				.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
+		btnEscalar.setBounds(10, 352, 247, 54);
 		panel_3.add(btnEscalar);
-		
-		JButton btnDesafiar = new JButton("Desafiar");
-		btnDesafiar.setToolTipText("Desafiar um time gerenciado por outra pessoa");
-		btnDesafiar.setIcon(new ImageIcon(FrmPrincipal.class.getResource("/com/sun/java/swing/plaf/windows/icons/Question.gif")));
-		btnDesafiar.setBounds(141, 199, 115, 54);
-		panel_3.add(btnDesafiar);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(287, 11, 597, 417);
@@ -300,7 +271,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		panel_4.add(scrollPane);
 		
 		JPanel panel_5 = new JPanel();
-		panel_5.setBackground(new Color(0, 128, 128));
+		panel_5.setBackground(Color.BLACK);
 		getContentPane().add(panel_5, BorderLayout.SOUTH);
 		lblBarraStatus = new JLabel(" . . . ");
 		panel_5.add(lblBarraStatus);
@@ -315,21 +286,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	 */
 	private void formatarTabela(JTable jTableJogador) {
 		jTableJogador.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-		// "P", "Nome", "Nível", "Salário", "Passe", "Gols", "CA", "CV" 
-		jTableJogador.getColumnModel().getColumn(0).setPreferredWidth(30);
-		jTableJogador.getColumnModel().getColumn(1).setPreferredWidth(180);
-		jTableJogador.getColumnModel().getColumn(2).setPreferredWidth(40);
-		jTableJogador.getColumnModel().getColumn(3).setPreferredWidth(100);
-		jTableJogador.getColumnModel().getColumn(4).setPreferredWidth(120);
-		jTableJogador.getColumnModel().getColumn(5).setPreferredWidth(40);
-		jTableJogador.getColumnModel().getColumn(6).setPreferredWidth(40);
-		jTableJogador.getColumnModel().getColumn(7).setPreferredWidth(40);
+		// "P", "Nome", "Nível", "Gols", "CA", "CV" 
+		jTableJogador.getColumnModel().getColumn(0).setPreferredWidth(40);
+		jTableJogador.getColumnModel().getColumn(1).setPreferredWidth(200);
+		jTableJogador.getColumnModel().getColumn(2).setPreferredWidth(50);
+		jTableJogador.getColumnModel().getColumn(3).setPreferredWidth(50);
+		jTableJogador.getColumnModel().getColumn(4).setPreferredWidth(50);
 	}
-
-	public Footline getFootline() {
-		return footline;
-	}
-
 
 	protected void processarCarregamentoApp(boolean novoJogo) {
 		/*
@@ -343,76 +306,98 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		}
 		
 		// Carrega as informacoes do time gerenciado
-		lblNomeClube.setText(footline.getClubeGerenciado().getNome());
-		lblEstadio.setText(footline.getClubeGerenciado().getNomeEstadio());
-		lblTecnico.setText(footline.getClubeGerenciado().getTecnico().getNome());
+		lblNomeSelecao.setText(FrmPrincipal.selecaoGerenciada.getNome());
+		lblTecnico.setText(FrmPrincipal.selecaoGerenciada.getTecnico().getNome());
 		
-		String strPathGerente = FrmPrincipal.class.getResource("").getPath();
-		lblEscudo.setIcon(new ImageIcon(strPathGerente+ "escudos/" 
-					+ footline.getClubeGerenciado().getNomeArquivo() +".gif"));
+//		String strPathGerente = FrmPrincipal.class.getResource("").getPath();
+		lblEscudo.setIcon(new ImageIcon(
+				FrmPrincipal.class.getResource("/imagens/escudos/"
+						+ Biblioteca.removerAcentosEspacos(
+								FrmPrincipal.selecaoGerenciada.getNome() +".png")) ));
 
+		// Carrega a lista de jogadores do time
+		List<Jogador> jogadores= Fachada.getInstance().listarJogadores(
+				FrmPrincipal.selecaoGerenciada);
+		
 		// Adiciona os goleiros
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.G) == 0 )
+		for (Jogador jogador : jogadores ) {
+			if ( jogador.getPosicao().compareTo(Jogador.GOLEIRO) == 0 )
 				jogadorTableModel.addJogador(jogador);
 		}
 		
 		// Adiciona a defesa
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.D) == 0 )
+		for (Jogador jogador : jogadores ) {
+			if ( jogador.getPosicao().compareTo(Jogador.DEFESA) == 0 )
 				jogadorTableModel.addJogador(jogador);
 		}		
 		
 		// Adiciona o meioCampo
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.M) == 0 )
+		for (Jogador jogador : jogadores ) {
+			if ( jogador.getPosicao().compareTo(Jogador.MEIO_CAMPO) == 0 )
 				jogadorTableModel.addJogador(jogador);
 		}
 		
 		// Adiciona o ataque
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.A) == 0 )
+		for (Jogador jogador : jogadores ) {
+			if ( jogador.getPosicao().compareTo(Jogador.ATAQUE) == 0 )
 				jogadorTableModel.addJogador(jogador);
 		}		
 		
+		carregarDadosRodadaAtual();
+		
+	}
+
+	public void carregarDadosRodadaAtual() {
 		// Indetifica a rodada, a partida e o adversario
 		boolean achei= false;
-		for ( Rodada rodada : footline.getRodadas() ) {
+		for ( Rodada rodada : Fachada.getInstance().listarRodadas() ) {
 			
 			if ( !rodada.isFinalizada() ) { // a proxima rodada 
+				numeroRodadaAtual= rodada.getNumero();
 				
 				System.out.println( rodada.getNumero() +" Rodada" );
 				for (Partida partida : rodada.getPartidas() ) {
 					
-					System.out.println("Mandante "+ partida.getMandante().getClube());
-					System.out.println("Visitante "+ partida.getVisitante().getClube());
-					System.out.println("Gerenciado "+ footline.getClubeGerenciado());
+					System.out.println("Mandante "+ partida.getMandante().getSelecao());
+					System.out.println("Visitante "+ partida.getVisitante().getSelecao());
+					System.out.println("Gerenciado "+ FrmPrincipal.selecaoGerenciada);
 					System.out.println();
 					// Quando achar a partida do clube
-					if ( partida.getMandante().getClube().getId() == footline.getClubeGerenciado().getId() ||
-						 partida.getVisitante().getClube().getId() == footline.getClubeGerenciado().getId() ) {
+					if ( partida.getMandante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ||
+						 partida.getVisitante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ) {
 						
 						// Clube gerenciado e o mandante
-						if ( partida.getMandante().getClube().getId() == 
-								footline.getClubeGerenciado().getId() ) {
+						if ( partida.getMandante().getSelecao().getId() == 
+								FrmPrincipal.selecaoGerenciada.getId() ) {
 							
-							lblNomeAdversario.setText( partida.getVisitante().getClube().getNome() );
-							lblLocalPartida.setText( "Em casa" );
+							lblNomeAdversario.setText( partida.getVisitante().getSelecao().getNome() );
 							
-							String strPath = FrmPrincipal.class.getResource("").getPath();
-							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
-									+ partida.getVisitante().getClube().getNomeArquivo() +".gif"));
+//							String strPath = FrmPrincipal.class.getResource("").getPath();
+//							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
+//									+ partida.getVisitante().getSelecao().getNome() +".gif"));
+							lblEscudoAdversario.setIcon(new ImageIcon(
+									FrmPrincipal.class.getResource("/imagens/escudos/"
+										+ Biblioteca.removerAcentosEspacos(
+												partida.getVisitante().getSelecao().getNome() ) 
+										+".png")));							
 					
 						} else {
-							lblNomeAdversario.setText( partida.getMandante().getClube().getNome() );
-							lblLocalPartida.setText( "Fora" );
+							lblNomeAdversario.setText( partida.getMandante().getSelecao().getNome() );
 							
-							String strPath = FrmPrincipal.class.getResource("").getPath();
-							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
-									+ partida.getMandante().getClube().getNomeArquivo() +".gif"));
+//							String strPath = FrmPrincipal.class.getResource("").getPath();
+//							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
+//									+ partida.getMandante().getSelecao().getNome() +".png"));
+							lblEscudoAdversario.setIcon(new ImageIcon(
+									FrmPrincipal.class.getResource("/imagens/escudos/"
+											+ Biblioteca.removerAcentosEspacos(
+													partida.getMandante().getSelecao().getNome() ) 
+											+".png")));
+
 						}
 
 						lblRodada.setText( rodada.getNumero() +" Rodada" );
+						lblLocalPartida.setText( "Em casa" );
+						
 						achei= true;
 						// Sai do metodo
 						break;
@@ -423,29 +408,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
 				break;
 			}
 		} // Fim for rodadas
-		
 	}
 
+	public FrmPrincipal getInstancia() {
+		return this;
+	}
+	
 	/**
 	 * Carrega as informacoes do time gerenciado e das rodadas para um novo jogo
 	 */
 	private void carregarNovoJogo() {
 		// Realiza o sorteio do time que sera gerenciado
-		FootlineService.getInstance().inicializarJogo( footline );
-		
+		//FootlineService.getInstance().inicializarJogo( footline );
 	}
 	
 	/**
 	 * Carrega as informacoes salvas de time gerenciado e suas rodadas
 	 */
 	private void carregarJogoExistente() {
-		try {
-			footline= FootlineService.getInstance().carregar( footline.getNomeJogoSalvo() );
-			
-		} catch (ClassNotFoundException | IOException e) {
-			JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cerregar o jogo "+
-												footline.getNomeJogoSalvo());
-			e.printStackTrace();
-		}
+//		try {
+//			//footline= FootlineService.getInstance().carregar( footline.getNomeJogoSalvo() );
+//			
+//		} catch (ClassNotFoundException | IOException e) {
+////			JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cerregar o jogo "+
+////												footline.getNomeJogoSalvo());
+//			e.printStackTrace();
+//		}
 	}
 }

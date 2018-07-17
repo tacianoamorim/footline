@@ -1,7 +1,9 @@
 package com.g2t.footline.negocio.cadastros;
 
+import java.util.List;
+
 import com.g2t.footline.dados.RepositorioTecnico;
-import com.g2t.footline.dados.RepositorioTecnicoArray;
+import com.g2t.footline.dados.RepositorioTecnicoLista;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Tecnico;
 
@@ -10,7 +12,7 @@ public class CadastroTecnico {
 	private static CadastroTecnico instance;
 	
 	private CadastroTecnico() {
-		repositorio= new RepositorioTecnicoArray();
+		repositorio= new RepositorioTecnicoLista();
 	}
 	
 	public static CadastroTecnico getInstance() {
@@ -20,16 +22,16 @@ public class CadastroTecnico {
 	}
 	
 	/**
-	 * Lista todos contidos no array de selecoes
+	 * Lista todos contidos na lista de selecoes
 	 * 
-	 * return Tecnico[]
+	 * return List<Tecnico>
 	 */
-	public Tecnico[] listar() {
+	public List<Tecnico> listar() {
 		return repositorio.listar();
 	}
 	
 	/**
-	 * Adiciona um tecnico no array
+	 * Adiciona um tecnico na lista
 	 * 
 	 * @param Tecnico
 	 */

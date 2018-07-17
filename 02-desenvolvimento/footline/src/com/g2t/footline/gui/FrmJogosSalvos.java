@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
@@ -15,8 +13,6 @@ import javax.swing.JDialog;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import com.g2t.footline.service.FootlineService;
 
 public class FrmJogosSalvos extends JDialog {
 
@@ -28,20 +24,19 @@ public class FrmJogosSalvos extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JList<String> listJogos;
 	DefaultListModel<String> modelo = new DefaultListModel<String>();
-	private FrmOpcao frmOpcao;
 
 	/**
 	 * Create the dialog.
 	 */
 	public FrmJogosSalvos() {
 		setTitle("Carregar jogos salvos");
-		getContentPane().setBackground(new Color(0, 128, 128));
+		getContentPane().setBackground(Color.BLACK);
 		getContentPane().setForeground(new Color(0, 128, 128));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
 		setBounds(100, 100, 434, 342);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(0, 128, 128));
+		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
@@ -57,7 +52,7 @@ public class FrmJogosSalvos extends JDialog {
 		panel.add(listJogos, BorderLayout.NORTH);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(new Color(0, 128, 128));
+			buttonPane.setBackground(Color.BLACK);
 			buttonPane.setForeground(new Color(0, 128, 128));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
@@ -65,13 +60,13 @@ public class FrmJogosSalvos extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-		                FrmPrincipal frmPrincipal= new FrmPrincipal();
-		                frmPrincipal.getFootline().setNomeJogoSalvo( listJogos.getSelectedValue() );
-		                
-		                setVisible( false );
-		                getFrmOpcao().setVisible( false );
-		                frmPrincipal.setVisible( true );
-		                frmPrincipal.processarCarregamentoApp( false );
+//		                FrmPrincipal frmPrincipal= new FrmPrincipal();
+//		                frmPrincipal.getFootline().setNomeJogoSalvo( listJogos.getSelectedValue() );
+//		                
+//		                setVisible( false );
+//		                getFrmOpcao().setVisible( false );
+//		                frmPrincipal.setVisible( true );
+//		                frmPrincipal.processarCarregamentoApp( false );
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -94,25 +89,25 @@ public class FrmJogosSalvos extends JDialog {
 	}
 	
 	private void carregarJogosSalvos() {
-		try {
-			List<String> arquivos= FootlineService.getInstance().listaArquivos();
-			for (String nomeArquivo : arquivos) {
-				modelo.addElement(nomeArquivo);
-			}
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		try {
+////			List<String> arquivos= FootlineService.getInstance().listaArquivos();
+////			for (String nomeArquivo : arquivos) {
+////				modelo.addElement(nomeArquivo);
+////			}
+//			
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 	}
 
-	public FrmOpcao getFrmOpcao() {
-		return frmOpcao;
-	}
-
-	public void setFrmOpcao(FrmOpcao frmOpcao) {
-		this.frmOpcao = frmOpcao;
-	}
+//	public FrmOpcao getFrmOpcao() {
+//		return frmOpcao;
+//	}
+//
+//	public void setFrmOpcao(FrmOpcao frmOpcao) {
+//		this.frmOpcao = frmOpcao;
+//	}
 	
 }

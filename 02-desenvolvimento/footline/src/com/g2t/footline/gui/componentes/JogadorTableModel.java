@@ -16,7 +16,7 @@ public class JogadorTableModel extends AbstractTableModel {
 	
 	private List<Jogador> jogadores;
 	private String[] colunas = new String[] { 
-		"P", "Nome", "Nível", "Salário", "Passe", "Gols", "CA", "CV" 
+		"P", "Nome", "Nível", "Gols", "CA", "CV" 
 	};
 
 	/** Creates a new instance of TableModel */

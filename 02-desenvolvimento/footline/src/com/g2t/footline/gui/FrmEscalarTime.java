@@ -17,10 +17,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import com.g2t.footline.entisade.Footline;
-import com.g2t.footline.entisade.Jogador;
-import com.g2t.footline.entisade.Posicao;
-
 public class FrmEscalarTime extends JDialog {
 
 	/**
@@ -28,20 +24,20 @@ public class FrmEscalarTime extends JDialog {
 	 */
 	private static final long serialVersionUID = -1415086182881940352L;
 	private final JPanel contentPanel = new JPanel();
-	private static FrmEscalarTime frmEscalarTime;
+//	private static FrmEscalarTime frmEscalarTime;
 
 	/**
 	 * Create the dialog.
 	 */
-	public FrmEscalarTime(Footline footline) {
-		frmEscalarTime= this;
+	public FrmEscalarTime( Integer numero, FrmPrincipal frmPrincipal ) {
+		//frmEscalarTime= this;
 		setUndecorated(true);
 		setTitle("Escalar time");
 		setResizable(false);
 		setModal(true);
 		setBounds(100, 100, 446, 388);
 		getContentPane().setLayout(new BorderLayout());
-		contentPanel.setBackground(new Color(0, 128, 128));
+		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
@@ -60,9 +56,10 @@ public class FrmEscalarTime extends JDialog {
 			JButton okButton = new JButton(" Jogar >> ");
 			okButton.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					setVisible(false);
 					FrmProcessarRodada frmProcessarRodada= 
-							new FrmProcessarRodada(footline, frmEscalarTime);
-					frmProcessarRodada.setVisible( false );
+							new FrmProcessarRodada( numero, frmPrincipal );
+					frmProcessarRodada.setVisible( true );
 				}
 			});
 			okButton.setBounds(327, 35, 96, 51);
@@ -89,26 +86,26 @@ public class FrmEscalarTime extends JDialog {
 		JScrollPane scrollPane = new JScrollPane(listJogadores);
 		panel.add(scrollPane);
 		
-		// Adiciona os goleiros
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.G) == 0 )
-				modelo.addElement( " G "+ jogador.getNome() );
-		}
-		// Adiciona a defesa
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.D) == 0 )
-				modelo.addElement( " D "+ jogador.getNome() );
-		}		
-		// Adiciona o meioCampo
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.M) == 0 )
-				modelo.addElement( " M "+ jogador.getNome() );
-		}
-		// Adiciona o ataque
-		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-			if ( jogador.getPosicao().compareTo(Posicao.A) == 0 )
-				modelo.addElement( " A "+ jogador.getNome() );
-		}		
+//		// Adiciona os goleiros
+//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+//			if ( jogador.getPosicao().compareTo(Posicao.G) == 0 )
+//				modelo.addElement( " G "+ jogador.getNome() );
+//		}
+//		// Adiciona a defesa
+//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+//			if ( jogador.getPosicao().compareTo(Posicao.D) == 0 )
+//				modelo.addElement( " D "+ jogador.getNome() );
+//		}		
+//		// Adiciona o meioCampo
+//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+//			if ( jogador.getPosicao().compareTo(Posicao.M) == 0 )
+//				modelo.addElement( " M "+ jogador.getNome() );
+//		}
+//		// Adiciona o ataque
+//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
+//			if ( jogador.getPosicao().compareTo(Posicao.A) == 0 )
+//				modelo.addElement( " A "+ jogador.getNome() );
+//		}		
 
 	    ListSelectionListener listSelectionListener = new ListSelectionListener() {
 	        @SuppressWarnings("deprecation")

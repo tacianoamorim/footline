@@ -1,11 +1,14 @@
 package com.g2t.footline.dados;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Estadio;
 
-public class RepositorioEstadioArray implements RepositorioEstadio {
+public class RepositorioEstadioLista implements RepositorioEstadio {
 
-	private Estadio[] arrayDados= new Estadio[40];
+	private List<Estadio> dados= new ArrayList<Estadio>();
 	
 	/**
 	 * Busca um determinado estadio pelo codigo
@@ -16,8 +19,7 @@ public class RepositorioEstadioArray implements RepositorioEstadio {
 	@Override
 	public Estadio buscar(String id) throws RegistroNaoEncontradoException {
 		Estadio retorno= null;
-		for (int i = 0; i < arrayDados.length; i++) {
-			Estadio estadio = arrayDados[i];
+		for (Estadio estadio : dados) {
 			if ( estadio.getId().equalsIgnoreCase( id ) ) {
 				retorno= estadio;
 				break;
@@ -32,28 +34,23 @@ public class RepositorioEstadioArray implements RepositorioEstadio {
 	}
 
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos contidos na lista
 	 * 
-	 * return Estadio[]
+	 * return List<Estadio>
 	 */
 	@Override
-	public Estadio[] listar() {
-		return arrayDados;
+	public List<Estadio> listar() {
+		return dados;
 	}
 
 	/**
-	 * Adiciona um estadio no array
+	 * Adiciona um estadio na lista
 	 * 
 	 * @param Estadio
 	 */
 	@Override
 	public void inserir(Estadio estadio) {
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( arrayDados[i] == null ) {
-				arrayDados[i] = estadio;
-				break;
-			}
-		}	
+		dados.add( estadio );
 	}
 
 }

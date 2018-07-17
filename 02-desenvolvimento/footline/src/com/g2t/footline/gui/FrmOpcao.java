@@ -4,17 +4,19 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.IOException;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-
-import com.g2t.footline.util.Constantes;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import com.g2t.footline.exception.ArquivoNaoEncontradoException;
+import com.g2t.footline.exception.RegistroNaoEncontradoException;
+import com.g2t.footline.negocio.Fachada;
 
 /**
  * @author Taciano
@@ -30,7 +32,7 @@ public class FrmOpcao extends javax.swing.JFrame {
 	 * Creates new form Principal
 	 */
 	public FrmOpcao() {
-		getContentPane().setBackground(new Color(0, 128, 128));
+		getContentPane().setBackground(Color.BLACK);
 		setBackground(new Color(0, 128, 128));
 		initComponents();
 	}
@@ -43,100 +45,116 @@ public class FrmOpcao extends javax.swing.JFrame {
 	private void initComponents() {
 		// btnAtualizar = new javax.swing.JButton();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-		setTitle("Footline");
-
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 128, 128));
-		panel.setLayout(null);
-		GroupLayout groupLayout = new GroupLayout(getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(7)
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 586, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(7)
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 413, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-		);
+		try {
+			/*
+			 * Le os arquivos de selecoes e carrega os 
+			 * 	array de selecao e jogador
+			 */
+			Fachada.getInstance().carregarSelecaoJogador();
 		
-		JButton btnNovo = new JButton();
-		btnNovo = new javax.swing.JButton();
-		btnNovo.setBounds(429, 11, 147, 90);
-		btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNovo.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
-		btnNovo.setText("Novo jogo");
-		btnNovo.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				FrmJogoNovo app= new FrmJogoNovo();
-				app.setFrmOpcao( getFrmOpcao() );
-                app.setVisible(true);				
-			}
-		});
-		panel.add(btnNovo);
-		
-		JButton btnJogosSalvos = new JButton();
-		btnJogosSalvos.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/metal/icons/ocean/floppy.gif")));
-		btnJogosSalvos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				FrmJogosSalvos app= new FrmJogosSalvos();
-				app.setFrmOpcao( getFrmOpcao() );
-                app.setVisible(true);
-			}
-		});
-		btnJogosSalvos.setText("Jogos salvos");
-		btnJogosSalvos.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnJogosSalvos.setBounds(429, 112, 147, 90);
-		panel.add(btnJogosSalvos);
-		
-		JButton btnSobre = new JButton();
-		btnSobre.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		btnSobre.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				FrmSobre frmSobre= new FrmSobre();
-				frmSobre.setVisible(true);
-			}
-		});
-		btnSobre.setText("Sobre");
-		btnSobre.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSobre.setBounds(429, 213, 147, 90);
-		panel.add(btnSobre);
-		
-		JButton btnSair = new JButton();
-		btnSair.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Error.gif")));
-		btnSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		btnSair.setText("Sair");
-		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnSair.setBounds(429, 314, 147, 90);
-		panel.add(btnSair);
-		
-		JLabel lblFootline = new JLabel("Footline");
-		lblFootline.setForeground(Color.WHITE);
-		lblFootline.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 60));
-		lblFootline.setBounds(10, 6, 274, 65);
-		panel.add(lblFootline);
-		
-		JLabel lblImgArruda = new JLabel("");
-		String strPath = Constantes.FILE_PATH + 
-				File.separator + "imagens"+ File.separator;
-		
-		lblImgArruda.setIcon(new ImageIcon(strPath+ "fifa2018.jpg"));
-		
-		//lblImgArruda.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
-		lblImgArruda.setBounds(0, 11, 586, 427);
-		panel.add(lblImgArruda);
-		getContentPane().setLayout(groupLayout);
-
-		pack();
+			// Carrega o array de arbitro
+			Fachada.getInstance().carregarArbitro();
+			
+			// Carrega o array de estadio
+			Fachada.getInstance().carregarEstadio();	
+			
+			Fachada.getInstance().carregarRodadas();
+			
+			setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+			setTitle("Footline");
+	
+			JPanel panel = new JPanel();
+			panel.setBackground(Color.BLACK);
+			panel.setLayout(null);
+			GroupLayout groupLayout = new GroupLayout(getContentPane());
+			groupLayout.setHorizontalGroup(
+				groupLayout.createParallelGroup(Alignment.LEADING)
+					.addGroup(groupLayout.createSequentialGroup()
+						.addGap(7)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 586, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+			);
+			groupLayout.setVerticalGroup(
+				groupLayout.createParallelGroup(Alignment.LEADING)
+					.addGroup(groupLayout.createSequentialGroup()
+						.addGap(7)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 382, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(42, Short.MAX_VALUE))
+			);
+			
+			JButton btnNovo = new JButton();
+			btnNovo = new javax.swing.JButton();
+			btnNovo.setBounds(409, 36, 147, 90);
+			btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			btnNovo.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
+			btnNovo.setText("Jogar");
+			btnNovo.addActionListener(new java.awt.event.ActionListener() {
+				public void actionPerformed(java.awt.event.ActionEvent evt) {
+					FrmJogoNovo app= new FrmJogoNovo();
+					app.setFrmOpcao( getFrmOpcao() );
+	                app.setVisible(true);				
+				}
+			});
+			panel.add(btnNovo);
+			
+			JButton btnSobre = new JButton();
+			btnSobre.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
+			btnSobre.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					FrmSobre frmSobre= new FrmSobre();
+					frmSobre.setVisible(true);
+				}
+			});
+			btnSobre.setText("Sobre");
+			btnSobre.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			btnSobre.setBounds(409, 155, 147, 90);
+			panel.add(btnSobre);
+			
+			JButton btnSair = new JButton();
+			btnSair.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Error.gif")));
+			btnSair.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+			});
+			btnSair.setText("Sair");
+			btnSair.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			btnSair.setBounds(409, 279, 147, 90);
+			panel.add(btnSair);
+			
+			JLabel lblFootline = new JLabel("Footline");
+			lblFootline.setForeground(Color.WHITE);
+			lblFootline.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 60));
+			lblFootline.setBounds(10, 6, 274, 65);
+			panel.add(lblFootline);
+			
+			JLabel lblImgCopa = new JLabel("");
+			lblImgCopa.setHorizontalAlignment(SwingConstants.CENTER);
+	//		String strPath = Constantes.FILE_PATH + 
+	//				File.separator + "imagens"+ File.separator;
+			
+			lblImgCopa.setIcon(new ImageIcon(FrmOpcao.class.getResource("/imagens/copa2018.jpg")));
+			
+			//lblImgArruda.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
+			lblImgCopa.setBounds(10, 70, 389, 285);
+			panel.add(lblImgCopa);
+			getContentPane().setLayout(groupLayout);
+	
+			pack();
+			
+		} catch (NumberFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ArquivoNaoEncontradoException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (RegistroNaoEncontradoException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 	FrmOpcao getFrmOpcao() {

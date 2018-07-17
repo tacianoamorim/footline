@@ -1,16 +1,20 @@
 package com.g2t.footline.negocio;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
+import com.g2t.footline.gui.FrmPrincipal;
 import com.g2t.footline.negocio.cadastros.CadastroArbitro;
 import com.g2t.footline.negocio.cadastros.CadastroEstadio;
+import com.g2t.footline.negocio.cadastros.CadastroJogador;
 import com.g2t.footline.negocio.cadastros.CadastroRodada;
 import com.g2t.footline.negocio.cadastros.CadastroSelecao;
 import com.g2t.footline.negocio.cadastros.CadastroTecnico;
 import com.g2t.footline.negocio.entidades.Arbitro;
 import com.g2t.footline.negocio.entidades.Estadio;
+import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Rodada;
 import com.g2t.footline.negocio.entidades.Selecao;
 import com.g2t.footline.negocio.entidades.Tecnico;
@@ -44,18 +48,18 @@ public class Fachada {
 	/**
 	 * Retorna a lista de selecoes cadastradas
 	 * 
-	 * @return Selecao[]
+	 * @return List<Selecao>
 	 */
-	public Selecao[] listarSelecoes() {
+	public List<Selecao> listarSelecoes() {
 		return CadastroSelecao.getInstance().listar();
 	}
 
 	/**
 	 * Lista todos os tecnicos cadastrados
 	 * 
-	 * @return Tecnico[]
+	 * @return List<Tecnico>
 	 */
-	public Tecnico[] listarTecnicos() {
+	public List<Tecnico> listarTecnicos() {
 		return CadastroTecnico.getInstance().listar();
 	}
 	
@@ -116,9 +120,9 @@ public class Fachada {
 	/**
 	 * Lista todos os arbitros cadastrados
 	 * 
-	 * @return Arbitro[]
+	 * @return List<Arbitro>
 	 */
-	public Arbitro[] listarArbitro() {
+	public List<Arbitro> listarArbitro() {
 		return CadastroArbitro.getInstance().listar();
 	}
 
@@ -133,7 +137,7 @@ public class Fachada {
 	}
 	
 	/**
-	 * Le o arquivo estadios e carrega o array.
+	 * Le o arquivo estadios e carrega a lista.
 	 * 
 	 * @throws ArquivoNaoEncontradoException 
 	 */
@@ -153,9 +157,9 @@ public class Fachada {
 	/**
 	 * Lista todos os estadios cadastrados
 	 * 
-	 * @return Estadio[]
+	 * @return List<Estadio>
 	 */
-	public Estadio[] listarEstadio() {
+	public List<Estadio> listarEstadio() {
 		return CadastroEstadio.getInstance().listar();
 	}
 
@@ -172,9 +176,9 @@ public class Fachada {
 	/**
 	 * Lista todas as rodadas cadastradas
 	 * 
-	 * @return Rodada[]
+	 * @return List<Rodada>
 	 */
-	public Rodada[] listarRodadas() {
+	public List<Rodada> listarRodadas() {
 		return CadastroRodada.getInstance().listar();
 	}
 
@@ -186,6 +190,17 @@ public class Fachada {
 	public void inserir(Rodada rodada) {
 		CadastroRodada.getInstance().inserir(rodada);
 	}
+	
+	/**
+	 * Busca uma determinada rodada pelo codigo
+	 * 
+	 * return Rodada rodada
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public Rodada buscarRodada(int numero) throws RegistroNaoEncontradoException {
+		return CadastroRodada.getInstance().buscar( numero );
+	}
+		
 
 	/**
 	 * Le o arquivo rodadas e carrega o array.
@@ -195,5 +210,34 @@ public class Fachada {
 	 */
 	public void carregarRodadas() throws ArquivoNaoEncontradoException, RegistroNaoEncontradoException {
 		CadastroRodada.getInstance().carregar();
-	}	
+	}
+
+	/**
+	 * Lista todos os jogadores cadastrados
+	 * 
+	 * @return List<Jogador>
+	 */
+	public List<Jogador> listarJogadores() {
+		return CadastroJogador.getInstance().listar();
+	}
+	
+	/**
+	 * Lista todos os jogadores de uma selecao
+	 * 
+	 * @return List<Jogador>
+	 */
+	public List<Jogador> listarJogadores(Selecao selecao) {
+		return CadastroJogador.getInstance().listar(selecao);
+	}
+	
+	/**
+	 * Realiza o processamento da partida
+	 * 
+	 * @param numero
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public void processarRodada(int numero, FrmPrincipal frmPrincipal) 
+			throws RegistroNaoEncontradoException {
+		CadastroRodada.getInstance().processar(numero, frmPrincipal);
+	}
 }

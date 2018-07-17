@@ -6,10 +6,16 @@ public class Partida  {
 	private Escalacao mandante;
 	private Escalacao visitante;
 	private int golsMandante;
-	private int golsvisitante;
+	private int golsVisitante;
 	private float publico;
 	private Arbitro arbitro;
 	private Estadio estadio;
+	private String grupo;
+	
+	private int mandantePosicao;
+	private String mandanteGrupo;
+	private int visitantePosicao;
+	private String visitanteGrupo;	
 
 	public Partida(int id, Escalacao mandante, Escalacao visitante, 
 			Arbitro arbitro, Estadio estadio) {
@@ -49,11 +55,11 @@ public class Partida  {
 		this.golsMandante = golsMandante;
 	}
 	
-	public int getGolsvisitante() {
-		return golsvisitante;
+	public int getGolsVisitante() {
+		return golsVisitante;
 	}
-	public void setGolsvisitante(int golsvisitante) {
-		this.golsvisitante = golsvisitante;
+	public void setGolsVisitante(int golsVisitante) {
+		this.golsVisitante = golsVisitante;
 	}
 	
 	public float getPublico() {
@@ -77,10 +83,45 @@ public class Partida  {
 		this.estadio = estadio;
 	}
 
+	public int getMandantePosicao() {
+		return mandantePosicao;
+	}
+	public void setMandantePosicao(int mandantePosicao) {
+		this.mandantePosicao = mandantePosicao;
+	}
+
+	public String getMandanteGrupo() {
+		return mandanteGrupo;
+	}
+	public void setMandanteGrupo(String mandanteGrupo) {
+		this.mandanteGrupo = mandanteGrupo;
+	}
+
+	public int getVisitantePosicao() {
+		return visitantePosicao;
+	}
+	public void setVisitantePosicao(int visitantePosicao) {
+		this.visitantePosicao = visitantePosicao;
+	}
+
+	public String getVisitanteGrupo() {
+		return visitanteGrupo;
+	}
+	public void setVisitanteGrupo(String visitanteGrupo) {
+		this.visitanteGrupo = visitanteGrupo;
+	}
+	
+	public String getGrupo() {
+		return grupo;
+	}
+	public void setGrupo(String grupo) {
+		this.grupo = grupo;
+	}
+
 	@Override
 	public String toString() {
 		return "Partida [mandante=" + mandante + ", visitante=" + visitante + ", golsMandante=" + golsMandante
-				+ ", golsvisitante=" + golsvisitante + ", publico=" + publico + ", arbitro=" + arbitro + "]";
+				+ ", golsvisitante=" + golsVisitante + ", publico=" + publico + ", arbitro=" + arbitro + "]";
 	}
 	
 }

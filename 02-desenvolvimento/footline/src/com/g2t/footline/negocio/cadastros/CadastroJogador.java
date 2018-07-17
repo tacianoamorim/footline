@@ -1,16 +1,19 @@
 package com.g2t.footline.negocio.cadastros;
 
+import java.util.List;
+
 import com.g2t.footline.dados.RepositorioJogador;
-import com.g2t.footline.dados.RepositorioJogadorArray;
+import com.g2t.footline.dados.RepositorioJogadorLista;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Jogador;
+import com.g2t.footline.negocio.entidades.Selecao;
 
 public class CadastroJogador {
 	private RepositorioJogador repositorio;
 	private static CadastroJogador instance;
 	
 	private CadastroJogador() {
-		repositorio= new RepositorioJogadorArray();
+		repositorio= new RepositorioJogadorLista();
 	}
 	
 	public static CadastroJogador getInstance() {
@@ -23,8 +26,8 @@ public class CadastroJogador {
 		return repositorio.buscar(id);
 	}
 	
-	public Jogador[] listar() {
-		return repositorio.listar();
+	public List<Jogador> listar() {
+		return repositorio.listar(null);
 	}
 	
 	public void inserir(Jogador jogador) {
@@ -34,5 +37,9 @@ public class CadastroJogador {
 	public void alterar(Jogador jogador) throws RegistroNaoEncontradoException {
 		repositorio.alterar(jogador);
 	}
+	
+	public List<Jogador> listar(Selecao selecao) {
+		return repositorio.listar(selecao);
+	}	
 	
 }

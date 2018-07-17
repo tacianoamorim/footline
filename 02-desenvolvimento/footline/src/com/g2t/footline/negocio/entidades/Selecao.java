@@ -70,8 +70,7 @@ public class Selecao  {
 
 	@Override
 	public String toString() {
-		return "Selecao [id=" + id + ", nome=" + nome + ", tecnico=" + tecnico + ", nivel=" + nivel + ", grupo=" + grupo
-				+ ", jogadores=" + jogadores + "]";
+		return nome;
 	}
 	
 }

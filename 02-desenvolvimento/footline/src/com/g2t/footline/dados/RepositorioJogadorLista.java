@@ -1,11 +1,15 @@
 package com.g2t.footline.dados;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Jogador;
+import com.g2t.footline.negocio.entidades.Selecao;
 
-public class RepositorioJogadorArray implements RepositorioJogador {
+public class RepositorioJogadorLista implements RepositorioJogador {
 
-	private Jogador[] arrayDados= new Jogador[1000];
+	private List<Jogador> dados= new ArrayList<Jogador>();
 	private int idx= 0;
 	
 	/**
@@ -17,8 +21,7 @@ public class RepositorioJogadorArray implements RepositorioJogador {
 	@Override
 	public Jogador buscar(int id) throws RegistroNaoEncontradoException {
 		Jogador retorno= null;
-		for (int i = 0; i < arrayDados.length; i++) {
-			Jogador jogador = arrayDados[i];
+		for (Jogador jogador : dados) {
 			if ( id == jogador.getId() ) {
 				retorno= jogador;
 				break;
@@ -33,24 +36,33 @@ public class RepositorioJogadorArray implements RepositorioJogador {
 	}
 
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos contidos na lista
 	 * 
-	 * return Jogador[]
+	 * return List<Jogador>
 	 */
 	@Override
-	public Jogador[] listar() {
-		return arrayDados;
+	public List<Jogador> listar(Selecao selecao) {
+		List<Jogador> lista= new ArrayList<Jogador>();
+		
+		if ( selecao == null ) {
+			lista= dados;
+		
+		} else {
+			for (Jogador jogador : dados) {
+				if ( selecao.getId().equalsIgnoreCase(
+						jogador.getSelecao().getId() ) ) {
+					lista.add(jogador);
+				}
+			}
+		}
+		
+		return lista;
 	}
 
 	@Override
 	public void inserir(Jogador jogador) {
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( arrayDados[i] == null ) {
-				jogador.setId(++idx);
-				arrayDados[i] = jogador;
-				break;
-			}
-		}	
+		jogador.setId( ++idx );
+		dados.add(jogador);
 	}
 
 	/**
@@ -60,12 +72,13 @@ public class RepositorioJogadorArray implements RepositorioJogador {
 	@Override
 	public void alterar(Jogador jogador) throws RegistroNaoEncontradoException {
 		boolean achei= false;
-		for (int i = 0; i < arrayDados.length; i++) {
-			if ( jogador.getId() == arrayDados[i].getId() ) {
-				arrayDados[i]= jogador;
+		for (Jogador jogadorLista : dados) {
+			if ( jogador.getId() == jogadorLista.getId() ) {
+				jogadorLista= jogador;
 				achei= true;
 				break;
 			}
+			
 		}
 		
 		if ( !achei ) {

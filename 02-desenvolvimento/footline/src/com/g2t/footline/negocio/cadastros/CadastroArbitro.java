@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import com.g2t.footline.dados.RepositorioArbitro;
-import com.g2t.footline.dados.RepositorioArbitroArray;
+import com.g2t.footline.dados.RepositorioArbitroLista;
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Arbitro;
@@ -17,7 +18,7 @@ public class CadastroArbitro {
 	private static CadastroArbitro instance;
 	
 	private CadastroArbitro() {
-		repositorio= new RepositorioArbitroArray();
+		repositorio= new RepositorioArbitroLista();
 	}
 	
 	public static CadastroArbitro getInstance() {
@@ -37,16 +38,16 @@ public class CadastroArbitro {
 	}
 	
 	/**
-	 * Lista todos contidos no array
+	 * Lista todos contidos na lista
 	 * 
-	 * return Arbitro[]
+	 * return List<Arbitro>
 	 */
-	public Arbitro[] listar() {
+	public List<Arbitro> listar() {
 		return repositorio.listar();
 	}	
 	
 	/**
-	 * Adiciona um arbitro no array
+	 * Adiciona um arbitro na lista
 	 * 
 	 * @param Arbitro
 	 */
