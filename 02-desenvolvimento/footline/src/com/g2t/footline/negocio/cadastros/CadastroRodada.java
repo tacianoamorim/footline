@@ -278,7 +278,7 @@ public class CadastroRodada {
 		rodada.setFinalizada( true );
 		repositorio.atualizar(rodada);
 		
-		frmPrincipal.carregarDadosRodadaAtual();
+		//frmPrincipal.carregarDadosRodadaAtual();
 		
 	}
 	

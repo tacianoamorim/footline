@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JProgressBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
@@ -45,6 +44,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	private JLabel lblTecnico;
 	
 	private JLabel lblNomeAdversario;
+	private JLabel lblNomeTecnicoAdversario;
 	private JLabel lblRodada;
 	private JLabel lblEscudoAdversario;
 	private JLabel lblLocalPartida;
@@ -184,31 +184,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		pnlCentro.add(panel_3);
 		panel_3.setLayout(null);
 		
+		JPanel panel_7 = new JPanel();
+		panel_7.setBackground(Color.WHITE);
+		panel_7.setBounds(10, 11, 247, 104);
+		panel_3.add(panel_7);
+		panel_7.setLayout(null);
+		
 		lblEscudo = new JLabel("Escudo");
 		lblEscudo.setBounds(10, 11, 80, 71);
-		panel_3.add(lblEscudo);
+		panel_7.add(lblEscudo);
 		
 		lblNomeSelecao = new JLabel("lblNome");
-		lblNomeSelecao.setForeground(new Color(255, 255, 255));
+		lblNomeSelecao.setBounds(92, 11, 148, 20);
+		panel_7.add(lblNomeSelecao);
+		lblNomeSelecao.setForeground(Color.BLACK);
 		lblNomeSelecao.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNomeSelecao.setBounds(97, 11, 160, 29);
-		panel_3.add(lblNomeSelecao);
 		
-		JLabel lblConfianca = new JLabel("Confiança");
-		lblConfianca.setForeground(new Color(255, 255, 255));
-		lblConfianca.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblConfianca.setBounds(10, 111, 91, 14);
-		panel_3.add(lblConfianca);
-		
-		JProgressBar pBarConfianca = new JProgressBar();
-		pBarConfianca.setForeground(Color.BLUE);
-		pBarConfianca.setValue(90);
-		pBarConfianca.setBounds(10, 129, 247, 22);
-		panel_3.add(pBarConfianca);
+		lblTecnico = new JLabel("lblTecnico");
+		lblTecnico.setBounds(92, 38, 137, 20);
+		panel_7.add(lblTecnico);
+		lblTecnico.setForeground(Color.BLACK);
+		lblTecnico.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBackground(Color.WHITE);
-		panel_6.setBounds(10, 184, 247, 140);
+		panel_6.setBounds(10, 174, 247, 150);
 		panel_3.add(panel_6);
 		panel_6.setLayout(null);
 		
@@ -231,30 +231,38 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		lblRodada.setBounds(10, 31, 137, 14);
 		panel_6.add(lblRodada);
 		
-		lblNomeAdversario = new JLabel("");
+		lblNomeAdversario = new JLabel("lblNomeAdversario");
 		lblNomeAdversario.setForeground(Color.BLACK);
-		lblNomeAdversario.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNomeAdversario.setBounds(100, 73, 137, 29);
+		lblNomeAdversario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
+		lblNomeAdversario.setBounds(92, 56, 137, 29);
 		panel_6.add(lblNomeAdversario);
 		
-		lblTecnico = new JLabel("lblTecnico");
-		lblTecnico.setForeground(Color.WHITE);
-		lblTecnico.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblTecnico.setBounds(100, 38, 160, 14);
-		panel_3.add(lblTecnico);
+		lblNomeTecnicoAdversario = new JLabel("lblTecnico");
+		lblNomeTecnicoAdversario.setForeground(Color.BLACK);
+		lblNomeTecnicoAdversario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
+		lblNomeTecnicoAdversario.setBounds(92, 84, 137, 20);
+		panel_6.add(lblNomeTecnicoAdversario);
 		
 		JButton btnEscalar = new JButton("Escalar");
 		btnEscalar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				FrmEscalarTime frmEscalarTime= new FrmEscalarTime( numeroRodadaAtual, getInstancia() );
 				frmEscalarTime.setVisible(true);
-				
 			}
 		});
 		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class
 				.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		btnEscalar.setBounds(10, 352, 247, 54);
+		btnEscalar.setBounds(130, 352, 127, 54);
 		panel_3.add(btnEscalar);
+		
+		JButton btnNewButton = new JButton("Atualizar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				carregarDadosRodadaAtual();
+			}
+		});
+		btnNewButton.setBounds(11, 352, 106, 52);
+		panel_3.add(btnNewButton);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBounds(287, 11, 597, 417);
@@ -371,6 +379,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 								FrmPrincipal.selecaoGerenciada.getId() ) {
 							
 							lblNomeAdversario.setText( partida.getVisitante().getSelecao().getNome() );
+							lblNomeTecnicoAdversario.setText(
+									partida.getVisitante().getSelecao().getTecnico().getNome() );
 							
 //							String strPath = FrmPrincipal.class.getResource("").getPath();
 //							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
@@ -383,6 +393,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 					
 						} else {
 							lblNomeAdversario.setText( partida.getMandante().getSelecao().getNome() );
+							lblNomeTecnicoAdversario.setText(
+									partida.getMandante().getSelecao().getTecnico().getNome() );
 							
 //							String strPath = FrmPrincipal.class.getResource("").getPath();
 //							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
