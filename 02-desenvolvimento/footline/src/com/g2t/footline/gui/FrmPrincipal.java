@@ -141,7 +141,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JLabel label_5 = new JLabel("     ");
 		toolBar.add(label_5);
 		
-		JButton btnTime = new JButton("Times");
+		JButton btnTime = new JButton("Seleções");
 		btnTime.setForeground(Color.WHITE);
 		toolBar.add(btnTime);
 		

@@ -17,6 +17,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import com.g2t.footline.negocio.entidades.Jogador;
+import com.g2t.footline.util.Constantes;
+
 public class FrmEscalarTime extends JDialog {
 
 	/**
@@ -86,26 +89,26 @@ public class FrmEscalarTime extends JDialog {
 		JScrollPane scrollPane = new JScrollPane(listJogadores);
 		panel.add(scrollPane);
 		
-//		// Adiciona os goleiros
-//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-//			if ( jogador.getPosicao().compareTo(Posicao.G) == 0 )
-//				modelo.addElement( " G "+ jogador.getNome() );
-//		}
-//		// Adiciona a defesa
-//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-//			if ( jogador.getPosicao().compareTo(Posicao.D) == 0 )
-//				modelo.addElement( " D "+ jogador.getNome() );
-//		}		
-//		// Adiciona o meioCampo
-//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-//			if ( jogador.getPosicao().compareTo(Posicao.M) == 0 )
-//				modelo.addElement( " M "+ jogador.getNome() );
-//		}
-//		// Adiciona o ataque
-//		for (Jogador jogador : footline.getClubeGerenciado().getJogadores()) {
-//			if ( jogador.getPosicao().compareTo(Posicao.A) == 0 )
-//				modelo.addElement( " A "+ jogador.getNome() );
-//		}		
+		// Adiciona os goleiros
+		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
+			if ( Jogador.GOLEIRO.equalsIgnoreCase( jogador.getPosicao() ) )
+				modelo.addElement( " G "+ jogador.getNome() );
+		}
+		// Adiciona a defesa
+		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
+			if ( Jogador.DEFESA.equalsIgnoreCase( jogador.getPosicao() ) )
+				modelo.addElement( " D "+ jogador.getNome() );
+		}		
+		// Adiciona o meioCampo
+		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
+			if ( Jogador.MEIO_CAMPO.equalsIgnoreCase( jogador.getPosicao() ) )
+				modelo.addElement( " M "+ jogador.getNome() );
+		}
+		// Adiciona o ataque
+		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
+			if ( Jogador.ATAQUE.equalsIgnoreCase( jogador.getPosicao() ) )
+				modelo.addElement( " A "+ jogador.getNome() );
+		}		
 
 	    ListSelectionListener listSelectionListener = new ListSelectionListener() {
 	        @SuppressWarnings("deprecation")
