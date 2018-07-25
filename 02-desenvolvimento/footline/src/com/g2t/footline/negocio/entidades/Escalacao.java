@@ -26,6 +26,10 @@ public class Escalacao{
 	private List<Jogador> listaCartaoVermelho = new ArrayList<Jogador>();
 	private List<Jogador> listaLesionado = new ArrayList<Jogador>();
 	
+	public Escalacao() {
+		
+	}
+	
 	public Escalacao(Selecao selecao, int tatica, List<Jogador> titulares, List<Jogador> reservas) {
 		super();
 		this.selecao = selecao;

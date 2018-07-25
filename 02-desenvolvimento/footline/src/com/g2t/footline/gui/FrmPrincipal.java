@@ -246,8 +246,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JButton btnEscalar = new JButton("Escalar");
 		btnEscalar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				FrmEscalarTime frmEscalarTime= new FrmEscalarTime( numeroRodadaAtual, getInstancia() );
-				frmEscalarTime.setVisible(true);
+				FrmEscalarSelecao frmEscalarSelecao= new FrmEscalarSelecao( numeroRodadaAtual, getInstancia() );
+				frmEscalarSelecao.setVisible(true);
 			}
 		});
 		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class
