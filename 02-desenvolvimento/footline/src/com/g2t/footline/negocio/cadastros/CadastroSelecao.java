@@ -12,6 +12,7 @@ import com.g2t.footline.dados.RepositorioSelecaoLista;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Selecao;
+import com.g2t.footline.negocio.entidades.Tatica;
 import com.g2t.footline.negocio.entidades.Tecnico;
 import com.g2t.footline.util.Constantes;
 
@@ -74,11 +75,13 @@ public class CadastroSelecao {
 						Tecnico tecnico= new Tecnico(0, nomeTecnico);
 						CadastroTecnico.getInstance().inserir(tecnico);
 						
-						int tatica= Integer.valueOf( arrayLinha[6] );
-						
 						// Cadastrar a selecao
 						selecao= new Selecao(acronomo, nome, tecnico, nivel, 
-								grupo, new Tatica( tatica ));
+								grupo, null);
+						
+						// identifica qual é a tatica
+						selecao.setTatica( identificarTatica( arrayLinha[6] ) );
+						
 						repositorio.inserir(selecao);
 						
 						break;
@@ -156,6 +159,16 @@ public class CadastroSelecao {
 		}
 	}
 	
+	/**
+	 * Identifica a tatica utilizada pela equipe
+	 * 
+	 * @param string
+	 * @return Tatica
+	 */
+	private Tatica identificarTatica(String string) {
+		return Tatica._3_4_3;
+	}
+
 	/**
 	 * Lista todos contidos no array de selecoes
 	 * 
