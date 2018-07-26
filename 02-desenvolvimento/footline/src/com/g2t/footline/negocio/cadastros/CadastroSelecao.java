@@ -63,19 +63,22 @@ public class CadastroSelecao {
 				   
 				   switch (idx) {
 					case Constantes.FILE_DADOS_SELECAO: 
-						//S,Alemanha,Joachim Löw,97,ALE,F
+						//S,Alemanha,Joachim Löw,97,ALE,F,442
 						String nome= arrayLinha[1];
 						int nivel= Integer.valueOf(arrayLinha[3]);
 						String acronomo= arrayLinha[4];
 						String grupo= arrayLinha[5];
-						
+						System.out.println(nome);
 						// Cadastrar um tecnico
 						String nomeTecnico= arrayLinha[2];
 						Tecnico tecnico= new Tecnico(0, nomeTecnico);
 						CadastroTecnico.getInstance().inserir(tecnico);
 						
+						int tatica= Integer.valueOf( arrayLinha[6] );
+						
 						// Cadastrar a selecao
-						selecao= new Selecao(acronomo, nome, tecnico, nivel, grupo);
+						selecao= new Selecao(acronomo, nome, tecnico, nivel, 
+								grupo, new Tatica( tatica ));
 						repositorio.inserir(selecao);
 						
 						break;

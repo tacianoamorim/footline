@@ -71,7 +71,8 @@ public class CadastroRodada {
 	 * @throws ArquivoNaoEncontradoException 
 	 * @throws RegistroNaoEncontradoException 
 	 */
-	public void carregar() throws ArquivoNaoEncontradoException, RegistroNaoEncontradoException {
+	public void carregar() throws ArquivoNaoEncontradoException, 
+		RegistroNaoEncontradoException {
 		try {
 			// Carrega o arquivo de arbitros
 			File file = new File(Constantes.FILE_PATH + 
@@ -109,11 +110,13 @@ public class CadastroRodada {
 					
 					// Partida 
 					Selecao selecaoMananteFG= Fachada.getInstance().buscarSelecao( arrayLinha[3] );
-					Escalacao mandanteFG= new Escalacao(selecaoMananteFG, Escalacao._4_4_2, 
+					Escalacao mandanteFG= new Escalacao(selecaoMananteFG, 
+							selecaoMananteFG.getTatica(), 
 							new ArrayList<Jogador>(), new ArrayList<Jogador>()); 
 
 					Selecao selecaoVisitanteFG= Fachada.getInstance().buscarSelecao( arrayLinha[4] );
-					Escalacao visitanteFG= new Escalacao(selecaoVisitanteFG, Escalacao._4_4_2, 
+					Escalacao visitanteFG= new Escalacao(selecaoVisitanteFG, 
+							selecaoVisitanteFG.getTatica(), 
 							new ArrayList<Jogador>(), new ArrayList<Jogador>());			
 					
 					// Busca o arbitro

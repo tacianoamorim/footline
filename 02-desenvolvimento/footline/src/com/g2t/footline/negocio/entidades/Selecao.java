@@ -10,6 +10,7 @@ public class Selecao  {
 	private Tecnico tecnico;
 	private int nivel;
 	private String grupo;
+	private Tatica tatica;
 	private List<Jogador> jogadores = new ArrayList<Jogador>();
 	
 	public Selecao() {
@@ -17,13 +18,14 @@ public class Selecao  {
 	}
 
 	public Selecao(String id, String nome, Tecnico tecnico,  
-			int nivel, String grupo) {
+			int nivel, String grupo, Tatica tatica) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.tecnico = tecnico;
 		this.grupo = grupo;
 		this.nivel = nivel;
+		this.tatica= tatica;
 	}
 
 	public String getId() {
@@ -66,6 +68,13 @@ public class Selecao  {
 	}
 	public void setJogadores(List<Jogador> jogadores) {
 		this.jogadores = jogadores;
+	}
+
+	public Tatica getTatica() {
+		return tatica;
+	}
+	public void setTatica(Tatica tatica) {
+		this.tatica = tatica;
 	}
 
 	@Override

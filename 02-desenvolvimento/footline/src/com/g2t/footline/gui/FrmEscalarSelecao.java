@@ -20,6 +20,8 @@ import javax.swing.event.ListSelectionListener;
 
 import com.g2t.footline.negocio.entidades.Escalacao;
 import com.g2t.footline.negocio.entidades.Jogador;
+import com.g2t.footline.negocio.entidades.Tatica;
+
 import javax.swing.JComboBox;
 
 public class FrmEscalarSelecao extends JDialog {
@@ -66,7 +68,7 @@ public class FrmEscalarSelecao extends JDialog {
 					
 					Escalacao escalacao= new Escalacao();
 					escalacao.setSelecao( FrmPrincipal.selecaoGerenciada );
-					escalacao.setTatica( 0 );
+					escalacao.setTatica( Tatica.valueOf("442") );
 					escalacao.setTitulares(null);
 					escalacao.setReservas(null);
 					

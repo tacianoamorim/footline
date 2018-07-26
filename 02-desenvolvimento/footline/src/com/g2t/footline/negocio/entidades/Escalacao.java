@@ -5,15 +5,8 @@ import java.util.List;
 
 public class Escalacao{
 	
-	public static final int _4_4_2	= 1;
-	public static final int _4_2_4	= 2;
-	public static final int _4_5_1	= 3;
-	public static final int _4_3_3	= 4;	
-	public static final int _5_4_1	= 5;	
-	public static final int _5_3_2	= 6;
-
 	private Selecao selecao;
-	private int tatica;
+	private Tatica tatica;
 
 	// Titular
 	private List<Jogador> titulares = new ArrayList<Jogador>();
@@ -27,10 +20,10 @@ public class Escalacao{
 	private List<Jogador> listaLesionado = new ArrayList<Jogador>();
 	
 	public Escalacao() {
-		
 	}
 	
-	public Escalacao(Selecao selecao, int tatica, List<Jogador> titulares, List<Jogador> reservas) {
+	public Escalacao(Selecao selecao, Tatica tatica, 
+			List<Jogador> titulares, List<Jogador> reservas) {
 		super();
 		this.selecao = selecao;
 		this.tatica = tatica;
@@ -45,10 +38,10 @@ public class Escalacao{
 		this.selecao = selecao;
 	}
 	
-	public int getTatica() {
+	public Tatica getTatica() {
 		return tatica;
 	}
-	public void setTatica(int tatica) {
+	public void setTatica(Tatica tatica) {
 		this.tatica = tatica;
 	}
 	
