@@ -111,7 +111,7 @@ public class Fachada {
 	/**
 	 * Insere um novo arbitro
 	 * 
-	 * @param Arbitro arbitro
+	 * @param ArbitroTest arbitro
 	 */
 	public void inserir(Arbitro arbitro) {
 		CadastroArbitro.getInstance().inserir(arbitro);
@@ -231,13 +231,14 @@ public class Fachada {
 	}
 	
 	/**
-	 * Realiza o processamento da partida
+	 * Realiza o processamento da rodada
 	 * 
-	 * @param numero
+	 * @param int numero
+	 * @param FrmPrincipal frmPrincipal
 	 * @throws RegistroNaoEncontradoException 
 	 */
 	public void processarRodada(int numero, FrmPrincipal frmPrincipal) 
 			throws RegistroNaoEncontradoException {
-		CadastroRodada.getInstance().processar(numero, frmPrincipal);
+		CadastroRodada.getInstance().processarRodada(numero, frmPrincipal);
 	}
 }

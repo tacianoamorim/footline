@@ -68,7 +68,7 @@ public class FrmEscalarSelecao extends JDialog {
 					
 					Escalacao escalacao= new Escalacao();
 					escalacao.setSelecao( FrmPrincipal.selecaoGerenciada );
-					escalacao.setTatica( Tatica.valueOf("442") );
+					//escalacao.setTatica( Tatica.valueOf("442") );
 					escalacao.setTitulares(null);
 					escalacao.setReservas(null);
 					

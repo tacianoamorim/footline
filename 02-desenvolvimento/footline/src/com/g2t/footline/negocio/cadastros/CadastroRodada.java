@@ -90,7 +90,6 @@ public class CadastroRodada {
 			   // Monta um array da linha
 			   String[] arrayLinha= linha.split(","); 
 			   char idx= arrayLinha[0].charAt(0);
-			   //System.out.println(linha);
 			   switch ( idx ) {
 				case Constantes.TIPO_DADO_RODADA: //R,1,FASE DE GRUPOS
 					int numero= Integer.parseInt( String.valueOf( arrayLinha[1] ) );
@@ -262,27 +261,37 @@ public class CadastroRodada {
 		}
 	}
 	
-	public void processar(int numero, FrmPrincipal frmPrincipal) 
+	/**
+	 * Realiza o processamento de uma rodada
+	 * 
+	 * @param int numero
+	 * @param FrmPrincipal frmPrincipal
+	 * @throws RegistroNaoEncontradoException
+	 */
+	public void processarRodada(int numero, FrmPrincipal frmPrincipal) 
 			throws RegistroNaoEncontradoException {
-		Random random = new Random();
-		
-		// busca a rodada
+
+		// busca as partidas da rodada
 		Rodada rodada= repositorio.buscar( numero );
 		for (Partida partida : rodada.getPartidas() ) {
+			
+			// realiza o processamento da partida
+			CadastroPartida.getInstance().processarPartida( partida );
+			
+			Random random = new Random();
 			int golsMandante= random.nextInt((6 - 0) + 1) + 0;
 			partida.setGolsMandante( golsMandante );
 			
 			int golsVisitante= random.nextInt((6 - 0) + 1) + 0;
 			partida.setGolsVisitante( golsVisitante );
 			
-			System.out.println(partida);
 		}
 		
 		rodada.setFinalizada( true );
 		repositorio.atualizar(rodada);
-		
 		//frmPrincipal.carregarDadosRodadaAtual();
 		
 	}
+
 	
 }

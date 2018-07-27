@@ -46,7 +46,6 @@ public class CadastroSelecao {
 		// Carregar os dados dos clubes
 		for (int i=0; i < afile.length; i++) {
 			// recupera a extensao do arquivo
-			//System.out.println(afile[i].getName());
 			if (afile[i].getName().endsWith("foot")) {
 				
 				Selecao selecao= null;
@@ -60,7 +59,6 @@ public class CadastroSelecao {
 				   // Monta um array da linha
 				   String[] arrayLinha= linha.split(","); 
 				   char idx= arrayLinha[0].charAt(0);
-				   //System.out.println(linha);
 				   
 				   switch (idx) {
 					case Constantes.FILE_DADOS_SELECAO: 
@@ -69,7 +67,7 @@ public class CadastroSelecao {
 						int nivel= Integer.valueOf(arrayLinha[3]);
 						String acronomo= arrayLinha[4];
 						String grupo= arrayLinha[5];
-						System.out.println(nome);
+
 						// Cadastrar um tecnico
 						String nomeTecnico= arrayLinha[2];
 						Tecnico tecnico= new Tecnico(0, nomeTecnico);
@@ -80,7 +78,8 @@ public class CadastroSelecao {
 								grupo, null);
 						
 						// identifica qual é a tatica
-						selecao.setTatica( identificarTatica( arrayLinha[6] ) );
+						int taticaCodigo= Integer.parseInt( arrayLinha[6] );
+						selecao.setTatica( identificarTatica( taticaCodigo ) );
 						
 						repositorio.inserir(selecao);
 						
@@ -133,8 +132,6 @@ public class CadastroSelecao {
 						ataque.setPosicao("A");
 						ataque.setNome( arrayLinha[1] );
 						ataque.setSelecao(selecao);
-						
-						//System.out.println("  Ataque: "+arrayLinha[1] + "Linha"+linha);
 						ataque.setNivel( Integer.valueOf(arrayLinha[2]) );
 						
 						// Cadastrar jogador
@@ -148,12 +145,7 @@ public class CadastroSelecao {
 						break;
 					}
 				}
-				
 				selecao.setJogadores( jogadores );
-				
-				System.out.println(selecao);
-				System.out.println( "  => "+ jogadores );
-				
 				br.close();
 			}
 		}
@@ -162,11 +154,29 @@ public class CadastroSelecao {
 	/**
 	 * Identifica a tatica utilizada pela equipe
 	 * 
-	 * @param string
+	 * @param int
 	 * @return Tatica
 	 */
-	private Tatica identificarTatica(String string) {
-		return Tatica._3_4_3;
+	private Tatica identificarTatica(int tatica) {
+		Tatica retorno;
+		if ( tatica == Tatica._3_4_3.getValor() ) {
+			retorno= Tatica._3_4_3;
+		} else if ( tatica == Tatica._3_5_2.getValor() ) { 
+			retorno= Tatica._3_5_2;
+		} else if ( tatica == Tatica._4_2_4.getValor() ) { 
+			retorno= Tatica._4_2_4;
+		} else if ( tatica == Tatica._4_3_3.getValor() ) { 
+			retorno= Tatica._4_3_3;
+		} else if ( tatica == Tatica._4_4_2.getValor() ) { 
+			retorno= Tatica._4_4_2;
+		} else if ( tatica == Tatica._4_5_1.getValor() ) { 
+			retorno= Tatica._4_5_1;	
+		} else if ( tatica == Tatica._5_2_3.getValor() ) { 
+			retorno= Tatica._5_2_3;	
+		} else { 
+			retorno= Tatica._5_3_2;				
+		}
+		return retorno;
 	}
 
 	/**

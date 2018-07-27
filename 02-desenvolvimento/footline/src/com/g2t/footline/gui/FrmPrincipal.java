@@ -12,15 +12,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JToolBar;
 import javax.swing.border.CompoundBorder;
 
+import org.apache.log4j.Logger;
+
 import com.g2t.footline.gui.componentes.JogadorTableModel;
 import com.g2t.footline.gui.telasSecundarias.FrmCalendario;
+import com.g2t.footline.gui.telasSecundarias.FrmEstadio;
 import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
@@ -49,6 +51,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	private JLabel lblEscudoAdversario;
 	private JLabel lblLocalPartida;
 	
+	private Logger logger = Logger.getLogger( FrmPrincipal.class );
+	
 	private Integer numeroRodadaAtual;
 		
 	/**
@@ -66,6 +70,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
+		logger.info("INCIALIZANDO O FRM PRIBCIPAL");
 		//frame = new JFrame();
 		setBounds(100, 100, 900, 531);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -103,8 +109,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JButton btnCalendario = new JButton("Calendário");
 		btnCalendario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-                FrmCalendario frmCalendario= new FrmCalendario();
-                frmCalendario.setVisible(true);
+				try {
+					FrmCalendario frmCalendario= new FrmCalendario();
+	                frmCalendario.setVisible(true);
+					
+				} catch (Exception e) {
+					logger.error("Error ", e);
+				}
 			}
 		});
 		btnCalendario.setForeground(Color.WHITE);
@@ -116,20 +127,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JButton btnClassificacao = new JButton("Classificação");
 		btnClassificacao.setForeground(Color.WHITE);
 		toolBar.add(btnClassificacao);
-		
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setForeground(Color.WHITE);
-		btnSalvar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					//FootlineService.getInstance().salvar(nomeArquivo, footline);
-					JOptionPane.showMessageDialog(null, "Jogo salvo!", "Salvar Jogo", JOptionPane.INFORMATION_MESSAGE);
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
 		
 		JLabel label_3 = new JLabel("     ");
 		toolBar.add(label_3);
@@ -149,12 +146,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		toolBar.add(label_1);
 		
 		JButton btnEstadio = new JButton("Estádio");
+		btnEstadio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					FrmEstadio frmEstadio= new FrmEstadio();
+					frmEstadio.setVisible(true);
+					
+				} catch (Exception e) {
+					logger.error("Error ", e);
+				}
+				
+			}
+		});
 		btnEstadio.setForeground(Color.WHITE);
 		toolBar.add(btnEstadio);
-		
-		JLabel lblEspacos1 = new JLabel("     ");
-		toolBar.add(lblEspacos1);
-		toolBar.add(btnSalvar);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(Color.BLACK);
@@ -362,14 +367,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 			
 			if ( !rodada.isFinalizada() ) { // a proxima rodada 
 				numeroRodadaAtual= rodada.getNumero();
-				
-				System.out.println( rodada.getNumero() +" Rodada" );
 				for (Partida partida : rodada.getPartidas() ) {
-					
-					System.out.println("Mandante "+ partida.getMandante().getSelecao());
-					System.out.println("Visitante "+ partida.getVisitante().getSelecao());
-					System.out.println("Gerenciado "+ FrmPrincipal.selecaoGerenciada);
-					System.out.println();
 					// Quando achar a partida do clube
 					if ( partida.getMandante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ||
 						 partida.getVisitante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ) {

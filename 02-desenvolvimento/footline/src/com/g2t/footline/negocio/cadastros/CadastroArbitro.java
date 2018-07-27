@@ -49,7 +49,7 @@ public class CadastroArbitro {
 	/**
 	 * Adiciona um arbitro na lista
 	 * 
-	 * @param Arbitro
+	 * @param ArbitroTest
 	 */
 	public void inserir(Arbitro arbitro) {
 		repositorio.inserir(arbitro);
