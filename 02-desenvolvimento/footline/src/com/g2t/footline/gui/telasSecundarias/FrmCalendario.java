@@ -39,16 +39,16 @@ public class FrmCalendario extends JDialog {
 		getContentPane().setForeground(new Color(0, 128, 128));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
-		setBounds(100, 100, 434, 342);
+		setBounds(100, 100, 434, 421);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BoxLayout(contentPanel, BoxLayout.X_AXIS));
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
-		contentPanel.add(panel);
+		JPanel pnlLista = new JPanel();
+		pnlLista.setBackground(Color.WHITE);
+		contentPanel.add(pnlLista);
 		
 		DefaultListModel<String> modelo = new DefaultListModel<String>();
 		JList<String> listJogos =  new JList<String>(modelo);
@@ -85,24 +85,24 @@ public class FrmCalendario extends JDialog {
 				}
 			}
 		}
-		panel.setLayout(new BorderLayout(0, 0));
+		pnlLista.setLayout(new BorderLayout(0, 0));
 		
-		panel.add(scrollPane);
+		pnlLista.add(scrollPane);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBackground(Color.BLACK);
-			buttonPane.setForeground(new Color(0, 128, 128));
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			JPanel pnlBotao = new JPanel();
+			pnlBotao.setBackground(Color.BLACK);
+			pnlBotao.setForeground(new Color(0, 128, 128));
+			pnlBotao.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(pnlBotao, BorderLayout.SOUTH);
 			{
-				JButton cancelButton = new JButton("Fechar");
-				cancelButton.addActionListener(new ActionListener() {
+				JButton btnCancelar = new JButton("Fechar");
+				btnCancelar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
 					}
 				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				btnCancelar.setActionCommand("Cancel");
+				pnlBotao.add(btnCancelar);
 			}
 		}
 		

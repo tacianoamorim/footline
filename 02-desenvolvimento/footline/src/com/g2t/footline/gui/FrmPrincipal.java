@@ -84,22 +84,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		getContentPane().add(pnlTopo, BorderLayout.NORTH);
 		pnlTopo.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(Color.BLACK);
-		pnlTopo.add(panel, BorderLayout.WEST);
+		JPanel pnlLogo = new JPanel();
+		pnlLogo.setBackground(Color.BLACK);
+		pnlTopo.add(pnlLogo, BorderLayout.WEST);
 		
-		JLabel lblNewLabel = new JLabel("  Footline - Rússia Copa 2018  ");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		panel.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 26));
+		JLabel lblLogo = new JLabel("  Footline - Rússia Copa 2018  ");
+		lblLogo.setForeground(new Color(255, 255, 255));
+		pnlLogo.add(lblLogo);
+		lblLogo.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 26));
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.BLACK);
-		pnlTopo.add(panel_1, BorderLayout.CENTER);
+		JPanel pnlMenu = new JPanel();
+		pnlMenu.setBackground(Color.BLACK);
+		pnlTopo.add(pnlMenu, BorderLayout.CENTER);
 		
 		JToolBar toolBar = new JToolBar();
 		toolBar.setForeground(Color.WHITE);
-		panel_1.add(toolBar);
+		pnlMenu.add(toolBar);
 		toolBar.setFloatable(false);
 		toolBar.setRollover(true);
 		
@@ -161,12 +161,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		btnEstadio.setForeground(Color.WHITE);
 		toolBar.add(btnEstadio);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(Color.BLACK);
-		pnlTopo.add(panel_2, BorderLayout.EAST);
+		JPanel pnlSair = new JPanel();
+		pnlSair.setBackground(Color.BLACK);
+		pnlTopo.add(pnlSair, BorderLayout.EAST);
 		
 		JButton btnSair = new JButton("Sair");
-		panel_2.add(btnSair);
+		pnlSair.add(btnSair);
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -181,72 +181,72 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		getContentPane().add(pnlCentro);
 		pnlCentro.setLayout(null);
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setForeground(new Color(255, 255, 255));
-		panel_3.setBackground(Color.BLACK);
-		panel_3.setBorder(new CompoundBorder());
-		panel_3.setBounds(10, 11, 267, 417);
-		pnlCentro.add(panel_3);
-		panel_3.setLayout(null);
+		JPanel pnlSelecoes = new JPanel();
+		pnlSelecoes.setForeground(new Color(255, 255, 255));
+		pnlSelecoes.setBackground(Color.BLACK);
+		pnlSelecoes.setBorder(new CompoundBorder());
+		pnlSelecoes.setBounds(10, 11, 267, 417);
+		pnlCentro.add(pnlSelecoes);
+		pnlSelecoes.setLayout(null);
 		
-		JPanel panel_7 = new JPanel();
-		panel_7.setBackground(Color.WHITE);
-		panel_7.setBounds(10, 11, 247, 104);
-		panel_3.add(panel_7);
-		panel_7.setLayout(null);
+		JPanel pnlSelecaoGerenciada = new JPanel();
+		pnlSelecaoGerenciada.setBackground(Color.WHITE);
+		pnlSelecaoGerenciada.setBounds(10, 11, 247, 104);
+		pnlSelecoes.add(pnlSelecaoGerenciada);
+		pnlSelecaoGerenciada.setLayout(null);
 		
 		lblEscudo = new JLabel("Escudo");
 		lblEscudo.setBounds(10, 11, 80, 71);
-		panel_7.add(lblEscudo);
+		pnlSelecaoGerenciada.add(lblEscudo);
 		
 		lblNomeSelecao = new JLabel("lblNome");
 		lblNomeSelecao.setBounds(92, 11, 148, 20);
-		panel_7.add(lblNomeSelecao);
+		pnlSelecaoGerenciada.add(lblNomeSelecao);
 		lblNomeSelecao.setForeground(Color.BLACK);
 		lblNomeSelecao.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		lblTecnico = new JLabel("lblTecnico");
 		lblTecnico.setBounds(92, 38, 137, 20);
-		panel_7.add(lblTecnico);
+		pnlSelecaoGerenciada.add(lblTecnico);
 		lblTecnico.setForeground(Color.BLACK);
 		lblTecnico.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
-		JPanel panel_6 = new JPanel();
-		panel_6.setBackground(Color.WHITE);
-		panel_6.setBounds(10, 174, 247, 150);
-		panel_3.add(panel_6);
-		panel_6.setLayout(null);
+		JPanel pnlSelecaoAdversaria = new JPanel();
+		pnlSelecaoAdversaria.setBackground(Color.WHITE);
+		pnlSelecaoAdversaria.setBounds(10, 174, 247, 150);
+		pnlSelecoes.add(pnlSelecaoAdversaria);
+		pnlSelecaoAdversaria.setLayout(null);
 		
 		JLabel lblPrximaPartida = new JLabel("Próximo jogo -");
 		lblPrximaPartida.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblPrximaPartida.setBounds(10, 11, 100, 14);
-		panel_6.add(lblPrximaPartida);
+		pnlSelecaoAdversaria.add(lblPrximaPartida);
 		
 		lblEscudoAdversario = new JLabel("Escudo");
 		lblEscudoAdversario.setBounds(10, 56, 80, 71);
-		panel_6.add(lblEscudoAdversario);
+		pnlSelecaoAdversaria.add(lblEscudoAdversario);
 
 		lblLocalPartida = new JLabel(" - - - - - ");
 		lblLocalPartida.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblLocalPartida.setBounds(107, 11, 86, 14);
-		panel_6.add(lblLocalPartida);
+		pnlSelecaoAdversaria.add(lblLocalPartida);
 		
 		lblRodada = new JLabel("");
 		lblRodada.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblRodada.setBounds(10, 31, 137, 14);
-		panel_6.add(lblRodada);
+		pnlSelecaoAdversaria.add(lblRodada);
 		
 		lblNomeAdversario = new JLabel("lblNomeAdversario");
 		lblNomeAdversario.setForeground(Color.BLACK);
 		lblNomeAdversario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
 		lblNomeAdversario.setBounds(92, 56, 137, 29);
-		panel_6.add(lblNomeAdversario);
+		pnlSelecaoAdversaria.add(lblNomeAdversario);
 		
 		lblNomeTecnicoAdversario = new JLabel("lblTecnico");
 		lblNomeTecnicoAdversario.setForeground(Color.BLACK);
 		lblNomeTecnicoAdversario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
 		lblNomeTecnicoAdversario.setBounds(92, 84, 137, 20);
-		panel_6.add(lblNomeTecnicoAdversario);
+		pnlSelecaoAdversaria.add(lblNomeTecnicoAdversario);
 		
 		JButton btnEscalar = new JButton("Escalar");
 		btnEscalar.addActionListener(new ActionListener() {
@@ -258,7 +258,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class
 				.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
 		btnEscalar.setBounds(130, 352, 127, 54);
-		panel_3.add(btnEscalar);
+		pnlSelecoes.add(btnEscalar);
 		
 		JButton btnNewButton = new JButton("Atualizar");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -267,27 +267,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
 			}
 		});
 		btnNewButton.setBounds(11, 352, 106, 52);
-		panel_3.add(btnNewButton);
+		pnlSelecoes.add(btnNewButton);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBounds(287, 11, 597, 417);
-		pnlCentro.add(panel_4);
+		JPanel pnlJogadores = new JPanel();
+		pnlJogadores.setBounds(287, 11, 597, 417);
+		pnlCentro.add(pnlJogadores);
 		
 		jogadorTableModel = new JogadorTableModel();
-		panel_4.setLayout(new BoxLayout(panel_4, BoxLayout.X_AXIS));
+		pnlJogadores.setLayout(new BoxLayout(pnlJogadores, BoxLayout.X_AXIS));
 		JTable jTableJogador = new JTable(jogadorTableModel);
 		formatarTabela(jTableJogador);	
 		
 		JScrollPane scrollPane = new JScrollPane(jTableJogador);
 		jTableJogador.setFillsViewportHeight(true);
 		
-		panel_4.add(scrollPane);
+		pnlJogadores.add(scrollPane);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBackground(Color.BLACK);
-		getContentPane().add(panel_5, BorderLayout.SOUTH);
+		JPanel pnlBarraStatus = new JPanel();
+		pnlBarraStatus.setBackground(Color.BLACK);
+		getContentPane().add(pnlBarraStatus, BorderLayout.SOUTH);
 		lblBarraStatus = new JLabel(" . . . ");
-		panel_5.add(lblBarraStatus);
+		pnlBarraStatus.add(lblBarraStatus);
 		lblBarraStatus.setForeground(new Color(255, 255, 255));
 		lblBarraStatus.setBackground(new Color(0, 128, 128));
 		lblBarraStatus.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 11));

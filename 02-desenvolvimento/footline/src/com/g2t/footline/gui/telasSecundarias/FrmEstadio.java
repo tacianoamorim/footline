@@ -100,21 +100,21 @@ public class FrmEstadio extends JDialog {
 		lblImgEstadio.setIcon(new ImageIcon(FrmEstadio.class.getResource("/imagens/estadios/"+nomeEstadio+".png")));
 		pnlFoto.add(lblImgEstadio);
 		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(10, 392, 596, 33);
-			buttonPane.setBackground(Color.BLACK);
-			buttonPane.setForeground(Color.BLACK);
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane);
+			JPanel pnlBotao = new JPanel();
+			pnlBotao.setBounds(10, 392, 596, 33);
+			pnlBotao.setBackground(Color.BLACK);
+			pnlBotao.setForeground(Color.BLACK);
+			pnlBotao.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(pnlBotao);
 			{
-				JButton cancelButton = new JButton("Fechar");
-				cancelButton.addActionListener(new ActionListener() {
+				JButton btnCancelar = new JButton("Fechar");
+				btnCancelar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
 					}
 				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				btnCancelar.setActionCommand("Cancel");
+				pnlBotao.add(btnCancelar);
 			}
 		}
 		
