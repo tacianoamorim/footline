@@ -23,6 +23,7 @@ import com.g2t.footline.util.Biblioteca;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Font;
 
 public class FrmEstadio extends JDialog {
 
@@ -44,9 +45,19 @@ public class FrmEstadio extends JDialog {
 		getContentPane().setForeground(Color.WHITE);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
-		setBounds(100, 100, 616, 436);
+		setBounds(100, 100, 623, 471);
 		getContentPane().setLayout(null);
-		contentPanel.setBounds(0, 0, 720, 385);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 623, 33);
+		getContentPane().add(panel);
+		panel.setBackground(Color.BLACK);
+		
+		JLabel lblEstdios = new JLabel("Estádios");
+		lblEstdios.setForeground(Color.WHITE);
+		lblEstdios.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 20));
+		panel.add(lblEstdios);
+		contentPanel.setBounds(10, 36, 606, 385);
 		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
@@ -101,7 +112,7 @@ public class FrmEstadio extends JDialog {
 		pnlFoto.add(lblImgEstadio);
 		{
 			JPanel pnlBotao = new JPanel();
-			pnlBotao.setBounds(10, 392, 596, 33);
+			pnlBotao.setBounds(20, 427, 596, 33);
 			pnlBotao.setBackground(Color.BLACK);
 			pnlBotao.setForeground(Color.BLACK);
 			pnlBotao.setLayout(new FlowLayout(FlowLayout.RIGHT));

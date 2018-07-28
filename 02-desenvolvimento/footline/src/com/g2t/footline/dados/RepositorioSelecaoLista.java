@@ -34,6 +34,29 @@ public class RepositorioSelecaoLista implements RepositorioSelecao {
 	}
 	
 	/**
+	 * Busca um determinado selecao pelo nome
+	 * 
+	 * return Selecao selecao
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	@Override
+	public Selecao buscarPorNome(String nome) throws RegistroNaoEncontradoException {
+		Selecao retorno= null;
+		for (Selecao selecao : dados) {
+			if ( selecao.getNome().equalsIgnoreCase( nome ) ) {
+				retorno= selecao;
+				break;
+			}
+		}
+		
+		if ( retorno == null ) {
+			throw new RegistroNaoEncontradoException("Selecao nome="+ nome
+					+" não localizada.");
+		}		
+		return retorno;
+	}
+	
+	/**
 	 * Insere uma selacao na lista
 	 */
 	@Override

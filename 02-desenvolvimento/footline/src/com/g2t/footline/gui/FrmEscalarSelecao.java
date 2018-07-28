@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -20,9 +21,6 @@ import javax.swing.event.ListSelectionListener;
 
 import com.g2t.footline.negocio.entidades.Escalacao;
 import com.g2t.footline.negocio.entidades.Jogador;
-import com.g2t.footline.negocio.entidades.Tatica;
-
-import javax.swing.JComboBox;
 
 public class FrmEscalarSelecao extends JDialog {
 

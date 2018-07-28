@@ -1,12 +1,14 @@
 package com.g2t.footline.negocio.entidades;
 
+import java.util.List;
+
 public class Partida  {
 
 	private int id;
 	private Escalacao mandante;
 	private Escalacao visitante;
-	private int golsMandante;
-	private int golsVisitante;
+	private List<Jogador> golsMandante;
+	private List<Jogador> golsVisitante;
 	private float publico;
 	private Arbitro arbitro;
 	private Estadio estadio;
@@ -48,17 +50,17 @@ public class Partida  {
 		this.visitante = visitante;
 	}
 	
-	public int getGolsMandante() {
+	public List<Jogador> getGolsMandante() {
 		return golsMandante;
 	}
-	public void setGolsMandante(int golsMandante) {
+	public void setGolsMandante(List<Jogador> golsMandante) {
 		this.golsMandante = golsMandante;
 	}
 	
-	public int getGolsVisitante() {
+	public List<Jogador> getGolsVisitante() {
 		return golsVisitante;
 	}
-	public void setGolsVisitante(int golsVisitante) {
+	public void setGolsVisitante(List<Jogador> golsVisitante) {
 		this.golsVisitante = golsVisitante;
 	}
 	

@@ -241,4 +241,32 @@ public class Fachada {
 			throws RegistroNaoEncontradoException {
 		CadastroRodada.getInstance().processarRodada(numero, frmPrincipal);
 	}
+
+	/**
+	 * Retorna a lista de jogadores com gols
+	 * 
+	 * @return List<Jogador>
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public List<Jogador> listarArtilheiros() throws RegistroNaoEncontradoException {
+		return CadastroJogador.getInstance().listarArtilheiros();
+	}
+
+	/**
+	 * Retorna os jogadores de uma selecao
+	 * 
+	 * @param selecaoSelecionado
+	 * @return List<Jogador> 
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public List<Jogador> listarJogadorPorSelecao(String selecaoSelecionado) 
+			throws RegistroNaoEncontradoException {
+		// Busca a selecao escolhida
+		Selecao selecao= CadastroSelecao.getInstance()
+				.buscarPorNome(selecaoSelecionado);
+		// Busca os jogadores da selecao
+		List<Jogador> jogadores= CadastroJogador.getInstance().listar( selecao );
+		
+		return jogadores;
+	}
 }

@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import com.g2t.footline.dados.RepositorioRodada;
 import com.g2t.footline.dados.RepositorioRodadaLista;
@@ -273,19 +272,55 @@ public class CadastroRodada {
 
 		// busca as partidas da rodada
 		Rodada rodada= repositorio.buscar( numero );
-		for (Partida partida : rodada.getPartidas() ) {
+		
+		Jogador jogador1= CadastroJogador.getInstance().buscar(1);
+		Jogador jogador2= CadastroJogador.getInstance().buscar(2);
+		Jogador jogador3= CadastroJogador.getInstance().buscar(200);
+		Jogador jogador4= CadastroJogador.getInstance().buscar(100);
+		
+		List<Partida> partidas= rodada.getPartidas();
+		int idx= 0;
+		for (Partida partida : partidas) {
+			partida.setGolsMandante( new ArrayList<Jogador>() );
+			partida.setGolsVisitante( new ArrayList<Jogador>() );
 			
-			// realiza o processamento da partida
-			CadastroPartida.getInstance().processarPartida( partida );
-			
-			Random random = new Random();
-			int golsMandante= random.nextInt((6 - 0) + 1) + 0;
-			partida.setGolsMandante( golsMandante );
-			
-			int golsVisitante= random.nextInt((6 - 0) + 1) + 0;
-			partida.setGolsVisitante( golsVisitante );
-			
+			if ( idx==0 ) {
+				partida.getGolsMandante().add(jogador1);
+				partida.getGolsMandante().add(jogador1);
+				partida.getGolsMandante().add(jogador3);
+				partida.getGolsVisitante().add(jogador4);
+				idx++;
+			} 
 		}
+		
+		
+		
+		
+//		for (Partida partida : rodada.getPartidas() ) {
+//			
+//			// realiza o processamento da partida
+//			CadastroPartida.getInstance().processarPartida( partida );
+//			
+//			Random random = new Random();
+//			int golsMandante= random.nextInt((6 - 0) + 1) + 0;
+//			while ( golsMandante != 0 ) {
+//				
+//				for (Jogador jo : iterable) {
+//					
+//				}
+//				
+//				Jogador jogador= CadastroJogador.getInstance().buscar(1);
+//				
+//			}
+//			
+//			
+//			
+//			partida.setGolsMandante( golsMandante );
+//			
+//			int golsVisitante= random.nextInt((6 - 0) + 1) + 0;
+//			partida.setGolsVisitante( golsVisitante );
+//			
+//		}
 		
 		rodada.setFinalizada( true );
 		repositorio.atualizar(rodada);

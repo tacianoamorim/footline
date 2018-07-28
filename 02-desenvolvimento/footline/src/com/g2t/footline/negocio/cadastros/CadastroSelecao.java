@@ -206,4 +206,14 @@ public class CadastroSelecao {
 	public Selecao buscar(String id) throws RegistroNaoEncontradoException {
 		return repositorio.buscar(id);
 	}	
+	
+	/**
+	 * Busca um determinado selecao pelo nome
+	 * 
+	 * return selecao selecao
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	public Selecao buscarPorNome(String nome) throws RegistroNaoEncontradoException {
+		return repositorio.buscarPorNome(nome);
+	}	
 }

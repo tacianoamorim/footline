@@ -21,8 +21,10 @@ import javax.swing.border.CompoundBorder;
 import org.apache.log4j.Logger;
 
 import com.g2t.footline.gui.componentes.JogadorTableModel;
+import com.g2t.footline.gui.telasSecundarias.FrmArtilheiro;
 import com.g2t.footline.gui.telasSecundarias.FrmCalendario;
 import com.g2t.footline.gui.telasSecundarias.FrmEstadio;
+import com.g2t.footline.gui.telasSecundarias.FrmSelecao;
 import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
@@ -124,23 +126,38 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		JLabel label_4 = new JLabel("     ");
 		toolBar.add(label_4);
 		
-		JButton btnClassificacao = new JButton("Classificação");
-		btnClassificacao.setForeground(Color.WHITE);
-		toolBar.add(btnClassificacao);
-		
-		JLabel label_3 = new JLabel("     ");
-		toolBar.add(label_3);
-		
 		JButton btnArtilheiro = new JButton("Artilheiros");
+		btnArtilheiro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					FrmArtilheiro frmArtilheiro= new FrmArtilheiro();
+					frmArtilheiro.setVisible(true);
+					
+				} catch (Exception e) {
+					logger.error("Error ", e);
+				}
+			}
+		});
 		btnArtilheiro.setForeground(Color.WHITE);
 		toolBar.add(btnArtilheiro);
 		
 		JLabel label_5 = new JLabel("     ");
 		toolBar.add(label_5);
 		
-		JButton btnTime = new JButton("Seleções");
-		btnTime.setForeground(Color.WHITE);
-		toolBar.add(btnTime);
+		JButton btnSelecao = new JButton("Seleções");
+		btnSelecao.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					FrmSelecao frmSelecao= new FrmSelecao();
+					frmSelecao.setVisible(true);
+					
+				} catch (Exception e) {
+					logger.error("Error ", e);
+				}
+			}
+		});
+		btnSelecao.setForeground(Color.WHITE);
+		toolBar.add(btnSelecao);
 		
 		JLabel label_1 = new JLabel("     ");
 		toolBar.add(label_1);
@@ -155,7 +172,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 				} catch (Exception e) {
 					logger.error("Error ", e);
 				}
-				
 			}
 		});
 		btnEstadio.setForeground(Color.WHITE);
@@ -213,7 +229,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		
 		JPanel pnlSelecaoAdversaria = new JPanel();
 		pnlSelecaoAdversaria.setBackground(Color.WHITE);
-		pnlSelecaoAdversaria.setBounds(10, 174, 247, 150);
+		pnlSelecaoAdversaria.setBounds(10, 165, 247, 140);
 		pnlSelecoes.add(pnlSelecaoAdversaria);
 		pnlSelecaoAdversaria.setLayout(null);
 		
@@ -257,17 +273,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		});
 		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class
 				.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		btnEscalar.setBounds(130, 352, 127, 54);
+		btnEscalar.setBounds(10, 352, 247, 54);
 		pnlSelecoes.add(btnEscalar);
-		
-		JButton btnNewButton = new JButton("Atualizar");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				carregarDadosRodadaAtual();
-			}
-		});
-		btnNewButton.setBounds(11, 352, 106, 52);
-		pnlSelecoes.add(btnNewButton);
 		
 		JPanel pnlJogadores = new JPanel();
 		pnlJogadores.setBounds(287, 11, 597, 417);
