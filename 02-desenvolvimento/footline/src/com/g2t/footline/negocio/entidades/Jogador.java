@@ -9,7 +9,7 @@ public class Jogador extends Pessoa {
 	
 	private String posicao;
 	private int cartaoAmarelo;
-	private boolean cartaoVermelho;
+	private int cartaoVermelho;
 	private int rodadasLesionado;
 	private int quantidadeGols;
 	private int nivel;
@@ -24,7 +24,8 @@ public class Jogador extends Pessoa {
 		this.posicao = posicao;
 	}
 	
-	public Jogador(int id, String nome, String posicao, int nivel, int cartaoAmarelo, boolean cartaoVermelho,
+	public Jogador(int id, String nome, String posicao, 
+			int nivel, int cartaoAmarelo, int cartaoVermelho,
 			int rodadasLesionado, int quantidadeGols) {
 		super(id, nome);
 		this.posicao = posicao;
@@ -56,10 +57,10 @@ public class Jogador extends Pessoa {
 		this.cartaoAmarelo = cartaoAmarelo;
 	}
 	
-	public boolean isCartaoVermelho() {
+	public int isCartaoVermelho() {
 		return cartaoVermelho;
 	}
-	public void setCartaoVermelho(boolean cartaoVermelho) {
+	public void setCartaoVermelho(int cartaoVermelho) {
 		this.cartaoVermelho = cartaoVermelho;
 	}
 	

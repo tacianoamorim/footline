@@ -81,6 +81,8 @@ public class FrmProcessarRodada extends JDialog {
 				textArea.setText( textoAreao );		
 			}
 			
+			frmPrincipal.processarCarregamentoApp();
+			
 		} catch (RegistroNaoEncontradoException e) {
 			e.printStackTrace();
 		} catch (Exception e) {

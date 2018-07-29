@@ -83,7 +83,7 @@ public class FrmJogoNovo extends JDialog {
 		                
 		                FrmPrincipal frmPrincipal= new FrmPrincipal();
 		                frmPrincipal.setVisible( true );
-		                frmPrincipal.processarCarregamentoApp( true );
+		                frmPrincipal.processarCarregamentoApp( );
 					}
 				});
 				okButton.setActionCommand("OK");

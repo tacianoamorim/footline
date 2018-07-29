@@ -80,7 +80,7 @@ public class JogadorTableModel extends AbstractTableModel {
 		case 4:
 			jogador.setCartaoAmarelo( Integer.parseInt( aValue.toString()) );
 		case 5:
-			jogador.setCartaoVermelho( Boolean.parseBoolean( aValue.toString()) );
+			jogador.setCartaoVermelho( Integer.parseInt( aValue.toString()) );
 			
 		default:
 			System.err.println("indice da coluna invalido");

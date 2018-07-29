@@ -169,7 +169,8 @@ public class Fachada {
 	 * return Estadio estadio
 	 * @throws RegistroNaoEncontradoException 
 	 */
-	public Estadio buscarEstadio(String id) throws RegistroNaoEncontradoException {
+	public Estadio buscarEstadio(String id) 
+			throws RegistroNaoEncontradoException {
 		return CadastroEstadio.getInstance().buscar(id);
 	}
 

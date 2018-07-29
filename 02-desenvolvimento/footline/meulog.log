@@ -168,3 +168,5 @@ java.lang.NullPointerException
 2018-07-28 14:14:02,356 [AWT-EventQueue-0]  INFO com.g2t.footline.gui.FrmPrincipal:76 - INCIALIZANDO O FRM PRIBCIPAL
 2018-07-28 14:14:40,858 [AWT-EventQueue-0]  INFO com.g2t.footline.gui.FrmPrincipal:76 - INCIALIZANDO O FRM PRIBCIPAL
 2018-07-28 14:38:51,862 [AWT-EventQueue-0]  INFO com.g2t.footline.gui.FrmPrincipal:76 - INCIALIZANDO O FRM PRIBCIPAL
+2018-07-28 15:28:34,126 [AWT-EventQueue-0]  INFO com.g2t.footline.gui.FrmPrincipal:76 - INCIALIZANDO O FRM PRIBCIPAL
+2018-07-28 15:38:09,033 [AWT-EventQueue-0]  INFO com.g2t.footline.gui.FrmPrincipal:76 - INCIALIZANDO O FRM PRIBCIPAL

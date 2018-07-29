@@ -3,7 +3,7 @@
  */
 package com.g2t.footline.testes;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,12 +11,17 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.g2t.footline.negocio.Fachada;
+import com.g2t.footline.negocio.entidades.Arbitro;
+
 /**
  * @author Taciano Amorim
  *
  */
 public class ArbitroTest {
 
+	private Arbitro arbitro;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -36,6 +41,9 @@ public class ArbitroTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		
+		arbitro= new Arbitro("Arbitro Teste", "Brasil");
+		
 	}
 
 	/**
@@ -46,8 +54,9 @@ public class ArbitroTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testArbito() {
+		Fachada.getInstance().inserir(arbitro);
+		assertTrue(true);
 	}
 
 }

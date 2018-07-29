@@ -20,12 +20,14 @@ import javax.swing.border.CompoundBorder;
 
 import org.apache.log4j.Logger;
 
+import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.gui.componentes.JogadorTableModel;
 import com.g2t.footline.gui.telasSecundarias.FrmArtilheiro;
 import com.g2t.footline.gui.telasSecundarias.FrmCalendario;
 import com.g2t.footline.gui.telasSecundarias.FrmEstadio;
 import com.g2t.footline.gui.telasSecundarias.FrmSelecao;
 import com.g2t.footline.negocio.Fachada;
+import com.g2t.footline.negocio.entidades.Estadio;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.negocio.entidades.Rodada;
@@ -73,11 +75,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	 */
 	private void initialize() {
 		
-		logger.info("INCIALIZANDO O FRM PRIBCIPAL");
-		//frame = new JFrame();
 		setBounds(100, 100, 900, 531);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//setExtendedState(JFrame.MAXIMIZED_BOTH);
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		
 		JPanel pnlTopo = new JPanel();
@@ -188,10 +187,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 				dispose();
 			}
 		});
+		
+		
 		// --------------------------------------------------------
 		// BOTOES MENU - FIM
 		// --------------------------------------------------------		
-		
 		JPanel pnlCentro = new JPanel();
 		pnlCentro.setBackground(new Color(255, 255, 255));
 		getContentPane().add(pnlCentro);
@@ -201,13 +201,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		pnlSelecoes.setForeground(new Color(255, 255, 255));
 		pnlSelecoes.setBackground(Color.BLACK);
 		pnlSelecoes.setBorder(new CompoundBorder());
-		pnlSelecoes.setBounds(10, 11, 267, 417);
+		pnlSelecoes.setBounds(10, 11, 316, 417);
 		pnlCentro.add(pnlSelecoes);
 		pnlSelecoes.setLayout(null);
 		
 		JPanel pnlSelecaoGerenciada = new JPanel();
 		pnlSelecaoGerenciada.setBackground(Color.WHITE);
-		pnlSelecaoGerenciada.setBounds(10, 11, 247, 104);
+		pnlSelecaoGerenciada.setBounds(10, 11, 296, 104);
 		pnlSelecoes.add(pnlSelecaoGerenciada);
 		pnlSelecaoGerenciada.setLayout(null);
 		
@@ -216,20 +216,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		pnlSelecaoGerenciada.add(lblEscudo);
 		
 		lblNomeSelecao = new JLabel("lblNome");
-		lblNomeSelecao.setBounds(92, 11, 148, 20);
+		lblNomeSelecao.setBounds(92, 11, 194, 20);
 		pnlSelecaoGerenciada.add(lblNomeSelecao);
 		lblNomeSelecao.setForeground(Color.BLACK);
 		lblNomeSelecao.setFont(new Font("Tahoma", Font.BOLD, 16));
 		
 		lblTecnico = new JLabel("lblTecnico");
-		lblTecnico.setBounds(92, 38, 137, 20);
+		lblTecnico.setBounds(92, 38, 194, 20);
 		pnlSelecaoGerenciada.add(lblTecnico);
 		lblTecnico.setForeground(Color.BLACK);
 		lblTecnico.setFont(new Font("Tahoma", Font.BOLD, 14));
 		
 		JPanel pnlSelecaoAdversaria = new JPanel();
 		pnlSelecaoAdversaria.setBackground(Color.WHITE);
-		pnlSelecaoAdversaria.setBounds(10, 165, 247, 140);
+		pnlSelecaoAdversaria.setBounds(10, 165, 296, 140);
 		pnlSelecoes.add(pnlSelecaoAdversaria);
 		pnlSelecaoAdversaria.setLayout(null);
 		
@@ -244,7 +244,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
 		lblLocalPartida = new JLabel(" - - - - - ");
 		lblLocalPartida.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblLocalPartida.setBounds(107, 11, 86, 14);
+		lblLocalPartida.setBounds(107, 11, 179, 14);
 		pnlSelecaoAdversaria.add(lblLocalPartida);
 		
 		lblRodada = new JLabel("");
@@ -255,13 +255,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		lblNomeAdversario = new JLabel("lblNomeAdversario");
 		lblNomeAdversario.setForeground(Color.BLACK);
 		lblNomeAdversario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 15));
-		lblNomeAdversario.setBounds(92, 56, 137, 29);
+		lblNomeAdversario.setBounds(92, 56, 194, 29);
 		pnlSelecaoAdversaria.add(lblNomeAdversario);
 		
 		lblNomeTecnicoAdversario = new JLabel("lblTecnico");
 		lblNomeTecnicoAdversario.setForeground(Color.BLACK);
 		lblNomeTecnicoAdversario.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 13));
-		lblNomeTecnicoAdversario.setBounds(92, 84, 137, 20);
+		lblNomeTecnicoAdversario.setBounds(92, 84, 194, 20);
 		pnlSelecaoAdversaria.add(lblNomeTecnicoAdversario);
 		
 		JButton btnEscalar = new JButton("Escalar");
@@ -273,11 +273,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		});
 		btnEscalar.setIcon(new ImageIcon(FrmPrincipal.class
 				.getResource("/com/sun/javafx/scene/web/skin/Paste_16x16_JFX.png")));
-		btnEscalar.setBounds(10, 352, 247, 54);
+		btnEscalar.setBounds(10, 352, 296, 54);
 		pnlSelecoes.add(btnEscalar);
 		
 		JPanel pnlJogadores = new JPanel();
-		pnlJogadores.setBounds(287, 11, 597, 417);
+		pnlJogadores.setBounds(336, 11, 548, 417);
 		pnlCentro.add(pnlJogadores);
 		
 		jogadorTableModel = new JogadorTableModel();
@@ -314,22 +314,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		jTableJogador.getColumnModel().getColumn(4).setPreferredWidth(50);
 	}
 
-	protected void processarCarregamentoApp(boolean novoJogo) {
-		/*
-		 *  Carregar as informacoes do time e jogadores
-		 */
-		if ( novoJogo ) {
-			carregarNovoJogo();	
-			
-		} else {
-			carregarJogoExistente();	
-		}
-		
+	protected void processarCarregamentoApp() {
 		// Carrega as informacoes do time gerenciado
 		lblNomeSelecao.setText(FrmPrincipal.selecaoGerenciada.getNome());
 		lblTecnico.setText(FrmPrincipal.selecaoGerenciada.getTecnico().getNome());
-		
-//		String strPathGerente = FrmPrincipal.class.getResource("").getPath();
 		lblEscudo.setIcon(new ImageIcon(
 				FrmPrincipal.class.getResource("/imagens/escudos/"
 						+ Biblioteca.removerAcentosEspacos(
@@ -368,88 +356,68 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	}
 
 	public void carregarDadosRodadaAtual() {
-		// Indetifica a rodada, a partida e o adversario
-		boolean achei= false;
-		for ( Rodada rodada : Fachada.getInstance().listarRodadas() ) {
-			
-			if ( !rodada.isFinalizada() ) { // a proxima rodada 
-				numeroRodadaAtual= rodada.getNumero();
-				for (Partida partida : rodada.getPartidas() ) {
-					// Quando achar a partida do clube
-					if ( partida.getMandante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ||
-						 partida.getVisitante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ) {
-						
-						// Clube gerenciado e o mandante
-						if ( partida.getMandante().getSelecao().getId() == 
-								FrmPrincipal.selecaoGerenciada.getId() ) {
+		try { 
+			// Indetifica a rodada, a partida e o adversario
+			boolean achei= false;
+			for ( Rodada rodada : Fachada.getInstance().listarRodadas() ) {
+				
+				if ( !rodada.isFinalizada() ) { // a proxima rodada 
+					numeroRodadaAtual= rodada.getNumero();
+					for (Partida partida : rodada.getPartidas() ) {
+						// Quando achar a partida do clube
+						if ( partida.getMandante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ||
+							 partida.getVisitante().getSelecao().getId() == FrmPrincipal.selecaoGerenciada.getId() ) {
 							
-							lblNomeAdversario.setText( partida.getVisitante().getSelecao().getNome() );
-							lblNomeTecnicoAdversario.setText(
-									partida.getVisitante().getSelecao().getTecnico().getNome() );
-							
-//							String strPath = FrmPrincipal.class.getResource("").getPath();
-//							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
-//									+ partida.getVisitante().getSelecao().getNome() +".gif"));
-							lblEscudoAdversario.setIcon(new ImageIcon(
-									FrmPrincipal.class.getResource("/imagens/escudos/"
-										+ Biblioteca.removerAcentosEspacos(
-												partida.getVisitante().getSelecao().getNome() ) 
-										+".png")));							
-					
-						} else {
-							lblNomeAdversario.setText( partida.getMandante().getSelecao().getNome() );
-							lblNomeTecnicoAdversario.setText(
-									partida.getMandante().getSelecao().getTecnico().getNome() );
-							
-//							String strPath = FrmPrincipal.class.getResource("").getPath();
-//							lblEscudoAdversario.setIcon(new ImageIcon(strPath+ "escudos/" 
-//									+ partida.getMandante().getSelecao().getNome() +".png"));
-							lblEscudoAdversario.setIcon(new ImageIcon(
-									FrmPrincipal.class.getResource("/imagens/escudos/"
+							// Clube gerenciado e o mandante
+							if ( partida.getMandante().getSelecao().getId() == 
+									FrmPrincipal.selecaoGerenciada.getId() ) {
+								
+								lblNomeAdversario.setText( partida.getVisitante().getSelecao().getNome() );
+								lblNomeTecnicoAdversario.setText(
+										partida.getVisitante().getSelecao().getTecnico().getNome() );
+								lblEscudoAdversario.setIcon(new ImageIcon(
+										FrmPrincipal.class.getResource("/imagens/escudos/"
 											+ Biblioteca.removerAcentosEspacos(
-													partida.getMandante().getSelecao().getNome() ) 
-											+".png")));
-
-						}
-
-						lblRodada.setText( rodada.getNumero() +" Rodada" );
-						lblLocalPartida.setText( "Em casa" );
+													partida.getVisitante().getSelecao().getNome() ) 
+											+".png")));							
 						
-						achei= true;
-						// Sai do metodo
-						break;
+							} else {
+								lblNomeAdversario.setText( partida.getMandante().getSelecao().getNome() );
+								lblNomeTecnicoAdversario.setText(
+										partida.getMandante().getSelecao().getTecnico().getNome() );
+								lblEscudoAdversario.setIcon(new ImageIcon(
+										FrmPrincipal.class.getResource("/imagens/escudos/"
+												+ Biblioteca.removerAcentosEspacos(
+														partida.getMandante().getSelecao().getNome() ) 
+												+".png")));
+	
+							}
+	
+							lblRodada.setText( rodada.getNumero() +" Rodada" );
+							
+							// Identifica o estadio
+							Estadio estadio= Fachada.getInstance()
+									.buscarEstadio( partida.getEstadio().getId() );
+							
+							lblLocalPartida.setText( estadio.getNome() );
+							
+							achei= true;
+							// Sai do metodo
+							break;
+						}
 					}
 				}
-			}
-			if ( achei ) { // Caso ja tenha achado a rodada atual
-				break;
-			}
-		} // Fim for rodadas
+				if ( achei ) { // Caso ja tenha achado a rodada atual
+					break;
+				}
+			} // Fim for rodadas
+			
+		} catch (RegistroNaoEncontradoException e) {
+			logger.error(e.getMensagem());
+		}
 	}
 
 	public FrmPrincipal getInstancia() {
 		return this;
-	}
-	
-	/**
-	 * Carrega as informacoes do time gerenciado e das rodadas para um novo jogo
-	 */
-	private void carregarNovoJogo() {
-		// Realiza o sorteio do time que sera gerenciado
-		//FootlineService.getInstance().inicializarJogo( footline );
-	}
-	
-	/**
-	 * Carrega as informacoes salvas de time gerenciado e suas rodadas
-	 */
-	private void carregarJogoExistente() {
-//		try {
-//			//footline= FootlineService.getInstance().carregar( footline.getNomeJogoSalvo() );
-//			
-//		} catch (ClassNotFoundException | IOException e) {
-////			JOptionPane.showMessageDialog(null, "Ocorreu um erro ao cerregar o jogo "+
-////												footline.getNomeJogoSalvo());
-//			e.printStackTrace();
-//		}
 	}
 }
