@@ -20,6 +20,7 @@ import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.negocio.entidades.Rodada;
 import com.g2t.footline.negocio.entidades.Selecao;
+import com.g2t.footline.util.Biblioteca;
 import com.g2t.footline.util.Constantes;
 
 public class CadastroRodada {
@@ -284,11 +285,21 @@ public class CadastroRodada {
 			partida.setGolsMandante( new ArrayList<Jogador>() );
 			partida.setGolsVisitante( new ArrayList<Jogador>() );
 			
+			// calcula o publico da partida
+			float capacidade= partida.getEstadio().getCapacidade();
+			float capacidadeMinima= (float) (capacidade * 0.8);
+			float publico= Biblioteca.geraValorAleatorio(
+					capacidadeMinima, capacidade);
+			partida.setPublico( publico );
+			
 			if ( idx==0 ) {
 				partida.getGolsMandante().add(jogador1);
 				partida.getGolsMandante().add(jogador1);
 				partida.getGolsMandante().add(jogador3);
 				partida.getGolsVisitante().add(jogador4);
+				partida.getListaCartaoAmarelo().add(jogador1);
+				partida.getListaCartaoVermelho().add(jogador1);
+				partida.getListaCartaoAmarelo().add(jogador2);
 				idx++;
 			} 
 		}
@@ -322,9 +333,12 @@ public class CadastroRodada {
 //			
 //		}
 		
+		// Atualiza os dados da rodada
 		rodada.setFinalizada( true );
 		repositorio.atualizar(rodada);
-		//frmPrincipal.carregarDadosRodadaAtual();
+		
+		// registra as informacoes dos jogadores
+		CadastroJogador.getInstance().atualizarDadosRodada( rodada );
 		
 	}
 

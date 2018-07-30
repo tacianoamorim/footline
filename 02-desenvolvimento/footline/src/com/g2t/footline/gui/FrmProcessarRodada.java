@@ -15,6 +15,9 @@ import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.negocio.entidades.Rodada;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrmProcessarRodada extends JDialog {
 
@@ -25,11 +28,14 @@ public class FrmProcessarRodada extends JDialog {
 	
 	private final JPanel contentPanel = new JPanel();
 	private JTextArea textArea;
+	private JLabel lblRodada;
+	private JButton btnFechar;
 
 	/**
 	 * Create the dialog.
 	 */
 	public FrmProcessarRodada(Integer numero, FrmPrincipal frmPrincipal) {
+		setUndecorated(true);
 		setBounds(100, 100, 473, 460);
 		getContentPane().setLayout(new BorderLayout());
 		{
@@ -37,13 +43,13 @@ public class FrmProcessarRodada extends JDialog {
 			panel.setBackground(Color.BLACK);
 			getContentPane().add(panel, BorderLayout.NORTH);
 			{
-				JLabel lblRodada = new JLabel("Rodada");
+				lblRodada = new JLabel(" Rodada ");
 				lblRodada.setForeground(Color.WHITE);
 				lblRodada.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 14));
 				panel.add(lblRodada);
 			}
 		}
-		contentPanel.setBackground(Color.LIGHT_GRAY);
+		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(new BorderLayout(0, 0));
@@ -56,6 +62,16 @@ public class FrmProcessarRodada extends JDialog {
 			buttonPane.setBackground(Color.BLACK);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				btnFechar = new JButton("Fechar");
+				btnFechar.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						dispose();
+					}
+				});
+				btnFechar.setFont(new Font("Tahoma", Font.BOLD, 11));
+				buttonPane.add(btnFechar);
+			}
 		}
 		
 		// Inicialia o processamento da rodada
@@ -67,15 +83,17 @@ public class FrmProcessarRodada extends JDialog {
 			Fachada.getInstance().processarRodada(numero, frmPrincipal);
 			
 			Rodada rodada= Fachada.getInstance().buscarRodada(numero);
-			String textoAreao= "RODADA "+ rodada.getNumero() +" - " + rodada.getDescricao() +" ["+
-					rodada.isFinalizada() +"] \n";
+			String textoAreao= "RESULTADOS  \n\n";
+			
+			lblRodada.setText( " Rodada " + rodada.getNumero() +" - " + rodada.getDescricao() );
+			
 			textArea.setText( textoAreao );
 			
 			for (Partida partida : rodada.getPartidas()) {
 				textoAreao= textoAreao.concat(
 					"  - Partida: "+ partida.getMandante().getSelecao().getNome()
-					+" ("+ partida.getGolsMandante() 
-					+") X ("+ partida.getGolsVisitante() +") "
+					+" ("+ partida.getGolsMandante().size() 
+					+") X ("+ partida.getGolsVisitante().size() +") "
 					+ partida.getVisitante().getSelecao().getNome() 
 					+"\n");
 				textArea.setText( textoAreao );		

@@ -37,12 +37,12 @@ public class FrmCalendario extends JDialog {
 		getContentPane().setForeground(new Color(0, 128, 128));
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
-		setBounds(100, 100, 369, 410);
+		setBounds(100, 100, 472, 410);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLACK);
-		panel.setBounds(0, 0, 369, 33);
+		panel.setBounds(0, 0, 472, 33);
 		getContentPane().add(panel);
 		
 		JLabel lblNewLabel = new JLabel("Calendário");
@@ -51,7 +51,7 @@ public class FrmCalendario extends JDialog {
 		panel.add(lblNewLabel);
 		
 		JPanel pnlLista = new JPanel();
-		pnlLista.setBounds(10, 44, 348, 313);
+		pnlLista.setBounds(10, 44, 452, 313);
 		getContentPane().add(pnlLista);
 		pnlLista.setBackground(Color.WHITE);
 		DefaultListModel<String> modelo = new DefaultListModel<String>();
@@ -63,7 +63,7 @@ public class FrmCalendario extends JDialog {
 		listJogos.setVisibleRowCount(10);
 		{
 			JPanel pnlBotao = new JPanel();
-			pnlBotao.setBounds(10, 368, 348, 33);
+			pnlBotao.setBounds(10, 368, 452, 33);
 			getContentPane().add(pnlBotao);
 			pnlBotao.setBackground(Color.BLACK);
 			pnlBotao.setForeground(new Color(0, 128, 128));
@@ -99,11 +99,15 @@ public class FrmCalendario extends JDialog {
 				if ( partida.getMandante() != null ) { 
 					textoPartida= textoPartida + "   - " + partida.getMandante().getSelecao().getNome();
 					if ( partida.getPublico() == 0 ) {
-						textoPartida= textoPartida + "  X  " + partida.getVisitante().getSelecao().getNome();
+						textoPartida= textoPartida + "  X  " 
+								+ partida.getVisitante().getSelecao().getNome()
+								+ " ("+ partida.getEstadio().getNome() +") ";
 						
 					} else {
-						textoPartida= textoPartida + " "+ partida.getGolsMandante() +" X "+ 	
-									partida.getGolsVisitante() +" "+ partida.getVisitante().getSelecao().getNome();
+						textoPartida= textoPartida + " "+ partida.getGolsMandante().size() 
+								+" X "+	partida.getGolsVisitante().size() 
+								+" "+ partida.getVisitante().getSelecao().getNome()
+								+ " ("+ partida.getEstadio().getNome() +") ";
 					}
 					modelo.addElement( textoPartida );
 				}

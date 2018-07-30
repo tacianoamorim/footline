@@ -100,7 +100,7 @@ public class FrmArtilheiro extends JDialog {
 		try {
 			Jogadores = Fachada.getInstance().listarArtilheiros();
 			for (Jogador jogador : Jogadores) {
-				String texto= " -" + jogador.getNome();
+				String texto= " - " + jogador.getNome();
 				if ( jogador.getQuantidadeGols() < 10 ) {
 					texto= texto+ " ( 0"+ jogador.getQuantidadeGols() +" ) -> ";
 				} else {

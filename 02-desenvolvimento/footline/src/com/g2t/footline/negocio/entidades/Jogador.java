@@ -57,7 +57,7 @@ public class Jogador extends Pessoa {
 		this.cartaoAmarelo = cartaoAmarelo;
 	}
 	
-	public int isCartaoVermelho() {
+	public int getCartaoVermelho() {
 		return cartaoVermelho;
 	}
 	public void setCartaoVermelho(int cartaoVermelho) {
@@ -92,4 +92,13 @@ public class Jogador extends Pessoa {
 				+ rodadasLesionado + ", nivel=" + nivel + ", quantidadeGols=" + quantidadeGols + "]";
 	}
 	
+//	@Override
+//	public int hashCode() {
+//		return hashCode();
+//	}
+//	
+//	@Override
+//	public boolean equals(Object obj) {
+//		return equals(obj);
+//	}
 }

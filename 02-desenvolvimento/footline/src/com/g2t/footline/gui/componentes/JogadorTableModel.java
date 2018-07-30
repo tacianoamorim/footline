@@ -54,7 +54,7 @@ public class JogadorTableModel extends AbstractTableModel {
 		jogador.setNivel(aValue.getNivel());
 		jogador.setQuantidadeGols(aValue.getQuantidadeGols());
 		jogador.setCartaoAmarelo(aValue.getCartaoAmarelo());
-		jogador.setCartaoVermelho(aValue.isCartaoVermelho());
+		jogador.setCartaoVermelho(aValue.getCartaoVermelho());
 		
 		fireTableCellUpdated(rowIndex, 0);
 		fireTableCellUpdated(rowIndex, 1);
@@ -108,7 +108,7 @@ public class JogadorTableModel extends AbstractTableModel {
 			valueObject = String.valueOf( jogadorSelecionado.getCartaoAmarelo() );
 			break;
 		case 5:
-			valueObject = String.valueOf( jogadorSelecionado.isCartaoVermelho() );
+			valueObject = String.valueOf( jogadorSelecionado.getCartaoVermelho() );
 			break;			
 		default:
 			System.err.println("indice invalido para propriedade do bean Jogador.class");

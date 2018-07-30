@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.Fachada;
+import java.awt.Window.Type;
 
 /**
  * @author Taciano
@@ -32,8 +33,11 @@ public class FrmOpcao extends javax.swing.JFrame {
 	 * Creates new form Principal
 	 */
 	public FrmOpcao() {
+		getContentPane().setEnabled(false);
+		setType(Type.UTILITY);
+		setResizable(false);
 		getContentPane().setBackground(Color.BLACK);
-		setBackground(new Color(0, 128, 128));
+		setBackground(Color.BLACK);
 		initComponents();
 	}
 
@@ -61,7 +65,6 @@ public class FrmOpcao extends javax.swing.JFrame {
 			Fachada.getInstance().carregarRodadas();
 			
 			setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-			setTitle("Footline");
 	
 			JPanel panel = new JPanel();
 			panel.setBackground(Color.BLACK);
@@ -70,21 +73,21 @@ public class FrmOpcao extends javax.swing.JFrame {
 			groupLayout.setHorizontalGroup(
 				groupLayout.createParallelGroup(Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
-						.addGap(7)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 586, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap()
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 576, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(20, Short.MAX_VALUE))
 			);
 			groupLayout.setVerticalGroup(
 				groupLayout.createParallelGroup(Alignment.LEADING)
 					.addGroup(groupLayout.createSequentialGroup()
-						.addGap(7)
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 382, GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(42, Short.MAX_VALUE))
+						.addGap(21)
+						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 390, GroupLayout.PREFERRED_SIZE)
+						.addContainerGap(20, Short.MAX_VALUE))
 			);
 			
 			JButton btnNovo = new JButton();
 			btnNovo = new javax.swing.JButton();
-			btnNovo.setBounds(409, 36, 147, 90);
+			btnNovo.setBounds(409, 28, 147, 90);
 			btnNovo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			btnNovo.setIcon(new ImageIcon(FrmOpcao.class.getResource("/com/sun/java/swing/plaf/windows/icons/Inform.gif")));
 			btnNovo.setText("Jogar");
@@ -107,7 +110,7 @@ public class FrmOpcao extends javax.swing.JFrame {
 			});
 			btnSobre.setText("Sobre");
 			btnSobre.setFont(new Font("Tahoma", Font.PLAIN, 16));
-			btnSobre.setBounds(409, 155, 147, 90);
+			btnSobre.setBounds(409, 151, 147, 90);
 			panel.add(btnSobre);
 			
 			JButton btnSair = new JButton();
@@ -125,7 +128,7 @@ public class FrmOpcao extends javax.swing.JFrame {
 			JLabel lblFootline = new JLabel("Footline");
 			lblFootline.setForeground(Color.WHITE);
 			lblFootline.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 60));
-			lblFootline.setBounds(10, 6, 274, 65);
+			lblFootline.setBounds(10, 11, 274, 65);
 			panel.add(lblFootline);
 			
 			JLabel lblImgCopa = new JLabel("");
@@ -136,7 +139,7 @@ public class FrmOpcao extends javax.swing.JFrame {
 			lblImgCopa.setIcon(new ImageIcon(FrmOpcao.class.getResource("/imagens/copa2018.jpg")));
 			
 			//lblImgArruda.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
-			lblImgCopa.setBounds(10, 70, 389, 285);
+			lblImgCopa.setBounds(10, 94, 389, 285);
 			panel.add(lblImgCopa);
 			getContentPane().setLayout(groupLayout);
 	

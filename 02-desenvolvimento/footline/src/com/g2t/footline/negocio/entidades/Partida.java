@@ -1,5 +1,6 @@
 package com.g2t.footline.negocio.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Partida  {
@@ -7,8 +8,12 @@ public class Partida  {
 	private int id;
 	private Escalacao mandante;
 	private Escalacao visitante;
-	private List<Jogador> golsMandante;
-	private List<Jogador> golsVisitante;
+	
+	private List<Jogador> golsMandante = new ArrayList<Jogador>();
+	private List<Jogador> golsVisitante = new ArrayList<Jogador>();
+	private List<Jogador> listaCartaoAmarelo = new ArrayList<Jogador>();
+	private List<Jogador> listaCartaoVermelho = new ArrayList<Jogador>();
+	
 	private float publico;
 	private Arbitro arbitro;
 	private Estadio estadio;
@@ -118,6 +123,20 @@ public class Partida  {
 	}
 	public void setGrupo(String grupo) {
 		this.grupo = grupo;
+	}
+
+	public List<Jogador> getListaCartaoAmarelo() {
+		return listaCartaoAmarelo;
+	}
+	public void setListaCartaoAmarelo(List<Jogador> listaCartaoAmarelo) {
+		this.listaCartaoAmarelo = listaCartaoAmarelo;
+	}
+
+	public List<Jogador> getListaCartaoVermelho() {
+		return listaCartaoVermelho;
+	}
+	public void setListaCartaoVermelho(List<Jogador> listaCartaoVermelho) {
+		this.listaCartaoVermelho = listaCartaoVermelho;
 	}
 
 	@Override

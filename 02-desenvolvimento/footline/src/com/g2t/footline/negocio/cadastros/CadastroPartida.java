@@ -1,7 +1,5 @@
 package com.g2t.footline.negocio.cadastros;
 
-import java.util.Random;
-
 import com.g2t.footline.negocio.entidades.Partida;
 
 public class CadastroPartida {
@@ -39,8 +37,6 @@ public class CadastroPartida {
 		 */		
 		char selecaoBola= 'M';
 		
-		Random random = new Random();
-		
 		// Simula to tempo de partida
 		for (int i = 1; i <= 90; i++) {
 			
@@ -67,18 +63,6 @@ public class CadastroPartida {
 		
 	}
 
-	/**
-	 * Retorna um boolean aleatorio
-	 * 
-	 * @return boolean
-	 */
-	private boolean getBoolean() {
-		Random random = new Random();
-		boolean retorno= false;
-		if ( (random.nextInt((1 - 0) + 1) + 0) == 1 ) {
-			retorno= true;
-		}
-		return retorno;
-	}
+
 
 }

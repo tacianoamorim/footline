@@ -35,21 +35,23 @@ public class FrmJogoNovo extends JDialog {
 	 * Create the dialog.
 	 */
 	public FrmJogoNovo() {
+		setUndecorated(true);
 		setTitle("Novo jogo");
-		getContentPane().setBackground(new Color(0, 128, 128));
-		getContentPane().setForeground(new Color(0, 128, 128));
+		getContentPane().setBackground(Color.BLACK);
+		getContentPane().setForeground(Color.BLACK);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setModal(true);
 		setBounds(100, 100, 496, 158);
-		getContentPane().setLayout(new BorderLayout());
+		getContentPane().setLayout(null);
+		contentPanel.setBounds(0, 37, 496, 69);
 		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
-		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		getContentPane().add(contentPanel);
 		
 		
 		// Cria e carrega a lista de selecoes
 		comboBox = new JComboBox<Selecao>();
-		comboBox.setBounds(130, 26, 327, 30);
+		comboBox.setBounds(130, 26, 345, 30);
 		contentPanel.add(comboBox);
 		List<Selecao> selecoes= Fachada.getInstance().listarSelecoes();
 		for (Selecao selecao : selecoes) {
@@ -67,10 +69,11 @@ public class FrmJogoNovo extends JDialog {
 
 		{
 			JPanel buttonPane = new JPanel();
+			buttonPane.setBounds(10, 114, 476, 33);
 			buttonPane.setBackground(Color.BLACK);
 			buttonPane.setForeground(new Color(0, 128, 128));
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			getContentPane().add(buttonPane);
 			{
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
@@ -101,6 +104,16 @@ public class FrmJogoNovo extends JDialog {
 				buttonPane.add(cancelButton);
 			}
 		}
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.BLACK);
+		panel.setBounds(0, 11, 496, 33);
+		getContentPane().add(panel);
+		
+		JLabel lblNovoJogo = new JLabel("Novo jogo");
+		lblNovoJogo.setForeground(Color.WHITE);
+		lblNovoJogo.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 20));
+		panel.add(lblNovoJogo);
 		
 	}
 
