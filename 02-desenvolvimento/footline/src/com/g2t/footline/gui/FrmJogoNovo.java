@@ -1,6 +1,5 @@
 package com.g2t.footline.gui;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -8,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
@@ -27,7 +25,6 @@ public class FrmJogoNovo extends JDialog {
 	private static final long serialVersionUID = -7085709480620475219L;
 	
 	private final JPanel contentPanel = new JPanel();
-	DefaultListModel<String> modelo = new DefaultListModel<String>();
 	private FrmOpcao frmOpcao;
 	private JComboBox<Selecao> comboBox;
 
@@ -47,7 +44,6 @@ public class FrmJogoNovo extends JDialog {
 		contentPanel.setBackground(Color.BLACK);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel);
-		
 		
 		// Cria e carrega a lista de selecoes
 		comboBox = new JComboBox<Selecao>();
@@ -75,8 +71,8 @@ public class FrmJogoNovo extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane);
 			{
-				JButton okButton = new JButton("OK");
-				okButton.addActionListener(new ActionListener() {
+				JButton btnOk = new JButton("OK");
+				btnOk.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 		                setVisible( false );
 		                getFrmOpcao().setVisible( false );
@@ -89,19 +85,19 @@ public class FrmJogoNovo extends JDialog {
 		                frmPrincipal.processarCarregamentoApp( );
 					}
 				});
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+				btnOk.setActionCommand("OK");
+				buttonPane.add(btnOk);
+				getRootPane().setDefaultButton(btnOk);
 			}
 			{
-				JButton cancelButton = new JButton("Fechar");
-				cancelButton.addActionListener(new ActionListener() {
+				JButton btnFechar = new JButton("Fechar");
+				btnFechar.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						dispose();
 					}
 				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				btnFechar.setActionCommand("Cancel");
+				buttonPane.add(btnFechar);
 			}
 		}
 		

@@ -14,10 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import org.apache.log4j.Logger;
+
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.Fachada;
-import java.awt.Window.Type;
 
 /**
  * @author Taciano
@@ -28,6 +29,8 @@ public class FrmOpcao extends javax.swing.JFrame {
 	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 6372065349465603650L;
+	
+	private Logger logger = Logger.getLogger( FrmOpcao.class );
 
 	/**
 	 * Creates new form Principal
@@ -123,6 +126,7 @@ public class FrmOpcao extends javax.swing.JFrame {
 			btnSair.setText("Sair");
 			btnSair.setFont(new Font("Tahoma", Font.PLAIN, 16));
 			btnSair.setBounds(409, 279, 147, 90);
+			btnSair.setActionCommand("Cancel");
 			panel.add(btnSair);
 			
 			JLabel lblFootline = new JLabel("Footline");
@@ -133,30 +137,21 @@ public class FrmOpcao extends javax.swing.JFrame {
 			
 			JLabel lblImgCopa = new JLabel("");
 			lblImgCopa.setHorizontalAlignment(SwingConstants.CENTER);
-	//		String strPath = Constantes.FILE_PATH + 
-	//				File.separator + "imagens"+ File.separator;
-			
 			lblImgCopa.setIcon(new ImageIcon(FrmOpcao.class.getResource("/imagens/copa2018.jpg")));
-			
-			//lblImgArruda.setIcon(new ImageIcon(FrmOpcao.class.getResource("/javax/swing/plaf/basic/icons/JavaCup16.png")));
 			lblImgCopa.setBounds(10, 94, 389, 285);
 			panel.add(lblImgCopa);
 			getContentPane().setLayout(groupLayout);
 	
 			pack();
 			
-		} catch (NumberFormatException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (ArquivoNaoEncontradoException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (RegistroNaoEncontradoException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (NumberFormatException e) {
+			logger.error("Error: ", e);
+		} catch (IOException e) {
+			logger.error("Error: ", e);
+		} catch (ArquivoNaoEncontradoException e) {
+			logger.error("Error: ", e);
+		} catch (RegistroNaoEncontradoException e) {
+			logger.error("Error: ", e);
 		}
 	}
 
