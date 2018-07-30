@@ -31,6 +31,10 @@ public class CadastroJogador {
 		return repositorio.buscar(id);
 	}
 	
+	public Jogador buscarPorNome(String nome) throws RegistroNaoEncontradoException {
+		return repositorio.buscarPorNome(nome);
+	}	
+	
 	public List<Jogador> listar() {
 		return repositorio.listar(null);
 	}

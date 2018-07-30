@@ -1,6 +1,7 @@
 package com.g2t.footline.negocio;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.g2t.footline.exception.ArquivoNaoEncontradoException;
@@ -17,6 +18,7 @@ import com.g2t.footline.negocio.entidades.Estadio;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Rodada;
 import com.g2t.footline.negocio.entidades.Selecao;
+import com.g2t.footline.negocio.entidades.Tatica;
 import com.g2t.footline.negocio.entidades.Tecnico;
 
 public class Fachada {
@@ -270,4 +272,29 @@ public class Fachada {
 		
 		return jogadores;
 	}
+
+	
+	/**
+	 * Seleciona uma quantidade de jogador de acordo com a tatica e posicao escolhida
+	 * 
+	 * @param Tatica tatica
+	 * @param String posica
+	 * @return List<Jogador>
+	 */
+	public List<Jogador> selecionarMelhoresJogadores(Tatica tatica, String posica) {
+		//TODO: selecionarMelhoresJogadores(Tatica tatica, String posica)
+		return new  ArrayList<Jogador>();
+	}
+
+	/**
+	 * Busca o jagador pelo nome
+	 * 
+	 * @param  Stringnome
+	 * @return Jogador
+	 * @throws RegistroNaoEncontradoException
+	 */
+	public Jogador buscarPorNome(String nome) throws RegistroNaoEncontradoException {
+		return CadastroJogador.getInstance().buscarPorNome(nome);
+	}	
 }
+

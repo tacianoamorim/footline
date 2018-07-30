@@ -36,6 +36,29 @@ public class RepositorioJogadorLista implements RepositorioJogador {
 	}
 
 	/**
+	 * Busca um determinado jogador pelo nome
+	 * 
+	 * return Jogador jogador
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	@Override
+	public Jogador buscarPorNome(String nome) throws RegistroNaoEncontradoException {
+		Jogador retorno= null;
+		for (Jogador jogador : dados) {
+			if ( jogador.getNome().trim().equalsIgnoreCase( nome.trim() ) ) {
+				retorno= jogador;
+				break;
+			}
+		}
+		
+		if ( retorno == null ) {
+			throw new RegistroNaoEncontradoException("Jogador nome="+ nome
+					+" não localizado.");
+		}		
+		return retorno;
+	}
+	
+	/**
 	 * Lista todos contidos na lista
 	 * 
 	 * return List<Jogador>

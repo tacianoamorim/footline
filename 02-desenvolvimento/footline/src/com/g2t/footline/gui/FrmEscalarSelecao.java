@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -20,11 +21,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
+import org.apache.log4j.Logger;
+
+import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Escalacao;
 import com.g2t.footline.negocio.entidades.Jogador;
+import com.g2t.footline.negocio.entidades.Tatica;
 
 public class FrmEscalarSelecao extends JDialog {
 
@@ -34,6 +37,18 @@ public class FrmEscalarSelecao extends JDialog {
 	private static final long serialVersionUID = -1415086182881940352L;
 	private final JPanel contentPanel = new JPanel();
 	private JComboBox<String> cbxTatica;
+	private JCheckBox chckbxSelecaoAutomtica;
+	
+	private JList<String> jltGoleiro;
+	private JList<String> jltDefesa;
+	private JList<String> jltAtaque;
+	private JList<String> jltMeioCampo;
+	private DefaultListModel<String> modeloGoleiro;
+	private DefaultListModel<String> modeloDefesa;
+	private DefaultListModel<String> modeloMeioCampo;
+	private DefaultListModel<String> modeloAtaque;
+	
+	private Logger logger = Logger.getLogger( FrmEscalarSelecao.class );
 
 	/**
 	 * Create the dialog.
@@ -58,15 +73,23 @@ public class FrmEscalarSelecao extends JDialog {
 					setVisible(false);
 				}
 			});
-			btnCancelar.setBounds(444, 60, 81, 42);
+			btnCancelar.setBounds(428, 60, 97, 42);
 			contentPanel.add(btnCancelar);
 			btnCancelar.setActionCommand(" Cancel ");
 		}
 		{
-			JButton btnJogar = new JButton(" Jogar >> ");
+			JButton btnJogar = new JButton(" Jogar >>");
 			btnJogar.setFont(new Font("Tahoma", Font.BOLD, 11));
 			btnJogar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
+					
+					// Verifica se a quantidade de jogadores escalados esta correta
+					
+					int total= modeloGoleiro.size() + modeloDefesa.size() + modeloMeioCampo.size() + modeloAtaque.size(); 
+					if ( total != 11 ) {
+						JOptionPane.showMessageDialog(null, "A escalação deve conter 11 jogadores.");
+						return;
+					}
 					
 					// Valida as escalacao selecioanada
 					
@@ -75,13 +98,6 @@ public class FrmEscalarSelecao extends JDialog {
 					//escalacao.setTatica( Tatica.valueOf("442") );
 					escalacao.setTitulares(null);
 					escalacao.setReservas(null);
-					
-					
-					
-					
-					
-					
-					
 					setVisible(false);
 					FrmProcessarRodada frmProcessarRodada= 
 							new FrmProcessarRodada( numero, frmPrincipal );
@@ -121,12 +137,12 @@ public class FrmEscalarSelecao extends JDialog {
 		/*
 		 * Painel Goleiro
 		 */
-		DefaultListModel<String> modeloGoleiro = new DefaultListModel<String>();
+		modeloGoleiro = new DefaultListModel<String>();
 		JPanel pnlGoleiro = new JPanel();
 		pnlGoleiro.setBounds(391, 144, 235, 42);
 		contentPanel.add(pnlGoleiro);
 		
-		JList<String> jltGoleiro = new JList<String>(modeloGoleiro);
+		jltGoleiro = new JList<String>(modeloGoleiro);
 		JScrollPane spnGoleiro = new JScrollPane(jltGoleiro);
 		pnlGoleiro.add(spnGoleiro);
 
@@ -137,12 +153,42 @@ public class FrmEscalarSelecao extends JDialog {
 		contentPanel.add(btnGoleiro);		
 		btnGoleiro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if ( modeloGoleiro.size() > 0 ) {
-					JOptionPane.showMessageDialog(null, "Na escalação só pode ter goleiro titular");
-				} else {
-					modeloGoleiro.addElement( jltJogadores.getSelectedValue() );
-					//modelo.get( jltJogadores.getSelectedIndex() );
+				try {
+					if ( jltJogadores.getSelectedIndex() > -1 ) {
+						String[] jogadorArray= jltJogadores.getSelectedValue().split(","); 
+						Jogador jogador= Fachada.getInstance().buscarPorNome( jogadorArray[1] );
+						
+						// verifica se o jogador pode jogar devido a cartoes
+						if ( jogador.getCartaoVermelho() == 1)  {
+							JOptionPane.showMessageDialog(null,  "O jogador "+ jogador.getNome() 
+								+" não pode ser escalado por ter um cartão vermelho." );
+							return;
+						}
+						if ( jogador.getCartaoAmarelo() == 2)  {
+							JOptionPane.showMessageDialog(null,  "O jogador "+ jogador.getNome() 
+								+" não pode ser escalado por ter dois cartões amarelos." );
+							return;
+						}
+						
+						if ( jogador.getCartaoVermelho() != 1 | jogador.getCartaoAmarelo() != 2 ) { 
+							if ( modeloGoleiro.size() > 0 ) {
+								JOptionPane.showMessageDialog(null, "Você só pode escalar um jogador para a posição de goleiro.");
+							} else {
+								modeloGoleiro.addElement( jogadorArray[1] );
+							}
+						
+							// TODO: implemenetar regras de adc
+							
+						} 
+					
+					} else { // jltJogadores.getSelectedIndex()
+						JOptionPane.showMessageDialog(null, "Selecione um jogador." );
+					}  // jltJogadores.getSelectedIndex()
+					
+				} catch (Exception e2) {
+					logger.error("Error", e2);
 				}
+				
 			}
 		});
 		
@@ -160,12 +206,12 @@ public class FrmEscalarSelecao extends JDialog {
 		/*
 		 * Painel Defesa
 		 */
-		DefaultListModel<String> modeloDefesa = new DefaultListModel<String>();
+		modeloDefesa = new DefaultListModel<String>();
 		JPanel pnlDefesa = new JPanel();
 		pnlDefesa.setBounds(391, 193, 235, 95);
 		contentPanel.add(pnlDefesa);
 		
-		JList<String> jltDefesa = new JList<String>(modeloDefesa);
+		jltDefesa = new JList<String>(modeloDefesa);
 		JScrollPane spnDefesa = new JScrollPane(jltDefesa);
 		pnlDefesa.add(spnDefesa);
 		
@@ -189,8 +235,7 @@ public class FrmEscalarSelecao extends JDialog {
 		/*
 		 * Painel Meia
 		 */
-		DefaultListModel<String> modeloMeioCampo = new DefaultListModel<String>();
-
+		modeloMeioCampo = new DefaultListModel<String>();
 		JButton btnMeioCampo = new JButton(">>");
 		btnMeioCampo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnMeioCampo.setBackground(new Color(0, 128, 128));
@@ -203,7 +248,7 @@ public class FrmEscalarSelecao extends JDialog {
 		pnlMeioCampo.setBounds(391, 292, 235, 95);
 		contentPanel.add(pnlMeioCampo);
 		
-		JList<String> jltMeioCampo = new JList<String>(modeloMeioCampo);
+		jltMeioCampo = new JList<String>(modeloMeioCampo);
 		JScrollPane spnMeioCampo = new JScrollPane(jltMeioCampo);
 		pnlMeioCampo.add(spnMeioCampo);
 		btnMeioCampo.setBounds(315, 314, 66, 23);
@@ -218,12 +263,12 @@ public class FrmEscalarSelecao extends JDialog {
 		/*
 		 * Painel Ataque
 		 */
-		DefaultListModel<String> modeloAtaque = new DefaultListModel<String>();
+		modeloAtaque = new DefaultListModel<String>();
 		JPanel pnlAtaque = new JPanel();
 		pnlAtaque.setBounds(391, 392, 235, 70);
 		contentPanel.add(pnlAtaque);
 		
-		JList<String> jltAtaque = new JList<String>(modeloAtaque);
+		jltAtaque = new JList<String>(modeloAtaque);
 		JScrollPane spnAtaque = new JScrollPane(jltAtaque);
 		pnlAtaque.add(spnAtaque);
 		
@@ -263,6 +308,17 @@ public class FrmEscalarSelecao extends JDialog {
 		cbxTatica.addItem("5-3-2");
 		cbxTatica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				/*
+				 * Caso seja selecionado uma tatica e a opcao
+				 * 	selecao automatica esteja marcada sera feito uma selecao
+				 * 	automatica.
+				 */
+				if ( chckbxSelecaoAutomtica.isSelected() ) { 
+					// Adiciona os goleiros
+					List<Jogador> goleiro= Fachada.getInstance().selecionarMelhoresJogadores(Tatica.valueOf("5-3-2"), Jogador.GOLEIRO);
+				}
+				
 				System.out.println("actionPerformed");
 			}
 		});		
@@ -292,7 +348,7 @@ public class FrmEscalarSelecao extends JDialog {
 		lblAtaque.setBounds(238, 384, 143, 23);
 		contentPanel.add(lblAtaque);
 		
-		JCheckBox chckbxSelecaoAutomtica = new JCheckBox("Seleção automática");
+		chckbxSelecaoAutomtica = new JCheckBox("Seleção automática");
 		chckbxSelecaoAutomtica.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -307,7 +363,7 @@ public class FrmEscalarSelecao extends JDialog {
 		chckbxSelecaoAutomtica.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 14));
 		chckbxSelecaoAutomtica.setForeground(Color.WHITE);
 		chckbxSelecaoAutomtica.setBackground(Color.BLACK);
-		chckbxSelecaoAutomtica.setBounds(144, 68, 179, 26);
+		chckbxSelecaoAutomtica.setBounds(144, 68, 171, 26);
 		contentPanel.add(chckbxSelecaoAutomtica);
 		
 		JButton btnLimparCombo = new JButton("Limpar tudo");
@@ -322,7 +378,7 @@ public class FrmEscalarSelecao extends JDialog {
 			}
 		});
 		btnLimparCombo.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnLimparCombo.setBounds(329, 60, 105, 42);
+		btnLimparCombo.setBounds(315, 60, 103, 42);
 		contentPanel.add(btnLimparCombo);
 		
 		JPanel panel = new JPanel();
@@ -339,32 +395,7 @@ public class FrmEscalarSelecao extends JDialog {
 		carregarJogadores(modelo);		
 		
 		// carrega a lista de taticas
-		
-		
 
-	    ListSelectionListener listSelectionListener = new ListSelectionListener() {
-	        @SuppressWarnings("deprecation")
-			public void valueChanged(ListSelectionEvent listSelectionEvent) {
-	          System.out.print("First index: " + listSelectionEvent.getFirstIndex());
-	          System.out.print(", Last index: " + listSelectionEvent.getLastIndex());
-	          boolean adjust = listSelectionEvent.getValueIsAdjusting();
-	          System.out.println(", Adjusting? " + adjust);
-	          if (!adjust) {
-	            @SuppressWarnings("rawtypes")
-				JList list = (JList) listSelectionEvent.getSource();
-	            int selections[] = list.getSelectedIndices();
-	            Object selectionValues[] = list.getSelectedValues();
-	            for (int i = 0, n = selections.length; i < n; i++) {
-	              if (i == 0) {
-	                System.out.print("  Selections: ");
-	              }
-	              System.out.print(selections[i] + "/" + selectionValues[i] + " ");
-	            }
-	            System.out.println();
-	          }
-	        }
-	      };
-	      jltJogadores.addListSelectionListener(listSelectionListener);		
 	}
 
 	private void carregarJogadores(DefaultListModel<String> modelo) {
@@ -374,22 +405,34 @@ public class FrmEscalarSelecao extends JDialog {
 		// Adiciona os goleiros
 		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
 			if ( Jogador.GOLEIRO.equalsIgnoreCase( jogador.getPosicao() ) )
-				modelo.addElement( " G "+ jogador.getNome() );
+				modelo.addElement( " G, "+ jogador.getNome() 
+					+", F("+ jogador.getNivel() 
+					+", CA("+ jogador.getCartaoAmarelo() 
+					+"), CV("+ jogador.getCartaoVermelho() +") "  );
 		}
 		// Adiciona a defesa
 		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
 			if ( Jogador.DEFESA.equalsIgnoreCase( jogador.getPosicao() ) )
-				modelo.addElement( " D "+ jogador.getNome() );
+				modelo.addElement( " D, "+ jogador.getNome()
+					+", F("+ jogador.getNivel() 
+					+", CA("+ jogador.getCartaoAmarelo() 
+					+"), CV("+ jogador.getCartaoVermelho() +") "  );
 		}		
 		// Adiciona o meioCampo
 		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
 			if ( Jogador.MEIO_CAMPO.equalsIgnoreCase( jogador.getPosicao() ) )
-				modelo.addElement( " M "+ jogador.getNome() );
+				modelo.addElement( " M, "+ jogador.getNome() 
+					+", F("+ jogador.getNivel() 
+					+", CA("+ jogador.getCartaoAmarelo() 
+					+"), CV("+ jogador.getCartaoVermelho() +") "  );
 		}
 		// Adiciona o ataque
 		for (Jogador jogador : FrmPrincipal.selecaoGerenciada.getJogadores()) {
 			if ( Jogador.ATAQUE.equalsIgnoreCase( jogador.getPosicao() ) )
-				modelo.addElement( " A "+ jogador.getNome() );
+				modelo.addElement( " A, "+ jogador.getNome() 
+					+", F("+ jogador.getNivel() 
+					+", CA("+ jogador.getCartaoAmarelo() 
+					+"), CV("+ jogador.getCartaoVermelho() +") "  );
 		}
 	}
 }
