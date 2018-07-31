@@ -159,22 +159,14 @@ public class CadastroSelecao {
 	 */
 	private Tatica identificarTatica(int tatica) {
 		Tatica retorno;
-		if ( tatica == Tatica._3_4_3.getValor() ) {
-			retorno= Tatica._3_4_3;
-		} else if ( tatica == Tatica._3_5_2.getValor() ) { 
+		if ( tatica == Tatica._3_5_2.getValor() ) { 
 			retorno= Tatica._3_5_2;
-		} else if ( tatica == Tatica._4_2_4.getValor() ) { 
-			retorno= Tatica._4_2_4;
 		} else if ( tatica == Tatica._4_3_3.getValor() ) { 
 			retorno= Tatica._4_3_3;
 		} else if ( tatica == Tatica._4_4_2.getValor() ) { 
 			retorno= Tatica._4_4_2;
-		} else if ( tatica == Tatica._4_5_1.getValor() ) { 
-			retorno= Tatica._4_5_1;	
-		} else if ( tatica == Tatica._5_2_3.getValor() ) { 
-			retorno= Tatica._5_2_3;	
 		} else { 
-			retorno= Tatica._5_3_2;				
+			retorno= Tatica._4_5_1;	
 		}
 		return retorno;
 	}

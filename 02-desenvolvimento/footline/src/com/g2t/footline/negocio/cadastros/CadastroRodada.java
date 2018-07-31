@@ -278,12 +278,10 @@ public class CadastroRodada {
 		Jogador jogador2= CadastroJogador.getInstance().buscar(2);
 		Jogador jogador3= CadastroJogador.getInstance().buscar(200);
 		Jogador jogador4= CadastroJogador.getInstance().buscar(100);
-		
-		List<Partida> partidas= rodada.getPartidas();
 		int idx= 0;
+
+		List<Partida> partidas= rodada.getPartidas();
 		for (Partida partida : partidas) {
-			partida.setGolsMandante( new ArrayList<Jogador>() );
-			partida.setGolsVisitante( new ArrayList<Jogador>() );
 			
 			// calcula o publico da partida
 			float capacidade= partida.getEstadio().getCapacidade();
@@ -291,7 +289,7 @@ public class CadastroRodada {
 			float publico= Biblioteca.geraValorAleatorio(
 					capacidadeMinima, capacidade);
 			partida.setPublico( publico );
-			
+	
 			if ( idx==0 ) {
 				partida.getGolsMandante().add(jogador1);
 				partida.getGolsMandante().add(jogador1);
@@ -302,36 +300,9 @@ public class CadastroRodada {
 				partida.getListaCartaoAmarelo().add(jogador2);
 				idx++;
 			} 
+			
+			CadastroPartida.getInstance().processarPartida(partida);
 		}
-		
-		
-		
-		
-//		for (Partida partida : rodada.getPartidas() ) {
-//			
-//			// realiza o processamento da partida
-//			CadastroPartida.getInstance().processarPartida( partida );
-//			
-//			Random random = new Random();
-//			int golsMandante= random.nextInt((6 - 0) + 1) + 0;
-//			while ( golsMandante != 0 ) {
-//				
-//				for (Jogador jo : iterable) {
-//					
-//				}
-//				
-//				Jogador jogador= CadastroJogador.getInstance().buscar(1);
-//				
-//			}
-//			
-//			
-//			
-//			partida.setGolsMandante( golsMandante );
-//			
-//			int golsVisitante= random.nextInt((6 - 0) + 1) + 0;
-//			partida.setGolsVisitante( golsVisitante );
-//			
-//		}
 		
 		// Atualiza os dados da rodada
 		rodada.setFinalizada( true );

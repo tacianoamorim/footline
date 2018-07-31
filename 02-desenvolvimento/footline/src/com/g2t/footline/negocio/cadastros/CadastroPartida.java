@@ -1,6 +1,8 @@
 package com.g2t.footline.negocio.cadastros;
 
+import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
+import com.g2t.footline.util.Biblioteca;
 
 public class CadastroPartida {
 	private static CadastroPartida instance;
@@ -21,6 +23,36 @@ public class CadastroPartida {
 	 */
 	public void processarPartida(Partida partida) {
 		
+//		Jogador jogador1= CadastroJogador.getInstance().buscar(1);
+//		Jogador jogador2= CadastroJogador.getInstance().buscar(2);
+//		Jogador jogador3= CadastroJogador.getInstance().buscar(200);
+//		Jogador jogador4= CadastroJogador.getInstance().buscar(100);
+//		
+//		
+//		if ( idx==0 ) {
+//			partida.getGolsMandante().add(jogador1);
+//			partida.getGolsMandante().add(jogador1);
+//			partida.getGolsMandante().add(jogador3);
+//			partida.getGolsVisitante().add(jogador4);
+//			partida.getListaCartaoAmarelo().add(jogador1);
+//			partida.getListaCartaoVermelho().add(jogador1);
+//			partida.getListaCartaoAmarelo().add(jogador2);
+//			idx++;
+//		} 
+		
+		// Carregar os jogadores por posicao
+		
+//		if ( tatica == Tatica._3_5_2.getValor() ) { 
+//			retorno= Tatica._3_5_2;
+//		} else if ( tatica == Tatica._4_3_3.getValor() ) { 
+//			retorno= Tatica._4_3_3;
+//		} else if ( tatica == Tatica._4_4_2.getValor() ) { 
+//			retorno= Tatica._4_4_2;
+//		} else { 
+//			retorno= Tatica._4_5_1;	
+//		}		
+		
+		
 		/* 
 		 * Define as posicoes do campo que foi divido
 		 * 	em tres partes:
@@ -36,6 +68,7 @@ public class CadastroPartida {
 		 * - M: mandante
 		 */		
 		char selecaoBola= 'M';
+		boolean visitanteBateCentro= Biblioteca.geraBooleanAleatorio();
 		
 		// Simula to tempo de partida
 		for (int i = 1; i <= 90; i++) {

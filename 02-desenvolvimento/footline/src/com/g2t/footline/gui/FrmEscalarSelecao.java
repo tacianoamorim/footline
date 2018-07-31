@@ -299,27 +299,29 @@ public class FrmEscalarSelecao extends JDialog {
 		cbxTatica.setBounds(10, 70, 128, 23);
 		cbxTatica.addItem("-- Selecione --");
 		cbxTatica.addItem("3-5-2");
-		cbxTatica.addItem("3-4-3");
 		cbxTatica.addItem("4-3-3");
 		cbxTatica.addItem("4-4-2");
-		cbxTatica.addItem("4-2-4");
 		cbxTatica.addItem("4-5-1");
-		cbxTatica.addItem("5-2-3");
-		cbxTatica.addItem("5-3-2");
 		cbxTatica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				/*
 				 * Caso seja selecionado uma tatica e a opcao
 				 * 	selecao automatica esteja marcada sera feito uma selecao
 				 * 	automatica.
 				 */
 				if ( chckbxSelecaoAutomtica.isSelected() ) { 
+					
+					String taticaSelecionada= cbxTatica.getSelectedItem().toString();
+					taticaSelecionada= taticaSelecionada.replaceAll("-", "");
+					
 					// Adiciona os goleiros
-					List<Jogador> goleiro= Fachada.getInstance().selecionarMelhoresJogadores(Tatica.valueOf("5-3-2"), Jogador.GOLEIRO);
+					List<Jogador> goleiros= Fachada.getInstance().
+							selecionarMelhoresJogadores(Tatica.valueOf(taticaSelecionada), Jogador.GOLEIRO);
 				}
 				
-				System.out.println("actionPerformed");
+				
+				
+				
 			}
 		});		
 		contentPanel.add(cbxTatica);
