@@ -48,6 +48,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	
 	private JLabel lblBarraStatus;
 	private JogadorTableModel jogadorTableModel;
+	private JTable jTableJogador;
 	
 	private JLabel lblEscudo;
 	private JLabel lblNomeSelecao;
@@ -302,7 +303,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		
 		jogadorTableModel = new JogadorTableModel();
 		pnlJogadores.setLayout(new BoxLayout(pnlJogadores, BoxLayout.X_AXIS));
-		JTable jTableJogador = new JTable(jogadorTableModel);
+		jTableJogador = new JTable(jogadorTableModel);
 		formatarTabela(jTableJogador);	
 		
 		JScrollPane scrollPane = new JScrollPane(jTableJogador);
@@ -335,6 +336,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 	}
 
 	protected void processarCarregamentoApp() {
+		
 		// Carrega as informacoes do time gerenciado
 		lblNomeSelecao.setText(FrmPrincipal.selecaoGerenciada.getNome());
 		lblTecnico.setText(FrmPrincipal.selecaoGerenciada.getTecnico().getNome());
@@ -346,6 +348,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 		// Carrega a lista de jogadores do time
 		List<Jogador> jogadores= Fachada.getInstance().listarJogadores(
 				FrmPrincipal.selecaoGerenciada);
+		
+		jogadorTableModel.limpar();
 		
 		// Adiciona os goleiros
 		for (Jogador jogador : jogadores ) {

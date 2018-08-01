@@ -5,12 +5,9 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -24,8 +21,8 @@ import javax.swing.border.EmptyBorder;
 import org.apache.log4j.Logger;
 
 import com.g2t.footline.negocio.Fachada;
-import com.g2t.footline.negocio.entidades.Escalacao;
 import com.g2t.footline.negocio.entidades.Jogador;
+import com.g2t.footline.negocio.entidades.Tatica;
 
 public class FrmEscalarSelecao extends JDialog {
 
@@ -35,7 +32,6 @@ public class FrmEscalarSelecao extends JDialog {
 	private static final long serialVersionUID = -1415086182881940352L;
 	private final JPanel contentPanel = new JPanel();
 	private JComboBox<String> cbxTatica;
-	private JCheckBox chckbxSelecaoAutomtica;
 	
 	private JList<String> jltGoleiro;
 	private JList<String> jltDefesa;
@@ -89,13 +85,11 @@ public class FrmEscalarSelecao extends JDialog {
 //						return;
 					}
 					
-					// Valida as escalacao selecioanada
+					if ( cbxTatica.getSelectedItem().toString().equals("-- Selecione --")) {
+						JOptionPane.showMessageDialog(null, "Selecione uma tática.");
+						return;
+					}
 					
-					Escalacao escalacao= new Escalacao();
-					escalacao.setSelecao( FrmPrincipal.selecaoGerenciada );
-					//escalacao.setTatica( Tatica.valueOf("442") );
-					escalacao.setTitulares(null);
-					escalacao.setReservas(null);
 					setVisible(false);
 					FrmProcessarRodada frmProcessarRodada= 
 							new FrmProcessarRodada( numero, frmPrincipal );
@@ -145,6 +139,7 @@ public class FrmEscalarSelecao extends JDialog {
 		pnlGoleiro.add(spnGoleiro);
 
 		JButton btnGoleiro = new JButton(">>");
+		btnGoleiro.setEnabled(false);
 		btnGoleiro.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnGoleiro.setBackground(new Color(0, 128, 128));
 		btnGoleiro.setBounds(315, 163, 66, 23);
@@ -191,6 +186,7 @@ public class FrmEscalarSelecao extends JDialog {
 		});
 		
 		JButton btnGoleiroRemover = new JButton("<<");
+		btnGoleiroRemover.setEnabled(false);
 		btnGoleiroRemover.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnGoleiroRemover.setBackground(new Color(255, 69, 0));
 		btnGoleiroRemover.setBounds(238, 163, 67, 23);
@@ -214,6 +210,7 @@ public class FrmEscalarSelecao extends JDialog {
 		pnlDefesa.add(spnDefesa);
 		
 		JButton btnDefesa = new JButton(">>");
+		btnDefesa.setEnabled(false);
 		btnDefesa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				modeloDefesa.addElement( jltJogadores.getSelectedValue() );
@@ -225,6 +222,7 @@ public class FrmEscalarSelecao extends JDialog {
 		contentPanel.add(btnDefesa);
 
 		JButton btnDefesaRemover = new JButton("<<");
+		btnDefesaRemover.setEnabled(false);
 		btnDefesaRemover.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnDefesaRemover.setBackground(new Color(255, 69, 0));
 		btnDefesaRemover.setBounds(238, 221, 67, 23);
@@ -235,6 +233,7 @@ public class FrmEscalarSelecao extends JDialog {
 		 */
 		modeloMeioCampo = new DefaultListModel<String>();
 		JButton btnMeioCampo = new JButton(">>");
+		btnMeioCampo.setEnabled(false);
 		btnMeioCampo.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnMeioCampo.setBackground(new Color(0, 128, 128));
 		btnMeioCampo.addActionListener(new ActionListener() {
@@ -253,6 +252,7 @@ public class FrmEscalarSelecao extends JDialog {
 		contentPanel.add(btnMeioCampo);
 		
 		JButton btnMeioCampoRemover = new JButton("<<");
+		btnMeioCampoRemover.setEnabled(false);
 		btnMeioCampoRemover.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnMeioCampoRemover.setBackground(new Color(255, 69, 0));
 		btnMeioCampoRemover.setBounds(238, 314, 67, 23);
@@ -271,6 +271,7 @@ public class FrmEscalarSelecao extends JDialog {
 		pnlAtaque.add(spnAtaque);
 		
 		JButton btnAtaque = new JButton(">>");
+		btnAtaque.setEnabled(false);
 		btnAtaque.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAtaque.setBackground(new Color(0, 128, 128));
 		btnAtaque.setBounds(315, 408, 66, 23);
@@ -282,6 +283,7 @@ public class FrmEscalarSelecao extends JDialog {
 		contentPanel.add(btnAtaque);
 		
 		JButton btnAtaqueRemover = new JButton("<<");
+		btnAtaqueRemover.setEnabled(false);
 		btnAtaqueRemover.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAtaqueRemover.setBackground(new Color(255, 69, 0));
 		btnAtaqueRemover.setBounds(238, 408, 67, 23);
@@ -294,7 +296,7 @@ public class FrmEscalarSelecao extends JDialog {
 		contentPanel.add(lblSelecioneATtica);		
 		
 		cbxTatica = new JComboBox<String>();
-		cbxTatica.setBounds(10, 70, 128, 23);
+		cbxTatica.setBounds(10, 70, 218, 23);
 		cbxTatica.addItem("-- Selecione --");
 		cbxTatica.addItem("3-5-2");
 		cbxTatica.addItem("4-3-3");
@@ -302,24 +304,16 @@ public class FrmEscalarSelecao extends JDialog {
 		cbxTatica.addItem("4-5-1");
 		cbxTatica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*
-				 * Caso seja selecionado uma tatica e a opcao
-				 * 	selecao automatica esteja marcada sera feito uma selecao
-				 * 	automatica.
-				 */
-				if ( chckbxSelecaoAutomtica.isSelected() ) { 
-					
-					String taticaSelecionada= cbxTatica.getSelectedItem().toString();
-					taticaSelecionada= taticaSelecionada.replaceAll("-", "");
-					
-					// Adiciona os goleiros
-//					List<Jogador> goleiros= Fachada.getInstance().
-//							selecionarMelhoresJogadores(Tatica.valueOf(taticaSelecionada), Jogador.GOLEIRO);
+				String tatic= cbxTatica.getSelectedItem().toString();
+				if ("3-5-2".equals(tatic)) {
+					FrmPrincipal.selecaoGerenciada.setTatica(Tatica._3_5_2);
+				} else if ("4-3-3".equals(tatic)) {
+					FrmPrincipal.selecaoGerenciada.setTatica(Tatica._4_3_3);
+				} else if ("4-4-2".equals(tatic)) {
+					FrmPrincipal.selecaoGerenciada.setTatica(Tatica._4_4_2);
+				} else { //Tatica._4_5_1
+					FrmPrincipal.selecaoGerenciada.setTatica(Tatica._4_5_1);
 				}
-				
-				
-				
-				
 			}
 		});		
 		contentPanel.add(cbxTatica);
@@ -347,24 +341,6 @@ public class FrmEscalarSelecao extends JDialog {
 		lblAtaque.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 16));
 		lblAtaque.setBounds(238, 384, 143, 23);
 		contentPanel.add(lblAtaque);
-		
-		chckbxSelecaoAutomtica = new JCheckBox("Seleção automática");
-		chckbxSelecaoAutomtica.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				if ( chckbxSelecaoAutomtica.isSelected() ) {
-					
-				} else {
-					
-				}
-				
-			}
-		});
-		chckbxSelecaoAutomtica.setFont(new Font("Ink Free", Font.BOLD | Font.ITALIC, 14));
-		chckbxSelecaoAutomtica.setForeground(Color.WHITE);
-		chckbxSelecaoAutomtica.setBackground(Color.BLACK);
-		chckbxSelecaoAutomtica.setBounds(144, 68, 171, 26);
-		contentPanel.add(chckbxSelecaoAutomtica);
 		
 		JButton btnLimparCombo = new JButton("Limpar tudo");
 		btnLimparCombo.addActionListener(new ActionListener() {

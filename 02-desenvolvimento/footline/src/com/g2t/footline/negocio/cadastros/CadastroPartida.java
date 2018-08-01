@@ -69,9 +69,6 @@ public class CadastroPartida {
 			// Simula a posicao da bola no campo
 			switch (quadranteAtual) {
 			case 0: // ataque mandante / defesa visitante
-//				System.out.println();
-//				System.out.println(listMandDefesa);
-//				System.out.println(listVisAtaque);
 				resultado= processaAvancoQuadrante( listMandAtaque, listVisDefesa);
 				if ( resultado > 0 ) { // Fez gol
 					// Sorteia um jogador para fazer o gol
@@ -103,9 +100,6 @@ public class CadastroPartida {
 				
 			case 2: // ataque mandante / defesa visitante
 				resultado= processaAvancoQuadrante( listMandDefesa, listVisAtaque);
-				System.out.println();
-				System.out.println(listMandDefesa);
-				System.out.println(listVisAtaque);
 				if ( resultado > 0 ) { // vai para a meio
 					quadranteAtual= 1;
 					
@@ -160,12 +154,20 @@ public class CadastroPartida {
 	 * @param Partida partida
 	 */
 	private void carregaTitulares(Partida partida) {
-		List<Jogador> titularesMandante= selecionarTitulares(
-				partida.getMandante().getSelecao());
+		
+		Selecao mandante= partida.getMandante().getSelecao();
+		if (mandante.getId().equalsIgnoreCase(FrmPrincipal.selecaoGerenciada.getId()) ) {
+			mandante= FrmPrincipal.selecaoGerenciada;
+		}
+		List<Jogador> titularesMandante= selecionarTitulares(mandante);
 		partida.getMandante().setTitulares(titularesMandante);
 		
-		List<Jogador> titularesVisitante= selecionarTitulares(
-				partida.getVisitante().getSelecao());
+		
+		Selecao visitante= partida.getVisitante().getSelecao();
+		if (visitante.getId().equalsIgnoreCase(FrmPrincipal.selecaoGerenciada.getId()) ) {
+			visitante= FrmPrincipal.selecaoGerenciada;
+		}
+		List<Jogador> titularesVisitante= selecionarTitulares(visitante);
 		partida.getMandante().setTitulares(titularesVisitante);	
 	}
 
