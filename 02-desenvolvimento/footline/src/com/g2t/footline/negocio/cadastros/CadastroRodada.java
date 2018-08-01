@@ -5,7 +5,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.TreeMap;
 
 import com.g2t.footline.dados.RepositorioRodada;
 import com.g2t.footline.dados.RepositorioRodadaLista;
@@ -125,11 +129,12 @@ public class CadastroRodada {
 					// Busca o estadio
 					Estadio estadioFG= Fachada.getInstance().buscarEstadio( arrayLinha[5] );
 					
-					String grupoOF= arrayLinha[2];
+					String grupoFG= arrayLinha[2];
 					
 					Partida partidaFG= new Partida(idPartidaFG, mandanteFG, visitanteFG, 
 							arbitroFG, estadioFG);
-					partidaFG.setGrupo(grupoOF);
+					
+					partidaFG.setGrupo(grupoFG);
 					rodada.getPartidas().add(partidaFG);
 					
 					break;
@@ -264,21 +269,15 @@ public class CadastroRodada {
 	/**
 	 * Realiza o processamento de uma rodada
 	 * 
-	 * @param int numero
+	 * @param int numeroRodada
 	 * @param FrmPrincipal frmPrincipal
 	 * @throws RegistroNaoEncontradoException
 	 */
-	public void processarRodada(int numero, FrmPrincipal frmPrincipal) 
+	public void processarRodada(int numeroRodada, FrmPrincipal frmPrincipal) 
 			throws RegistroNaoEncontradoException {
 
 		// busca as partidas da rodada
-		Rodada rodada= repositorio.buscar( numero );
-		
-		Jogador jogador1= CadastroJogador.getInstance().buscar(1);
-		Jogador jogador2= CadastroJogador.getInstance().buscar(2);
-		Jogador jogador3= CadastroJogador.getInstance().buscar(200);
-		Jogador jogador4= CadastroJogador.getInstance().buscar(100);
-		int idx= 0;
+		Rodada rodada= repositorio.buscar( numeroRodada );
 
 		List<Partida> partidas= rodada.getPartidas();
 		for (Partida partida : partidas) {
@@ -287,21 +286,11 @@ public class CadastroRodada {
 			float capacidade= partida.getEstadio().getCapacidade();
 			float capacidadeMinima= (float) (capacidade * 0.8);
 			float publico= Biblioteca.geraValorAleatorio(
-					capacidadeMinima, capacidade);
+										capacidadeMinima, capacidade);
 			partida.setPublico( publico );
-	
-			if ( idx==0 ) {
-				partida.getGolsMandante().add(jogador1);
-				partida.getGolsMandante().add(jogador1);
-				partida.getGolsMandante().add(jogador3);
-				partida.getGolsVisitante().add(jogador4);
-				partida.getListaCartaoAmarelo().add(jogador1);
-				partida.getListaCartaoVermelho().add(jogador1);
-				partida.getListaCartaoAmarelo().add(jogador2);
-				idx++;
-			} 
 			
-			CadastroPartida.getInstance().processarPartida(partida);
+			CadastroPartida.getInstance().processarPartida(partida, numeroRodada);
+			
 		}
 		
 		// Atualiza os dados da rodada
@@ -311,7 +300,284 @@ public class CadastroRodada {
 		// registra as informacoes dos jogadores
 		CadastroJogador.getInstance().atualizarDadosRodada( rodada );
 		
+		/*
+		 *  Se a rodada foi a final o jogo e finalizado
+		 */
+		if ( numeroRodada == Constantes.RODADA_FINAL ) {
+			Escalacao escalacaoVencedor= buscarVencedorPartidadFinais( 64, true );
+			FrmPrincipal.selecaoCampea= escalacaoVencedor.getSelecao();
+					
+		} else {
+			// atualiza os dados das rodadas das fase finais
+			numeroRodada++;
+			if ( numeroRodada <= Constantes.RODADA_FINAL ) {
+				// Oitava de finais
+				if ( numeroRodada == Constantes.RODADA_OITAVA_FINAL ) {
+					atualizarRodadaOitavaFinais();
+				} else if ( numeroRodada > Constantes.RODADA_OITAVA_FINAL ) {
+					atualizaRodadasFinais( numeroRodada );
+				}
+			}
+		}
+		
 	}
 
+	/**
+	 * Atualiza a rodada das oitavas de finais
+	 * 
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	private void atualizarRodadaOitavaFinais() throws RegistroNaoEncontradoException {
+		// Os classificados por grupo
+		Map<String, String> classificadaGeral= new HashMap<String, String>();
+		classificadaGeral.putAll( classificarPorGrupo("A") );
+		classificadaGeral.putAll( classificarPorGrupo("B") );
+		classificadaGeral.putAll( classificarPorGrupo("C") );
+		classificadaGeral.putAll( classificarPorGrupo("D") );
+		classificadaGeral.putAll( classificarPorGrupo("E") );
+		classificadaGeral.putAll( classificarPorGrupo("F") );
+		classificadaGeral.putAll( classificarPorGrupo("G") );
+		classificadaGeral.putAll( classificarPorGrupo("H") );
+		
+		// busca a rodada das itavas
+		Rodada rodada= repositorio.buscar( Constantes.RODADA_OITAVA_FINAL );
+		for (Partida partida: rodada.getPartidas()) {
+			// identifica o mandante
+			String grupoMandante= partida.getMandanteGrupo();
+			Integer posicaoMandante= partida.getMandantePosicao();
+			
+			String selecaoMandante= classificadaGeral.get( posicaoMandante + grupoMandante );
+			Selecao selecaoMandanteEncontrada= 
+					CadastroSelecao.getInstance().buscar( selecaoMandante );
+			
+			Escalacao escalacaoMandante= new Escalacao(selecaoMandanteEncontrada, 
+					selecaoMandanteEncontrada.getTatica(), 
+					new ArrayList<Jogador>(), new ArrayList<Jogador>()); 
+
+			partida.setMandante( escalacaoMandante );
+			
+			// identifica o visitante
+			String grupoVisitante= partida.getVisitanteGrupo();
+			Integer posicaoVisitante= partida.getVisitantePosicao();
+			
+			String selecaoVisitante= classificadaGeral.get( posicaoVisitante + grupoVisitante );
+			Selecao selecaoVisitanteEncontrada= CadastroSelecao.getInstance().buscar( selecaoVisitante );
+
+			Escalacao escalacaoVisitante= new Escalacao(selecaoVisitanteEncontrada, 
+					selecaoVisitanteEncontrada.getTatica(), 
+					new ArrayList<Jogador>(), new ArrayList<Jogador>()); 
+
+			partida.setVisitante( escalacaoVisitante );
+			
+		}
+		
+		boolean desclassificada= true;
+		for (Partida partida: rodada.getPartidas() ) {
+			if ( partida.getMandante().getSelecao().getId().equalsIgnoreCase(
+					FrmPrincipal.selecaoGerenciada.getId()) ||
+				 partida.getVisitante().getSelecao().getId().equalsIgnoreCase(
+					FrmPrincipal.selecaoGerenciada.getId())	
+				) {
+				desclassificada= false;
+			}
+		}
+		
+		FrmPrincipal.selecaoGerenciadaDesclassificada= desclassificada;
+		
+		// atualiza a rodada
+		repositorio.atualizar(rodada);
+	}
 	
+	/**
+	 * Classifica as selecoes por grupo
+	 * 
+	 * @return Map<String, String> - grupo / id selecao
+	 */
+	public Map<String, String> classificarPorGrupo(String grupo) {
+
+		Map<String, Integer> ranking = new TreeMap<String, Integer>();
+		List<Rodada> rodadas= repositorio.listar();
+		for (Rodada rodada: rodadas) { 
+			for (Partida partida : rodada.getPartidas()) {
+				if ( partida.getGrupo() != null && 
+						partida.getGrupo().equalsIgnoreCase( grupo )) {
+					// Caso o mandante tenha ganho
+					if ( partida.getGolsMandante().size() >
+						partida.getGolsVisitante().size() ) {
+						if ( ranking.containsKey(partida.getMandante()
+								.getSelecao().getId()) ) {
+							int pontos= ranking.get(partida.getMandante()
+									.getSelecao().getId()) + 3;
+							ranking.put(partida.getMandante()
+									.getSelecao().getId(), pontos );
+							
+						} else {
+							ranking.put(partida.getMandante()
+									.getSelecao().getId(), 3);
+						}
+					} 
+
+					// Caso o visitante tenha ganho
+					if ( partida.getGolsMandante().size() <
+							partida.getGolsVisitante().size() ) { 
+						if ( ranking.containsKey(partida.getVisitante()
+								.getSelecao().getId()) ) {
+							int pontos= ranking.get(partida.getVisitante()
+									.getSelecao().getId()) + 3;
+							ranking.put(partida.getVisitante()
+									.getSelecao().getId(), pontos );
+							
+						} else {
+							ranking.put(partida.getVisitante()
+									.getSelecao().getId(), 3);
+						}
+					}
+					
+					// Empate
+					if ( partida.getGolsMandante().size() ==
+							partida.getGolsVisitante().size() ) { 
+						
+						if ( ranking.containsKey(partida.getMandante()
+								.getSelecao().getId()) ) {
+							int pontos= ranking.get(partida.getMandante()
+									.getSelecao().getId()) + 1;
+							ranking.put(partida.getMandante()
+									.getSelecao().getId(), pontos );
+							
+						} else {
+							ranking.put(partida.getMandante()
+									.getSelecao().getId(), 1);
+						}	
+						if ( ranking.containsKey(partida.getVisitante()
+								.getSelecao().getId()) ) {
+							int pontos= ranking.get(partida.getVisitante()
+									.getSelecao().getId()) + 1;
+							ranking.put(partida.getVisitante()
+									.getSelecao().getId(), pontos );
+							
+						} else {
+							ranking.put(partida.getVisitante()
+									.getSelecao().getId(), 1);
+						}				
+					}
+				}
+			}
+			
+			if (rodada.getNumero() > 4 ) {
+				break;
+			}	
+		}
+		
+		// inverte o map para extrair a lista ordenada
+		Map<Float, String> rankingProcessado= new TreeMap<Float, String>();
+		for (String key : ranking.keySet()) {
+			
+			Float ponto= ranking.get(key) + (new Random()).nextFloat();
+			rankingProcessado.put(ponto, key);
+		}
+		
+		// prepara o retorno
+		List<String> rankingAtual = new ArrayList<String>(rankingProcessado.values());
+		Map<String, String> classificacao= new TreeMap<String, String>();
+		classificacao.put("1"+grupo, rankingAtual.get(0));
+		classificacao.put("2"+grupo, rankingAtual.get(1));
+		
+		return classificacao;
+	}
+	
+	/**
+	 * Atualiza as rodadas a partir das quartas de finais
+	 * 
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	private void atualizaRodadasFinais(int numeroRodada) throws RegistroNaoEncontradoException {
+		Rodada rodada= repositorio.buscar( numeroRodada );
+		for (Partida partida: rodada.getPartidas()) {
+			
+			// identifica os vencedores das partidas
+			int idMandante= partida.getMandantePosicao();
+			int idVisitante= partida.getVisitantePosicao();
+			
+			Escalacao escalacaoMandante = null;
+			Escalacao escalacaoVisitante = null;
+			
+			if (numeroRodada == Constantes.RODADA_TERCEIRO_LUGAR) {
+				escalacaoMandante = buscarVencedorPartidadFinais(idMandante, false);
+				escalacaoVisitante = buscarVencedorPartidadFinais(idVisitante, false);
+			} else {
+				escalacaoMandante = buscarVencedorPartidadFinais(idMandante, true);
+				escalacaoVisitante = buscarVencedorPartidadFinais(idVisitante, true);
+			}
+			
+			partida.setMandante( escalacaoMandante );
+			partida.setVisitante( escalacaoVisitante );
+			
+		}
+		
+		boolean desclassificada= true;
+		for (Partida partida: rodada.getPartidas() ) {
+			if ( partida.getMandante().getSelecao().getId().equalsIgnoreCase(
+					FrmPrincipal.selecaoGerenciada.getId()) ||
+				 partida.getVisitante().getSelecao().getId().equalsIgnoreCase(
+					FrmPrincipal.selecaoGerenciada.getId())	
+				) {
+				desclassificada= false;
+			}
+		}
+		
+		FrmPrincipal.selecaoGerenciadaDesclassificada= desclassificada;
+		
+		// atualiza a rodada
+		repositorio.atualizar(rodada);
+
+	}
+
+	/**
+	 * Busca o vencedor de uma dada partida da rodas finais
+	 * 
+	 * @param numero
+	 * @return Escalacao
+	 * @throws RegistroNaoEncontradoException
+	 */
+	private Escalacao buscarVencedorPartidadFinais(int numero, boolean vencedor) 
+			throws RegistroNaoEncontradoException {
+		
+		Partida partida= repositorio.buscarPartida(numero);
+		
+		Escalacao escalacao= null;
+		if (vencedor) { 
+			if ( partida.getGolsMandante().size() > 
+			partida.getGolsVisitante().size() ) {
+				escalacao= partida.getMandante();
+				
+			} else if ( partida.getGolsMandante().size() < 
+					partida.getGolsVisitante().size() ) {
+				escalacao= partida.getVisitante();
+				
+			} else { // Simula penalidade
+				if ( Biblioteca.geraBooleanAleatorio() ) {
+					escalacao= partida.getMandante();
+				} else {
+					escalacao= partida.getVisitante();
+				}
+			}
+		} else {
+			if ( partida.getGolsMandante().size() < 
+			partida.getGolsVisitante().size() ) {
+				escalacao= partida.getMandante();
+				
+			} else if ( partida.getGolsMandante().size() < 
+					partida.getGolsVisitante().size() ) {
+				escalacao= partida.getVisitante();
+				
+			} else { // Simula penalidade
+				if ( Biblioteca.geraBooleanAleatorio() ) {
+					escalacao= partida.getMandante();
+				} else {
+					escalacao= partida.getVisitante();
+				}
+			}			
+		}
+		return escalacao;
+	}	
 }

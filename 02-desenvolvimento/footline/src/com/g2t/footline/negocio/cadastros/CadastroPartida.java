@@ -1,8 +1,11 @@
 package com.g2t.footline.negocio.cadastros;
 
+import com.g2t.footline.exception.RegistroNaoEncontradoException;
+import com.g2t.footline.gui.FrmPrincipal;
 import com.g2t.footline.negocio.entidades.Jogador;
 import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.util.Biblioteca;
+import com.g2t.footline.util.Constantes;
 
 public class CadastroPartida {
 	private static CadastroPartida instance;
@@ -21,24 +24,29 @@ public class CadastroPartida {
 	 * 
 	 * @param Partida partida
 	 */
-	public void processarPartida(Partida partida) {
+	public void processarPartida(Partida partida, int numeroRodada) {
 		
-//		Jogador jogador1= CadastroJogador.getInstance().buscar(1);
-//		Jogador jogador2= CadastroJogador.getInstance().buscar(2);
-//		Jogador jogador3= CadastroJogador.getInstance().buscar(200);
-//		Jogador jogador4= CadastroJogador.getInstance().buscar(100);
-//		
-//		
-//		if ( idx==0 ) {
-//			partida.getGolsMandante().add(jogador1);
-//			partida.getGolsMandante().add(jogador1);
-//			partida.getGolsMandante().add(jogador3);
-//			partida.getGolsVisitante().add(jogador4);
-//			partida.getListaCartaoAmarelo().add(jogador1);
-//			partida.getListaCartaoVermelho().add(jogador1);
-//			partida.getListaCartaoAmarelo().add(jogador2);
-//			idx++;
-//		} 
+		try {
+			Jogador jogador1;
+			jogador1 = CadastroJogador.getInstance().buscar(1);
+			Jogador jogador2= CadastroJogador.getInstance().buscar(2);
+			Jogador jogador3= CadastroJogador.getInstance().buscar(200);
+			Jogador jogador4= CadastroJogador.getInstance().buscar(100);
+			int idx= 0;
+			
+			if ( idx==0 ) {
+				partida.getGolsMandante().add(jogador1);
+				partida.getGolsMandante().add(jogador1);
+				partida.getGolsMandante().add(jogador3);
+				partida.getGolsVisitante().add(jogador4);
+				partida.getListaCartaoAmarelo().add(jogador1);
+				partida.getListaCartaoVermelho().add(jogador1);
+				partida.getListaCartaoAmarelo().add(jogador2);
+				idx++;
+			} 
+		} catch (RegistroNaoEncontradoException e) {
+			e.printStackTrace();
+		}
 		
 		// Carregar os jogadores por posicao
 		
@@ -51,7 +59,6 @@ public class CadastroPartida {
 //		} else { 
 //			retorno= Tatica._4_5_1;	
 //		}		
-		
 		
 		/* 
 		 * Define as posicoes do campo que foi divido
@@ -91,11 +98,31 @@ public class CadastroPartida {
 			default:
 				break;
 			}
-			
 		}
 		
+		/*
+		 *  se o time gerenciado ainda nao estiver desclassificado testa
+		 *  	se foi
+		 */
+		if ( !FrmPrincipal.selecaoGerenciadaDesclassificada ) {
+			if ( numeroRodada >= Constantes.RODADA_OITAVA_FINAL ) {
+				if ( partida.getMandante().getSelecao().getId().equalsIgnoreCase(
+						FrmPrincipal.selecaoGerenciada.getId()) ) {
+					if ( partida.getGolsMandante().size() < 
+						 partida.getGolsVisitante().size() ) {
+						FrmPrincipal.selecaoGerenciadaDesclassificada= true;
+					}
+				}
+				
+				if ( partida.getVisitante().getSelecao().getId().equalsIgnoreCase(
+						FrmPrincipal.selecaoGerenciada.getId())) {
+					if ( partida.getGolsVisitante().size() < 
+							 partida.getGolsMandante().size() ) {
+							FrmPrincipal.selecaoGerenciadaDesclassificada= true;
+					}	
+				}
+			}
+		}
 	}
-
-
 
 }

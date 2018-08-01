@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.g2t.footline.exception.RegistroNaoEncontradoException;
+import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.negocio.entidades.Rodada;
 
 public class RepositorioRodadaLista implements RepositorioRodada {
@@ -11,7 +12,7 @@ public class RepositorioRodadaLista implements RepositorioRodada {
 	private List<Rodada> dados= new ArrayList<Rodada>();
 	
 	/**
-	 * Busca um determinado Rodada pelo codigo
+	 * Busca uma determinada Rodada pelo codigo
 	 * 
 	 * return Rodada Rodada
 	 * @throws RegistroNaoEncontradoException 
@@ -28,7 +29,7 @@ public class RepositorioRodadaLista implements RepositorioRodada {
 		
 		if ( retorno == null ) {
 			throw new RegistroNaoEncontradoException("Rodada numero="+ numero
-					+" não localizado.");
+					+" não localizada.");
 		}
 		return retorno;
 	}
@@ -83,5 +84,30 @@ public class RepositorioRodadaLista implements RepositorioRodada {
 				rodadaLista= rodada;
 		}
 	}
+	
+	/**
+	 * Busca um determinada Partida pelo codigo
+	 * 
+	 * return Partida partida
+	 * @throws RegistroNaoEncontradoException 
+	 */
+	@Override
+	public Partida buscarPartida(int numero) throws RegistroNaoEncontradoException {
+		Partida retorno= null;
+		for (Rodada rodada : dados) {
+			for (Partida partida : rodada.getPartidas()) {
+				if ( numero == partida.getId() ) {
+					retorno= partida;
+					break;
+				}
+			}
+		}
+		
+		if ( retorno == null ) {
+			throw new RegistroNaoEncontradoException("Partida numero="+ numero
+					+" não localizada.");
+		}
+		return retorno;
+	}	
 
 }

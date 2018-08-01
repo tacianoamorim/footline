@@ -141,7 +141,7 @@ public class Partida  {
 
 	@Override
 	public String toString() {
-		return "Partida [mandante=" + mandante + ", visitante=" + visitante + ", golsMandante=" + golsMandante
+		return "Partida [mandante=" + mandante + ", grupo=" + grupo +  ", visitante=" + visitante + ", golsMandante=" + golsMandante
 				+ ", golsvisitante=" + golsVisitante + ", publico=" + publico + ", arbitro=" + arbitro + "]";
 	}
 	

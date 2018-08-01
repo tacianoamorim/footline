@@ -94,7 +94,10 @@ public class FrmCalendario extends JDialog {
 			modelo.addElement( textoRodada );
 			
 			for ( Partida partida : rodada.getPartidas() ) {
-				String textoPartida= "   GRUPO " + partida.getGrupo() + " ";
+				String textoPartida= "";
+				if ( partida.getGrupo() != null ) {
+					textoPartida= "   GRUPO " + partida.getGrupo() + " ";
+				} 
 				
 				if ( partida.getMandante() != null ) { 
 					textoPartida= textoPartida + "   - " + partida.getMandante().getSelecao().getNome();

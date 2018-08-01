@@ -67,36 +67,6 @@ public class CadastroJogador {
 			}
 		}
 		
-//		List<Rodada> rodadas= CadastroRodada.getInstance().listar();
-//		// Passa pelas rodadas que estao finalizadas
-//		for (Rodada rodada : rodadas) {  
-//			if (rodada.isFinalizada()) {
-//				// Passa pelas partidas
-//				for (Partida partida : rodada.getPartidas()) {
-//					// Cataloga os gols do mandante
-//					for (Jogador jogador : partida.getGolsMandante()) {
-//						if ( mapJogadorGol.containsKey(jogador.getId() )) {
-//							int qtde= mapJogadorGol.get(jogador.getId());
-//							mapJogadorGol.put(jogador.getId(), ++qtde );
-//							
-//						} else {
-//							mapJogadorGol.put(jogador.getId(), 1);
-//						}
-//					}
-//					// Cataloga os gols do visitante
-//					for (Jogador jogador : partida.getGolsVisitante()) {
-//						if ( mapJogadorGol.containsKey(jogador.getId() )) {
-//							int qtde= mapJogadorGol.get(jogador.getId());
-//							mapJogadorGol.put(jogador.getId(), ++qtde );
-//							
-//						} else {
-//							mapJogadorGol.put(jogador.getId(), 1);
-//						}						
-//					}					
-//				}
-//			}
-//		}
-		
 		// Monta a lista ordenada
 		for (Integer key : mapJogadorGol.keySet()) {
             Jogador jogador= CadastroJogador.getInstance().buscar(key);

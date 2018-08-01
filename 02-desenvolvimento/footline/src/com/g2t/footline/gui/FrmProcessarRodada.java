@@ -4,7 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,9 +18,6 @@ import com.g2t.footline.exception.RegistroNaoEncontradoException;
 import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Partida;
 import com.g2t.footline.negocio.entidades.Rodada;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class FrmProcessarRodada extends JDialog {
 
@@ -35,6 +35,7 @@ public class FrmProcessarRodada extends JDialog {
 	 * Create the dialog.
 	 */
 	public FrmProcessarRodada(Integer numero, FrmPrincipal frmPrincipal) {
+		setModal(true);
 		setUndecorated(true);
 		setBounds(100, 100, 473, 460);
 		getContentPane().setLayout(new BorderLayout());
@@ -82,24 +83,27 @@ public class FrmProcessarRodada extends JDialog {
 		try {
 			Fachada.getInstance().processarRodada(numero, frmPrincipal);
 			
-			Rodada rodada= Fachada.getInstance().buscarRodada(numero);
-			String textoAreao= "RESULTADOS  \n\n";
-			
-			lblRodada.setText( " Rodada " + rodada.getNumero() +" - " + rodada.getDescricao() );
-			
-			textArea.setText( textoAreao );
-			
-			for (Partida partida : rodada.getPartidas()) {
-				textoAreao= textoAreao.concat(
-					"  - Partida: "+ partida.getMandante().getSelecao().getNome()
-					+" ("+ partida.getGolsMandante().size() 
-					+") X ("+ partida.getGolsVisitante().size() +") "
-					+ partida.getVisitante().getSelecao().getNome() 
-					+"\n");
-				textArea.setText( textoAreao );		
+			// procesa se nao existir um campeao
+			if ( FrmPrincipal.selecaoCampea == null ) {
+				Rodada rodada= Fachada.getInstance().buscarRodada(numero);
+				String textoAreao= "RESULTADOS  \n\n";
+				
+				lblRodada.setText( " Rodada " + rodada.getNumero() +" - " + rodada.getDescricao() );
+				
+				textArea.setText( textoAreao );
+				
+				for (Partida partida : rodada.getPartidas()) {
+					textoAreao= textoAreao.concat(
+						"  - Partida: "+ partida.getMandante().getSelecao().getNome()
+						+" ("+ partida.getGolsMandante().size() 
+						+") X ("+ partida.getGolsVisitante().size() +") "
+						+ partida.getVisitante().getSelecao().getNome() 
+						+"\n");
+					textArea.setText( textoAreao );		
+				}
+				
+				frmPrincipal.processarCarregamentoApp();
 			}
-			
-			frmPrincipal.processarCarregamentoApp();
 			
 		} catch (RegistroNaoEncontradoException e) {
 			e.printStackTrace();

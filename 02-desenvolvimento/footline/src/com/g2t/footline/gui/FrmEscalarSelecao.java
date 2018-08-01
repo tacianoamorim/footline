@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -27,7 +26,6 @@ import org.apache.log4j.Logger;
 import com.g2t.footline.negocio.Fachada;
 import com.g2t.footline.negocio.entidades.Escalacao;
 import com.g2t.footline.negocio.entidades.Jogador;
-import com.g2t.footline.negocio.entidades.Tatica;
 
 public class FrmEscalarSelecao extends JDialog {
 
@@ -84,11 +82,11 @@ public class FrmEscalarSelecao extends JDialog {
 				public void actionPerformed(ActionEvent e) {
 					
 					// Verifica se a quantidade de jogadores escalados esta correta
-					
 					int total= modeloGoleiro.size() + modeloDefesa.size() + modeloMeioCampo.size() + modeloAtaque.size(); 
 					if ( total != 11 ) {
-						JOptionPane.showMessageDialog(null, "A escalação deve conter 11 jogadores.");
-						return;
+						// TODO: JOptionPane.showMessageDialog
+					//	JOptionPane.showMessageDialog(null, "A escalação deve conter 11 jogadores.");
+//						return;
 					}
 					
 					// Valida as escalacao selecioanada
@@ -315,8 +313,8 @@ public class FrmEscalarSelecao extends JDialog {
 					taticaSelecionada= taticaSelecionada.replaceAll("-", "");
 					
 					// Adiciona os goleiros
-					List<Jogador> goleiros= Fachada.getInstance().
-							selecionarMelhoresJogadores(Tatica.valueOf(taticaSelecionada), Jogador.GOLEIRO);
+//					List<Jogador> goleiros= Fachada.getInstance().
+//							selecionarMelhoresJogadores(Tatica.valueOf(taticaSelecionada), Jogador.GOLEIRO);
 				}
 				
 				
