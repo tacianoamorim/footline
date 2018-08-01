@@ -21,5 +21,11 @@ public interface Constantes {
 	public static final char TIPO_DADO_PARTIDA_SF	 	= '2';
 	public static final char TIPO_DADO_PARTIDA_3L	 	= '1';
 	public static final char TIPO_DADO_PARTIDA_PF	 	= '0';
+	
+	public static final int RODADA_OITAVA_FINAL 		= 4;	
+	public static final int RODADA_QUARTA_FINAL 		= 5;
+	public static final int RODADA_SEMI_FINAL 			= 6;
+	public static final int RODADA_TERCEIRO_LUGAR 		= 7;
+	public static final int RODADA_FINAL 				= 8;
 
 }
